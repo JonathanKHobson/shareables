@@ -34,9 +34,16 @@
     .lead { max-width: 780px; color: var(--muted); font-size: 1.08rem; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .card { border: 1px solid var(--line); border-left: 4px solid var(--teal); border-radius: 8px; padding: 20px; background: #fff; margin: 0 0 20px; }
+    .card-image { display: block; width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); margin: 0 0 14px; background: var(--paper); }
     .notice { border-left-color: var(--gold); }
     .risk { border-left-color: var(--coral); }
     .leaf { border-left-color: var(--leaf); }
+    .figure { border: 1px solid var(--line); border-left: 4px solid var(--leaf); border-radius: 8px; padding: 20px; background: #fff; margin: 0 0 20px; }
+    .figure img { display: block; width: 100%; max-height: 520px; object-fit: contain; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); }
+    .figure figcaption { color: var(--muted); font-size: .92rem; margin-top: 10px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .gallery-grid figure { margin: 0; }
+    .gallery-grid img { max-height: 280px; object-fit: cover; }
     .toc ul { margin: 0; padding-left: 22px; }
     .toc li { margin: 4px 0; }
     .tag { display: inline-block; color: #fff; background: var(--teal); border-radius: 8px; padding: 4px 8px; font-size: .85rem; font-weight: 700; }
