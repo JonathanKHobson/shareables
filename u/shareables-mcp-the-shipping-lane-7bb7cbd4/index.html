@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <title>Shareables MCP: The Shipping Lane</title>
   <meta name="description" content="A non-sensitive preview of the local pipeline that turns approved project material into public HTML shareables.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='16' fill='%23f8fbf9'/%3E%3Ccircle cx='60' cy='60' r='44' fill='none' stroke='%230f766e' stroke-width='8'/%3E%3Cpath d='M72 28 62 66 28 78l30-26z' fill='%23d95f43'/%3E%3Cpath d='M48 92 58 54l34-12-30 26z' fill='%23527a39'/%3E%3Ccircle cx='60' cy='60' r='7' fill='%2317211f'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20role%3D%22img%22%20aria-label%3D%22Shareables%20mark%22%3E%0A%20%20%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2216%22%20fill%3D%22%23f8fbf9%22%2F%3E%0A%20%20%3Crect%20x%3D%2226%22%20y%3D%2224%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%230f766e%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Crect%20x%3D%2246%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23527a39%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M45%2067h30%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M64%2056l13%2011-13%2011%22%20fill%3D%22none%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2237%22%20cy%3D%2238%22%20r%3D%224%22%20fill%3D%22%23b7791f%22%2F%3E%0A%3C%2Fsvg%3E">
   <style>
     :root {
       color-scheme: light;
@@ -47,6 +47,8 @@
     .notice { border-left-color: var(--gold); }
     .risk { border-left-color: var(--coral); }
     .leaf { border-left-color: var(--leaf); }
+    .toc ul { margin: 0; padding-left: 22px; }
+    .toc li { margin: 4px 0; }
     .tag { display: inline-block; color: #fff; background: var(--teal); border-radius: 8px; padding: 4px 8px; font-size: .85rem; font-weight: 700; }
     .button {
       display: inline-block;
@@ -62,6 +64,18 @@
     .button.ghost { background: var(--leaf); }
     .meta { color: var(--muted); font-size: .92rem; }
     .empty { border: 1px dashed var(--line); border-radius: 8px; padding: 22px; background: #fff; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; }
+    .checklist input { margin-top: .35rem; accent-color: var(--teal); }
+    .tab-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+    .tab-nav button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; font: inherit; font-weight: 700; padding: 9px 12px; }
+    .tab-nav button[aria-selected="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .tab-panel[hidden] { display: none; }
+    blockquote { margin: 0; padding: 0 0 0 16px; border-left: 4px solid var(--gold); color: var(--ink); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { border-top: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
+    th { color: var(--ink); }
     section { padding: 16px 0; }
     ol, ul { padding-left: 22px; }
     code { overflow-wrap: anywhere; }
@@ -77,7 +91,7 @@
 <body>
   <header>
     <div class="brand">
-      <img alt="" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='16' fill='%23f8fbf9'/%3E%3Ccircle cx='60' cy='60' r='44' fill='none' stroke='%230f766e' stroke-width='8'/%3E%3Cpath d='M72 28 62 66 28 78l30-26z' fill='%23d95f43'/%3E%3Cpath d='M48 92 58 54l34-12-30 26z' fill='%23527a39'/%3E%3Ccircle cx='60' cy='60' r='7' fill='%2317211f'/%3E%3C/svg%3E" width="76" height="76">
+      <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20role%3D%22img%22%20aria-label%3D%22Shareables%20mark%22%3E%0A%20%20%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2216%22%20fill%3D%22%23f8fbf9%22%2F%3E%0A%20%20%3Crect%20x%3D%2226%22%20y%3D%2224%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%230f766e%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Crect%20x%3D%2246%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23527a39%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M45%2067h30%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M64%2056l13%2011-13%2011%22%20fill%3D%22none%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2237%22%20cy%3D%2238%22%20r%3D%224%22%20fill%3D%22%23b7791f%22%2F%3E%0A%3C%2Fsvg%3E" width="76" height="76">
       <div>
         <span class="tag">Unlisted feedback demo</span>
         <h1>Shareables MCP: The Shipping Lane</h1>
@@ -86,41 +100,91 @@
     <p class="lead">A non-sensitive preview of the local pipeline that turns approved project material into public HTML shareables.</p>
   </header>
   <main>
-
-    <section class="card">
+    <section id="summary" class="card notice">
+      <h2>Summary</h2>
+      <p>The MCP now owns the shell, brand mark, layout, and section rendering so agents can focus on approved content instead of page styling.</p>
+    </section>
+    <nav class="card toc" aria-label="Page sections">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#what-it-is-1">What It Is</a></li><li><a href="#how-it-works-2">How It Works</a></li><li><a href="#what-the-mcp-owns-3">What The MCP Owns</a></li><li><a href="#safety-note-4">Safety Note</a></li><li><a href="#content-size-rules-5">Content Size Rules</a></li><li><a href="#next-real-use-6">Next Real Use</a></li>
+      </ul>
+    </nav>
+    <section id="what-it-is-1" class="card">
       <h2>What It Is</h2>
-      <p>The Shareables MCP is the shipping lane for small public HTML artifacts. It keeps the manifest, local archive, style guide, validation checks, and GitHub Pages staging path in one place.</p>
-      <p>Codex or Claude can still write the page. The MCP makes the work repeatable: draft the manifest, build with a lens, save the HTML, validate it, stage it, then hand off the GitHub push.</p>
+      <p>The Shareables MCP is the shipping lane for small public HTML artifacts.</p>
+      <p>It keeps the manifest, local archive, style guide, structured renderer, validation checks, and GitHub Pages staging path in one place.</p>
     </section>
-
-    <section class="grid" aria-label="Shareables workflow">
-      <div class="card">
-        <h2>1. Start</h2>
-        <p>Create a manifest with the title, audience, purpose, sources, and listed or unlisted route.</p>
-      </div>
-      <div class="card leaf">
-        <h2>2. Build</h2>
-        <p>Use the recommended lens and locked Kyle style to turn approved material into one standalone HTML page.</p>
-      </div>
-      <div class="card notice">
-        <h2>3. Stage</h2>
-        <p>Validate the page, add noindex for unlisted pages, copy it into the Pages repo, and get the publish handoff.</p>
+    <section id="how-it-works-2" class="card">
+      <h2>How It Works</h2>
+      <ol><li>Create a manifest with title, audience, purpose, source paths, and listed or unlisted routing.</li><li>Send a structured spec or simple Markdown to the MCP.</li><li>Let the MCP render the styled HTML, validate it, stage it, and return the publish handoff.</li></ol>
+    </section>
+    <section id="what-the-mcp-owns-3">
+      <h2>What The MCP Owns</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Style</h3>
+          <p>The house tokens, shell, cards, buttons, focus states, and neutral Shareables mark.</p>
+        </article>
+        <article class="card leaf">
+          <h3>Layout</h3>
+          <p>Simple pages stay simple; larger pages get contents lists and tabs inside one HTML file.</p>
+        </article>
+        <article class="card risk">
+          <h3>Safety</h3>
+          <p>Unlisted output gets noindex and stays out of public indexes, but it is still public by URL.</p>
+        </article>
       </div>
     </section>
-
-    <section class="card risk">
+    <section id="safety-note-4" class="card risk">
       <h2>Safety Note</h2>
-      <p>Unlisted does not mean private. It only means the page is excluded from the home page, public JSON index, and sitemap. Anything staged to GitHub Pages must be safe for public access by URL or repository browsing.</p>
+      <p>Unlisted does not mean private. Anything staged to GitHub Pages must be safe for public access by URL or repository browsing.</p>
     </section>
-
-    <section id="next-real-use" class="card notice">
+    <section id="content-size-rules-5" class="card">
+      <h2>Content Size Rules</h2>
+      <div class="tab-nav" role="tablist" aria-label="Content Size Rules">
+        <button id="content-size-rules-5-tab-1" role="tab" aria-controls="content-size-rules-5-panel-1" aria-selected="true" data-tab-target="content-size-rules-5-panel-1">Small</button><button id="content-size-rules-5-tab-2" role="tab" aria-controls="content-size-rules-5-panel-2" aria-selected="false" data-tab-target="content-size-rules-5-panel-2">Medium</button><button id="content-size-rules-5-tab-3" role="tab" aria-controls="content-size-rules-5-panel-3" aria-selected="false" data-tab-target="content-size-rules-5-panel-3">Large</button>
+      </div>
+      <div id="content-size-rules-5-panel-1" class="tab-panel" role="tabpanel" aria-labelledby="content-size-rules-5-tab-1">
+        <a id="tab-1"></a>
+        <h3>Small Content</h3><p>Short shareables stay as one readable scrolling page.</p>
+      </div>
+      <div id="content-size-rules-5-panel-2" class="tab-panel" role="tabpanel" aria-labelledby="content-size-rules-5-tab-2" hidden>
+        <a id="tab-2"></a>
+        <h3>Medium Content</h3><p>Four or more sections, or roughly 800 words, add a contents list.</p>
+      </div>
+      <div id="content-size-rules-5-panel-3" class="tab-panel" role="tabpanel" aria-labelledby="content-size-rules-5-tab-3" hidden>
+        <a id="tab-3"></a>
+        <h3>Large Content</h3><p>Longer material stays in one file but gets accessible tabs and anchors.</p>
+      </div>
+    </section>
+    <section id="next-real-use-6" class="card notice">
       <h2>Next Real Use</h2>
       <p>Use this demo to tune the visual style and wording. After that, the first real shareable should be a narrow portfolio or teaching artifact with approved source material.</p>
-      <p><a class="button" href="https://jonathankhobson.github.io/shareables/">Open the public home</a><a class="button secondary" href="#next-real-use">Give feedback on this demo</a></p>
+    </section>
+    <section class="card notice">
+      <h2>Next Step</h2>
+      <p class="actions"><a class="button" href="https://jonathankhobson.github.io/shareables/">Open public home</a><a class="button secondary" href="#next-real-use-6">Give feedback</a></p>
     </section>
   </main>
   <footer>
     <p>Public by link. Built for feedback before real portfolio, teaching, or project shareables.</p>
   </footer>
+  <script>
+    document.querySelectorAll('.tab-nav').forEach((nav) => {
+      const buttons = Array.from(nav.querySelectorAll('[role="tab"]'));
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          buttons.forEach((candidate) => {
+            const selected = candidate === button;
+            candidate.setAttribute('aria-selected', selected ? 'true' : 'false');
+            const panel = document.getElementById(candidate.dataset.tabTarget || '');
+            if (panel) panel.hidden = !selected;
+          });
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>

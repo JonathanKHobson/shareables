@@ -37,6 +37,8 @@
     .notice { border-left-color: var(--gold); }
     .risk { border-left-color: var(--coral); }
     .leaf { border-left-color: var(--leaf); }
+    .toc ul { margin: 0; padding-left: 22px; }
+    .toc li { margin: 4px 0; }
     .tag { display: inline-block; color: #fff; background: var(--teal); border-radius: 8px; padding: 4px 8px; font-size: .85rem; font-weight: 700; }
     .button {
       display: inline-block;
@@ -52,6 +54,18 @@
     .button.ghost { background: var(--leaf); }
     .meta { color: var(--muted); font-size: .92rem; }
     .empty { border: 1px dashed var(--line); border-radius: 8px; padding: 22px; background: #fff; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { display: flex; gap: 10px; align-items: flex-start; margin: 8px 0; }
+    .checklist input { margin-top: .35rem; accent-color: var(--teal); }
+    .tab-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+    .tab-nav button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; font: inherit; font-weight: 700; padding: 9px 12px; }
+    .tab-nav button[aria-selected="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .tab-panel[hidden] { display: none; }
+    blockquote { margin: 0; padding: 0 0 0 16px; border-left: 4px solid var(--gold); color: var(--ink); }
+    table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    th, td { border-top: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: top; }
+    th { color: var(--ink); }
     section { padding: 16px 0; }
     ol, ul { padding-left: 22px; }
     code { overflow-wrap: anywhere; }
