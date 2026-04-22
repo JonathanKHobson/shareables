@@ -31,6 +31,13 @@
       letter-spacing: 0;
     }
     header, main, footer { width: min(1040px, calc(100% - 32px)); margin: 0 auto; }
+    body.shareable-shell[data-template="website"] header,
+    body.shareable-shell[data-template="website"] main,
+    body.shareable-shell[data-template="website"] footer {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+    }
     header { padding: 44px 0 22px; display: grid; gap: 18px; }
     h1 { margin: 0; font-size: 2.35rem; line-height: 1.1; }
     h2 { margin: 0 0 10px; font-size: 1.35rem; }
@@ -134,7 +141,13 @@
     }
     body.shareable-shell[data-template="docs"] { --toc-top: 32px; }
     body.shareable-shell[data-template="packet"] { --toc-top: 112px; }
-    body.shareable-shell[data-template="website"] { --toc-top: 88px; }
+    body.shareable-shell[data-template="website"] {
+      --toc-top: 72px;
+      --website-shell-width: min(1560px, calc(100vw - 48px));
+      --website-content-width: min(1320px, calc(100vw - 64px));
+      --website-prose-width: 74ch;
+      --website-section-pad-y: clamp(34px, 4vw, 52px);
+    }
     body.shareable-shell h1,
     body.shareable-shell h2,
     body.shareable-shell h3 { font-family: var(--font-display); }
@@ -298,12 +311,12 @@
       border-bottom: 1px solid var(--line);
     }
     .website-bar {
-      width: min(1180px, calc(100% - 32px));
+      width: var(--website-shell-width);
       margin: 0 auto;
-      min-height: 60px;
+      min-height: 56px;
       display: grid;
       grid-template-columns: auto minmax(0, 1fr) auto;
-      gap: 16px;
+      gap: 12px;
       align-items: center;
       padding: 0;
     }
@@ -331,16 +344,16 @@
       display: flex;
       align-items: stretch;
       justify-content: flex-end;
-      gap: 22px;
+      gap: 12px;
       min-width: 0;
     }
     .website-nav {
       display: flex;
       align-items: stretch;
-      gap: 2px;
+      justify-content: flex-end;
+      gap: 0;
       min-width: 0;
-      overflow-x: auto;
-      scrollbar-width: thin;
+      overflow: visible;
     }
     .website-nav__label {
       position: absolute;
@@ -357,15 +370,16 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      min-height: 60px;
-      padding: 0 14px;
+      min-height: 56px;
+      padding: 0 10px;
       border: 0;
       border-bottom: 2.5px solid transparent;
       color: var(--muted);
       background: transparent;
       font-family: var(--font-display);
-      font-size: 0.92rem;
+      font-size: 0.84rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       text-decoration: none;
       white-space: nowrap;
       transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
@@ -381,29 +395,28 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      padding: 8px 14px;
+      min-height: 36px;
+      padding: 7px 12px;
       margin: auto 0;
-      border: 2px solid var(--ink);
+      border: 1.5px solid color-mix(in srgb, var(--teal) 28%, var(--line));
       border-radius: 6px;
-      background: var(--teal);
+      background: color-mix(in srgb, white 88%, var(--paper));
       color: var(--ink);
-      box-shadow: 2px 2px 0 var(--ink);
+      box-shadow: none;
       font-family: var(--font-display);
-      font-size: 0.84rem;
+      font-size: 0.78rem;
       font-weight: 800;
       text-decoration: none;
       white-space: nowrap;
-      transition: transform 120ms ease, box-shadow 120ms ease;
+      transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
     }
     .website-bar__cta:hover {
-      transform: translate(-1px, -1px);
-      box-shadow: 3px 3px 0 var(--ink);
+      background: color-mix(in srgb, var(--teal) 10%, white);
+      border-color: color-mix(in srgb, var(--teal) 56%, var(--line));
       text-decoration: none;
     }
     .website-bar__cta:active {
-      transform: translate(1px, 1px);
-      box-shadow: 0 0 0 var(--ink);
+      background: color-mix(in srgb, var(--teal) 16%, white);
     }
     .website-menu-toggle {
       display: none;
@@ -431,7 +444,7 @@
     }
     .website-mobile-sheet {
       display: none;
-      width: min(1180px, calc(100% - 32px));
+      width: var(--website-shell-width);
       margin: 0 auto;
       padding: 10px 0 14px;
     }
@@ -466,24 +479,24 @@
     }
     .website-hero {
       background: linear-gradient(180deg, var(--paper) 0%, var(--paper-alt) 100%);
-      padding: 88px 0 56px;
+      padding: 62px 0 34px;
       border-bottom: 1px solid var(--line);
     }
     .website-hero__wrap,
     .website-shell > section,
     body.shareable-shell[data-template="website"] footer {
-      width: min(1040px, calc(100% - 32px));
+      width: var(--website-content-width);
       margin: 0 auto;
     }
     .website-shell > section {
-      padding: 68px 0;
+      padding: var(--website-section-pad-y) 0;
     }
     .website-shell > section + section {
       border-top: 1px solid var(--line);
     }
     .website-hero__wrap {
       display: grid;
-      gap: 28px;
+      gap: 18px;
       align-items: start;
     }
     .website-hero__stamp {
@@ -509,38 +522,70 @@
     }
     .website-hero__lead {
       margin: 0;
-      max-width: 56ch;
+      max-width: 54ch;
       color: var(--muted);
-      font-size: 1.16rem;
+      font-size: 1.08rem;
     }
     .website-hero__layout {
       display: grid;
-      gap: 22px;
+      gap: 18px;
       align-items: start;
     }
     .website-hero__content {
       display: grid;
-      gap: 18px;
+      gap: 14px;
       align-content: start;
     }
     .website-hero__summary.card {
       margin: 0;
+      padding: 22px 24px;
     }
     .website-hero__summary h2 {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-size: 1rem;
     }
     .website-hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 2px;
+      gap: 10px;
+      margin-top: 4px;
     }
     .website-hero-actions .button {
-      border-width: 2px;
+      border-width: 1.5px;
       border-style: solid;
-      border-color: var(--ink);
-      color: var(--ink);
+      border-color: color-mix(in srgb, var(--teal) 82%, black);
+      background: color-mix(in srgb, var(--teal) 88%, black);
+      color: #fff;
+      box-shadow: none;
+    }
+    .website-hero-actions .button:hover {
+      background: color-mix(in srgb, var(--teal) 76%, black);
+    }
+    .website-shell > section > h2,
+    .website-shell > section.card > h2 {
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+    .website-shell > section > .grid {
+      margin-top: 14px;
+    }
+    .website-shell > section.card {
+      padding: clamp(22px, 2.6vw, 34px) clamp(24px, 3vw, 40px);
+    }
+    .website-shell > section.card > p,
+    .website-shell > section.card > ul,
+    .website-shell > section.card > ol {
+      max-width: var(--website-prose-width);
+    }
+    .website-shell > section.card > p:last-of-type {
+      margin-bottom: 0;
+    }
+    .website-shell > section.card table {
+      margin-top: 12px;
+    }
+    .website-shell table th,
+    .website-shell table td {
+      padding: 10px 12px;
     }
     @media (min-width: 920px) {
       .website-hero__layout {
@@ -842,7 +887,7 @@
         width: min(1040px, calc(100% - 28px));
       }
       .website-hero {
-        padding: 76px 0 42px;
+        padding: 54px 0 30px;
       }
       .website-hero__layout {
         grid-template-columns: 1fr;
@@ -875,7 +920,7 @@
         width: min(1040px, calc(100% - 24px));
       }
       .website-shell > section {
-        padding: 54px 0;
+        padding: 32px 0;
       }
       .reel-slide {
         padding: 20px 14px 10px;
@@ -947,7 +992,7 @@
           <div class="website-bar__desktop">
             <nav class="website-nav" aria-label="Page sections">
               <span class="website-nav__label">Page sections</span>
-              <a href="#website-hero" data-section-link="true" aria-current="true">Overview</a><a href="#at-a-glance-1" data-section-link="true">At a glance</a><a href="#what-kyle-storage-hub-is-2" data-section-link="true">What Kyle Storage Hub is</a><a href="#what-s-active-now-3" data-section-link="true">What&#x27;s active now</a><a href="#what-s-ready-to-ship-4" data-section-link="true">What&#x27;s ready to ship</a><a href="#top-recommendation-5" data-section-link="true">Top recommendation</a><a href="#recommended-next-move-6" data-section-link="true">Recommended next move</a>
+              <a href="#website-hero" data-section-link="true" aria-current="true">Overview</a><a href="#at-a-glance-1" data-section-link="true" aria-label="At a glance">Snapshot</a><a href="#what-kyle-storage-hub-is-2" data-section-link="true" aria-label="What Kyle Storage Hub is">Role</a><a href="#what-s-active-now-3" data-section-link="true" aria-label="What&#x27;s active now">Active</a><a href="#what-s-ready-to-ship-4" data-section-link="true" aria-label="What&#x27;s ready to ship">Ready</a><a href="#top-recommendation-5" data-section-link="true" aria-label="Top recommendation">Top Pick</a><a href="#recommended-next-move-6" data-section-link="true" aria-label="Recommended next move">Next Move</a>
             </nav>
             <a class="website-bar__cta" href="https://jonathankhobson.github.io/shareables/">Open Kyle Shareables <span aria-hidden="true">→</span></a>
           </div>
@@ -973,7 +1018,7 @@
             </div>
         <aside class="card notice website-hero__summary">
           <h2>Summary</h2>
-          <p>This is a public-safe first look at the vault structure and the project clusters it supports. It keeps the substance of the original audit, but tightens it into one readable page with ranked takeaways and one recommended output lane.</p>
+          <p>A public-safe first look at the vault structure and the project clusters it supports, tightened into one readable page with ranked takeaways and one practical next move.</p>
         </aside>
           </div>
         </div>
@@ -994,7 +1039,7 @@
         <article class="card notice">
           
           <h3>9 named MCP-backed projects</h3>
-          <p>The strongest signal is not note count alone; it is the number of active systems with their own maps, source folders, and tooling.</p>
+          <p>The stronger signal is not note count alone; it is the number of active systems with their own maps, source folders, and tooling.</p>
         </article>
         <article class="card risk">
           
@@ -1011,8 +1056,8 @@
     <section id="what-kyle-storage-hub-is-2" class="card">
       <h2>What Kyle Storage Hub is</h2>
       <p>Kyle Storage Hub is best understood as a control surface, not as the final home of every piece of source content. The vault organizes project maps, MCP records, area notes, and file cards while the underlying project material lives across attached drives and working directories.</p>
-      <p>That distinction matters. The value of the vault is not simply that it stores notes; it makes a large, multi-location body of work navigable. It gives Jonathan a way to see what exists, what is active, and what is close to becoming a public artifact.</p>
-      <p>The result is a system that is more useful than a personal archive and more legible than a loose folder tree. For teaching, consulting, and public credibility, that means the work can be explained, audited, and turned into shareable outputs without starting from zero each time.</p>
+      <p>Its value is not simply that it stores notes; it makes a large, multi-location body of work navigable. It gives Jonathan a way to see what exists, what is active, and what is close to becoming a public artifact.</p>
+      <p>That makes the system more useful than a personal archive and more legible than a loose folder tree. For teaching, consulting, and public credibility, it means the work can be explained, audited, and turned into shareable outputs without starting from zero each time.</p>
     </section>
     <section id="what-s-active-now-3">
       <h2>What&#x27;s active now</h2>
@@ -1043,7 +1088,7 @@
     </section>
     <section id="top-recommendation-5" class="card notice">
       <h2>Top recommendation</h2>
-      <p>The strongest next public artifact is a focused explainer for the reasoning systems cluster. It offers the best combination of readiness, leverage, and clarity: enough built material to support a real page, but still enough missing public context that the shareable would move the work forward.</p>
+      <p>The strongest next public artifact is a focused explainer for the reasoning systems cluster. It offers the best combination of readiness, leverage, and clarity: enough built material to support a real page, with enough missing public context that the shareable would move the work forward.</p>
     </section>
     <section id="recommended-next-move-6" class="card">
       <h2>Recommended next move</h2>
