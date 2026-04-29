@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-04-22T18:18:48+00:00",
+  "generated_at": "2026-04-29T06:07:52+00:00",
   "shareables": [
+    {
+      "audience": "Megan",
+      "id": "20260428T234124+0000-megan-how-i-store-ui-decisions-for-ai-work",
+      "purpose": "Explain Kyle's current code-first, artifact-driven approach to storing UI decisions and instructing Claude/Codex, in direct conversation with Megan's element-library workflow and Hardik Pandya's LLM-readable design-system article.",
+      "title": "Megan, How I Store UI Decisions For AI Work",
+      "updated_at": "2026-04-29T06:07:52+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/megan-how-i-store-ui-decisions-for-ai-work/"
+    },
     {
       "audience": "People evaluating Jonathan Kyle Hobson's systems work, teaching credibility, and public project thinking.",
       "id": "20260422T175457+0000-kyle-storage-hub-first-look",
