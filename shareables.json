@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-04-29T06:07:52+00:00",
+  "generated_at": "2026-05-02T20:29:42+00:00",
   "shareables": [
+    {
+      "audience": "UX designers, UX researchers, and design/product peers evaluating AI-assisted UX audit workflows.",
+      "id": "20260502T202209+0000-ux-heuristics-compass-first-look",
+      "purpose": "Introduce UX Heuristics Compass as a public, non-person-specific AI-assisted UX audit tool; explain how it works, how to try it, show the Oppia output example, and invite useful feedback from UX practitioners.",
+      "title": "UX Heuristics Compass: First Look",
+      "updated_at": "2026-05-02T20:29:42+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/ux-heuristics-compass-first-look/"
+    },
     {
       "audience": "Megan",
       "id": "20260428T234124+0000-megan-how-i-store-ui-decisions-for-ai-work",
       "purpose": "Explain Kyle's current code-first, artifact-driven approach to storing UI decisions and instructing Claude/Codex, in direct conversation with Megan's element-library workflow and Hardik Pandya's LLM-readable design-system article.",
       "title": "Megan, How I Store UI Decisions For AI Work",
-      "updated_at": "2026-04-29T06:07:52+00:00",
+      "updated_at": "2026-04-29T06:08:15+00:00",
       "url": "https://jonathankhobson.github.io/shareables/s/megan-how-i-store-ui-decisions-for-ai-work/"
     },
     {
