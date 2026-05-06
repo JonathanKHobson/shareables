@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-05-02T20:29:42+00:00",
+  "generated_at": "2026-05-06T19:34:26+00:00",
   "shareables": [
+    {
+      "audience": "UX researchers, product researchers, AI workflow builders, and research/product peers",
+      "id": "20260505T163714+0000-analysis-contracts-for-accountable-ai-workflows",
+      "purpose": "Explain Kyle Hobson's AI workflow to cold LinkedIn and social readers, then give them practical questions for accountable AI delegation.",
+      "title": "How I Use AI Without Handing Over the Thinking",
+      "updated_at": "2026-05-06T19:34:26+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/analysis-contracts-for-accountable-ai-workflows/"
+    },
     {
       "audience": "UX designers, UX researchers, and design/product peers evaluating AI-assisted UX audit workflows.",
       "id": "20260502T202209+0000-ux-heuristics-compass-first-look",
       "purpose": "Introduce UX Heuristics Compass as a public, non-person-specific AI-assisted UX audit tool; explain how it works, how to try it, show the Oppia output example, and invite useful feedback from UX practitioners.",
       "title": "UX Heuristics Compass: First Look",
-      "updated_at": "2026-05-02T20:29:42+00:00",
+      "updated_at": "2026-05-02T20:30:24+00:00",
       "url": "https://jonathankhobson.github.io/shareables/s/ux-heuristics-compass-first-look/"
     },
     {
