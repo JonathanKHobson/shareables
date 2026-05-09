@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-05-09T20:07:07+00:00",
+  "generated_at": "2026-05-09T20:13:42+00:00",
   "shareables": [
+    {
+      "audience": "A car owner whose 2008 Honda Civic Hybrid suddenly shut down with smoke, no power, and no hazard lights — looking for clear, calm guidance on next steps and what the mechanic should check",
+      "id": "20260509T195005+0000-2008-honda-civic-hybrid-what-happened-what-to-do-next",
+      "purpose": "Synthesize two detailed diagnostic research documents into a single, visually polished, calming, and navigable HTML guide that feels like a professionally published resource tailored to this exact incident — covering likely causes, repair economics, diagnostic order, and mechanic scripts — without any personally identifying information",
+      "title": "2008 Honda Civic Hybrid: What Happened & What to Do Next",
+      "updated_at": "2026-05-09T20:13:42+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/2008-honda-civic-hybrid-what-happened-what-to-do-next/"
+    },
     {
       "audience": "UX researchers, product researchers, AI workflow builders, and research/product peers",
       "id": "20260505T163714+0000-analysis-contracts-for-accountable-ai-workflows",

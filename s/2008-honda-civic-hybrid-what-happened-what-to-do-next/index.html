@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2008 Honda Civic Hybrid: What Happened &amp; What to Do Next</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Shareables system tokens ─────────────────────────── */
+    :root {
+      color-scheme: light;
+      --ink:   #17211f;
+      --muted: #54615e;
+      --paper: #f8fbf9;
+      --line:  #cbd8d3;
+      --teal:  #0f766e;
+      --coral: #d95f43;
+      --leaf:  #527a39;
+      --gold:  #b7791f;
+
+      /* Extended surface tones */
+      --surface:   #ffffff;
+      --teal-lt:   #dff0ee;
+      --teal-dk:   #0a5048;
+      --leaf-lt:   #e8f3e0;
+      --gold-lt:   #fdf3e0;
+      --coral-lt:  #fdecea;
+      --red-lt:    #fde8e8;
+      --red-dk:    #7a1515;
+
+      --r:        10px;
+      --r-sm:     6px;
+      --nav-h:    56px;
+      --shadow-sm: 0 1px 3px rgba(23,33,31,.06), 0 2px 8px rgba(23,33,31,.04);
+      --shadow:    0 2px 8px rgba(23,33,31,.08), 0 8px 24px rgba(23,33,31,.05);
+
+      --font-body:    'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+      --font-mono:    ui-monospace, 'JetBrains Mono', monospace;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+      font-size: 15.5px;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Focus states ──────────────────────────────────────── */
+    :focus-visible {
+      outline: 2.5px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 2.5px solid var(--teal);
+      outline-offset: 3px;
+    }
+
+    /* ── Progress bar ──────────────────────────────────────── */
+    #progress {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2.5px;
+      width: 0%;
+      background: var(--teal);
+      z-index: 200;
+      transition: width .08s linear;
+      pointer-events: none;
+    }
+
+    /* ── Top nav ────────────────────────────────────────────── */
+    #topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(248,251,249,.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 0;
+      box-shadow: 0 1px 6px rgba(23,33,31,.05);
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .02em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-right: 16px;
+    }
+    .nav-brand span { color: var(--teal); }
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 5px 9px;
+      border-radius: var(--r-sm);
+      white-space: nowrap;
+      transition: background .14s, color .14s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      background: var(--teal-lt);
+      color: var(--teal-dk);
+      text-decoration: none;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    #hero {
+      background: var(--teal);
+      color: #fff;
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 20px;
+      padding: 4px 13px;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,.85);
+    }
+    #hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(21px, 5vw, 35px);
+      font-weight: 800;
+      line-height: 1.2;
+      max-width: 640px;
+      margin: 0 auto 14px;
+      letter-spacing: -.02em;
+    }
+    .hero-sub {
+      font-size: 15.5px;
+      color: rgba(255,255,255,.75);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .hero-chip {
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: 5px 12px;
+      color: rgba(255,255,255,.88);
+    }
+
+    /* ── Docs layout: sidebar rail + content ───────────────── */
+    .docs-layout {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 40px 20px 96px;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 0 40px;
+      align-items: start;
+    }
+    @media (max-width: 760px) {
+      .docs-layout {
+        grid-template-columns: 1fr;
+        padding: 32px 16px 80px;
+      }
+      .section-rail { display: none; }
+    }
+
+    /* ── Section rail ───────────────────────────────────────── */
+    .section-rail {
+      position: sticky;
+      top: calc(var(--nav-h) + 20px);
+      padding: 20px 0;
+    }
+    .rail-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      padding: 0 2px;
+    }
+    .rail-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .rail-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .14s, color .14s;
+      text-decoration: none;
+      line-height: 1.35;
+    }
+    .rail-links a:hover, .rail-links a.rail-active {
+      background: var(--teal-lt);
+      color: var(--teal-dk);
+    }
+    .rail-links a .rail-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-family: var(--font-display);
+    }
+    .rail-links a.rail-active .rail-num {
+      background: var(--teal);
+      color: #fff;
+    }
+    .rail-divider { border: none; border-top: 1px solid var(--line); margin: 10px 0; }
+
+    /* ── Content area ───────────────────────────────────────── */
+    .docs-content { min-width: 0; }
+    .section { margin-bottom: 52px; }
+    .divider { border: none; border-top: 1px solid var(--line); margin: 44px 0; }
+
+    /* ── Section headers ────────────────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 18px;
+    }
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .section-header h2 small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0;
+      margin-top: 3px;
+    }
+    .lead {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ── Safety banner ──────────────────────────────────────── */
+    .safety-banner {
+      background: var(--gold-lt);
+      border: 1.5px solid #ddb96a;
+      border-radius: var(--r);
+      padding: 16px 20px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .safety-banner .icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .safety-banner p { font-size: 14px; line-height: 1.6; color: #5a3e07; }
+    .safety-banner strong { color: #3d2900; }
+
+    /* ── Insight callout ────────────────────────────────────── */
+    .insight {
+      background: var(--teal-lt);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: 14px 18px;
+      margin: 18px 0;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--teal-dk);
+    }
+    .insight strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      opacity: .65;
+    }
+
+    /* ── Tables (symptom, threshold, decision) ──────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .data-table th {
+      background: #1e4f49;
+      color: rgba(255,255,255,.9);
+      font-weight: 600;
+      padding: 9px 14px;
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) td { background: #f3f8f7; }
+    .data-table tr:hover td { background: #e8f3f0; }
+    .row-em td:first-child { border-left: 4px solid var(--teal); font-weight: 700; }
+
+    /* ── Stat cards ─────────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 18px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--teal);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+    }
+    .stat-label { font-size: 12.5px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+
+    /* ── Threshold color bands ──────────────────────────────── */
+    .t-green td:first-child { border-left: 4px solid var(--leaf); }
+    .t-yellow td:first-child { border-left: 4px solid var(--gold); }
+    .t-orange td:first-child { border-left: 4px solid var(--coral); }
+    .t-red td:first-child { border-left: 4px solid #c0392b; }
+
+    /* ── Status pills ───────────────────────────────────────── */
+    .pill {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .pill-green { background: var(--leaf-lt); color: var(--leaf); }
+    .pill-yellow { background: var(--gold-lt); color: #7a5200; }
+    .pill-red { background: var(--red-lt); color: var(--red-dk); }
+
+    /* ── Issue accordion cards ──────────────────────────────── */
+    .issue-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 12px;
+      transition: box-shadow .15s;
+    }
+    .issue-card:hover { box-shadow: var(--shadow); }
+    .issue-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      text-align: left;
+      font-family: var(--font-body);
+      transition: background .14s;
+    }
+    .issue-trigger:hover { background: #f3f8f7; }
+    .issue-trigger:focus-visible { outline: 2.5px solid var(--teal); outline-offset: -2px; border-radius: var(--r); }
+    .rank-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .issue-trigger-body { flex: 1; min-width: 0; }
+    .issue-trigger-body h3 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .issue-sub { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+    .issue-cost-tag {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      padding: 3px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .chevron {
+      width: 18px;
+      height: 18px;
+      color: #a0ada9;
+      transition: transform .22s;
+      flex-shrink: 0;
+    }
+    .issue-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+    .issue-body {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--line);
+    }
+    .issue-body.open { display: block; }
+    .issue-body h4 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin: 16px 0 9px;
+    }
+    .issue-body p { font-size: 14px; line-height: 1.65; color: var(--ink); }
+    .issue-body ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .issue-body li { padding-left: 14px; position: relative; font-size: 14px; color: var(--ink); line-height: 1.5; }
+    .issue-body li::before { content: '·'; position: absolute; left: 4px; color: var(--muted); font-weight: 700; }
+
+    /* ── Cost tables (inside accordions) ────────────────────── */
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 6px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      overflow: hidden;
+    }
+    .cost-table th {
+      background: #eef4f3;
+      font-weight: 600;
+      padding: 7px 12px;
+      text-align: left;
+      font-size: 10.5px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cost-table td { padding: 7px 12px; border-bottom: 1px solid var(--line); }
+    .cost-table td:last-child { text-align: right; font-weight: 600; color: var(--teal-dk); }
+    .cost-table tr:last-child td { border-bottom: none; }
+
+    /* ── Verdict boxes ──────────────────────────────────────── */
+    .verdict {
+      border-radius: var(--r-sm);
+      padding: 12px 15px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+    .verdict-good { background: var(--leaf-lt); color: #2d4a18; }
+    .verdict-caution { background: var(--gold-lt); color: #5c3f00; }
+    .verdict-bad { background: var(--red-lt); color: var(--red-dk); }
+
+    /* ── DIY tags ───────────────────────────────────────────── */
+    .diy-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--r-sm);
+      border: 1px solid;
+      margin-top: 10px;
+    }
+    .diy-partial { background: var(--gold-lt); color: #7a5200; border-color: #ddb96a; }
+    .diy-no { background: var(--red-lt); color: var(--red-dk); border-color: #d9a0a0; }
+
+    /* ── Less-likely cards ──────────────────────────────────── */
+    .two-col-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    @media (max-width: 500px) { .two-col-cards { grid-template-columns: 1fr; } }
+    .minor-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 16px 18px;
+    }
+    .minor-card h4 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 7px;
+    }
+    .minor-card p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+    /* ── Priority table ─────────────────────────────────────── */
+    .priority-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .priority-table th {
+      background: #1e4f49;
+      color: rgba(255,255,255,.9);
+      font-weight: 600;
+      padding: 9px 12px;
+      text-align: left;
+      font-size: 10.5px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .priority-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .priority-table tr:last-child td { border-bottom: none; }
+    .priority-table tr:hover td { background: #f0f8f6; }
+    .p0-row td:first-child { border-left: 4px solid #c0392b; }
+    .p1-row td:first-child { border-left: 4px solid var(--teal); }
+    .p2-row td:first-child { border-left: 4px solid var(--leaf); }
+    .p3-row td:first-child { border-left: 4px solid #c0cac8; }
+    .p-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 20px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 800;
+      font-family: var(--font-display);
+    }
+    .p0-b { background: var(--red-lt); color: #c0392b; }
+    .p1-b { background: var(--teal-lt); color: var(--teal-dk); }
+    .p2-b { background: var(--leaf-lt); color: var(--leaf); }
+    .p3-b { background: #eef0ee; color: var(--muted); }
+    .priority-table td:nth-child(3),
+    .priority-table td:nth-child(4),
+    .priority-table td:nth-child(5) { color: var(--muted); font-size: 12.5px; }
+    @media (max-width: 640px) {
+      .priority-table td:nth-child(4),
+      .priority-table td:nth-child(5),
+      .priority-table th:nth-child(4),
+      .priority-table th:nth-child(5) { display: none; }
+    }
+
+    /* ── Script box ─────────────────────────────────────────── */
+    .script-box {
+      background: var(--surface);
+      border: 1.5px solid var(--teal);
+      border-radius: var(--r);
+      padding: 22px 26px;
+    }
+    .script-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .script-box blockquote {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--ink);
+      background: var(--paper);
+      border-radius: var(--r-sm);
+      padding: 14px 18px;
+      font-style: normal;
+      border: none;
+    }
+
+    /* ── Buttons ────────────────────────────────────────────── */
+    .button {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-sm);
+      padding: 10px 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: background .14s, transform .1s, opacity .14s;
+      text-decoration: none;
+    }
+    .button:hover { background: var(--teal-dk); text-decoration: none; color: #fff; }
+    .button:active { transform: scale(.97); }
+    .button:focus-visible { outline: 2.5px solid var(--teal); outline-offset: 3px; }
+    .button.copied { background: var(--leaf); }
+    .button-secondary {
+      display: inline-block;
+      background: var(--surface);
+      color: var(--teal);
+      border: 1.5px solid var(--teal);
+      border-radius: var(--r-sm);
+      padding: 9px 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: background .14s, color .14s;
+      text-decoration: none;
+    }
+    .button-secondary:hover { background: var(--teal-lt); text-decoration: none; }
+    .button-secondary:focus-visible { outline: 2.5px solid var(--teal); outline-offset: 3px; }
+    .button-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    /* ── Decision table ─────────────────────────────────────── */
+    .decision-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    .decision-table th {
+      background: #1e4f49;
+      color: rgba(255,255,255,.9);
+      font-weight: 600;
+      padding: 9px 14px;
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .decision-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .decision-table tr:last-child td { border-bottom: none; }
+    .decision-table tr:hover td { background: #f0f8f6; }
+
+    /* ── Do / Don't ─────────────────────────────────────────── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 500px) { .do-dont { grid-template-columns: 1fr; } }
+    .do-box {
+      background: var(--leaf-lt);
+      border: 1.5px solid #9ecf8e;
+      border-radius: var(--r);
+      padding: 18px 20px;
+    }
+    .dont-box {
+      background: var(--red-lt);
+      border: 1.5px solid #e0a0a0;
+      border-radius: var(--r);
+      padding: 18px 20px;
+    }
+    .do-box h4, .dont-box h4 {
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .do-box h4 { color: var(--leaf); }
+    .dont-box h4 { color: var(--red-dk); }
+    .do-box ul, .dont-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .do-box li, .dont-box li { font-size: 13.5px; padding-left: 19px; position: relative; line-height: 1.5; }
+    .do-box li::before { content: '✓'; position: absolute; left: 0; color: var(--leaf); font-weight: 700; }
+    .dont-box li::before { content: '✕'; position: absolute; left: 0; color: var(--red-dk); font-weight: 700; }
+
+    /* ── CTA section at bottom ──────────────────────────────── */
+    .cta-section {
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      border-radius: var(--r);
+      padding: 24px 28px;
+      text-align: center;
+      margin-top: 36px;
+    }
+    .cta-section h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .cta-section p { font-size: 14px; color: var(--muted); margin-bottom: 18px; max-width: 460px; margin-left: auto; margin-right: auto; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    #footer {
+      background: #0e2a26;
+      color: rgba(255,255,255,.45);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+    #footer a { color: rgba(255,255,255,.5); }
+    #footer a:hover { color: rgba(255,255,255,.8); text-decoration: underline; }
+    #footer a:focus-visible { outline: 2px solid rgba(255,255,255,.4); outline-offset: 3px; border-radius: 3px; }
+    .sources-toggle {
+      background: none;
+      border: none;
+      border-bottom: 1px dotted rgba(255,255,255,.3);
+      color: rgba(255,255,255,.4);
+      font-size: 12px;
+      cursor: pointer;
+      padding: 2px 0;
+      font-family: var(--font-body);
+      margin-top: 10px;
+    }
+    .sources-toggle:hover { color: rgba(255,255,255,.7); }
+    .sources-toggle:focus-visible { outline: 2px solid rgba(255,255,255,.4); outline-offset: 3px; border-radius: 3px; }
+    #sources-list {
+      display: none;
+      max-width: 600px;
+      margin: 12px auto 0;
+      text-align: left;
+      font-size: 11.5px;
+      line-height: 1.8;
+    }
+    #sources-list.open { display: block; }
+    #sources-list ol { padding-left: 18px; }
+    #sources-list li a { color: rgba(255,255,255,.4); word-break: break-all; }
+  </style>
+</head>
+<body data-style-source="shareables-kyle" data-template="docs">
+
+<div id="progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- ── Top nav ── -->
+<nav id="topnav" aria-label="Section navigation">
+  <div class="nav-brand">2008 Civic Hybrid &nbsp;<span>// Diagnostic Guide</span></div>
+  <div class="nav-links" id="nav-links">
+    <a href="#situation">Situation</a>
+    <a href="#value">Worth Saving?</a>
+    <a href="#causes">Likely Causes</a>
+    <a href="#steps">Next Steps</a>
+    <a href="#script">Mechanic Script</a>
+    <a href="#decision">Repair vs. Walk Away</a>
+    <a href="#safety">Do &amp; Don't</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<header id="hero">
+  <div class="hero-badge">Incident Analysis · 2008 Honda Civic Hybrid</div>
+  <h1>Your car shut down. Here's what probably happened — and what to do next.</h1>
+  <p class="hero-sub">Sudden loss of drive while turning, no power afterward, smoke under the hood, and no hazard lights. This guide walks through every likely cause, repair costs, and exactly what to tell the shop.</p>
+  <div class="hero-chips" aria-label="Guide contents">
+    <span class="hero-chip">⚡ 5 ranked causes</span>
+    <span class="hero-chip">🛠 Diagnostic order</span>
+    <span class="hero-chip">💬 Mechanic script</span>
+    <span class="hero-chip">💰 Repair thresholds</span>
+    <span class="hero-chip">✅ Repair vs. walk away</span>
+  </div>
+</header>
+
+<!-- ── Docs layout ── -->
+<main>
+<div class="docs-layout">
+
+  <!-- Section rail sidebar -->
+  <aside class="section-rail content-layout__rail" aria-label="Section navigation">
+    <div class="rail-label">On this page</div>
+    <nav class="rail-links" id="rail-links">
+      <a href="#situation">
+        <span class="rail-num">1</span>What happened
+      </a>
+      <a href="#value">
+        <span class="rail-num">2</span>Worth saving?
+      </a>
+      <a href="#causes">
+        <span class="rail-num">3</span>Likely causes
+      </a>
+      <a href="#steps">
+        <span class="rail-num">4</span>Next steps
+      </a>
+      <a href="#script">
+        <span class="rail-num">5</span>Mechanic script
+      </a>
+      <a href="#decision">
+        <span class="rail-num">6</span>Repair decision
+      </a>
+      <a href="#safety">
+        <span class="rail-num">7</span>Do's &amp; don'ts
+      </a>
+    </nav>
+    <hr class="rail-divider" />
+    <div style="font-size:11.5px; color:var(--muted); line-height:1.6; padding: 0 2px;">
+      Research-backed<br>diagnostic guide<br>May 2026
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <div class="docs-content">
+
+    <!-- ── Section 1: Situation ── -->
+    <section class="section" id="situation" aria-labelledby="h-situation">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">1</div>
+        <h2 id="h-situation">What happened <small>Reading the symptoms</small></h2>
+      </div>
+
+      <div class="safety-banner" role="alert">
+        <div class="icon" aria-hidden="true">⚠️</div>
+        <p><strong>Safety first.</strong> Because this incident involved smoke and a burning-plastic smell, treat this car as a potential fire-risk vehicle until it has been professionally inspected. Do not jump-start it, do not replace fuses and "try again," and do not touch any orange-colored cables — those carry dangerous high voltage from the hybrid battery pack.</p>
+      </div>
+
+      <p class="lead">Here is what was reported, and what each symptom tells us diagnostically.</p>
+
+      <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col">Observed symptom</th>
+            <th scope="col">What it tells us</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sudden loss of drive <em>while turning</em></td>
+            <td style="color:var(--muted);">Turning can shift or pinch a wire near the firewall — especially a loosely routed aftermarket cable</td>
+          </tr>
+          <tr>
+            <td>No power at all afterward</td>
+            <td style="color:var(--muted);">The entire 12V system went dead — battery and fuse path need checking before anything hybrid-specific</td>
+          </tr>
+          <tr class="row-em">
+            <td>Emergency flashers would <em>not</em> turn on</td>
+            <td style="color:var(--muted); font-weight:600;">The most important clue. Hazards are ordinary 12V equipment — if they're dead, the 12V backbone is broken first, not just the hybrid system</td>
+          </tr>
+          <tr>
+            <td>Smoke under the hood</td>
+            <td style="color:var(--muted);">Points to a high-current short, overheated connection, melted insulation, or a fuse event — or fluid on a hot surface</td>
+          </tr>
+          <tr>
+            <td>Burning-plastic smell</td>
+            <td style="color:var(--muted);">Distinct from oil or coolant smoke — burning plastic is electrical insulation melting</td>
+          </tr>
+          <tr>
+            <td>Visible fluid buildup</td>
+            <td style="color:var(--muted);">Could be coolant, oil, CVT fluid, or A/C condensate — fluid type matters for diagnosis</td>
+          </tr>
+          <tr>
+            <td>Aftermarket stereo/subwoofer installed</td>
+            <td style="color:var(--muted);">Amplifiers wire directly to the 12V battery with high-current cable — enough to cause a fire if poorly fused, pinched, or frayed</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="insight">
+        <strong>Key diagnostic insight</strong>
+        The combination of "no emergency flashers" + "burning-plastic smell" + "aftermarket amp" points strongly toward a <strong>12V electrical short or main-fuse event</strong> — not a hybrid battery failure. The IMA battery does not power the hazard lights. The diagnostic path should work through: <strong>12V battery and terminals → amp wiring → main fuse/fusible link → grounds → fuse box</strong> — and only reach hybrid-specific components after the basic power path is verified.
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── Section 2: Value ── -->
+    <section class="section" id="value" aria-labelledby="h-value">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">2</div>
+        <h2 id="h-value">Is the car worth saving? <small>Repair threshold baseline</small></h2>
+      </div>
+
+      <p class="lead">Because this is a 2008 hybrid, the repair math is tight. Use these ranges as a decision framework once the shop provides an estimate.</p>
+
+      <div class="two-col">
+        <div class="stat-card">
+          <div class="stat-num">~$5,400</div>
+          <div class="stat-label">KBB resale estimate<br><span style="opacity:.7;">2008 Civic Hybrid Sedan 4D</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$738–$4,488</div>
+          <div class="stat-label">Edmunds trade-in range<br><span style="opacity:.7;">Varies by mileage, condition, trim</span></div>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col">Total repair estimate</th>
+            <th scope="col">Recommended posture</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="t-green">
+            <td><strong>Under $500</strong></td>
+            <td><span class="pill pill-green">Repair</span> &nbsp; Almost certainly worth it — no hidden fire or harness damage assumed.</td>
+          </tr>
+          <tr class="t-green">
+            <td><strong>$500 – $1,500</strong></td>
+            <td><span class="pill pill-green">Likely repair</span> &nbsp; Worth it if no major harness, transmission, or hybrid battery problems.</td>
+          </tr>
+          <tr class="t-yellow">
+            <td><strong>$1,500 – $2,500</strong></td>
+            <td><span class="pill pill-yellow">Borderline</span> &nbsp; Depends on mileage, condition, and whether this is the only major issue.</td>
+          </tr>
+          <tr class="t-orange">
+            <td><strong>$2,500 – $4,000</strong></td>
+            <td><span class="pill pill-yellow">Usually not worth it</span> &nbsp; Only if car is unusually clean, low-mileage, or replacement costs are high.</td>
+          </tr>
+          <tr class="t-red">
+            <td><strong>$4,000+</strong></td>
+            <td><span class="pill pill-red">Walk away</span> &nbsp; At this level, repair cost approaches or exceeds the car's market value.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="insight" style="margin-top:20px;">
+        <strong>Bottom line on value</strong>
+        If the cause is bad aftermarket amp wiring, a blown fusible link after a clearly identified short, a loose battery terminal, or a bad ground — repair costs will likely fall in the $100–$800 range, which is almost always worth it. The math only gets difficult if the factory harness is melted or the DC-DC converter failed alongside other damage.
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── Section 3: Causes ── -->
+    <section class="section" id="causes" aria-labelledby="h-causes">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">3</div>
+        <h2 id="h-causes">The five most likely causes <small>Tap each to expand details and cost breakdown</small></h2>
+      </div>
+
+      <p class="lead">Ranked by how well each explanation fits <em>this specific combination</em> of symptoms — not just generic hybrid failures.</p>
+
+      <!-- Rank 1 -->
+      <div class="issue-card">
+        <button class="issue-trigger" onclick="toggleIssue(this)" aria-expanded="false" aria-controls="ib1">
+          <div class="rank-badge" style="background:var(--teal);" aria-label="Rank 1">1</div>
+          <div class="issue-trigger-body">
+            <h3>Aftermarket amp/subwoofer power-wire short</h3>
+            <div class="issue-sub">Most likely · Burning-plastic smell + total no-power + amp wired direct to 12V battery</div>
+          </div>
+          <span class="issue-cost-tag">$100 – $2,500+</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="issue-body" id="ib1">
+          <h4>Why this ranks #1</h4>
+          <p>The subwoofer amp has a thick positive wire connected directly to the 12V battery. If it rubbed through its insulation, got pinched during the turn, ran near a heat source, or was incorrectly (or not at all) fused, it can short directly to chassis ground. That creates intense heat and current flow, the smoke and burning-plastic smell, and can open the main fuse or fusible link — which kills all 12V power including the hazard lights.</p>
+          <h4>Signs to look for</h4>
+          <ul>
+            <li>Melted inline fuse holder near the battery</li>
+            <li>Burnt or melted thick red wire running toward the rear of the car</li>
+            <li>Blackened area near where the amp wire passes through the firewall</li>
+            <li>Extra ring terminal stacked on the 12V battery positive post</li>
+            <li>Burn smell strongest near the battery, fuse box, or firewall</li>
+            <li>Amp and subwoofer no longer working</li>
+          </ul>
+          <h4>Estimated repair costs</h4>
+          <table class="cost-table">
+            <thead><tr><th scope="col">Repair scope</th><th scope="col">Estimated range</th></tr></thead>
+            <tbody>
+              <tr><td>Remove unsafe amp wiring only</td><td>$50–$200</td></tr>
+              <tr><td>Rewire amp correctly with proper fusing</td><td>$150–$500</td></tr>
+              <tr><td>Replace melted fuse holder and cable</td><td>$100–$500</td></tr>
+              <tr><td>Repair minor nearby vehicle wiring</td><td>$200–$800</td></tr>
+              <tr><td>Repair burned factory harness or fuse box</td><td>$1,000–$4,000+</td></tr>
+            </tbody>
+          </table>
+          <div class="diy-tag diy-partial">⚠️ Visual inspection only until a short is ruled out</div>
+          <div class="verdict verdict-good"><strong>Salvage verdict:</strong> Usually salvageable if damage is limited to aftermarket wiring. Questionable if the factory harness or fuse box is burned.</div>
+        </div>
+      </div>
+
+      <!-- Rank 2 -->
+      <div class="issue-card">
+        <button class="issue-trigger" onclick="toggleIssue(this)" aria-expanded="false" aria-controls="ib2">
+          <div class="rank-badge" style="background:#3d7a6e;" aria-label="Rank 2">2</div>
+          <div class="issue-trigger-body">
+            <h3>Main fuse / fusible link blown by a high-current short</h3>
+            <div class="issue-sub">Near-perfect match · Explains total electrical death, no hazards, smoke at the fuse</div>
+          </div>
+          <span class="issue-cost-tag">$100 – $1,500+</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="issue-body" id="ib2">
+          <h4>Why it fits</h4>
+          <p>A main fuse or fusible link sacrifices itself when a severe short occurs. If it blows, the car appears completely dead even with a fully charged 12V battery — no dash, no hazards, no door locks, no start. The smoke suggests the fuse or link opened after a high-current event rather than failing quietly.</p>
+          <div class="insight" style="margin:14px 0;">
+            <strong>Critical caution</strong>
+            A blown main fuse is <strong>evidence of</strong> a root cause — not the root cause itself. Replacing it without finding the short will blow the new fuse again and may cause renewed smoke or fire.
+          </div>
+          <h4>Signs to look for</h4>
+          <ul>
+            <li>No dash lights, no hazards, no interior lights — complete electrical death</li>
+            <li>12V battery tests as charged, but power doesn't reach the car</li>
+            <li>Main fuse or fusible link visibly blown or tests open with a multimeter</li>
+            <li>Burn smell or heat discoloration near the fuse box or battery cable</li>
+          </ul>
+          <h4>Estimated repair costs</h4>
+          <table class="cost-table">
+            <thead><tr><th scope="col">Repair scope</th><th scope="col">Estimated range</th></tr></thead>
+            <tbody>
+              <tr><td>Replace fuse/fusible link (after fixing root cause)</td><td>$100–$400</td></tr>
+              <tr><td>Diagnosis + trace hidden short</td><td>$122–$800+</td></tr>
+              <tr><td>Under-hood fuse box repair or replacement</td><td>$700–$1,500+</td></tr>
+              <tr><td>Harness repair from heat damage</td><td>$1,000–$3,500+</td></tr>
+            </tbody>
+          </table>
+          <div class="diy-tag diy-no">✕ Do not replace fuse until the short is found</div>
+          <div class="verdict verdict-good"><strong>Salvage verdict:</strong> Good if the fuse protected the car and the root short was small. Poorer if the fuse box or harness melted first.</div>
+        </div>
+      </div>
+
+      <!-- Rank 3 -->
+      <div class="issue-card">
+        <button class="issue-trigger" onclick="toggleIssue(this)" aria-expanded="false" aria-controls="ib3">
+          <div class="rank-badge" style="background:#6a5e9e;" aria-label="Rank 3">3</div>
+          <div class="issue-trigger-body">
+            <h3>Loose/corroded 12V battery terminal or bad main ground</h3>
+            <div class="issue-sub">Best-case scenario · Low cost, explains arcing, smoke, and complete sudden power loss</div>
+          </div>
+          <span class="issue-cost-tag">$50 – $500</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="issue-body" id="ib3">
+          <h4>Why it fits</h4>
+          <p>A loose high-current connection can arc like a tiny welder — creating heat, smoke, melted plastic, and sudden total power loss during vibration or a sharp turn. Aftermarket audio installs often stack extra ring terminals on the battery post, creating a poor, high-resistance connection that worsens over time. This is one of the cheapest possible root causes and should be checked early.</p>
+          <h4>Signs to look for</h4>
+          <ul>
+            <li>Either battery clamp wiggles or rotates by hand</li>
+            <li>White or green corrosion on battery terminals</li>
+            <li>Melted or discolored plastic battery terminal cover</li>
+            <li>Burned ring terminal from audio amp at the battery post</li>
+            <li>Main ground strap loose, corroded, or broken</li>
+            <li>Burn discoloration at the terminal, cable end, or nearby plastic</li>
+          </ul>
+          <h4>Estimated repair costs</h4>
+          <table class="cost-table">
+            <thead><tr><th scope="col">Repair scope</th><th scope="col">Estimated range</th></tr></thead>
+            <tbody>
+              <tr><td>Clean and re-tighten terminals</td><td>$0–$100</td></tr>
+              <tr><td>Replace terminal ends or cable clamps</td><td>$50–$250</td></tr>
+              <tr><td>Replace main ground strap or cable</td><td>$75–$300</td></tr>
+              <tr><td>Replace 12V battery</td><td>$198–$215 (2008 Civic estimate)</td></tr>
+            </tbody>
+          </table>
+          <div class="diy-tag diy-partial">⚠️ Inspect first — have mechanic confirm no active short</div>
+          <div class="verdict verdict-good"><strong>Salvage verdict:</strong> Excellent. Low cost, straightforward repair, no hybrid complexity involved.</div>
+        </div>
+      </div>
+
+      <!-- Rank 4 -->
+      <div class="issue-card">
+        <button class="issue-trigger" onclick="toggleIssue(this)" aria-expanded="false" aria-controls="ib4">
+          <div class="rank-badge" style="background:var(--gold);" aria-label="Rank 4">4</div>
+          <div class="issue-trigger-body">
+            <h3>DC-DC converter / inverter-converter failure</h3>
+            <div class="issue-sub">Known Honda hybrid failure mode · Higher cost but usually repairable</div>
+          </div>
+          <span class="issue-cost-tag">$800 – $3,500+</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="issue-body" id="ib4">
+          <h4>Why it fits</h4>
+          <p>Unlike conventional cars, the Civic Hybrid doesn't use a traditional alternator. A DC-DC converter steps down power from the high-voltage hybrid battery to run the 12V system while driving. If this converter fails, the 12V system collapses under load, causing shutdown and no-restart. A Honda recall for certain 2006–2007 Civic Hybrids describes exactly this: DC-DC converter fails, blows the main fuse, lights out, engine stalls, car won't restart. The 2008 model year is not covered by that specific recall, but the failure mode is architecturally identical — check the VIN at nhtsa.gov/recalls.</p>
+          <h4>Signs to look for</h4>
+          <ul>
+            <li>12V battery dead after driving, even with the hybrid system running</li>
+            <li>Charging system warning light before failure (if noticed)</li>
+            <li>Hybrid / IMA warning codes when power is safely restored</li>
+            <li>Error code P0A94 or similar DC-DC / converter performance codes</li>
+            <li>No obvious aftermarket wiring short, bad terminal, or fuse event found first</li>
+          </ul>
+          <h4>Estimated repair costs</h4>
+          <table class="cost-table">
+            <thead><tr><th scope="col">Repair scope</th><th scope="col">Estimated range</th></tr></thead>
+            <tbody>
+              <tr><td>Diagnosis</td><td>$122–$250+</td></tr>
+              <tr><td>Remanufactured/used inverter + DC-DC part</td><td>~$375+ part only (before labor/shipping/core)</td></tr>
+              <tr><td>Independent or hybrid-capable shop, installed</td><td>$800–$2,500</td></tr>
+              <tr><td>Dealer/OEM route or combined complications</td><td>$2,500–$3,500+</td></tr>
+            </tbody>
+          </table>
+          <div class="diy-tag diy-no">✕ Requires hybrid-capable shop</div>
+          <div class="verdict verdict-caution"><strong>Salvage verdict:</strong> Salvageable, but borderline. Worth repairing if the total stays under ~$2,000–$2,500 and the car is otherwise in good shape. Get a second opinion before approving work over $1,500.</div>
+        </div>
+      </div>
+
+      <!-- Rank 5 -->
+      <div class="issue-card">
+        <button class="issue-trigger" onclick="toggleIssue(this)" aria-expanded="false" aria-controls="ib5">
+          <div class="rank-badge" style="background:var(--coral);" aria-label="Rank 5">5</div>
+          <div class="issue-trigger-body">
+            <h3>Fluid leak, belt failure, or accessory event with secondary electrical damage</h3>
+            <div class="issue-sub">Partially explains symptoms · Wide cost range depending on the source</div>
+          </div>
+          <span class="issue-cost-tag">$150 – $9,000+</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="issue-body" id="ib5">
+          <h4>Why it partially fits</h4>
+          <p>The visible fluid buildup and smoke are consistent with a coolant leak onto a hot exhaust, an oil leak, CVT fluid, or a serpentine belt or seized pulley smoking. However, a fluid or mechanical issue alone does <em>not</em> cleanly explain "no hazard lights" — unless fluid sprayed into the fuse box, a belt failure also damaged wiring, or two separate failures occurred simultaneously. This ranks lower because the no-hazards detail is difficult to explain with mechanics alone.</p>
+          <h4>Signs to look for</h4>
+          <ul>
+            <li>Smoke smells oily, sweet (coolant), or rubbery — not like burning plastic/electrical</li>
+            <li>Visible coolant or oil around hoses, radiator, valve cover, or CVT area</li>
+            <li>Broken or shredded serpentine belt, or a seized accessory pulley</li>
+            <li>Fluid sprayed near the fuse box or electrical connectors</li>
+          </ul>
+          <h4>Estimated repair costs</h4>
+          <table class="cost-table">
+            <thead><tr><th scope="col">Repair scope</th><th scope="col">Estimated range</th></tr></thead>
+            <tbody>
+              <tr><td>Serpentine belt replacement</td><td>$140–$184</td></tr>
+              <tr><td>Radiator hose replacement</td><td>$298–$343</td></tr>
+              <tr><td>Water pump replacement</td><td>$639–$814</td></tr>
+              <tr><td>Radiator replacement</td><td>$996–$1,122</td></tr>
+              <tr><td>CVT / transmission replacement</td><td>$5,000–$9,000+</td></tr>
+              <tr><td>Fluid-caused harness repair</td><td>$500–$2,500+</td></tr>
+            </tbody>
+          </table>
+          <div class="diy-tag diy-partial">⚠️ Belt/hose: DIY-friendly. CVT/electrical: shop work</div>
+          <div class="verdict verdict-good"><strong>Salvage verdict:</strong> Good if a hose, belt, or minor leak. Usually not worth it if CVT/transmission damage is stacked on top of electrical damage.</div>
+        </div>
+      </div>
+
+      <!-- Less likely -->
+      <h3 style="font-family:var(--font-display); font-size:14.5px; font-weight:700; color:var(--muted); margin:26px 0 12px;">Less likely as the primary cause</h3>
+      <div class="two-col-cards">
+        <div class="minor-card">
+          <h4>🔋 IMA hybrid battery alone</h4>
+          <p>A weak IMA battery usually causes warning lights, weak assist, poor fuel economy, or IMA codes — it does <strong>not</strong> typically make emergency flashers completely dead. It may be a secondary issue but is not the leading explanation here.</p>
+        </div>
+        <div class="minor-card">
+          <h4>⚡ Dead 12V battery alone</h4>
+          <p>A completely dead 12V battery can cause a no-power state, but it usually does <strong>not</strong> create smoke and burning-plastic smell on its own. Something else caused the smoke — a dead battery alone is too simple.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── Section 4: Next Steps ── -->
+    <section class="section" id="steps" aria-labelledby="h-steps">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">4</div>
+        <h2 id="h-steps">What to do next <small>Prioritized diagnostic steps — share this with the shop</small></h2>
+      </div>
+
+      <p class="lead">P0 steps are immediate safety requirements. P1 steps should happen before any other diagnostic work begins.</p>
+
+      <div style="overflow-x:auto;">
+      <table class="priority-table">
+        <thead>
+          <tr>
+            <th scope="col" style="width:52px;">Priority</th>
+            <th scope="col">Step</th>
+            <th scope="col">Why it matters</th>
+            <th scope="col">Who</th>
+            <th scope="col">Expected cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="p0-row"><td><span class="p-badge p0-b">P0</span></td><td><strong>Do not jump-start, restart, or drive it</strong></td><td>Feeding power to an active short can recreate the smoke — or worse</td><td>Owner</td><td>$0</td></tr>
+          <tr class="p0-row"><td><span class="p-badge p0-b">P0</span></td><td><strong>Tow by flatbed if moving it</strong></td><td>Safer for a disabled hybrid; avoids drivetrain stress</td><td>Tow company</td><td>Varies</td></tr>
+          <tr class="p1-row"><td><span class="p-badge p1-b">P1</span></td><td><strong>Photograph engine bay, battery area, and aftermarket wiring before the shop moves anything</strong></td><td>Preserves evidence of burn origin, wire routing, and fuse box condition</td><td>Owner (if safe)</td><td>$0</td></tr>
+          <tr class="p1-row"><td><span class="p-badge p1-b">P1</span></td><td><strong>Tell the mechanic about the aftermarket subwoofer/amp immediately</strong></td><td>Changes the diagnostic path — prevents a premature "hybrid battery" quote</td><td>Owner</td><td>$0</td></tr>
+          <tr class="p1-row"><td><span class="p-badge p1-b">P1</span></td><td><strong>Inspect 12V battery terminals, added amp ring terminals, and main ground straps</strong></td><td>Fastest and cheapest check; a loose or melted terminal is the most common ignition point</td><td>Mechanic</td><td>$0–$150</td></tr>
+          <tr class="p1-row"><td><span class="p-badge p1-b">P1</span></td><td><strong>Inspect amp power wire, inline fuse, firewall pass-through, and amp ground point</strong></td><td>Highest-value suspect given burning-plastic smell; amp wiring connects directly to battery</td><td>Mechanic / audio installer</td><td>$50–$250</td></tr>
+          <tr class="p1-row"><td><span class="p-badge p1-b">P1</span></td><td><strong>Test 12V battery voltage and continuity from battery to under-hood fuse box</strong></td><td>Charged battery with no car power = open main fuse, fusible link, or cable break</td><td>Mechanic</td><td>$122–$179 diagnostic</td></tr>
+          <tr class="p1-row"><td><span class="p-badge p1-b">P1</span></td><td><strong>Inspect main fuse/fusible link and under-hood fuse box for heat damage</strong></td><td>A blown main fuse explains complete electrical death — find the short before replacing it</td><td>Mechanic</td><td>$100–$400+</td></tr>
+          <tr class="p2-row"><td><span class="p-badge p2-b">P2</span></td><td><strong>Identify the fluid source</strong></td><td>Fluid type determines severity — coolant vs. CVT fluid changes repair economics significantly</td><td>Mechanic</td><td>Included–$200</td></tr>
+          <tr class="p2-row"><td><span class="p-badge p2-b">P2</span></td><td><strong>Restore safe 12V power only after short is ruled out, then scan all codes</strong></td><td>Hybrid/IMA/DC-DC diagnosis requires a code scan — not possible until the short is cleared</td><td>Hybrid-capable shop</td><td>$100–$250</td></tr>
+          <tr class="p2-row"><td><span class="p-badge p2-b">P2</span></td><td><strong>Check DC-DC converter output and related fuses</strong></td><td>Rules in or out converter failure as a root or contributing cause</td><td>Hybrid-capable shop</td><td>Included–$300</td></tr>
+          <tr class="p2-row"><td><span class="p-badge p2-b">P2</span></td><td><strong>Check VIN for open recalls at nhtsa.gov/recalls</strong></td><td>Some recalls apply only to specific VINs — dealer may repair for free</td><td>Owner</td><td>$0</td></tr>
+          <tr class="p3-row"><td><span class="p-badge p3-b">P3</span></td><td><strong>Get a written estimate before authorizing major work</strong></td><td>Compare against the repair threshold table before approving anything over $500</td><td>Owner</td><td>$0</td></tr>
+          <tr class="p3-row"><td><span class="p-badge p3-b">P3</span></td><td><strong>Get a second opinion if estimate exceeds $1,500</strong></td><td>Electrical diagnosis on older hybrids can be mis-scoped; worth $100–$200 before major work</td><td>Owner</td><td>$100–$200</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── Section 5: Mechanic Script ── -->
+    <section class="section" id="script" aria-labelledby="h-script">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">5</div>
+        <h2 id="h-script">What to tell the mechanic <small>Use this script almost word for word</small></h2>
+      </div>
+
+      <p class="lead">How you brief the mechanic matters. This steers the diagnosis toward the right starting point and prevents the shop from defaulting to an expensive hybrid battery replacement before checking the basics.</p>
+
+      <div class="script-box">
+        <div class="script-label">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Recommended mechanic script
+        </div>
+        <blockquote id="mechanic-script">
+          "This is a 2008 Honda Civic Hybrid. It lost drive while turning, then had no electrical power at all — including no emergency flashers. There was smoke under the hood and a burning-plastic smell. It has an aftermarket stereo, subwoofer, and amplifier installed. Please inspect the 12V battery terminals, any added amp power wire, the inline fuse, all grounds, the firewall pass-through, the main fuse/fusible link, and the under-hood fuse box for signs of melted wiring — before assuming the IMA hybrid battery is bad. Please do not jump-start it until a short has been ruled out."
+        </blockquote>
+        <div class="button-row">
+          <button class="button" id="copy-script-btn" onclick="copyScript()">Copy script to clipboard</button>
+          <a class="button-secondary" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer">Check recalls by VIN ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── Section 6: Decision ── -->
+    <section class="section" id="decision" aria-labelledby="h-decision">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">6</div>
+        <h2 id="h-decision">Repair vs. walk away <small>Decision guide by shop finding</small></h2>
+      </div>
+
+      <p class="lead">Once the shop completes their initial inspection, use this table to guide your response.</p>
+
+      <div style="overflow-x:auto;">
+      <table class="decision-table">
+        <thead>
+          <tr>
+            <th scope="col">What the shop finds</th>
+            <th scope="col">Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Loose terminal, bad ground, or burned audio ring terminal only</strong></td><td><span class="pill pill-green">Repair</span> &nbsp; Strongly worth it. Low cost, clearly fixable.</td></tr>
+          <tr><td><strong>Bad amp wire or fuse holder, no factory damage</strong></td><td><span class="pill pill-green">Repair</span> &nbsp; Remove unsafe wiring or rewire correctly. Very worth it.</td></tr>
+          <tr><td><strong>Main fuse/fusible link blown, clear small short identified and fixed</strong></td><td><span class="pill pill-green">Repair</span> &nbsp; Worth it if total stays under ~$1,500.</td></tr>
+          <tr><td><strong>Under-hood fuse box melted, factory harness intact</strong></td><td><span class="pill pill-yellow">Borderline</span> &nbsp; Often repairable. Get a detailed written estimate and photos first.</td></tr>
+          <tr><td><strong>DC-DC converter failed, no harness damage</strong></td><td><span class="pill pill-yellow">Consider repair</span> &nbsp; Worth it if total stays under ~$2,000–$2,500 and car is otherwise healthy.</td></tr>
+          <tr><td><strong>DC-DC converter failure plus melted harness or fuse box</strong></td><td><span class="pill pill-red">Strongly reconsider</span> &nbsp; Combined cost likely exceeds the car's value. Get a second opinion first.</td></tr>
+          <tr><td><strong>Major CVT/transmission failure plus electrical issue</strong></td><td><span class="pill pill-red">Walk away</span> &nbsp; Stacked major failures on a 2008 hybrid rarely pencil out.</td></tr>
+          <tr><td><strong>Shop quotes hybrid battery as the primary fix</strong></td><td><span class="pill pill-yellow">Be skeptical</span> &nbsp; Ask how they ruled out the 12V path, main fuse, amp wiring, grounds, and DC-DC converter first.</td></tr>
+          <tr><td><strong>Total estimate above $3,000</strong></td><td><span class="pill pill-red">Usually walk away</span> &nbsp; At this level, repair cost approaches or exceeds the car's market value.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── Section 7: Safety ── -->
+    <section class="section" id="safety" aria-labelledby="h-safety">
+      <div class="section-header">
+        <div class="section-num" aria-hidden="true">7</div>
+        <h2 id="h-safety">Right now: do's and don'ts <small>Before the car is inspected</small></h2>
+      </div>
+
+      <div class="do-dont">
+        <div class="do-box">
+          <h4>Reasonable to do at home</h4>
+          <ul>
+            <li>Take photos of the engine bay, battery area, and visible wiring before anything is moved</li>
+            <li>Look for a thick red wire at the 12V battery (amp power cable)</li>
+            <li>Look for melted plastic near the battery, fuse box, or firewall</li>
+            <li>Look for a melted or bypassed amp fuse holder near the battery</li>
+            <li>Note fluid color, smell, and location without touching electrical parts</li>
+            <li>Write down where the smoke seemed to come from</li>
+            <li>Check nhtsa.gov/recalls for open recalls by VIN</li>
+          </ul>
+        </div>
+        <div class="dont-box">
+          <h4>Do not do</h4>
+          <ul>
+            <li>Do not jump-start it</li>
+            <li>Do not replace fuses and "try again"</li>
+            <li>Do not reconnect any loose or burned wires</li>
+            <li>Do not touch orange-colored cables — those carry high voltage</li>
+            <li>Do not touch wet or visibly burned electrical parts</li>
+            <li>Do not drive it if it powers back on unexpectedly</li>
+            <li>Do not authorize a hybrid battery replacement before the 12V path is ruled out</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <h3>Ready to talk to the shop?</h3>
+        <p>Copy the mechanic script above and bring this guide on your phone. The most important step is telling them about the aftermarket amp before they start diagnosing.</p>
+        <button class="button" onclick="scrollToScript()">Go to Mechanic Script ↑</button>
+      </div>
+    </section>
+
+  </div><!-- /.docs-content -->
+</div><!-- /.docs-layout -->
+</main>
+
+<!-- ── Footer ── -->
+<footer id="footer">
+  <p>This guide was prepared based on the specific reported symptoms for this vehicle. Cost estimates based on RepairPal, Greentec Auto, and standard market rates — actual quotes vary by location, shop, and final diagnosis.</p>
+  <p style="margin-top:6px;">Vehicle value data from Kelley Blue Book and Edmunds. Honda hybrid safety information from Honda TechInfo and NHTSA recall documentation.</p>
+  <div style="margin-top:4px;">
+    <button class="sources-toggle" onclick="toggleSources()" aria-expanded="false" aria-controls="sources-list">Show source references ▸</button>
+  </div>
+  <div id="sources-list" role="region" aria-label="Source references">
+    <ol>
+      <li>Honda Hybrid Emergency Response Guide — American Honda / TechInfo (2006–2011 Civic Hybrid)</li>
+      <li>Honda Service Bulletin 11-013: Safety Recall — DC-DC Converter Blows Main Fuse (NHTSA RCRIT-11V106-2835)</li>
+      <li>Transport Canada Recall 2011098 — Honda Civic Hybrid DC-DC converter / main fuse issue</li>
+      <li>Crutchfield — Car Amplifier Power Wire Fuses installation guidance</li>
+      <li>RepairPal — Honda Civic Electrical System Diagnosis Cost</li>
+      <li>RepairPal — 2008 Honda Civic Battery, Belt, Hose, Radiator, Water Pump, Tensioner costs</li>
+      <li>Greentec Auto — 2006–2011 Honda Civic Inverter with DC/DC Converter</li>
+      <li>Kelley Blue Book — 2008 Honda Civic Hybrid Sedan 4D value</li>
+      <li>Edmunds — 2008 Honda Civic appraisal values</li>
+      <li><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer">NHTSA Recalls — nhtsa.gov/recalls</a></li>
+    </ol>
+  </div>
+  <p style="margin-top:18px; opacity:.3;">Prepared May 2026 · Research-backed diagnostic guide</p>
+</footer>
+
+<script>
+  // Accordion toggle
+  function toggleIssue(btn) {
+    const bodyId = btn.getAttribute('aria-controls');
+    const body = document.getElementById(bodyId);
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    body.classList.toggle('open', !expanded);
+  }
+
+  // Copy mechanic script
+  function copyScript() {
+    const text = document.getElementById('mechanic-script').innerText.replace(/[""]/g, '"').trim();
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('copy-script-btn');
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy script to clipboard'; btn.classList.remove('copied'); }, 2200);
+      });
+    }
+  }
+
+  // Scroll to script
+  function scrollToScript() {
+    document.getElementById('script').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Sources toggle
+  function toggleSources() {
+    const list = document.getElementById('sources-list');
+    const btn = document.querySelector('.sources-toggle');
+    const open = list.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? 'Hide source references ▾' : 'Show source references ▸';
+  }
+
+  // Reading progress
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop || document.body.scrollTop;
+    const total = doc.scrollHeight - doc.clientHeight;
+    const pct = total > 0 ? Math.round((scrolled / total) * 100) : 0;
+    const bar = document.getElementById('progress');
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', pct);
+  }, { passive: true });
+
+  // Active nav + rail highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const railLinks = document.querySelectorAll('.rail-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+        railLinks.forEach(l => l.classList.toggle('rail-active', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -65% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
