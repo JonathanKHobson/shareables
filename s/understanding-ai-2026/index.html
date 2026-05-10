@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding AI in 2026 — A Beginner's Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Design tokens ── */
+    :root {
+      --openai:   #10a37f;
+      --anthropic:#d97706;
+      --google:   #4285f4;
+      --xai:      #6366f1;
+      --deepseek: #06b6d4;
+      --meta:     #1877f2;
+
+      --bg:       #09090e;
+      --surf:     #111118;
+      --surf2:    #18181f;
+      --border:   rgba(255,255,255,0.07);
+      --text:     #d4d4e4;
+      --muted:    #777790;
+      --white:    #f0f0f8;
+      --accent:   #7c6dfa;
+      --accent2:  #a99cf7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 200;
+      background: rgba(9,9,14,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto; padding: 0 2rem;
+      height: 52px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 0.9rem; color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── Layout ── */
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 96px 2rem; max-width: 1120px; margin: 0 auto; }
+
+    /* ── Typography ── */
+    .section-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--white);
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 700; letter-spacing: -0.025em; color: var(--white); margin-bottom: 1rem;
+    }
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem; font-weight: 600; color: var(--white);
+    }
+    .lead { font-size: 1.1rem; color: var(--muted); max-width: 620px; line-height: 1.72; }
+
+    /* ── Divider ── */
+    .divider { height: 1px; background: var(--border); max-width: 1120px; margin: 0 auto; }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════════
+       SECTION 1 — HERO
+    ══════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: 100px; position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .hero-glow-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(124,109,250,0.12) 0%, transparent 65%);
+      top: 50%; left: 60%; transform: translate(-50%, -50%);
+    }
+    .hero-glow-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 65%);
+      top: 20%; left: 80%;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,109,250,0.12);
+      border: 1px solid rgba(124,109,250,0.28);
+      color: var(--accent2); font-size: 0.76rem; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 1.75rem;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+    .hero-title-gradient {
+      background: linear-gradient(135deg, var(--white) 0%, rgba(169,156,247,0.85) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.2rem; color: var(--muted); margin-top: 1.25rem;
+      max-width: 580px; line-height: 1.68;
+    }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 2.25rem; background: var(--accent); color: white;
+      font-weight: 700; font-size: 0.92rem; padding: 12px 26px; border-radius: 8px;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem; flex-wrap: wrap;
+    }
+    .hero-stat { display: flex; flex-direction: column; gap: 2px; }
+    .hero-stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.1rem; font-weight: 700; color: var(--white);
+    }
+    .hero-stat-label { font-size: 0.76rem; color: var(--muted); }
+
+    /* Player logo dots in hero */
+    .player-dots {
+      display: flex; gap: 6px; margin-top: 2.5rem; flex-wrap: wrap;
+    }
+    .player-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      animation: floatDot 3s ease-in-out infinite;
+    }
+    @keyframes floatDot {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 2 — WHAT IS AI
+    ══════════════════════════════════════════ */
+    .big-concept {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 2.5rem; margin-top: 2.5rem;
+      position: relative; overflow: hidden;
+    }
+    .big-concept::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--deepseek), transparent);
+    }
+    .big-concept-icon {
+      font-size: 3rem; margin-bottom: 1rem; display: block;
+    }
+    .big-concept h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+    .big-concept p { font-size: 1rem; color: var(--text); line-height: 1.7; max-width: 700px; }
+
+    /* ══════════════════════════════════════════
+       SECTION 3 — TAXONOMY LAYERS
+    ══════════════════════════════════════════ */
+    .taxonomy-intro { margin-bottom: 2rem; }
+
+    .confusion-box {
+      background: rgba(124,109,250,0.08);
+      border: 1px solid rgba(124,109,250,0.18);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2rem;
+    }
+    .confusion-box strong { color: var(--white); }
+
+    .layers-container { position: relative; }
+
+    .layer {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 1.25rem;
+      margin-bottom: 4px;
+      opacity: 0; transform: translateX(-28px);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s;
+      cursor: default;
+    }
+    .layer.in { opacity: 1; transform: translateX(0); }
+    .layer:hover { border-color: rgba(255,255,255,0.13); }
+
+    .layer-A { border-left: 3px solid #10a37f; }
+    .layer-B { border-left: 3px solid #7c6dfa; }
+    .layer-C { border-left: 3px solid #4285f4; }
+    .layer-D { border-left: 3px solid #d97706; }
+
+    .layer-connector {
+      text-align: center; color: var(--muted);
+      font-size: 0.82rem; padding: 4px 0; letter-spacing: 0.05em;
+    }
+
+    .layer-icon-box {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .layer-A .layer-icon-box { background: rgba(16,163,127,0.15); }
+    .layer-B .layer-icon-box { background: rgba(124,109,250,0.15); }
+    .layer-C .layer-icon-box { background: rgba(66,133,244,0.15); }
+    .layer-D .layer-icon-box { background: rgba(217,119,6,0.15); }
+
+    .layer-body { flex: 1; min-width: 0; }
+    .layer-body h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+    .layer-body p { font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+
+    .layer-tags { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+    .tag {
+      font-size: 0.68rem; font-weight: 600; padding: 3px 8px;
+      border-radius: 4px; white-space: nowrap;
+    }
+    .tg { background: rgba(16,163,127,0.14); color: #34d399; }
+    .tp { background: rgba(124,109,250,0.14); color: #a99cf7; }
+    .tb { background: rgba(66,133,244,0.14); color: #93bbfd; }
+    .ta { background: rgba(217,119,6,0.14); color: #fbbf24; }
+
+    .callout {
+      background: rgba(124,109,250,0.07);
+      border: 1px solid rgba(124,109,250,0.18);
+      border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1.5rem;
+    }
+    .callout-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent2); margin-bottom: 0.5rem;
+    }
+    .callout p { font-size: 0.88rem; color: var(--text); line-height: 1.65; }
+    .callout strong { color: var(--white); }
+    .callout-success { background: rgba(16,163,127,0.07); border-color: rgba(16,163,127,0.18); }
+    .callout-success .callout-label { color: #34d399; }
+
+    /* ══════════════════════════════════════════
+       SECTION 4 — PLAYER CARDS
+    ══════════════════════════════════════════ */
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1rem; margin-top: 2.5rem;
+    }
+
+    .player-card {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: 18px; padding: 1.5rem;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: transform 0.22s ease, border-color 0.22s, box-shadow 0.22s;
+    }
+    .player-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      border-radius: 18px 18px 0 0;
+    }
+    .player-card[data-p="openai"]::after   { background: var(--openai); }
+    .player-card[data-p="anthropic"]::after { background: var(--anthropic); }
+    .player-card[data-p="google"]::after   { background: var(--google); }
+    .player-card[data-p="xai"]::after      { background: var(--xai); }
+    .player-card[data-p="deepseek"]::after { background: var(--deepseek); }
+    .player-card[data-p="meta"]::after     { background: var(--meta); }
+
+    .player-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .player-logo {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1rem; flex-shrink: 0;
+    }
+    .player-card[data-p="openai"]   .player-logo { background: rgba(16,163,127,0.14); }
+    .player-card[data-p="anthropic"] .player-logo { background: rgba(217,119,6,0.14); }
+    .player-card[data-p="google"]   .player-logo { background: rgba(66,133,244,0.14); }
+    .player-card[data-p="xai"]      .player-logo { background: rgba(99,102,241,0.14); }
+    .player-card[data-p="deepseek"] .player-logo { background: rgba(6,182,212,0.14); }
+    .player-card[data-p="meta"]     .player-logo { background: rgba(24,119,242,0.14); }
+
+    .player-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .player-maker { font-size: 0.74rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .player-tagline { font-size: 0.86rem; color: var(--text); line-height: 1.55; margin-bottom: 1rem; }
+
+    .player-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1.1rem; }
+    .player-tag {
+      font-size: 0.67rem; font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    }
+    .player-card[data-p="openai"]   .player-tag { background: rgba(16,163,127,0.12); color: #34d399; }
+    .player-card[data-p="anthropic"] .player-tag { background: rgba(217,119,6,0.12); color: #fbbf24; }
+    .player-card[data-p="google"]   .player-tag { background: rgba(66,133,244,0.12); color: #93bbfd; }
+    .player-card[data-p="xai"]      .player-tag { background: rgba(99,102,241,0.12); color: #a5b4fc; }
+    .player-card[data-p="deepseek"] .player-tag { background: rgba(6,182,212,0.12); color: #67e8f9; }
+    .player-card[data-p="meta"]     .player-tag { background: rgba(24,119,242,0.12); color: #93c5fd; }
+
+    .expand-btn {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.76rem; font-weight: 600; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .player-card:hover .expand-btn { color: var(--text); }
+    .expand-arrow { display: inline-block; transition: transform 0.25s; }
+    .player-card.open .expand-arrow { transform: rotate(180deg); }
+
+    /* Model families drawer */
+    .model-drawer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .player-card.open .model-drawer { max-height: 600px; }
+    .model-drawer-inner {
+      border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem;
+    }
+    .drawer-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;
+    }
+    .model-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px; background: var(--surf2);
+      border-radius: 8px; border: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+    .model-tier {
+      font-size: 0.63rem; font-weight: 700; padding: 3px 7px;
+      border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .t-max { background: rgba(239,68,68,0.14); color: #f87171; }
+    .t-bal { background: rgba(124,109,250,0.14); color: #a99cf7; }
+    .t-fast { background: rgba(16,163,127,0.14); color: #34d399; }
+    .t-open { background: rgba(6,182,212,0.14); color: #67e8f9; }
+    .model-row h5 { font-size: 0.83rem; font-weight: 600; color: var(--white); }
+    .model-row p { font-size: 0.74rem; color: var(--muted); line-height: 1.4; margin-top: 2px; }
+
+    .warn-box {
+      background: rgba(239,68,68,0.07);
+      border: 1px solid rgba(239,68,68,0.18);
+      border-radius: 8px; padding: 0.75rem 1rem; margin-top: 0.5rem;
+      font-size: 0.74rem; color: #f87171;
+    }
+
+    /* ══════════════════════════════════════════
+       SECTION 5 — HOW TO USE IT
+    ══════════════════════════════════════════ */
+    .iface-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .iface-card {
+      background: var(--surf); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.4rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .iface-card:hover { border-color: rgba(255,255,255,0.11); transform: translateY(-3px); }
+
+    .iface-badge {
+      display: inline-block;
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+    .ib-assist  { background: rgba(124,109,250,0.13); color: #a99cf7; }
+    .ib-code    { background: rgba(16,163,127,0.13); color: #34d399; }
+    .ib-research{ background: rgba(66,133,244,0.13); color: #93bbfd; }
+    .ib-creative{ background: rgba(217,119,6,0.13); color: #fbbf24; }
+
+    .iface-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+    .iface-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    .iface-examples { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 5px; }
+    .iface-ex {
+      font-size: 0.67rem; font-weight: 600; padding: 2px 7px;
+      background: var(--surf2); border: 1px solid var(--border);
+      border-radius: 4px; color: var(--muted);
+    }
+
+    /* Agent anatomy */
+    .agent-anatomy {
+      background: var(--surf); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem; margin-top: 2rem;
+    }
+    .agent-anatomy h3 { margin-bottom: 1rem; }
+    .anatomy-steps {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.75rem;
+    }
+    .anatomy-step {
+      background: var(--surf2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 0.9rem; display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(124,109,250,0.2); color: var(--accent2);
+      font-size: 0.7rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .anatomy-step span { font-size: 0.8rem; color: var(--text); line-height: 1.4; }
+
+    /* ══════════════════════════════════════════
+       SECTION 6 — BIG PICTURE
+    ══════════════════════════════════════════ */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .stat-card {
+      background: var(--surf); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.5rem;
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.4rem; font-weight: 800; color: var(--white);
+      line-height: 1; margin-bottom: 6px;
+    }
+    .stat-desc { font-size: 0.83rem; color: var(--text); }
+    .stat-src  { font-size: 0.66rem; color: var(--muted); margin-top: 4px; }
+
+    /* Trust bars */
+    .trust-section {
+      background: var(--surf); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem; margin-top: 2rem;
+    }
+    .trust-section h3 { margin-bottom: 1.75rem; }
+    .bar-row { margin-bottom: 1.4rem; }
+    .bar-meta {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .bar-label { font-size: 0.84rem; color: var(--text); }
+    .bar-pct { font-size: 1rem; font-weight: 700; color: var(--white); }
+    .bar-track {
+      height: 8px; background: var(--surf2);
+      border-radius: 4px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 4px;
+      width: 0; transition: width 1.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .bar-fill.go { width: var(--w); }
+    .bf-blue   { background: linear-gradient(90deg, #4285f4, #93bbfd); }
+    .bf-purple { background: linear-gradient(90deg, #7c6dfa, #a99cf7); }
+    .bf-amber  { background: linear-gradient(90deg, #d97706, #fbbf24); }
+    .bf-red    { background: linear-gradient(90deg, #ef4444, #f87171); }
+    .bar-note  { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+
+    /* Key distinctions table */
+    .compare-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+    .compare-table th {
+      text-align: left; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+      padding: 0 1rem 0.75rem; border-bottom: 1px solid var(--border);
+    }
+    .compare-table td {
+      padding: 0.85rem 1rem; border-bottom: 1px solid var(--border);
+      font-size: 0.84rem; color: var(--text); vertical-align: top;
+    }
+    .compare-table td:first-child { font-weight: 600; color: var(--white); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Closing CTA */
+    .cta-block {
+      background: linear-gradient(135deg, rgba(124,109,250,0.12), rgba(6,182,212,0.06));
+      border: 1px solid rgba(124,109,250,0.2);
+      border-radius: 20px; padding: 3rem; margin-top: 3rem; text-align: center;
+    }
+    .cta-block h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+    .cta-block p { font-size: 1rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.65; }
+    .cta-steps {
+      display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center;
+    }
+    .cta-step {
+      background: var(--surf); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem; max-width: 200px; text-align: left;
+    }
+    .cta-step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-bottom: 4px;
+    }
+    .cta-step p { font-size: 0.8rem; color: var(--muted); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem; text-align: center;
+      color: var(--muted); font-size: 0.74rem; line-height: 1.65;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 720px) {
+      nav .nav-links { display: none; }
+      section { padding: 64px 1.25rem; }
+      .layer { flex-wrap: wrap; }
+      .layer-tags { width: 100%; margin-top: 8px; }
+      .hero-stats { gap: 1.5rem; }
+      .cta-block { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─────────────── NAV ─────────────── -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Understanding AI in 2026</div>
+    <ul class="nav-links">
+      <li><a href="#what">What is AI?</a></li>
+      <li><a href="#confusion">The Confusion</a></li>
+      <li><a href="#players">Main Players</a></li>
+      <li><a href="#interfaces">How to Use It</a></li>
+      <li><a href="#picture">Big Picture</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-dot"></span>
+      May 2026 · Research-backed · No jargon
+    </div>
+    <h1>
+      <span class="hero-title-gradient">AI is a tool.<br>This is your map.</span>
+    </h1>
+    <p class="hero-sub">
+      You've heard "ChatGPT," "Claude," "Gemini," "GPT-5.5."
+      But what's actually happening, and why does it matter?
+      This guide explains the AI landscape in plain language — no prior knowledge required.
+    </p>
+    <a href="#what" class="hero-cta">Start here ↓</a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">88%</span>
+        <span class="hero-stat-label">of organizations use AI</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">~80%</span>
+        <span class="hero-stat-label">of university students use gen AI</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">357</span>
+        <span class="hero-stat-label">notable AI models tracked</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1 — WHAT IS AI
+═══════════════════════════════════════════ -->
+<section id="what" class="reveal">
+  <div class="section-label">01 — The Basics</div>
+  <h2>What even is AI?</h2>
+  <p class="lead">
+    The short, honest answer: an AI model is a computer program trained on enormous amounts of human
+    writing, images, and other data — until it learns to predict what comes next, really well.
+  </p>
+
+  <div class="big-concept">
+    <span class="big-concept-icon">🧠</span>
+    <h3>The one-sentence explanation</h3>
+    <p>
+      An AI model is <strong style="color:var(--white)">autocomplete at a superhuman scale</strong> —
+      trained on so much human writing that it can hold a conversation, solve problems, write code,
+      generate images, and reason through complex questions. It doesn't "know" things the way you do;
+      it predicts what a thoughtful, knowledgeable response would look like, based on patterns in its training.
+    </p>
+  </div>
+
+  <div class="callout" style="margin-top: 1rem;">
+    <div class="callout-label">Why it matters</div>
+    <p>
+      This single fact explains both AI's superpowers <em>and</em> its failures.
+      It can write a brilliant essay — and confidently state a wrong fact.
+      It's a powerful thinking partner, not an oracle.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2 — THE BIG CONFUSION
+═══════════════════════════════════════════ -->
+<section id="confusion" class="reveal">
+  <div class="section-label">02 — The Big Confusion</div>
+  <h2>Model, product, interface:<br>what's the difference?</h2>
+  <p class="lead">
+    The single biggest source of AI confusion is mixing up three different things.
+    Understanding this one diagram will make the whole landscape click into place.
+  </p>
+
+  <div class="confusion-box" style="margin-top: 1.75rem;">
+    <p style="font-size: 0.88rem; line-height: 1.65;">
+      🤔 <strong>Common question:</strong> "What's the difference between ChatGPT and GPT-5.5?"<br>
+      Answer: <strong>ChatGPT is the app</strong> (product). <strong>GPT-5.5 is the engine</strong> inside it (model).
+      Same relationship as Chrome (browser) and V8 (the engine that runs JavaScript inside it).
+    </p>
+  </div>
+
+  <!-- Animated layer diagram -->
+  <div id="layerDiagram" style="margin-top: 1.5rem;">
+
+    <div class="layer layer-A" id="l1">
+      <div class="layer-icon-box">⚙️</div>
+      <div class="layer-body">
+        <h4>Layer 1 — The Model</h4>
+        <p>The actual AI brain: a neural network trained on data. Determines raw capability, cost, and behavior.</p>
+      </div>
+      <div class="layer-tags">
+        <span class="tag tg">GPT-5.5</span>
+        <span class="tag tg">Claude Opus 4.7</span>
+        <span class="tag tg">Gemini 3.1 Pro</span>
+      </div>
+    </div>
+
+    <div class="layer-connector">↓ &nbsp;runs inside&nbsp; ↓</div>
+
+    <div class="layer layer-B" id="l2">
+      <div class="layer-icon-box">📦</div>
+      <div class="layer-body">
+        <h4>Layer 2 — The Product</h4>
+        <p>An app wrapped around the model. Adds memory, search, file upload, subscriptions, safety filters, and UI.</p>
+      </div>
+      <div class="layer-tags">
+        <span class="tag tp">ChatGPT</span>
+        <span class="tag tp">Claude.ai</span>
+        <span class="tag tp">Gemini app</span>
+      </div>
+    </div>
+
+    <div class="layer-connector">↓ &nbsp;you access it through&nbsp; ↓</div>
+
+    <div class="layer layer-C" id="l3">
+      <div class="layer-icon-box">💻</div>
+      <div class="layer-body">
+        <h4>Layer 3 — The Interface</h4>
+        <p>How you actually use it — a web browser, mobile app, voice assistant, IDE plugin, or API call.</p>
+      </div>
+      <div class="layer-tags">
+        <span class="tag tb">Web browser</span>
+        <span class="tag tb">Mobile app</span>
+        <span class="tag tb">IDE plugin</span>
+        <span class="tag tb">API</span>
+      </div>
+    </div>
+
+    <div class="layer-connector">↓ &nbsp;increasingly, also&nbsp; ↓</div>
+
+    <div class="layer layer-D" id="l4">
+      <div class="layer-icon-box">🤖</div>
+      <div class="layer-body">
+        <h4>Layer 4 — Agent Systems</h4>
+        <p>AI that doesn't just answer — it takes action: reads files, writes code, browses the web, runs tasks.</p>
+      </div>
+      <div class="layer-tags">
+        <span class="tag ta">Claude Code</span>
+        <span class="tag ta">Codex</span>
+        <span class="tag ta">Jules</span>
+        <span class="tag ta">Copilot</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 1.75rem;">
+    <div class="callout-label">Real-world examples of the naming trap</div>
+    <p>
+      <strong>ChatGPT</strong> (product) may run GPT-5.5, GPT-5.5 Instant, or GPT-5.4 mini depending on your plan.
+      &nbsp;·&nbsp; <strong>Claude</strong> (product) runs Opus, Sonnet, or Haiku depending on the task.
+      &nbsp;·&nbsp; <strong>Microsoft Copilot</strong> (product) is not one model — it routes to multiple AI engines.
+      The company and the chatbot and the model are three different things.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3 — THE MAIN PLAYERS
+═══════════════════════════════════════════ -->
+<section id="players" class="reveal">
+  <div class="section-label">03 — The Main Players</div>
+  <h2>Who's who?</h2>
+  <p class="lead">
+    Six companies dominate the AI conversation in 2026. Each has a distinct personality, philosophy,
+    and strength. <strong style="color:var(--white)">Click any card to see the models inside.</strong>
+  </p>
+
+  <div class="players-grid">
+
+    <!-- ─── OpenAI ─── -->
+    <div class="player-card" data-p="openai">
+      <div class="player-logo">🟢</div>
+      <div class="player-name">ChatGPT</div>
+      <div class="player-maker">by OpenAI · San Francisco</div>
+      <p class="player-tagline">
+        The product that made AI mainstream. Used by hundreds of millions worldwide,
+        ChatGPT is OpenAI's general-purpose assistant and the name most people associate with "AI."
+      </p>
+      <div class="player-tags">
+        <span class="player-tag">General reasoning</span>
+        <span class="player-tag">Image generation</span>
+        <span class="player-tag">Voice mode</span>
+        <span class="player-tag">Code</span>
+        <span class="player-tag">Huge ecosystem</span>
+      </div>
+      <div class="expand-btn">See the models inside <span class="expand-arrow">▼</span></div>
+      <div class="model-drawer">
+        <div class="model-drawer-inner">
+          <div class="drawer-label">GPT model lineup — May 2026</div>
+          <div class="model-row">
+            <span class="model-tier t-max">Most powerful</span>
+            <div><h5>GPT-5.5 Pro</h5><p>Deepest reasoning. Higher cost. For genuinely hard problems where quality matters above speed or price.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-bal">Balanced</span>
+            <div><h5>GPT-5.5</h5><p>Strong frontier model. What most developers and power users reach for. OpenAI's benchmark best.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-fast">Everyday</span>
+            <div><h5>GPT-5.5 Instant</h5><p>Faster and designed for everyday tasks. Default experience for many ChatGPT users.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-fast">Fast + cheap</span>
+            <div><h5>GPT-5.4 mini / nano</h5><p>Quick and inexpensive. Great for summarization, formatting, and classification in bulk.</p></div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.76rem; color: var(--muted);">
+            💡 Also includes: ChatGPT Images 2, Codex (coding agent), Realtime voice API, Sora (video).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Anthropic ─── -->
+    <div class="player-card" data-p="anthropic">
+      <div class="player-logo">🟠</div>
+      <div class="player-name">Claude</div>
+      <div class="player-maker">by Anthropic · San Francisco</div>
+      <p class="player-tagline">
+        Known for careful, thoughtful, high-quality responses. Claude excels at long-form reasoning,
+        coding, nuanced writing, and long documents — a top choice among developers.
+      </p>
+      <div class="player-tags">
+        <span class="player-tag">Writing quality</span>
+        <span class="player-tag">Complex reasoning</span>
+        <span class="player-tag">Long documents</span>
+        <span class="player-tag">Code</span>
+        <span class="player-tag">Safety focus</span>
+      </div>
+      <div class="expand-btn">See the models inside <span class="expand-arrow">▼</span></div>
+      <div class="model-drawer">
+        <div class="model-drawer-inner">
+          <div class="drawer-label">Claude model lineup — May 2026</div>
+          <div class="model-row">
+            <span class="model-tier t-max">Most powerful</span>
+            <div><h5>Claude Opus 4.7</h5><p>Anthropic's flagship. Best for complex reasoning, long-horizon coding, deep analysis, and ambitious writing.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-bal">Everyday workhorse</span>
+            <div><h5>Claude Sonnet 4.6</h5><p>Balances quality, cost, and speed. What most people use for day-to-day production work.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-fast">Fast</span>
+            <div><h5>Claude Haiku 4.5</h5><p>Fastest and cheapest. For high-volume, latency-sensitive tasks like classification or quick summaries.</p></div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.76rem; color: var(--muted);">
+            💡 Also includes: Claude Code (coding agent), Claude Design (visual work), Claude Cowork (autonomous tasks), MCP (tool connections).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Google ─── -->
+    <div class="player-card" data-p="google">
+      <div class="player-logo">🔵</div>
+      <div class="player-name">Gemini</div>
+      <div class="player-maker">by Google DeepMind · Mountain View</div>
+      <p class="player-tagline">
+        Google's AI is everywhere — Search, Gmail, Docs, YouTube, and the Gemini app.
+        Exceptional at multimodal tasks (text + images + video) and deeply woven into Google's ecosystem.
+      </p>
+      <div class="player-tags">
+        <span class="player-tag">Multimodal</span>
+        <span class="player-tag">Long context</span>
+        <span class="player-tag">Google Search</span>
+        <span class="player-tag">NotebookLM</span>
+        <span class="player-tag">Open-weight (Gemma)</span>
+      </div>
+      <div class="expand-btn">See the models inside <span class="expand-arrow">▼</span></div>
+      <div class="model-drawer">
+        <div class="model-drawer-inner">
+          <div class="drawer-label">Gemini model lineup — May 2026</div>
+          <div class="model-row">
+            <span class="model-tier t-max">Frontier</span>
+            <div><h5>Gemini 3.1 Pro Preview</h5><p>Google's top model. Strong reasoning, multimodal analysis, long context, and agentic workflows.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-fast">Fast</span>
+            <div><h5>Gemini 3.1 Flash / Flash-Lite</h5><p>Faster, cheaper. Built for high-volume and latency-sensitive multimodal workloads.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-open">Open-weight</span>
+            <div><h5>Gemma 4</h5><p>Google's downloadable open model. Run it on your own hardware. Good for local, private AI workflows.</p></div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.76rem; color: var(--muted);">
+            💡 Also includes: NotebookLM, Jules (coding agent), Stitch (UI design), Flow (video), Veo 3.1 (video generation), Imagen 4 (images).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── xAI ─── -->
+    <div class="player-card" data-p="xai">
+      <div class="player-logo">🟣</div>
+      <div class="player-name">Grok</div>
+      <div class="player-maker">by xAI · Elon Musk</div>
+      <p class="player-tagline">
+        Built with real-time access to X (formerly Twitter) and the web.
+        Grok is the choice when you need current information, live search grounding, and long-context reasoning.
+      </p>
+      <div class="player-tags">
+        <span class="player-tag">Real-time search</span>
+        <span class="player-tag">Long context</span>
+        <span class="player-tag">X / web integration</span>
+        <span class="player-tag">Voice API</span>
+      </div>
+      <div class="expand-btn">See the models inside <span class="expand-arrow">▼</span></div>
+      <div class="model-drawer">
+        <div class="model-drawer-inner">
+          <div class="drawer-label">Grok model lineup — May 2026</div>
+          <div class="model-row">
+            <span class="model-tier t-max">Flagship</span>
+            <div><h5>Grok 4.3</h5><p>1M context window. Strong tool calling and instruction following. xAI's primary frontier model.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-bal">Multi-agent</span>
+            <div><h5>Grok 4.20</h5><p>Long-context variant for orchestrating multiple agents in research and analysis workflows.</p></div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.76rem; color: var(--muted);">
+            ⚠️ xAI retires older models on active schedules — check current availability if building on their API.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── DeepSeek ─── -->
+    <div class="player-card" data-p="deepseek">
+      <div class="player-logo">🔷</div>
+      <div class="player-name">DeepSeek</div>
+      <div class="player-maker">by DeepSeek AI · China</div>
+      <p class="player-tagline">
+        The cost-performance wildcard. DeepSeek shocked the industry with frontier-level reasoning
+        at a fraction of the cost — and releases open-weight models you can download and run yourself.
+      </p>
+      <div class="player-tags">
+        <span class="player-tag">Cost-efficient</span>
+        <span class="player-tag">Open-weight</span>
+        <span class="player-tag">Strong coding</span>
+        <span class="player-tag">1M context</span>
+        <span class="player-tag">Thinking mode</span>
+      </div>
+      <div class="expand-btn">See the models inside <span class="expand-arrow">▼</span></div>
+      <div class="model-drawer">
+        <div class="model-drawer-inner">
+          <div class="drawer-label">DeepSeek model lineup — May 2026</div>
+          <div class="model-row">
+            <span class="model-tier t-max">Most capable</span>
+            <div><h5>DeepSeek V4 Pro</h5><p>Strong reasoning and agent capabilities, 1M context. Announced April 2026. Competitive with closed frontier models.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-fast">Fast</span>
+            <div><h5>DeepSeek V4 Flash</h5><p>Faster and cheaper. "Thinking mode" shows reasoning steps — unlike most closed models that hide this.</p></div>
+          </div>
+          <div class="warn-box">
+            ⚠️ Enterprise users: review compliance, data privacy, and geopolitical risk considerations before sending sensitive data to this provider.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Meta ─── -->
+    <div class="player-card" data-p="meta">
+      <div class="player-logo">🔵</div>
+      <div class="player-name">Meta AI / Llama</div>
+      <div class="player-maker">by Meta · Mark Zuckerberg</div>
+      <p class="player-tagline">
+        Meta runs a two-track strategy: Meta AI (built into WhatsApp, Instagram, Facebook) for everyday users,
+        and Llama (open-weight models) for developers who want to run AI on their own infrastructure.
+      </p>
+      <div class="player-tags">
+        <span class="player-tag">Open-weight models</span>
+        <span class="player-tag">Social apps</span>
+        <span class="player-tag">Self-hostable</span>
+        <span class="player-tag">Multimodal</span>
+      </div>
+      <div class="expand-btn">See the models inside <span class="expand-arrow">▼</span></div>
+      <div class="model-drawer">
+        <div class="model-drawer-inner">
+          <div class="drawer-label">Meta model lineup — May 2026</div>
+          <div class="model-row">
+            <span class="model-tier t-open">Open-weight</span>
+            <div><h5>Llama 4 Scout / Maverick</h5><p>Natively multimodal. Designed for long context and efficiency. Download and run on your own hardware.</p></div>
+          </div>
+          <div class="model-row">
+            <span class="model-tier t-bal">Research</span>
+            <div><h5>Muse Spark</h5><p>Meta Superintelligence Labs' first model. Smaller and faster, with strong science, math, and health focus.</p></div>
+          </div>
+          <div style="margin-top: 0.75rem; font-size: 0.76rem; color: var(--muted);">
+            💡 "Open-weight" means you can download the model files — but it's not the same as fully open-source. Check Meta's license terms.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /players-grid -->
+
+  <!-- Quick compare table -->
+  <div style="margin-top: 2.5rem; overflow-x: auto;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Best known for</th>
+          <th>Open-weight?</th>
+          <th>Key product</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>OpenAI</td>
+          <td>General reasoning, pioneered the chatbot era</td>
+          <td>No</td>
+          <td>ChatGPT</td>
+        </tr>
+        <tr>
+          <td>Anthropic</td>
+          <td>Writing quality, safety, long-context work</td>
+          <td>No</td>
+          <td>Claude.ai</td>
+        </tr>
+        <tr>
+          <td>Google</td>
+          <td>Multimodal, Google ecosystem integration</td>
+          <td>Gemma (yes)</td>
+          <td>Gemini app, NotebookLM</td>
+        </tr>
+        <tr>
+          <td>xAI</td>
+          <td>Real-time search, X grounding, long context</td>
+          <td>No</td>
+          <td>Grok app</td>
+        </tr>
+        <tr>
+          <td>DeepSeek</td>
+          <td>Cost/performance, visible reasoning traces</td>
+          <td>Yes</td>
+          <td>DeepSeek chat / API</td>
+        </tr>
+        <tr>
+          <td>Meta</td>
+          <td>Open-weight ecosystem, social AI</td>
+          <td>Yes (Llama)</td>
+          <td>Meta AI, Llama</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4 — HOW YOU USE IT
+═══════════════════════════════════════════ -->
+<section id="interfaces" class="reveal">
+  <div class="section-label">04 — How You Actually Use It</div>
+  <h2>AI isn't just chatbots</h2>
+  <p class="lead">
+    In 2026, AI comes in four distinct flavors. Knowing which type you're dealing with
+    helps you set the right expectations — and avoid frustration.
+  </p>
+
+  <div class="iface-grid">
+    <div class="iface-card">
+      <span class="iface-badge ib-assist">General Assistant</span>
+      <h4>Chat apps</h4>
+      <p>You type a question; it responds. Great for brainstorming, writing help, quick research, analysis, and conversation.</p>
+      <div class="iface-examples">
+        <span class="iface-ex">ChatGPT</span>
+        <span class="iface-ex">Claude.ai</span>
+        <span class="iface-ex">Gemini</span>
+        <span class="iface-ex">Grok</span>
+        <span class="iface-ex">Perplexity</span>
+      </div>
+    </div>
+
+    <div class="iface-card">
+      <span class="iface-badge ib-code">Coding Agent</span>
+      <h4>Developer tools</h4>
+      <p>AI that reads your entire codebase and makes changes — writes tests, fixes bugs, submits pull requests.</p>
+      <div class="iface-examples">
+        <span class="iface-ex">Claude Code</span>
+        <span class="iface-ex">OpenAI Codex</span>
+        <span class="iface-ex">GitHub Copilot</span>
+        <span class="iface-ex">Google Jules</span>
+      </div>
+    </div>
+
+    <div class="iface-card">
+      <span class="iface-badge ib-research">Research Tool</span>
+      <h4>Knowledge products</h4>
+      <p>AI grounded in specific sources. Best for analyzing uploaded documents, writing research reports, synthesizing knowledge.</p>
+      <div class="iface-examples">
+        <span class="iface-ex">NotebookLM</span>
+        <span class="iface-ex">Perplexity Deep Research</span>
+        <span class="iface-ex">Gemini Deep Research</span>
+      </div>
+    </div>
+
+    <div class="iface-card">
+      <span class="iface-badge ib-creative">Creative Suite</span>
+      <h4>Creative tools</h4>
+      <p>AI for images, video, audio, music, and UI design. Each has its own strengths, cost, and licensing terms.</p>
+      <div class="iface-examples">
+        <span class="iface-ex">Midjourney</span>
+        <span class="iface-ex">Runway</span>
+        <span class="iface-ex">Suno</span>
+        <span class="iface-ex">Claude Design</span>
+        <span class="iface-ex">Google Stitch</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent anatomy -->
+  <div class="agent-anatomy">
+    <h3>🤖 The new thing: agents</h3>
+    <p style="font-size: 0.88rem; color: var(--muted); margin: 0.5rem 0 1.25rem; line-height: 1.6;">
+      An agent is AI that doesn't just answer — it plans a multi-step task, uses tools, and delivers a finished result.
+      Only 31% of developers use agents today (Stack Overflow 2025), but that's growing fast.
+      Here's what makes an agent different from a chatbot:
+    </p>
+    <div class="anatomy-steps">
+      <div class="anatomy-step">
+        <span class="step-num">1</span>
+        <span>A <strong style="color:var(--white)">model</strong> — the reasoning engine</span>
+      </div>
+      <div class="anatomy-step">
+        <span class="step-num">2</span>
+        <span><strong style="color:var(--white)">Tools</strong> — search, code runner, file editor</span>
+      </div>
+      <div class="anatomy-step">
+        <span class="step-num">3</span>
+        <span><strong style="color:var(--white)">Memory</strong> — state across multiple steps</span>
+      </div>
+      <div class="anatomy-step">
+        <span class="step-num">4</span>
+        <span>A <strong style="color:var(--white)">planning loop</strong> — check work, try again</span>
+      </div>
+      <div class="anatomy-step">
+        <span class="step-num">5</span>
+        <span><strong style="color:var(--white)">Permissions</strong> — what it's allowed to touch</span>
+      </div>
+      <div class="anatomy-step">
+        <span class="step-num">6</span>
+        <span><strong style="color:var(--white)">Human review</strong> — the safety net</span>
+      </div>
+    </div>
+    <div class="callout" style="margin-top: 1.25rem; background: rgba(239,68,68,0.06); border-color: rgba(239,68,68,0.18);">
+      <div class="callout-label" style="color: #f87171;">Important shift</div>
+      <p>The safety question has moved from "Can it say something wrong?" to "Can it <em>do</em> something wrong?"
+      Agents that have access to your files, email, or calendar need careful guardrails.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5 — BIG PICTURE
+═══════════════════════════════════════════ -->
+<section id="picture" class="reveal">
+  <div class="section-label">05 — The Bigger Picture</div>
+  <h2>Where we actually are</h2>
+  <p class="lead">
+    AI is everywhere — but the picture is more nuanced than the hype suggests.
+    Adoption is high. Trust is uneven. The risks are real.
+  </p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num">88%</div>
+      <div class="stat-desc">of organizations have adopted AI</div>
+      <div class="stat-src">Stanford AI Index 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">~80%</div>
+      <div class="stat-desc">of university students use generative AI</div>
+      <div class="stat-src">Stanford AI Index 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">84%</div>
+      <div class="stat-desc">of developers use or plan to use AI tools</div>
+      <div class="stat-src">Stack Overflow 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">29%</div>
+      <div class="stat-desc">developer trust in AI tools (down from 40%)</div>
+      <div class="stat-src">Stack Overflow 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">51%</div>
+      <div class="stat-desc">of AI-using orgs have seen at least one negative consequence</div>
+      <div class="stat-src">McKinsey 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2M+</div>
+      <div class="stat-desc">public AI models on Hugging Face — ecosystem is massive</div>
+      <div class="stat-src">Hugging Face 2026 Report</div>
+    </div>
+  </div>
+
+  <!-- Trust bar chart -->
+  <div class="trust-section" id="trustSection">
+    <h3>The trust gap — visualized</h3>
+
+    <div class="bar-row">
+      <div class="bar-meta">
+        <span class="bar-label">Developers using AI tools</span>
+        <span class="bar-pct">84%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bf-blue" style="--w:84%"></div></div>
+      <div class="bar-note">Stack Overflow 2025 Developer Survey</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-meta">
+        <span class="bar-label">Developer trust in those tools</span>
+        <span class="bar-pct">29%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bf-amber" style="--w:29%"></div></div>
+      <div class="bar-note">Stack Overflow 2025 — trust fell from 40% the prior year</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-meta">
+        <span class="bar-label">Organizations citing inaccuracy as a major AI risk</span>
+        <span class="bar-pct">74%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bf-red" style="--w:74%"></div></div>
+      <div class="bar-note">McKinsey 2026 AI Report</div>
+    </div>
+
+    <div class="bar-row">
+      <div class="bar-meta">
+        <span class="bar-label">Organizations citing cybersecurity as a major AI risk</span>
+        <span class="bar-pct">72%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bf-red" style="--w:72%"></div></div>
+      <div class="bar-note">McKinsey 2026 AI Report</div>
+    </div>
+
+    <div class="callout" style="margin-top: 1.5rem;">
+      <div class="callout-label">What this means</div>
+      <p>
+        More usage has not automatically created more trust. People are using AI constantly —
+        and discovering its failure modes in real work. <strong>That's not a bug; that's the right progression.</strong>
+        Trust should be earned through experience with actual tasks, not just impressive demos.
+      </p>
+    </div>
+  </div>
+
+  <!-- Why it matters -->
+  <div class="callout callout-success" style="margin-top: 1.5rem;">
+    <div class="callout-label">Why this matters to you</div>
+    <p>
+      AI is genuinely useful — and it's reshaping every field. The practical skill isn't picking the "best" AI;
+      it's knowing <strong>which tool fits which task</strong>, recognizing when to verify its output,
+      and understanding who controls your data.
+      AI is a thinking partner, not an authority.
+    </p>
+  </div>
+
+  <!-- Closing CTA -->
+  <div class="cta-block">
+    <h2>Ready to start?</h2>
+    <p>You don't need a computer science degree. You need 20 minutes and a real task you do every week.</p>
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="cta-step-num">1</div>
+        <p>Pick one free tool — ChatGPT, Claude, or Gemini</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">2</div>
+        <p>Use it for something you actually do this week</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">3</div>
+        <p>Notice where it helps — and where it confidently gets things wrong</p>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-num">4</div>
+        <p>That instinct <em>is</em> the skill</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────── FOOTER ─────────────── -->
+<footer>
+  <p>
+    All statistics and claims sourced from: Stanford AI Index 2026 · Stack Overflow Developer Survey 2025 ·
+    McKinsey AI Report 2026 · Hugging Face State of Open Source 2026 ·
+    Artificial Analysis Model Leaderboard · Official documentation from OpenAI, Anthropic, Google, xAI, DeepSeek, and Meta.
+  </p>
+  <p style="margin-top: 6px; opacity: 0.45;">
+    Last updated: May 2026 · For educational use · No AI capabilities were harmed in the making of this guide.
+  </p>
+</footer>
+
+
+<script>
+  /* Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => ro.observe(r));
+
+  /* Layer diagram stagger */
+  const layers = [document.getElementById('l1'), document.getElementById('l2'), document.getElementById('l3'), document.getElementById('l4')];
+  const layerObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        layers.forEach((l, i) => setTimeout(() => l && l.classList.add('in'), i * 180));
+        layerObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  const diag = document.getElementById('layerDiagram');
+  if (diag) layerObs.observe(diag);
+
+  /* Player card expand */
+  document.querySelectorAll('.player-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.player-card.open').forEach(c => c.classList.remove('open'));
+      if (!isOpen) card.classList.add('open');
+    });
+  });
+
+  /* Trust bar animation */
+  const trustObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          document.querySelectorAll('.bar-fill').forEach(b => b.classList.add('go'));
+        }, 200);
+        trustObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const ts = document.getElementById('trustSection');
+  if (ts) trustObs.observe(ts);
+</script>
+
+</body>
+</html>
