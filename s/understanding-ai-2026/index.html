@@ -6,8 +6,9 @@
   <title>Understanding AI in 2026 — A Beginner's Guide</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    /* compass-public-visual-system: uxhc-v1 */
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,29 +21,53 @@
       --deepseek: #06b6d4;
       --meta:     #1877f2;
 
-      --bg:       #09090e;
-      --surf:     #111118;
-      --surf2:    #18181f;
-      --border:   rgba(255,255,255,0.07);
-      --text:     #d4d4e4;
-      --muted:    #777790;
-      --white:    #f0f0f8;
-      --accent:   #7c6dfa;
-      --accent2:  #a99cf7;
+      color-scheme: light;
+      --bg:       #f7faf7;
+      --paper:    #ffffff;
+      --surf:     #ffffff;
+      --surf2:    #eef6f1;
+      --border:   #d9e5df;
+      --text:     #17211f;
+      --muted:    #5f6f6a;
+      --white:    #17211f;
+      --accent:   #0f766e;
+      --accent2:  #0b5f59;
+      --teal: #0f766e;
+      --teal-dark: #0b5f59;
+      --teal-lt: rgba(15, 118, 110, 0.08);
+      --coral: #d95f43;
+      --leaf: #527a39;
+      --gold: #d99c2b;
+      --line: #d9e5df;
+      --soft: #eef6f1;
+      --danger: #9f2d20;
+      --shadow: 0 2px 8px rgba(23, 33, 31, 0.06);
+      --shadow-md: 0 6px 20px rgba(23, 33, 31, 0.10);
+      --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+      --font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      --container: min(1120px, calc(100% - 32px));
+      --radius: 8px;
+      --site-nav-h: 52px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      font-family: var(--font-body);
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.07) 0%, transparent 400px), var(--bg);
       color: var(--text);
       line-height: 1.65;
       overflow-x: hidden;
     }
+    img, svg { max-width: 100%; height: auto; }
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 2.5px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
 
     /* ── Nav ── */
-    nav {
+    .old-nav {
       position: fixed; top: 0; width: 100%; z-index: 200;
       background: rgba(9,9,14,0.88);
       backdrop-filter: blur(14px);
@@ -53,7 +78,7 @@
       height: 52px; display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: var(--font-display);
       font-weight: 700; font-size: 0.9rem; color: var(--white);
       letter-spacing: -0.01em;
     }
@@ -74,12 +99,12 @@
       text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
     }
     h1 {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(2.6rem, 6.5vw, 5rem);
       font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: var(--white);
     }
     h2 {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(1.9rem, 4vw, 3rem);
       font-weight: 700; letter-spacing: -0.025em; color: var(--white); margin-bottom: 1rem;
     }
@@ -513,39 +538,515 @@
     }
     .cta-step p { font-size: 0.8rem; color: var(--muted); }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem; text-align: center;
-      color: var(--muted); font-size: 0.74rem; line-height: 1.65;
+    /* Compass network navigation */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      z-index: 700;
+      background: linear-gradient(90deg, var(--teal), var(--coral), var(--gold));
     }
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 600;
+      height: var(--site-nav-h);
+      background: rgba(247, 250, 247, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-nav-inner {
+      width: var(--container);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .site-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--teal-dark);
+      text-decoration: none;
+      flex-shrink: 0;
+      padding: 5px 8px;
+      border-radius: var(--radius);
+    }
+    .site-nav-brand:hover { background: var(--teal-lt); }
+    .site-nav-brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      background: var(--teal-lt);
+      color: var(--teal-dark);
+      font-weight: 900;
+    }
+    .site-nav-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--line);
+      flex-shrink: 0;
+      margin: 0 6px;
+    }
+    .site-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+      min-width: 0;
+    }
+    .site-nav-links::-webkit-scrollbar { display: none; }
+    .site-nav-link {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.12s, color 0.12s;
+    }
+    .site-nav-link:hover { background: var(--teal-lt); color: var(--teal-dark); }
+    .site-nav-link[aria-current="page"] { background: var(--soft); color: var(--teal-dark); }
+    .site-nav-toggle {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      margin-left: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      background: var(--paper);
+      color: var(--teal-dark);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+    .site-nav-toggle-icon {
+      position: relative;
+      width: 18px;
+      height: 12px;
+      display: inline-block;
+      border-top: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+    }
+    .site-nav-toggle-icon::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 3px;
+      border-top: 2px solid currentColor;
+    }
+
+    .page-nav-wrap {
+      position: sticky;
+      top: var(--site-nav-h);
+      z-index: 450;
+      background: rgba(247, 250, 247, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .page-nav-inner {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 9px 12px;
+      background: var(--paper);
+      color: var(--teal-dark);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 800;
+    }
+    .section-nav-current {
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-weight: 500;
+      margin-left: 8px;
+    }
+    .section-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      padding: 6px 0;
+    }
+    .section-nav-links a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .section-nav-links a:hover,
+    .section-nav-links a[aria-current="true"] {
+      background: var(--teal-lt);
+      color: var(--teal-dark);
+    }
+
+    /* Compass light visual overrides for the original guide */
+    .wrap,
+    section {
+      width: var(--container);
+      max-width: var(--container);
+      padding-left: 0;
+      padding-right: 0;
+    }
+    #hero {
+      width: var(--container);
+      min-height: auto;
+      display: block;
+      padding: 60px 0 48px;
+    }
+    .hero-glow { display: none; }
+    .hero-content { max-width: 780px; }
+    .hero-badge {
+      background: var(--teal-lt);
+      border-color: rgba(15, 118, 110, 0.18);
+      color: var(--teal-dark);
+      border-radius: var(--radius);
+    }
+    .hero-title-gradient {
+      background: none;
+      -webkit-background-clip: initial;
+      -webkit-text-fill-color: currentColor;
+      background-clip: initial;
+      color: var(--ink, var(--text));
+    }
+    .hero-cta {
+      background: var(--teal);
+      border-radius: var(--radius);
+      min-height: 44px;
+    }
+    .hero-stat-num,
+    h3,
+    .layer-body h4,
+    .player-name,
+    .model-row h5,
+    .iface-card h4,
+    .stat-num,
+    .bar-pct,
+    .compare-table td:first-child,
+    .callout strong,
+    .confusion-box strong {
+      color: var(--text);
+    }
+    .big-concept,
+    .confusion-box,
+    .layer,
+    .callout,
+    .player-card,
+    .iface-card,
+    .agent-anatomy,
+    .anatomy-step,
+    .stat-card,
+    .trust-section,
+    .cta-block,
+    .cta-step,
+    .model-row,
+    .source-note {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: var(--paper);
+      border-color: var(--line);
+    }
+    .big-concept::before {
+      background: linear-gradient(90deg, var(--teal), var(--coral), var(--gold));
+    }
+    .layer:hover,
+    .player-card:hover,
+    .iface-card:hover {
+      border-color: rgba(15, 118, 110, 0.28);
+      box-shadow: var(--shadow-md);
+    }
+    .player-card::after {
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .callout,
+    .confusion-box,
+    .cta-block {
+      background: var(--soft);
+      border-color: var(--line);
+    }
+    .callout-success,
+    .callout-success .callout-label {
+      background: var(--teal-lt);
+      color: var(--teal-dark);
+    }
+    .tg,
+    .player-card[data-p="openai"] .player-tag,
+    .t-fast {
+      color: #0f766e;
+    }
+    .tp,
+    .player-card[data-p="xai"] .player-tag,
+    .t-bal {
+      color: #5254b8;
+    }
+    .tb,
+    .player-card[data-p="google"] .player-tag,
+    .player-card[data-p="meta"] .player-tag,
+    .t-open {
+      color: #1d5fbf;
+    }
+    .ta,
+    .player-card[data-p="anthropic"] .player-tag,
+    .model-tier,
+    .ib-creative {
+      color: #a15f06;
+    }
+    .player-card[data-p="deepseek"] .player-tag {
+      color: #047b91;
+    }
+    .t-max,
+    .warn-box,
+    .warn-box .callout-label {
+      color: var(--danger);
+    }
+    .bf-blue { background: linear-gradient(90deg, var(--teal), #3fa7a0); }
+    .bf-purple { background: linear-gradient(90deg, #527a39, #8fb96c); }
+    .bf-amber { background: linear-gradient(90deg, var(--gold), #e7bd63); }
+    .bf-red { background: linear-gradient(90deg, var(--coral), #e5967f); }
+    .compare-table tr:hover td { background: var(--teal-lt); }
+
+    .source-note {
+      width: var(--container);
+      margin: 0 auto 34px;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .suite-footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 0 48px;
+      background: var(--paper);
+    }
+    .suite-footer-inner { width: var(--container); margin: 0 auto; }
+    .suite-footer-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .suite-footer-note {
+      margin: 0 0 16px;
+      padding: 0 0 16px;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--font-body);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .suite-footer-heading {
+      margin: 0 0 4px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .suite-footer-purpose,
+    .suite-footer-legal {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .suite-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin: 20px 0;
+    }
+    .suite-footer-group h2 {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-size: 0.71rem;
+      font-weight: 900;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    .suite-footer-links { display: grid; gap: 2px; }
+    .suite-footer-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      width: fit-content;
+      max-width: 100%;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      overflow-wrap: anywhere;
+      transition: background 0.12s, color 0.12s;
+    }
+    .suite-footer-links a:hover { background: var(--teal-lt); color: var(--teal-dark); }
 
     /* ── Mobile ── */
     @media (max-width: 720px) {
-      nav .nav-links { display: none; }
-      section { padding: 64px 1.25rem; }
+      .site-nav { height: var(--site-nav-h); overflow: visible; }
+      .site-nav-inner { position: relative; min-height: var(--site-nav-h); }
+      .site-nav-brand span { max-width: 46vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .site-nav-toggle { display: inline-flex; }
+      .site-nav-sep { display: none; }
+      .site-nav-links {
+        flex: none;
+        width: 100%;
+        min-width: 0;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+        box-shadow: var(--shadow-md);
+        padding: 6px;
+      }
+      .js-enabled .site-nav-links {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        display: none;
+        overflow: visible;
+      }
+      .js-enabled .site-nav-links.is-open { display: grid; }
+      html:not(.js-enabled) .site-nav { height: auto; }
+      html:not(.js-enabled) .site-nav-inner { flex-wrap: wrap; padding: 6px 0; }
+      html:not(.js-enabled) .site-nav-toggle { display: none; }
+      html:not(.js-enabled) .site-nav-links { display: grid; flex-basis: 100%; }
+      .site-nav-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 44px;
+        white-space: normal;
+        padding: 10px 12px;
+      }
+      .page-nav-inner { position: relative; padding: 6px 0; }
+      .section-nav-toggle { display: flex; }
+      .section-nav-links {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+        box-shadow: var(--shadow-md);
+        padding: 6px;
+      }
+      .js-enabled .section-nav-links {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        display: none;
+        z-index: 460;
+      }
+      .js-enabled .section-nav-links.is-open { display: grid; }
+      html:not(.js-enabled) .page-nav-inner { flex-wrap: wrap; }
+      html:not(.js-enabled) .section-nav-toggle { display: none; }
+      html:not(.js-enabled) .section-nav-links { display: grid; }
+      .section-nav-links a {
+        width: 100%;
+        min-height: 44px;
+        white-space: normal;
+      }
+      section { padding: 64px 0; }
+      #hero { padding: 42px 0 36px; }
+      h1 { font-size: clamp(2.25rem, 13vw, 3.4rem); }
+      h2 { font-size: clamp(1.75rem, 10vw, 2.35rem); }
+      .lead, .hero-sub { font-size: 1rem; }
       .layer { flex-wrap: wrap; }
       .layer-tags { width: 100%; margin-top: 8px; }
       .hero-stats { gap: 1.5rem; }
-      .cta-block { padding: 2rem 1.25rem; }
+      .big-concept,
+      .agent-anatomy,
+      .trust-section,
+      .cta-block { padding: 1.4rem; }
+      .players-grid,
+      .iface-grid,
+      .stats-grid { grid-template-columns: 1fr; }
+      .suite-footer-grid { grid-template-columns: 1fr; gap: 12px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─────────────── NAV ─────────────── -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo">Understanding AI in 2026</div>
-    <ul class="nav-links">
-      <li><a href="#what">What is AI?</a></li>
-      <li><a href="#confusion">The Confusion</a></li>
-      <li><a href="#players">Main Players</a></li>
-      <li><a href="#interfaces">How to Use It</a></li>
-      <li><a href="#picture">Big Picture</a></li>
-    </ul>
+<div id="progress-bar" aria-hidden="true"></div>
+
+<!-- ─────────────── COMPASS NETWORK NAV ─────────────── -->
+<nav class="site-nav" aria-label="Compass network">
+  <div class="site-nav-inner">
+    <a class="site-nav-brand" href="https://jonathankhobson.github.io/compass-suite/">
+      <span class="site-nav-brand-mark" aria-hidden="true">C</span>
+      <span>Compass Suite</span>
+    </a>
+    <div class="site-nav-sep" aria-hidden="true"></div>
+    <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu">
+      <span class="site-nav-toggle-icon" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+    <div class="site-nav-links" id="site-nav-menu">
+      <a class="site-nav-link" href="https://jonathankhobson.github.io/compass-suite/">Suite</a>
+      <a class="site-nav-link" href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>
+      <a class="site-nav-link" href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>
+      <a class="site-nav-link" href="https://jonathankhobson.github.io/ux-heuristic-compass/">UX Heuristics</a>
+      <a class="site-nav-link" aria-current="page" href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">AI Basics</a>
+      <a class="site-nav-link" href="https://jonathankhobson.github.io/what-is-an-mcp/">MCP Basics</a>
+    </div>
   </div>
 </nav>
+
+<div class="page-nav-wrap" aria-label="AI Basics sections">
+  <div class="page-nav-inner">
+    <button class="section-nav-toggle" type="button" aria-expanded="false" aria-controls="section-nav-menu">
+      <span>Sections</span>
+      <span class="section-nav-current">Start here</span>
+    </button>
+    <nav class="section-nav-links" id="section-nav-menu" aria-label="AI Basics sections">
+      <a href="#what">What is AI?</a>
+      <a href="#confusion">The Confusion</a>
+      <a href="#players">Main Players</a>
+      <a href="#interfaces">How to Use It</a>
+      <a href="#picture">Big Picture</a>
+    </nav>
+  </div>
+</div>
 
 
 <!-- ═══════════════════════════════════════════
@@ -1253,8 +1754,8 @@
 </section>
 
 
-<!-- ─────────────── FOOTER ─────────────── -->
-<footer>
+<!-- ─────────────── SOURCE NOTE ─────────────── -->
+<div class="source-note">
   <p>
     All statistics and claims sourced from: Stanford AI Index 2026 · Stack Overflow Developer Survey 2025 ·
     McKinsey AI Report 2026 · Hugging Face State of Open Source 2026 ·
@@ -1263,10 +1764,103 @@
   <p style="margin-top: 6px; opacity: 0.45;">
     Last updated: May 2026 · For educational use · No AI capabilities were harmed in the making of this guide.
   </p>
+</div>
+
+<!-- ─────────────── COMPASS FOOTER ─────────────── -->
+<footer class="suite-footer" role="contentinfo">
+  <div class="suite-footer-inner">
+    <div class="suite-footer-card">
+      <p class="suite-footer-note">AI Basics is a Compass network support resource. It keeps the original shared URL while using the Compass public visual system.</p>
+      <p class="suite-footer-heading">Compass Suite is created and maintained by Jonathan Kyle Hobson.</p>
+      <p class="suite-footer-purpose">Local-first AI tools for reasoning, prompt work, UX review, and evidence-bound workflows.</p>
+      <nav class="suite-footer-grid" aria-label="Compass network footer">
+        <section class="suite-footer-group" aria-labelledby="footer-start-here">
+          <h2 id="footer-start-here">Start Here</h2>
+          <div class="suite-footer-links">
+            <a href="https://jonathankhobson.github.io/compass-suite/">Compass Suite Home</a>
+            <a href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">AI Basics</a>
+            <a href="https://jonathankhobson.github.io/what-is-an-mcp/">MCP Basics</a>
+            <a href="https://jonathankhobson.github.io/compass-suite/#install">Install Guide</a>
+          </div>
+        </section>
+        <section class="suite-footer-group" aria-labelledby="footer-public-compasses">
+          <h2 id="footer-public-compasses">Public Compasses</h2>
+          <div class="suite-footer-links">
+            <a href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>
+            <a href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>
+            <a href="https://jonathankhobson.github.io/ux-heuristic-compass/">UX Heuristics Compass</a>
+          </div>
+        </section>
+        <section class="suite-footer-group" aria-labelledby="footer-trust">
+          <h2 id="footer-trust">Trust & Attribution</h2>
+          <div class="suite-footer-links">
+            <a href="https://jonathankhobson.github.io/compass-suite/about/">About the Author</a>
+            <a href="https://jonathankhobson.github.io/compass-suite/license/">License &amp; Attribution</a>
+            <a href="https://www.linkedin.com/in/jonathankylehobson/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+      </nav>
+      <p class="suite-footer-legal">&copy; 2026 Jonathan Kyle Hobson. Code AGPL-3.0-only; docs, prompts, skills, and methodology CC BY-SA 4.0 unless otherwise noted. Compass names, logos, author photo, and official trade dress reserved.</p>
+    </div>
+  </div>
 </footer>
 
 
 <script>
+  document.documentElement.classList.add('js-enabled');
+
+  const progressBar = document.getElementById('progress-bar');
+  function updateProgressBar() {
+    if (!progressBar) return;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+  }
+  updateProgressBar();
+  window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+  function wireMenuToggle(buttonSelector, menuSelector, openClass = 'is-open') {
+    const button = document.querySelector(buttonSelector);
+    const menu = document.querySelector(menuSelector);
+    if (!button || !menu) return;
+
+    const close = () => {
+      menu.classList.remove(openClass);
+      button.setAttribute('aria-expanded', 'false');
+    };
+    const open = () => {
+      menu.classList.add(openClass);
+      button.setAttribute('aria-expanded', 'true');
+    };
+
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      menu.classList.contains(openClass) ? close() : open();
+    });
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) close();
+    });
+    document.addEventListener('click', (event) => {
+      if (!menu.contains(event.target) && !button.contains(event.target)) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') close();
+    });
+  }
+
+  wireMenuToggle('.site-nav-toggle', '.site-nav-links', 'is-open');
+  wireMenuToggle('.section-nav-toggle', '.section-nav-links', 'is-open');
+
+  const sectionCurrent = document.querySelector('.section-nav-current');
+  const sectionLinks = document.querySelectorAll('.section-nav-links a');
+  sectionLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      sectionLinks.forEach((item) => item.removeAttribute('aria-current'));
+      link.setAttribute('aria-current', 'true');
+      if (sectionCurrent) sectionCurrent.textContent = link.textContent.trim();
+    });
+  });
+
   /* Scroll reveal */
   const reveals = document.querySelectorAll('.reveal');
   const ro = new IntersectionObserver(entries => {
