@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-11T20:10:59+00:00",
+  "generated_at": "2026-05-11T21:16:10+00:00",
   "shareables": [
     {
       "audience": "Shareables MCP users and collaborators",
       "id": "20260511T182131+0000-shareables-design-system-explorer",
       "purpose": "Provide a public, interactive reference for Shareables templates, design systems, widgets, components, and tokens.",
       "title": "Shareables Design System Explorer",
-      "updated_at": "2026-05-11T20:10:59+00:00",
+      "updated_at": "2026-05-11T21:16:10+00:00",
       "url": "https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/"
     },
     {
