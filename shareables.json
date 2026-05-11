@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-05-10T00:00:00+00:00",
+  "generated_at": "2026-05-11T18:22:48+00:00",
   "shareables": [
     {
-      "audience": "AI newcomers, curious non-technical people, and sophomore CS students who have heard 'ChatGPT' and 'Claude' but couldn't explain what GPT-5.5 is or why it matters",
-      "id": "20260510T000000+0000-understanding-ai-2026",
-      "purpose": "Convert a full AI model landscape research packet into a single, self-contained, interactive HTML guide — using progressive disclosure to teach the model/product/interface taxonomy, introduce the six main players with clickable model-family drawers, explain how to use AI, and ground it in real adoption and trust statistics.",
-      "title": "Understanding AI in 2026",
-      "updated_at": "2026-05-10T00:00:00+00:00",
-      "url": "https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/"
+      "audience": "Shareables MCP users and collaborators",
+      "id": "20260511T182131+0000-shareables-design-system-explorer",
+      "purpose": "Provide a public, interactive reference for Shareables templates, design systems, widgets, components, and tokens.",
+      "title": "Shareables Design System Explorer",
+      "updated_at": "2026-05-11T18:22:48+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/"
     },
     {
       "audience": "A car owner whose 2008 Honda Civic Hybrid suddenly shut down with smoke, no power, and no hazard lights — looking for clear, calm guidance on next steps and what the mechanic should check",
       "id": "20260509T195005+0000-2008-honda-civic-hybrid-what-happened-what-to-do-next",
       "purpose": "Synthesize two detailed diagnostic research documents into a single, visually polished, calming, and navigable HTML guide that feels like a professionally published resource tailored to this exact incident — covering likely causes, repair economics, diagnostic order, and mechanic scripts — without any personally identifying information",
       "title": "2008 Honda Civic Hybrid: What Happened & What to Do Next",
-      "updated_at": "2026-05-09T20:13:42+00:00",
+      "updated_at": "2026-05-09T20:14:16+00:00",
       "url": "https://jonathankhobson.github.io/shareables/s/2008-honda-civic-hybrid-what-happened-what-to-do-next/"
     },
     {
