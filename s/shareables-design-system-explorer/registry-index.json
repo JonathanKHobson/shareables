@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T03:03:33.172074+00:00",
+  "generated_at": "2026-05-13T05:15:59.690919+00:00",
   "items": [
     {
       "description": "Use editorial when a shareable needs a strong argument, plain-language evidence, and a reader-friendly narrative arc.",
@@ -2870,7 +2870,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -2935,7 +2935,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -2992,7 +2992,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -3052,7 +3052,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -3101,7 +3101,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -3158,7 +3158,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -3230,7 +3230,7 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [
@@ -3289,7 +3289,930 @@
         "canonical-preview-builder",
         "renderer-test"
       ],
-      "renderer_family": "dashboard-widget-renderer",
+      "renderer_family": "ux-research-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "case-study-card",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "case_type": "UX Research",
+        "contribution": "Framed the research question, synthesized qualitative signals, and translated findings into a decision artifact.",
+        "id": "case-study-card",
+        "methods": [
+          "Netnography",
+          "Survey design",
+          "Heuristic review",
+          "Synthesis"
+        ],
+        "outcome": "The artifact clarified what to pause, what to validate next, and which claims needed verification before public use.",
+        "problem": "The team needed evidence before turning an attractive concept into a larger roadmap bet.",
+        "proves": "Turns ambiguous research signals into defensible product decisions.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "thesis": "Mixed-method discovery exposed a decision risk before the team committed to deeper build investment.",
+        "title": "Case Study Card",
+        "type": "case-study-card",
+        "verification_status": "Example fixture",
+        "visibility": "Public-safe summary"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-case-study-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Case Study Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "case-summary-panel",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "case-summary-panel",
+        "methods": [
+          "Interview notes",
+          "Audit findings",
+          "Evidence tagging"
+        ],
+        "outcome": "Reduced the case to a clear proof arc: problem, action, evidence, outcome.",
+        "problem": "Portfolio readers often skim without understanding why the work mattered.",
+        "proof": "Shows structured judgment, not only artifact polish.",
+        "role": "Research synthesis and artifact design",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "thesis": "A case summary should make the project, evidence, and reader takeaway visible before the deep dive.",
+        "title": "Case Summary Panel",
+        "type": "case-summary-panel"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-case-summary-panel",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Case Summary Panel",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "role-contribution-panel",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "collaborators": [
+          "Product",
+          "Engineering",
+          "Stakeholders"
+        ],
+        "contribution": "Owned research framing, synthesis, stakeholder-ready narrative, and QA evidence handoff.",
+        "handoff": "Delivered a decision-ready packet with caveats and next-step recommendations.",
+        "id": "role-contribution-panel",
+        "role": "Lead researcher and artifact designer",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Role Contribution Panel",
+        "type": "role-contribution-panel"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-role-contribution-panel",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Role Contribution Panel",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "problem-framing-card",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "constraint": "Public case details must stay generalized until publication claims are verified.",
+        "id": "problem-framing-card",
+        "problem": "Readers could see outputs, but not the human need or product decision underneath them.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "stakes": "Weak framing makes strong evidence look like disconnected project fragments.",
+        "title": "Problem Framing Card",
+        "type": "problem-framing-card",
+        "user_need": "A fast way to understand what changed because of the work."
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-problem-framing-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Problem Framing Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "method-tag-cluster",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "duration": "time-boxed discovery",
+        "id": "method-tag-cluster",
+        "methods": [
+          "Netnography",
+          "Survey ops",
+          "Heuristic evaluation",
+          "Affinity synthesis",
+          "Stakeholder readout"
+        ],
+        "role": "research + synthesis",
+        "sample": "mixed-source evidence",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Method Tag Cluster",
+        "type": "method-tag-cluster"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-method-tag-cluster",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Method Tag Cluster",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "method-summary-panel",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "duration": "3-week research cycle",
+        "id": "method-summary-panel",
+        "limitation": "Example values are illustrative until source claims are verified.",
+        "methods": [
+          {
+            "name": "Netnography",
+            "output": "Signal map",
+            "purpose": "Understand audience language and skepticism before interviews."
+          },
+          {
+            "name": "Survey design",
+            "output": "Questionnaire + summary",
+            "purpose": "Quantify blockers and motivation patterns."
+          },
+          {
+            "name": "Heuristic review",
+            "output": "Prioritized findings",
+            "purpose": "Expose task and trust gaps in the product flow."
+          }
+        ],
+        "output": "Findings, caveats, and decision recommendations.",
+        "sample": "public-safe fixture",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Method Summary Panel",
+        "type": "method-summary-panel"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-method-summary-panel",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Method Summary Panel",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "artifact-gallery-slot",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "artifact_status": "placeholder",
+        "caption": "Survey panel summary card",
+        "evidence": "Slot reserves space for the artifact that substantiates the case claim.",
+        "id": "artifact-gallery-slot",
+        "public_safety_note": "Verify source, publication permission, and claim wording before public use.",
+        "recommended_asset": "800x500 chart, annotated screenshot, or synthesis board excerpt.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Artifact Gallery Slot",
+        "type": "artifact-gallery-slot"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-artifact-gallery-slot",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Artifact Gallery Slot",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "artifact-evidence-card",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "artifact_status": "public-safe excerpt",
+        "caption": "Annotated journey map excerpt",
+        "evidence": "Shows where readers lost confidence before reaching the primary action.",
+        "id": "artifact-evidence-card",
+        "interpretation": "The artifact demonstrates evidence-to-design translation, not just documentation.",
+        "proves": "Can turn messy observations into a usable product artifact.",
+        "public_safety_note": "Replace identifying screenshots with generalized diagrams when needed.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Artifact Evidence Card",
+        "type": "artifact-evidence-card"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-artifact-evidence-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Artifact Evidence Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "proof-metric-bar",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "caveat": "Explorer metrics are sample payloads, not public claims.",
+        "id": "proof-metric-bar",
+        "metrics": [
+          {
+            "label": "Survey participants",
+            "note": "Example from reference direction; confirm before public claim.",
+            "value": "1,781",
+            "verification_status": "verify_before_publishing"
+          },
+          {
+            "label": "Actionable insights",
+            "note": "Use source-backed count in real artifacts.",
+            "value": "42",
+            "verification_status": "illustrative_fixture"
+          },
+          {
+            "label": "Task-start clarity",
+            "note": "Directional benchmark for preview only.",
+            "value": "84%",
+            "verification_status": "example_fixture"
+          }
+        ],
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Proof Metric Bar",
+        "type": "proof-metric-bar"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-proof-metric-bar",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Proof Metric Bar",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "verification-flag",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "body": "This claim is useful in the case narrative, but needs source confirmation before public release.",
+        "id": "verification-flag",
+        "next_step": "Attach source evidence or rewrite as generalized language.",
+        "owner": "Case author",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "status": "verify before publishing",
+        "title": "Verification Flag",
+        "type": "verification-flag"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-verification-flag",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Verification Flag",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "confidentiality-note",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "body": "Specific client names, screenshots, and proprietary metrics should be replaced with public-safe descriptions.",
+        "id": "confidentiality-note",
+        "public_safety_note": "Keep the evidence logic visible while removing identifying details.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Confidentiality Note",
+        "type": "confidentiality-note",
+        "visibility": "generalized"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-confidentiality-note",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Confidentiality Note",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "generalized-details-note",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "body": "Details have been generalized to preserve confidentiality while retaining the decision logic.",
+        "generalized_from": "private stakeholder context",
+        "id": "generalized-details-note",
+        "kept_specific": "problem, method, evidence pattern, and resulting product decision",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Generalized Details Note",
+        "type": "generalized-details-note"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-generalized-details-note",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Generalized Details Note",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "what-this-proves-card",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "capability": "Evidence-backed product judgment",
+        "evidence": "The case connects problem framing, method choice, synthesis, artifact output, and decision impact.",
+        "id": "what-this-proves-card",
+        "proves": "Can listen before building and translate ambiguous findings into clear action.",
+        "reader_takeaway": "This person can reduce product uncertainty with usable research artifacts.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "What This Proves Card",
+        "type": "what-this-proves-card"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-what-this-proves-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "What This Proves Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "research-finding-card",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "caveat": "Sample evidence is generalized for the explorer.",
+        "confidence_level": "directional",
+        "evidence": "Interview notes, audit observations, and reviewer hesitation clustered around source transparency.",
+        "finding": "Readers trusted the recommendation faster when evidence and caveat were visible beside the claim.",
+        "id": "research-finding-card",
+        "implication": "Expose source, confidence, and limitation in the first scan path.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Research Finding Card",
+        "type": "research-finding-card"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-research-finding-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Research Finding Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "limitation-card",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "confidence_level": "high confidence in pattern, verify exact values",
+        "id": "limitation-card",
+        "impact": "The proof arc is credible, but public claims should stay bounded.",
+        "limitation": "The case uses generalized details, so exact operational metrics need separate source verification.",
+        "mitigation": "Use verification flags and artifact placeholders until evidence is cleared.",
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Limitation Card",
+        "type": "limitation-card"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-limitation-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Limitation Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "assumption-log",
+        "Portfolio Evidence"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "assumption-log",
+        "items": [
+          {
+            "evidence_needed": "Add case summary and problem frame.",
+            "status": "Needs evidence",
+            "title": "Reader understands project context"
+          },
+          {
+            "evidence_needed": "Confirm source, scope, and wording.",
+            "status": "Verify",
+            "title": "Metric is publishable"
+          },
+          {
+            "evidence_needed": "Replace sensitive screenshots with safe schematic.",
+            "status": "Generalize",
+            "title": "Artifact can be shown publicly"
+          }
+        ],
+        "source_refs": [
+          "portfolio-reference-pattern"
+        ],
+        "title": "Assumption Log",
+        "type": "assumption-log"
+      },
+      "family": "Portfolio Evidence",
+      "id": "widget-assumption-log",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Assumption Log",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "portfolio-evidence-renderer",
       "runtime_kind": "widget",
       "runtime_status": "runtime_promoted",
       "states": [

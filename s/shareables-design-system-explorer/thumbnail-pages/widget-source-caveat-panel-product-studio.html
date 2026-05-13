@@ -897,6 +897,164 @@
       font-weight: 850;
       color: var(--ink);
     }
+    .portfolio-widget {
+      border-left-color: var(--gold);
+      background: color-mix(in srgb, var(--paper) 48%, #fff);
+    }
+    .portfolio-widget--case { border-left-color: var(--teal); }
+    .portfolio-widget--artifact { border-left-color: var(--coral); }
+    .portfolio-widget--proof { border-left-color: var(--positive); }
+    .portfolio-widget--caveat { border-left-color: var(--caution); }
+    .portfolio-hero {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--paper) 54%, #fff);
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+      padding: 14px;
+    }
+    .portfolio-hero h4,
+    .portfolio-panel h4,
+    .portfolio-artifact h4,
+    .portfolio-finding h4 { margin: 0; font-size: .98rem; line-height: 1.25; }
+    .portfolio-hero p,
+    .portfolio-panel p,
+    .portfolio-artifact p,
+    .portfolio-finding p { margin: 0; color: var(--muted); }
+    .portfolio-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+      gap: 8px;
+      min-width: 0;
+    }
+    .portfolio-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+      padding: 10px;
+    }
+    .portfolio-panel strong {
+      color: var(--ink);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    .portfolio-tag-row,
+    .portfolio-status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      min-width: 0;
+    }
+    .portfolio-tag-row span,
+    .portfolio-status-row span,
+    .portfolio-metric__status {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      display: inline-flex;
+      font-size: .76rem;
+      font-weight: 850;
+      line-height: 1;
+      max-width: 100%;
+      padding: 6px 8px;
+      overflow-wrap: anywhere;
+    }
+    .portfolio-artifact {
+      border: 1px dashed color-mix(in srgb, var(--coral) 42%, var(--line));
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--coral) 7%, color-mix(in srgb, var(--paper) 64%, #fff));
+      display: grid;
+      gap: 9px;
+      min-height: 132px;
+      padding: 14px;
+    }
+    .portfolio-artifact__frame {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--paper) 74%, #fff);
+      color: var(--muted);
+      display: grid;
+      font-size: .78rem;
+      font-weight: 850;
+      min-height: 92px;
+      place-items: center;
+      text-align: center;
+      padding: 12px;
+    }
+    .portfolio-proof-list {
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+    }
+    .portfolio-metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      display: grid;
+      gap: 7px;
+      padding: 10px;
+    }
+    .portfolio-metric__head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 0;
+    }
+    .portfolio-metric__value {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .portfolio-meter {
+      background: color-mix(in srgb, var(--line) 62%, #fff);
+      border-radius: 999px;
+      height: 9px;
+      overflow: hidden;
+    }
+    .portfolio-meter span {
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      display: block;
+      height: 100%;
+      width: var(--value, 64%);
+    }
+    .portfolio-finding {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+    }
+    .portfolio-finding__claim {
+      color: var(--ink);
+      font-size: 1.02rem;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+    .portfolio-assumption-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .portfolio-assumption-list li {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      display: grid;
+      gap: 5px;
+      padding: 10px;
+    }
     .shareable-form,
     .runtime-widget {
       display: grid;
@@ -2468,17 +2626,26 @@
   </header>
 
   <main>
-    <section data-shareables-path="/sections/0" data-shareables-json-pointer="/sections/0" data-shareables-kind="dashboard" id="source-caveat-panel-snapshot-1" class="dashboard-section">
+    <section data-shareables-path="/sections/0" data-shareables-json-pointer="/sections/0" data-shareables-kind="widgets" id="source-caveat-panel-snapshot-1" class="widget-section">
       <h2>Source Caveat Panel Snapshot</h2>
-      <div class="dashboard-grid">
-        <article class="card dashboard-widget dashboard-widget--source-caveat-panel dashboard-widget--shareable">
-          <div class="dashboard-widget__header">
-            <h3 class="dashboard-widget__title">Source Caveat Panel</h3>
+      <div class="widget-grid">
+        <article class="ux-widget ux-widget--wide" data-widget-type="source-caveat-panel" data-renderer-family="confidence_caveat_renderer">
+          <div class="ux-widget__header">
+            <h3 class="ux-widget__title">Source Caveat Panel</h3>
             
           </div>
-          <div class="dashboard-chart-frame"><p>Unsupported dashboard widget.</p></div>
+          <div class="source-caveat-list">
+            <article class="source-caveat-item">
+              <h4>Source</h4>
+              <p>Canonical explorer fixture</p>
+            </article>
+            <article class="source-caveat-item">
+              <h4>Caveat</h4>
+              <p>Illustrative values only</p>
+            </article>
+          </div>
           
-          <p class="dashboard-widget__source">Sources: canonical-fixture</p>
+          <p class="ux-widget__source">Sources: canonical-fixture</p>
         </article>
       </div>
     </section>
@@ -2486,523 +2653,6 @@
   <footer>
     <p>Rendered by the Shareables MCP.</p>
   </footer>
-  <script>
-    const refreshTocs = () => {
-      window.dispatchEvent(new Event('scroll'));
-    };
-
-    const copyText = async (text) => {
-      if (navigator.clipboard && window.isSecureContext) {
-        try {
-          await navigator.clipboard.writeText(text);
-          return;
-        } catch (error) {
-          // Fall through to the textarea fallback for local previews or restricted browser contexts.
-        }
-      }
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'fixed';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.select();
-      try {
-        document.execCommand('copy');
-      } catch (error) {
-        // Local file previews can block clipboard writes; HTTPS renders use the Clipboard API above.
-      } finally {
-        textarea.remove();
-      }
-    };
-
-    document.querySelectorAll('[data-copy-target]').forEach((button) => {
-      button.addEventListener('click', async () => {
-        const target = document.getElementById(button.dataset.copyTarget || '');
-        const statusId = button.getAttribute('aria-describedby') || '';
-        const status = statusId ? document.getElementById(statusId) : null;
-        if (!target) return;
-        try {
-          await copyText(target.innerText || target.textContent || '');
-          button.dataset.copied = 'true';
-          if (status) status.textContent = 'Copied.';
-          window.setTimeout(() => {
-            button.dataset.copied = 'false';
-          }, 1400);
-        } catch (error) {
-          if (status) status.textContent = 'Copy failed.';
-        }
-      });
-    });
-
-    document.querySelectorAll('.reading-progress').forEach((progress) => {
-      const bar = progress.querySelector('span');
-      const syncProgress = () => {
-        const documentHeight = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-        const value = Math.max(0, Math.min(100, Math.round((window.scrollY / documentHeight) * 100)));
-        if (bar) bar.style.width = value + '%';
-        progress.setAttribute('aria-valuenow', String(value));
-      };
-      window.addEventListener('scroll', syncProgress, { passive: true });
-      window.addEventListener('resize', syncProgress);
-      syncProgress();
-    });
-
-    const wireTabs = (selector) => {
-      document.querySelectorAll(selector).forEach((nav) => {
-        const buttons = Array.from(nav.querySelectorAll('[role="tab"]'));
-        buttons.forEach((button) => {
-          button.addEventListener('click', () => {
-            buttons.forEach((candidate) => {
-              const selected = candidate === button;
-              candidate.setAttribute('aria-selected', selected ? 'true' : 'false');
-              const panel = document.getElementById(candidate.dataset.tabTarget || '');
-              if (panel) panel.hidden = !selected;
-            });
-            if (nav.classList.contains('packet-page-nav')) {
-              const y = nav.getBoundingClientRect().top + window.scrollY - 12;
-              window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
-            }
-            refreshTocs();
-          });
-        });
-      });
-    };
-
-    wireTabs('.tab-nav');
-    wireTabs('.packet-page-nav');
-
-    document.querySelectorAll('.preset-gallery').forEach((gallery) => {
-      let selectedTemplate = gallery.dataset.defaultTemplate || 'editorial';
-      let selectedStyleSource = gallery.dataset.defaultStyleSource || 'core-utility';
-      const buttons = Array.from(gallery.querySelectorAll('.preset-gallery__button'));
-      const frames = Array.from(gallery.querySelectorAll('.preset-gallery__frame'));
-      const sync = () => {
-        buttons.forEach((button) => {
-          const role = button.dataset.role || '';
-          const value = button.dataset.value || '';
-          const selected = (role === 'template' && value === selectedTemplate) || (role === 'style_source' && value === selectedStyleSource);
-          button.setAttribute('aria-pressed', selected ? 'true' : 'false');
-        });
-        frames.forEach((frame) => {
-          const match = frame.dataset.template === selectedTemplate && frame.dataset.styleSource === selectedStyleSource;
-          frame.hidden = !match;
-        });
-      };
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          if (button.dataset.role === 'template') selectedTemplate = button.dataset.value || selectedTemplate;
-          if (button.dataset.role === 'style_source') selectedStyleSource = button.dataset.value || selectedStyleSource;
-          sync();
-        });
-      });
-      sync();
-    });
-
-    document.querySelectorAll('[data-website-shell]').forEach((shell) => {
-      const toggle = shell.querySelector('[data-website-menu-toggle]');
-      const sheet = shell.querySelector('[data-website-mobile-sheet]');
-      const sectionLinks = Array.from(shell.querySelectorAll('[data-section-link]'));
-      const closeMenu = () => {
-        if (!sheet || !toggle) return;
-        sheet.dataset.open = 'false';
-        toggle.setAttribute('aria-expanded', 'false');
-      };
-      if (toggle && sheet) {
-        toggle.addEventListener('click', () => {
-          const open = sheet.dataset.open === 'true';
-          sheet.dataset.open = open ? 'false' : 'true';
-          toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
-        });
-      }
-      const syncCurrent = () => {
-        let activeId = 'website-hero';
-        sectionLinks.forEach((link) => {
-          const href = link.getAttribute('href') || '';
-          const id = href.startsWith('#') ? href.slice(1) : '';
-          const target = id ? document.getElementById(id) : null;
-          if (!target) return;
-          const box = target.getBoundingClientRect();
-          if (box.top <= 180) activeId = id;
-        });
-        sectionLinks.forEach((link) => {
-          const href = link.getAttribute('href') || '';
-          const selected = href === '#' + activeId;
-          if (selected) {
-            link.setAttribute('aria-current', 'true');
-          } else {
-            link.removeAttribute('aria-current');
-          }
-        });
-      };
-      sectionLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          closeMenu();
-          window.setTimeout(syncCurrent, 100);
-        });
-      });
-      window.addEventListener('scroll', syncCurrent, { passive: true });
-      syncCurrent();
-    });
-
-    document.querySelectorAll('.toc').forEach((toc) => {
-      const links = Array.from(toc.querySelectorAll('a[href^="#"]'));
-      if (!links.length) return;
-      const updateCurrent = () => {
-        let active = null;
-        for (const link of links) {
-          const id = (link.getAttribute('href') || '').slice(1);
-          const target = id ? document.getElementById(id) : null;
-          if (!target || target.closest('[hidden]')) continue;
-          const box = target.getBoundingClientRect();
-          if (box.top <= 160) active = link;
-        }
-        if (!active) active = links[0];
-        links.forEach((link) => link.removeAttribute('aria-current'));
-        if (active) active.setAttribute('aria-current', 'true');
-      };
-      window.addEventListener('scroll', updateCurrent, { passive: true });
-      links.forEach((link) => link.addEventListener('click', () => window.setTimeout(updateCurrent, 80)));
-      updateCurrent();
-    });
-
-    document.querySelectorAll('table[data-sortable-table="true"]').forEach((table) => {
-      const headers = Array.from(table.querySelectorAll('th'));
-      const body = table.querySelector('tbody');
-      if (!body) return;
-      headers.forEach((header, columnIndex) => {
-        const button = header.querySelector('button');
-        if (!button) return;
-        button.addEventListener('click', () => {
-          const current = header.getAttribute('aria-sort') || 'none';
-          const direction = current === 'ascending' ? 'descending' : 'ascending';
-          headers.forEach((candidate) => candidate.setAttribute('aria-sort', 'none'));
-          header.setAttribute('aria-sort', direction);
-          const rows = Array.from(body.querySelectorAll('tr'));
-          rows.sort((left, right) => {
-            const leftValue = (left.children[columnIndex]?.textContent || '').trim();
-            const rightValue = (right.children[columnIndex]?.textContent || '').trim();
-            const leftNumber = Number(leftValue.replace(/,/g, ''));
-            const rightNumber = Number(rightValue.replace(/,/g, ''));
-            const comparison = Number.isFinite(leftNumber) && Number.isFinite(rightNumber)
-              ? leftNumber - rightNumber
-              : leftValue.localeCompare(rightValue, undefined, { numeric: true, sensitivity: 'base' });
-            return direction === 'ascending' ? comparison : -comparison;
-          });
-          rows.forEach((row) => body.appendChild(row));
-        });
-      });
-    });
-
-    const serializeForm = (form) => {
-      const answers = {};
-      const data = new FormData(form);
-      for (const [key, value] of data.entries()) {
-        if (answers[key] !== undefined) {
-          answers[key] = Array.isArray(answers[key]) ? [...answers[key], value] : [answers[key], value];
-        } else {
-          answers[key] = value;
-        }
-      }
-      return {
-        schema_version: 'shareables.form_response.v1',
-        form_id: form.dataset.formId || '',
-        title: form.dataset.formTitle || '',
-        created_at: new Date().toISOString(),
-        answers,
-        validation: { state: form.checkValidity() ? 'valid' : 'invalid' },
-        export_intent: 'local_copy_export'
-      };
-    };
-
-    const markdownForForm = (payload) => {
-      const lines = [`# ${payload.title || payload.form_id || 'Shareable Form Response'}`, '', `Created: ${payload.created_at}`, '', '## Answers'];
-      Object.entries(payload.answers || {}).forEach(([key, value]) => {
-        lines.push(`- ${key}: ${Array.isArray(value) ? value.join(', ') : value}`);
-      });
-      return lines.join('\n');
-    };
-
-    document.querySelectorAll('[data-shareable-form]').forEach((form) => {
-      const status = form.querySelector('[data-form-status]');
-      const output = form.querySelector('[data-form-export]');
-      const setExport = (payload, mode) => {
-        const text = mode === 'markdown' ? markdownForForm(payload) : JSON.stringify(payload, null, 2);
-        if (output) {
-          output.hidden = false;
-          output.textContent = text;
-        }
-        return text;
-      };
-      const syncErrors = () => {
-        form.querySelectorAll('[data-field-error]').forEach((slot) => { slot.textContent = ''; });
-        Array.from(form.elements).forEach((field) => {
-          if (!field.name || field.checkValidity()) return;
-          const escapedName = window.CSS && CSS.escape ? CSS.escape(field.name) : field.name.replace(/["\\]/g, '\\$&');
-          const slot = form.querySelector(`[data-field-error="${escapedName}"]`);
-          if (slot) slot.textContent = field.validationMessage || 'Review this field.';
-        });
-      };
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        syncErrors();
-        const payload = serializeForm(form);
-        setExport(payload, 'json');
-        if (status) status.textContent = payload.validation.state === 'valid' ? 'Valid local response. Nothing was sent.' : 'Review required fields before copying.';
-      });
-      form.querySelectorAll('[data-form-copy]').forEach((button) => {
-        button.addEventListener('click', async () => {
-          syncErrors();
-          const payload = serializeForm(form);
-          const mode = button.dataset.formCopy || 'json';
-          const text = setExport(payload, mode);
-          await copyText(text);
-          if (status) status.textContent = `Copied ${mode.toUpperCase()} response locally.`;
-        });
-      });
-      form.addEventListener('reset', () => {
-        window.setTimeout(() => {
-          if (output) {
-            output.hidden = true;
-            output.textContent = '';
-          }
-          if (status) status.textContent = 'Reset. Nothing leaves this page.';
-          syncErrors();
-        }, 0);
-      });
-    });
-
-    const itemText = (item) => {
-      if (item && typeof item === 'object') return item.body || item.text || item.description || item.title || item.label || '';
-      return String(item || '');
-    };
-    const itemTitle = (item, fallback) => {
-      if (item && typeof item === 'object') return item.title || item.label || item.front || fallback;
-      return fallback;
-    };
-
-    document.querySelectorAll('[data-countdown-target]').forEach((root) => {
-      const target = new Date(root.dataset.countdownTarget || '');
-      const cells = {
-        days: root.querySelector('[data-countdown-days]'),
-        hours: root.querySelector('[data-countdown-hours]'),
-        minutes: root.querySelector('[data-countdown-minutes]'),
-        seconds: root.querySelector('[data-countdown-seconds]')
-      };
-      if (Number.isNaN(target.getTime())) return;
-      const sync = () => {
-        const remaining = Math.max(0, target.getTime() - Date.now());
-        const days = Math.floor(remaining / 86400000);
-        const hours = Math.floor((remaining % 86400000) / 3600000);
-        const minutes = Math.floor((remaining % 3600000) / 60000);
-        const seconds = Math.floor((remaining % 60000) / 1000);
-        if (cells.days) cells.days.textContent = String(days);
-        if (cells.hours) cells.hours.textContent = String(hours).padStart(2, '0');
-        if (cells.minutes) cells.minutes.textContent = String(minutes).padStart(2, '0');
-        if (cells.seconds) cells.seconds.textContent = String(seconds).padStart(2, '0');
-      };
-      sync();
-      window.setInterval(sync, 1000);
-    });
-
-    document.querySelectorAll('[data-runtime-widget]').forEach((widget) => {
-      const dataNode = widget.querySelector('[data-runtime-items]');
-      let items = [];
-      try { items = dataNode ? JSON.parse(dataNode.textContent || '[]') : []; } catch (error) { items = []; }
-      const panel = widget.querySelector('.runtime-widget__panel');
-      const result = widget.querySelector('[data-runtime-result]');
-      const title = widget.querySelector('[data-step-title]');
-      const body = widget.querySelector('[data-step-body]');
-      const front = widget.querySelector('[data-card-front]');
-      const back = widget.querySelector('[data-card-back]');
-      const setIndex = (nextIndex) => {
-        if (!panel || !items.length) return;
-        const count = items.length;
-        const index = ((nextIndex % count) + count) % count;
-        panel.dataset.runtimeIndex = String(index);
-        const item = items[index];
-        if (title) title.textContent = itemTitle(item, `Step ${index + 1}`);
-        if (body) body.textContent = itemText(item);
-        if (front) front.textContent = itemTitle(item, `Card ${index + 1}`);
-        if (back) {
-          back.textContent = item && typeof item === 'object' ? (item.back || item.body || item.description || '') : '';
-          back.hidden = panel.dataset.runtimeFlipped !== 'true';
-        }
-        if (result && widget.dataset.runtimeType === 'annotation-layer-viewer') result.textContent = itemText(item);
-      };
-      widget.querySelectorAll('[data-runtime-action]').forEach((button) => {
-        button.addEventListener('click', () => {
-          const action = button.dataset.runtimeAction || '';
-          const current = Number(panel?.dataset.runtimeIndex || 0);
-          if (action === 'shuffle' && items.length && result) {
-            const next = items[Math.floor(Math.random() * items.length)];
-            result.textContent = itemText(next);
-          }
-          if (action === 'next') setIndex(current + 1);
-          if (action === 'prev') setIndex(current - 1);
-          if (action === 'flip' && panel && back) {
-            const flipped = panel.dataset.runtimeFlipped !== 'true';
-            panel.dataset.runtimeFlipped = String(flipped);
-            back.hidden = !flipped;
-          }
-          if (action === 'show') setIndex(Number(button.dataset.runtimeIndex || 0));
-        });
-      });
-      setIndex(Number(panel?.dataset.runtimeIndex || 0));
-    });
-
-    const titledChartMarks = Array.from(document.querySelectorAll('.dashboard-chart title'))
-      .map((title) => title.parentElement)
-      .filter(Boolean);
-    if (titledChartMarks.length) {
-      const tooltip = document.createElement('div');
-      tooltip.className = 'dashboard-chart-tooltip';
-      tooltip.setAttribute('role', 'status');
-      tooltip.setAttribute('aria-live', 'polite');
-      tooltip.dataset.visible = 'false';
-      document.body.appendChild(tooltip);
-      let activeMark = null;
-
-      const labelFor = (mark) => {
-        const title = mark.querySelector('title');
-        return (mark.dataset.chartTooltip || (title ? title.textContent : '') || '').trim();
-      };
-
-      const positionTooltip = (mark, clientX, clientY) => {
-        const rect = mark.getBoundingClientRect();
-        const x = Number.isFinite(clientX) ? clientX : rect.left + rect.width / 2;
-        const y = Number.isFinite(clientY) ? clientY : rect.top;
-        tooltip.style.left = Math.min(Math.max(x, 14), window.innerWidth - 14) + 'px';
-        tooltip.style.top = Math.min(Math.max(y, 24), window.innerHeight - 8) + 'px';
-      };
-
-      const showTooltip = (mark, event) => {
-        const label = labelFor(mark);
-        if (!label) return;
-        activeMark = mark;
-        tooltip.textContent = label;
-        tooltip.dataset.visible = 'true';
-        const point = event && ('clientX' in event) ? event : null;
-        positionTooltip(mark, point ? point.clientX : NaN, point ? point.clientY : NaN);
-      };
-
-      const hideTooltip = () => {
-        activeMark = null;
-        tooltip.dataset.visible = 'false';
-      };
-
-      titledChartMarks.forEach((mark) => {
-        const label = labelFor(mark);
-        if (!label) return;
-        mark.classList.add('dashboard-interactive-mark');
-        mark.setAttribute('tabindex', '0');
-        mark.setAttribute('role', 'img');
-        mark.setAttribute('aria-label', label);
-        mark.dataset.chartTooltip = label;
-        mark.addEventListener('mouseenter', (event) => showTooltip(mark, event));
-        mark.addEventListener('mousemove', (event) => {
-          if (activeMark === mark) positionTooltip(mark, event.clientX, event.clientY);
-        });
-        mark.addEventListener('mouseleave', hideTooltip);
-        mark.addEventListener('focus', (event) => showTooltip(mark, event));
-        mark.addEventListener('blur', hideTooltip);
-        mark.addEventListener('click', (event) => {
-          if (activeMark === mark && tooltip.dataset.visible === 'true') {
-            hideTooltip();
-          } else {
-            showTooltip(mark, event);
-          }
-        });
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') hideTooltip();
-      });
-      window.addEventListener('scroll', hideTooltip, { passive: true });
-      window.addEventListener('resize', hideTooltip);
-    }
-
-    document.querySelectorAll('[data-reel]').forEach((reel) => {
-      const slides = Array.from(reel.querySelectorAll('.reel-slide'));
-      const prev = reel.querySelector('[data-reel-prev]');
-      const next = reel.querySelector('[data-reel-next]');
-      const dots = Array.from(reel.querySelectorAll('.reel-dot'));
-      const counter = reel.querySelector('.reel-note__counter');
-      const type = reel.querySelector('.reel-note__type');
-      const title = reel.querySelector('.reel-note__title');
-      if (!slides.length || !prev || !next || !counter || !title) return;
-      let index = slides.findIndex((slide) => slide.classList.contains('is-active'));
-      if (index < 0) index = 0;
-      const total = slides.length;
-
-      const sync = (nextIndex) => {
-        index = Math.max(0, Math.min(nextIndex, total - 1));
-        slides.forEach((slide, slideIndex) => {
-          const active = slideIndex === index;
-          slide.hidden = !active;
-          slide.classList.toggle('is-active', active);
-          slide.classList.toggle('is-prev', slideIndex < index);
-          if (active) slide.scrollTop = 0;
-        });
-        dots.forEach((dot, dotIndex) => {
-          dot.setAttribute('aria-selected', dotIndex === index ? 'true' : 'false');
-        });
-        counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
-        if (type) {
-          const nextTag = slides[index].dataset.slideTag || '';
-          type.textContent = nextTag;
-          type.hidden = !nextTag;
-        }
-        title.textContent = slides[index].dataset.slideTitle || ('Slide ' + String(index + 1));
-        prev.toggleAttribute('disabled', index === 0);
-        next.toggleAttribute('disabled', index === total - 1);
-      };
-
-      prev.addEventListener('click', () => sync(index - 1));
-      next.addEventListener('click', () => sync(index + 1));
-      dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-          const target = Number(dot.dataset.slideTarget || '0');
-          sync(target);
-        });
-      });
-
-      reel.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowLeft') {
-          event.preventDefault();
-          sync(index - 1);
-        }
-        if (event.key === 'ArrowRight') {
-          event.preventDefault();
-          sync(index + 1);
-        }
-        if (event.key === 'Home') {
-          event.preventDefault();
-          sync(0);
-        }
-        if (event.key === 'End') {
-          event.preventDefault();
-          sync(total - 1);
-        }
-      });
-
-      let touchStartX = null;
-      reel.addEventListener('touchstart', (event) => {
-        touchStartX = event.changedTouches[0]?.clientX ?? null;
-      }, { passive: true });
-      reel.addEventListener('touchend', (event) => {
-        if (touchStartX === null) return;
-        const touchEndX = event.changedTouches[0]?.clientX ?? touchStartX;
-        const delta = touchEndX - touchStartX;
-        touchStartX = null;
-        if (Math.abs(delta) < 40) return;
-        if (delta > 0) sync(index - 1);
-        if (delta < 0) sync(index + 1);
-      }, { passive: true });
-
-      sync(index);
-    });
-  </script>
 
 </body>
 </html>
