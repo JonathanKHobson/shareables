@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T01:52:20.309982+00:00",
+  "generated_at": "2026-05-13T03:03:33.172074+00:00",
   "items": [
     {
       "description": "Use editorial when a shareable needs a strong argument, plain-language evidence, and a reader-friendly narrative arc.",
@@ -236,7 +236,10 @@
       }
     },
     {
-      "aliases": "kpi-card",
+      "aliases": [
+        "kpi-card",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "data": [
@@ -264,7 +267,7 @@
         "value": "84%",
         "visual": "sparkline"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-kpi-card",
       "kind": "widget",
       "known_limitations": [],
@@ -300,7 +303,10 @@
       }
     },
     {
-      "aliases": "bar-chart",
+      "aliases": [
+        "bar-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "bar-chart annotation: exact values remain visible or keyboard reachable.",
@@ -330,7 +336,7 @@
         "x": "segment",
         "y": "readiness"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-bar-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -366,7 +372,10 @@
       }
     },
     {
-      "aliases": "line-chart",
+      "aliases": [
+        "line-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "line-chart annotation: exact values remain visible or keyboard reachable.",
@@ -401,7 +410,7 @@
         "x": "week",
         "y": "confidence"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-line-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -437,7 +446,10 @@
       }
     },
     {
-      "aliases": "scatter-plot",
+      "aliases": [
+        "scatter-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "scatter-plot annotation: exact values remain visible or keyboard reachable.",
@@ -466,7 +478,7 @@
         "x": "effort",
         "y": "impact"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-scatter-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -502,7 +514,10 @@
       }
     },
     {
-      "aliases": "histogram",
+      "aliases": [
+        "histogram",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "histogram annotation: exact values remain visible or keyboard reachable.",
@@ -529,7 +544,7 @@
         "type": "histogram",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-histogram",
       "kind": "widget",
       "known_limitations": [],
@@ -565,7 +580,10 @@
       }
     },
     {
-      "aliases": "heatmap",
+      "aliases": [
+        "heatmap",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "heatmap annotation: exact values remain visible or keyboard reachable.",
@@ -604,7 +622,7 @@
         "type": "heatmap",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-heatmap",
       "kind": "widget",
       "known_limitations": [],
@@ -640,7 +658,10 @@
       }
     },
     {
-      "aliases": "radial-progress",
+      "aliases": [
+        "radial-progress",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "radial-progress annotation: exact values remain visible or keyboard reachable.",
@@ -656,7 +677,7 @@
         "unit": "score",
         "value": "77%"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-radial-progress",
       "kind": "widget",
       "known_limitations": [],
@@ -692,7 +713,10 @@
       }
     },
     {
-      "aliases": "contribution-grid",
+      "aliases": [
+        "contribution-grid",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "contribution-grid annotation: exact values remain visible or keyboard reachable.",
@@ -875,7 +899,7 @@
         "type": "contribution-grid",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-contribution-grid",
       "kind": "widget",
       "known_limitations": [],
@@ -911,7 +935,10 @@
       }
     },
     {
-      "aliases": "small-multiples",
+      "aliases": [
+        "small-multiples",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "small-multiples annotation: exact values remain visible or keyboard reachable.",
@@ -952,7 +979,7 @@
         "type": "small-multiples",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-small-multiples",
       "kind": "widget",
       "known_limitations": [],
@@ -988,7 +1015,10 @@
       }
     },
     {
-      "aliases": "box-plot",
+      "aliases": [
+        "box-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "box-plot annotation: exact values remain visible or keyboard reachable.",
@@ -1019,7 +1049,7 @@
         "type": "box-plot",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-box-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -1055,7 +1085,10 @@
       }
     },
     {
-      "aliases": "dot-plot",
+      "aliases": [
+        "dot-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "dot-plot annotation: exact values remain visible or keyboard reachable.",
@@ -1082,7 +1115,7 @@
         "type": "dot-plot",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-dot-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -1118,7 +1151,10 @@
       }
     },
     {
-      "aliases": "lollipop-chart",
+      "aliases": [
+        "lollipop-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "lollipop-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1145,7 +1181,7 @@
         "type": "lollipop-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-lollipop-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1181,7 +1217,10 @@
       }
     },
     {
-      "aliases": "range-bar-chart",
+      "aliases": [
+        "range-bar-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "range-bar-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1209,7 +1248,7 @@
         "type": "range-bar-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-range-bar-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1245,7 +1284,10 @@
       }
     },
     {
-      "aliases": "banded-line-chart",
+      "aliases": [
+        "banded-line-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "banded-line-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1279,7 +1321,7 @@
         "type": "banded-line-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-banded-line-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1315,7 +1357,10 @@
       }
     },
     {
-      "aliases": "likert-chart",
+      "aliases": [
+        "likert-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "likert-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1348,7 +1393,7 @@
         "type": "likert-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-likert-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1384,7 +1429,10 @@
       }
     },
     {
-      "aliases": "radar-chart",
+      "aliases": [
+        "radar-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "radar-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1427,7 +1475,7 @@
         "type": "radar-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-radar-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1463,7 +1511,10 @@
       }
     },
     {
-      "aliases": "pie-chart",
+      "aliases": [
+        "pie-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "pie-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1490,7 +1541,7 @@
         "type": "pie-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-pie-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1526,7 +1577,10 @@
       }
     },
     {
-      "aliases": "donut-chart",
+      "aliases": [
+        "donut-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "donut-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1550,7 +1604,7 @@
         "type": "donut-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-donut-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1586,7 +1640,10 @@
       }
     },
     {
-      "aliases": "bubble-chart",
+      "aliases": [
+        "bubble-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "bubble-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1620,7 +1677,7 @@
         "type": "bubble-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-bubble-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1656,7 +1713,10 @@
       }
     },
     {
-      "aliases": "step-line-chart",
+      "aliases": [
+        "step-line-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "step-line-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1687,7 +1747,7 @@
         "type": "step-line-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-step-line-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1723,7 +1783,10 @@
       }
     },
     {
-      "aliases": "slope-chart",
+      "aliases": [
+        "slope-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "slope-chart annotation: exact values remain visible or keyboard reachable.",
@@ -1748,7 +1811,7 @@
         "type": "slope-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-slope-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -1784,7 +1847,10 @@
       }
     },
     {
-      "aliases": "violin-plot",
+      "aliases": [
+        "violin-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "violin-plot annotation: exact values remain visible or keyboard reachable.",
@@ -1816,7 +1882,7 @@
         "type": "violin-plot",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-violin-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -1852,7 +1918,10 @@
       }
     },
     {
-      "aliases": "strip-plot",
+      "aliases": [
+        "strip-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "strip-plot annotation: exact values remain visible or keyboard reachable.",
@@ -1911,7 +1980,7 @@
         "type": "strip-plot",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-strip-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -1947,7 +2016,10 @@
       }
     },
     {
-      "aliases": "beeswarm-plot",
+      "aliases": [
+        "beeswarm-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "beeswarm-plot annotation: exact values remain visible or keyboard reachable.",
@@ -2006,7 +2078,7 @@
         "type": "beeswarm-plot",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-beeswarm-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -2042,7 +2114,10 @@
       }
     },
     {
-      "aliases": "density-plot",
+      "aliases": [
+        "density-plot",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "density-plot annotation: exact values remain visible or keyboard reachable.",
@@ -2078,7 +2153,7 @@
         "type": "density-plot",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-density-plot",
       "kind": "widget",
       "known_limitations": [],
@@ -2114,7 +2189,10 @@
       }
     },
     {
-      "aliases": "ecdf-chart",
+      "aliases": [
+        "ecdf-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "ecdf-chart annotation: exact values remain visible or keyboard reachable.",
@@ -2150,7 +2228,7 @@
         "type": "ecdf-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-ecdf-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -2186,7 +2264,10 @@
       }
     },
     {
-      "aliases": "bubble-matrix",
+      "aliases": [
+        "bubble-matrix",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "bubble-matrix annotation: exact values remain visible or keyboard reachable.",
@@ -2225,7 +2306,7 @@
         "type": "bubble-matrix",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-bubble-matrix",
       "kind": "widget",
       "known_limitations": [],
@@ -2261,7 +2342,10 @@
       }
     },
     {
-      "aliases": "treemap",
+      "aliases": [
+        "treemap",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "treemap annotation: exact values remain visible or keyboard reachable.",
@@ -2299,7 +2383,7 @@
         "type": "treemap",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-treemap",
       "kind": "widget",
       "known_limitations": [],
@@ -2335,7 +2419,10 @@
       }
     },
     {
-      "aliases": "pyramid-chart",
+      "aliases": [
+        "pyramid-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "pyramid-chart annotation: exact values remain visible or keyboard reachable.",
@@ -2362,7 +2449,7 @@
         "type": "pyramid-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-pyramid-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -2398,7 +2485,10 @@
       }
     },
     {
-      "aliases": "waffle-chart",
+      "aliases": [
+        "waffle-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "waffle-chart annotation: exact values remain visible or keyboard reachable.",
@@ -2425,7 +2515,7 @@
         "type": "waffle-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-waffle-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -2461,7 +2551,10 @@
       }
     },
     {
-      "aliases": "bullet-chart",
+      "aliases": [
+        "bullet-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "bullet-chart annotation: exact values remain visible or keyboard reachable.",
@@ -2481,7 +2574,7 @@
         "unit": "score",
         "value": 72
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-bullet-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -2517,7 +2610,10 @@
       }
     },
     {
-      "aliases": "waterfall-chart",
+      "aliases": [
+        "waterfall-chart",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotation": "waterfall-chart annotation: exact values remain visible or keyboard reachable.",
@@ -2545,7 +2641,7 @@
         "type": "waterfall-chart",
         "unit": "score"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-waterfall-chart",
       "kind": "widget",
       "known_limitations": [],
@@ -2581,7 +2677,10 @@
       }
     },
     {
-      "aliases": "sortable-table",
+      "aliases": [
+        "sortable-table",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "columns": [
@@ -2610,7 +2709,7 @@
         "title": "Sortable Table",
         "type": "sortable-table"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-sortable-table",
       "kind": "widget",
       "known_limitations": [],
@@ -2646,7 +2745,10 @@
       }
     },
     {
-      "aliases": "insight-card",
+      "aliases": [
+        "insight-card",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "body": "Users understand the value faster when the first action is visually dominant.",
@@ -2656,7 +2758,7 @@
         "title": "Insight Card",
         "type": "insight-card"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-insight-card",
       "kind": "widget",
       "known_limitations": [],
@@ -2692,7 +2794,10 @@
       }
     },
     {
-      "aliases": "source-panel",
+      "aliases": [
+        "source-panel",
+        "Dashboard"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "source-panel",
@@ -2704,7 +2809,7 @@
         "title": "Source Panel",
         "type": "source-panel"
       },
-      "family": "Widget",
+      "family": "Dashboard",
       "id": "widget-source-panel",
       "kind": "widget",
       "known_limitations": [],
@@ -2740,7 +2845,10 @@
       }
     },
     {
-      "aliases": "quote-card",
+      "aliases": [
+        "quote-card",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "quote-card",
@@ -2752,7 +2860,7 @@
         "title": "Quote Card",
         "type": "quote-card"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-quote-card",
       "kind": "widget",
       "known_limitations": [],
@@ -2788,7 +2896,10 @@
       }
     },
     {
-      "aliases": "theme-cluster",
+      "aliases": [
+        "theme-cluster",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "theme-cluster",
@@ -2814,7 +2925,7 @@
         "title": "Theme Cluster",
         "type": "theme-cluster"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-theme-cluster",
       "kind": "widget",
       "known_limitations": [],
@@ -2850,7 +2961,10 @@
       }
     },
     {
-      "aliases": "severity-priority-matrix",
+      "aliases": [
+        "severity-priority-matrix",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "severity-priority-matrix",
@@ -2868,7 +2982,7 @@
         "title": "Severity Priority Matrix",
         "type": "severity-priority-matrix"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-severity-priority-matrix",
       "kind": "widget",
       "known_limitations": [],
@@ -2904,7 +3018,10 @@
       }
     },
     {
-      "aliases": "task-success-panel",
+      "aliases": [
+        "task-success-panel",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "task-success-panel",
@@ -2925,7 +3042,7 @@
         "title": "Task Success Panel",
         "type": "task-success-panel"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-task-success-panel",
       "kind": "widget",
       "known_limitations": [],
@@ -2961,7 +3078,10 @@
       }
     },
     {
-      "aliases": "confidence-badge",
+      "aliases": [
+        "confidence-badge",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "body": "Evidence is strong enough to guide iteration, not market sizing.",
@@ -2971,7 +3091,7 @@
         "title": "Confidence Badge",
         "type": "confidence-badge"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-confidence-badge",
       "kind": "widget",
       "known_limitations": [],
@@ -3007,7 +3127,10 @@
       }
     },
     {
-      "aliases": "recommendation-card",
+      "aliases": [
+        "recommendation-card",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "finding_id": "F-01",
@@ -3025,7 +3148,7 @@
         "title": "Recommendation Card",
         "type": "recommendation-card"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-recommendation-card",
       "kind": "widget",
       "known_limitations": [],
@@ -3061,7 +3184,10 @@
       }
     },
     {
-      "aliases": "journey-map",
+      "aliases": [
+        "journey-map",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "journey-map",
@@ -3094,7 +3220,7 @@
         "title": "Journey Map",
         "type": "journey-map"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-journey-map",
       "kind": "widget",
       "known_limitations": [],
@@ -3130,7 +3256,10 @@
       }
     },
     {
-      "aliases": "source-caveat-panel",
+      "aliases": [
+        "source-caveat-panel",
+        "Ux Research"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "id": "source-caveat-panel",
@@ -3150,7 +3279,7 @@
         "title": "Source Caveat Panel",
         "type": "source-caveat-panel"
       },
-      "family": "Widget",
+      "family": "Ux Research",
       "id": "widget-source-caveat-panel",
       "kind": "widget",
       "known_limitations": [],
@@ -3186,7 +3315,10 @@
       }
     },
     {
-      "aliases": "feedback-form",
+      "aliases": [
+        "feedback-form",
+        "Local Copy Export Form"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Local-only form widget with validation, reset, copy JSON, and copy Markdown controls.",
@@ -3208,7 +3340,7 @@
         "title": "Feedback Form",
         "type": "feedback-form"
       },
-      "family": "Widget",
+      "family": "Local Copy Export Form",
       "id": "widget-feedback-form",
       "kind": "widget",
       "known_limitations": [],
@@ -3244,7 +3376,10 @@
       }
     },
     {
-      "aliases": "likert-survey",
+      "aliases": [
+        "likert-survey",
+        "Local Copy Export Form"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Local-only form widget with validation, reset, copy JSON, and copy Markdown controls.",
@@ -3266,7 +3401,7 @@
         "title": "Likert Survey",
         "type": "likert-survey"
       },
-      "family": "Widget",
+      "family": "Local Copy Export Form",
       "id": "widget-likert-survey",
       "kind": "widget",
       "known_limitations": [],
@@ -3302,7 +3437,10 @@
       }
     },
     {
-      "aliases": "review-response-form",
+      "aliases": [
+        "review-response-form",
+        "Local Copy Export Form"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Local-only form widget with validation, reset, copy JSON, and copy Markdown controls.",
@@ -3329,7 +3467,7 @@
         "title": "Review Response Form",
         "type": "review-response-form"
       },
-      "family": "Widget",
+      "family": "Local Copy Export Form",
       "id": "widget-review-response-form",
       "kind": "widget",
       "known_limitations": [],
@@ -3365,7 +3503,10 @@
       }
     },
     {
-      "aliases": "rating-form",
+      "aliases": [
+        "rating-form",
+        "Local Copy Export Form"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Local-only form widget with validation, reset, copy JSON, and copy Markdown controls.",
@@ -3386,7 +3527,7 @@
         "title": "Rating Form",
         "type": "rating-form"
       },
-      "family": "Widget",
+      "family": "Local Copy Export Form",
       "id": "widget-rating-form",
       "kind": "widget",
       "known_limitations": [],
@@ -3422,7 +3563,10 @@
       }
     },
     {
-      "aliases": "contact-intake-form",
+      "aliases": [
+        "contact-intake-form",
+        "Local Copy Export Form"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Local-only form widget with validation, reset, copy JSON, and copy Markdown controls.",
@@ -3450,7 +3594,7 @@
         "title": "Contact Intake Form",
         "type": "contact-intake-form"
       },
-      "family": "Widget",
+      "family": "Local Copy Export Form",
       "id": "widget-contact-intake-form",
       "kind": "widget",
       "known_limitations": [],
@@ -3486,7 +3630,816 @@
       }
     },
     {
-      "aliases": "countdown-timer",
+      "aliases": [
+        "timeline-roadmap",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "timeline-roadmap",
+        "items": [
+          {
+            "body": "Lock source registry and examples.",
+            "date": "Week 1",
+            "owner": "MCP",
+            "status": "Ready",
+            "title": "Foundation"
+          },
+          {
+            "body": "Promote reusable renderer families.",
+            "date": "Week 2",
+            "owner": "Renderer",
+            "status": "Review",
+            "title": "Runtime"
+          },
+          {
+            "body": "Refresh explorer after QA gates.",
+            "date": "Week 3",
+            "owner": "QA",
+            "status": "Planned",
+            "title": "Publish"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "takeaway": "A three-step delivery path makes sequencing and status easy to scan.",
+        "title": "Timeline Roadmap",
+        "type": "timeline-roadmap"
+      },
+      "family": "Decision Support",
+      "id": "widget-timeline-roadmap",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Timeline Roadmap",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "comparison-matrix",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "columns": [
+          "Docs",
+          "Packet",
+          "Dashboard"
+        ],
+        "id": "comparison-matrix",
+        "recommended": "Packet",
+        "rows": [
+          {
+            "label": "Best for",
+            "values": [
+              "Reference",
+              "Decision handoff",
+              "Metrics review"
+            ]
+          },
+          {
+            "label": "Reader speed",
+            "values": [
+              "Medium",
+              "Fast",
+              "Fast"
+            ]
+          },
+          {
+            "label": "Evidence fit",
+            "values": [
+              "Strong",
+              "Strong",
+              "Medium"
+            ]
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Comparison Matrix",
+        "type": "comparison-matrix"
+      },
+      "family": "Decision Support",
+      "id": "widget-comparison-matrix",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Comparison Matrix",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "pros-cons-panel",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "cons": [
+          "Can flatten nuance",
+          "Needs a clear recommendation"
+        ],
+        "id": "pros-cons-panel",
+        "pros": [
+          "Fast to understand",
+          "Makes tradeoffs explicit",
+          "Works well in print"
+        ],
+        "recommendation": "Use when the reader needs a quick balanced view before a decision matrix.",
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Pros Cons Panel",
+        "type": "pros-cons-panel"
+      },
+      "family": "Decision Support",
+      "id": "widget-pros-cons-panel",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Pros Cons Panel",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "decision-matrix",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "caveat": "Scores are illustrative for the explorer.",
+        "id": "decision-matrix",
+        "options": [
+          {
+            "confidence": "High",
+            "rationale": "High reuse, low architectural risk.",
+            "score": 86,
+            "status": "Recommended",
+            "title": "Ship V5.4"
+          },
+          {
+            "confidence": "Low",
+            "rationale": "Requires network and policy decisions.",
+            "score": 48,
+            "status": "Later",
+            "title": "Promote embeds"
+          },
+          {
+            "confidence": "Medium",
+            "rationale": "Useful but needs print scanner gates.",
+            "score": 64,
+            "status": "Next",
+            "title": "Add PDF export"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Decision Matrix",
+        "type": "decision-matrix"
+      },
+      "family": "Decision Support",
+      "id": "widget-decision-matrix",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Decision Matrix",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "tradeoff-matrix",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "confidence": "High",
+        "id": "tradeoff-matrix",
+        "items": [
+          {
+            "cost": "Fewer new widgets",
+            "decision": "Recommended",
+            "gain": "Higher QA confidence",
+            "mitigation": "Use reusable renderer families.",
+            "title": "Small batch"
+          },
+          {
+            "cost": "Higher visual regression risk",
+            "gain": "Broader catalog coverage",
+            "mitigation": "Defer to V5.5.",
+            "title": "Large batch"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Tradeoff Matrix",
+        "type": "tradeoff-matrix"
+      },
+      "family": "Decision Support",
+      "id": "widget-tradeoff-matrix",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Tradeoff Matrix",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "prioritization-board",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "prioritization-board",
+        "items": [
+          {
+            "confidence": "High",
+            "effort": "Medium",
+            "impact": "High",
+            "lane": "Now",
+            "title": "Decision/support widgets"
+          },
+          {
+            "confidence": "Medium",
+            "effort": "High",
+            "impact": "High",
+            "lane": "Next",
+            "title": "PDF export lane"
+          },
+          {
+            "confidence": "Low",
+            "effort": "High",
+            "impact": "Medium",
+            "lane": "Later",
+            "title": "Hosted embeds"
+          }
+        ],
+        "lanes": [
+          "Now",
+          "Next",
+          "Later"
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Prioritization Board",
+        "type": "prioritization-board"
+      },
+      "family": "Decision Support",
+      "id": "widget-prioritization-board",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Prioritization Board",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "checklist-gate",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "checklist-gate",
+        "items": [
+          {
+            "evidence": "Widget maps to a shared renderer.",
+            "required": true,
+            "status": "Pass",
+            "title": "Renderer path exists"
+          },
+          {
+            "evidence": "Canonical preview appears in split explorer.",
+            "required": true,
+            "status": "Pass",
+            "title": "Preview and thumbnail generated"
+          },
+          {
+            "evidence": "Desktop and mobile spot checks required.",
+            "required": true,
+            "status": "Review",
+            "title": "Browser QA complete"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Checklist Gate",
+        "type": "checklist-gate"
+      },
+      "family": "Decision Support",
+      "id": "widget-checklist-gate",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Checklist Gate",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "handoff-checklist",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "handoff-checklist",
+        "items": [
+          {
+            "evidence": "Widget maps to a shared renderer.",
+            "required": true,
+            "status": "Pass",
+            "title": "Renderer path exists"
+          },
+          {
+            "evidence": "Canonical preview appears in split explorer.",
+            "required": true,
+            "status": "Pass",
+            "title": "Preview and thumbnail generated"
+          },
+          {
+            "evidence": "Desktop and mobile spot checks required.",
+            "required": true,
+            "status": "Review",
+            "title": "Browser QA complete"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Handoff Checklist",
+        "type": "handoff-checklist"
+      },
+      "family": "Decision Support",
+      "id": "widget-handoff-checklist",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Handoff Checklist",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "acceptance-criteria",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "acceptance-criteria",
+        "items": [
+          {
+            "evidence": "Widget maps to a shared renderer.",
+            "required": true,
+            "status": "Pass",
+            "title": "Renderer path exists"
+          },
+          {
+            "evidence": "Canonical preview appears in split explorer.",
+            "required": true,
+            "status": "Pass",
+            "title": "Preview and thumbnail generated"
+          },
+          {
+            "evidence": "Desktop and mobile spot checks required.",
+            "required": true,
+            "status": "Review",
+            "title": "Browser QA complete"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Acceptance Criteria",
+        "type": "acceptance-criteria"
+      },
+      "family": "Decision Support",
+      "id": "widget-acceptance-criteria",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Acceptance Criteria",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "risk-card",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "risk-card",
+        "likelihood": "Medium",
+        "mitigation": "Keep V5.4 to reusable decision/support families.",
+        "owner": "Shareables QA",
+        "risk": "Promoting too many widgets at once can weaken visual QA and runtime confidence.",
+        "severity": "High",
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Risk Card",
+        "type": "risk-card"
+      },
+      "family": "Decision Support",
+      "id": "widget-risk-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Risk Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "evidence-card",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "caveat": "Explorer fixtures use illustrative data.",
+        "claim": "Decision widgets are the highest-leverage next runtime batch.",
+        "confidence": "High",
+        "evidence": "They directly support review, comparison, prioritization, and handoff artifacts.",
+        "id": "evidence-card",
+        "implication": "Build renderer families before expanding playful or hosted widgets.",
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Evidence Card",
+        "type": "evidence-card"
+      },
+      "family": "Decision Support",
+      "id": "widget-evidence-card",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Evidence Card",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "explainer-stack",
+        "Decision Support"
+      ],
+      "description": "A full-page canonical widget sample generated from the Shareables renderer.",
+      "example_payload": {
+        "id": "explainer-stack",
+        "items": [
+          {
+            "body": "Decision artifacts need a compact way to reveal rationale without burying the main recommendation.",
+            "title": "Why this exists"
+          },
+          {
+            "body": "Review score, evidence, caveat, and owner before acting.",
+            "title": "What to inspect"
+          },
+          {
+            "body": "Details remain visible as static sections in print review.",
+            "title": "How it prints"
+          }
+        ],
+        "source_refs": [
+          "canonical-fixture"
+        ],
+        "title": "Explainer Stack",
+        "type": "explainer-stack"
+      },
+      "family": "Decision Support",
+      "id": "widget-explainer-stack",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Explainer Stack",
+      "qa_evidence": [
+        "widget-registry",
+        "canonical-preview-builder",
+        "renderer-test"
+      ],
+      "renderer_family": "decision-support-renderer",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "default",
+        "hover",
+        "focus-visible",
+        "empty",
+        "error",
+        "complete",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "aliases": [
+        "countdown-timer",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3496,7 +4449,7 @@
         "title": "Countdown Timer",
         "type": "countdown-timer"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-countdown-timer",
       "kind": "widget",
       "known_limitations": [],
@@ -3532,7 +4485,10 @@
       }
     },
     {
-      "aliases": "daily-prompt-card",
+      "aliases": [
+        "daily-prompt-card",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3554,7 +4510,7 @@
         "title": "Daily Prompt Card",
         "type": "daily-prompt-card"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-daily-prompt-card",
       "kind": "widget",
       "known_limitations": [],
@@ -3590,7 +4546,10 @@
       }
     },
     {
-      "aliases": "idea-generator",
+      "aliases": [
+        "idea-generator",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3612,7 +4571,7 @@
         "title": "Idea Generator",
         "type": "idea-generator"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-idea-generator",
       "kind": "widget",
       "known_limitations": [],
@@ -3648,7 +4607,10 @@
       }
     },
     {
-      "aliases": "resource-roulette",
+      "aliases": [
+        "resource-roulette",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3670,7 +4632,7 @@
         "title": "Resource Roulette",
         "type": "resource-roulette"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-resource-roulette",
       "kind": "widget",
       "known_limitations": [],
@@ -3706,7 +4668,10 @@
       }
     },
     {
-      "aliases": "micro-oracle-button",
+      "aliases": [
+        "micro-oracle-button",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3728,7 +4693,7 @@
         "title": "Micro Oracle Button",
         "type": "micro-oracle-button"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-micro-oracle-button",
       "kind": "widget",
       "known_limitations": [],
@@ -3764,7 +4729,10 @@
       }
     },
     {
-      "aliases": "flashcard-reveal-deck",
+      "aliases": [
+        "flashcard-reveal-deck",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "cards": [
@@ -3782,7 +4750,7 @@
         "title": "Flashcard Reveal Deck",
         "type": "flashcard-reveal-deck"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-flashcard-reveal-deck",
       "kind": "widget",
       "known_limitations": [],
@@ -3818,7 +4786,10 @@
       }
     },
     {
-      "aliases": "process-walkthrough-widget",
+      "aliases": [
+        "process-walkthrough-widget",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3840,7 +4811,7 @@
         "title": "Process Walkthrough Widget",
         "type": "process-walkthrough-widget"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-process-walkthrough-widget",
       "kind": "widget",
       "known_limitations": [],
@@ -3876,7 +4847,10 @@
       }
     },
     {
-      "aliases": "animated-checklist-reveal",
+      "aliases": [
+        "animated-checklist-reveal",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3898,7 +4872,7 @@
         "title": "Animated Checklist Reveal",
         "type": "animated-checklist-reveal"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-animated-checklist-reveal",
       "kind": "widget",
       "known_limitations": [],
@@ -3934,7 +4908,10 @@
       }
     },
     {
-      "aliases": "before-during-after-journey-widget",
+      "aliases": [
+        "before-during-after-journey-widget",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -3956,7 +4933,7 @@
         "title": "Before During After Journey Widget",
         "type": "before-during-after-journey-widget"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-before-during-after-journey-widget",
       "kind": "widget",
       "known_limitations": [],
@@ -3992,7 +4969,10 @@
       }
     },
     {
-      "aliases": "micro-learning-carousel",
+      "aliases": [
+        "micro-learning-carousel",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -4014,7 +4994,7 @@
         "title": "Micro Learning Carousel",
         "type": "micro-learning-carousel"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-micro-learning-carousel",
       "kind": "widget",
       "known_limitations": [],
@@ -4050,7 +5030,10 @@
       }
     },
     {
-      "aliases": "annotation-layer-viewer",
+      "aliases": [
+        "annotation-layer-viewer",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "annotations": [
@@ -4073,7 +5056,7 @@
         "title": "Annotation Layer Viewer",
         "type": "annotation-layer-viewer"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-annotation-layer-viewer",
       "kind": "widget",
       "known_limitations": [],
@@ -4109,7 +5092,10 @@
       }
     },
     {
-      "aliases": "public-data-attribution-drawer",
+      "aliases": [
+        "public-data-attribution-drawer",
+        "Interactive Runtime"
+      ],
       "description": "A full-page canonical widget sample generated from the Shareables renderer.",
       "example_payload": {
         "description": "Offline/static runtime widget with progressive enhancement and print fallback.",
@@ -4127,7 +5113,7 @@
         "title": "Public Data Attribution Drawer",
         "type": "public-data-attribution-drawer"
       },
-      "family": "Widget",
+      "family": "Interactive Runtime",
       "id": "widget-public-data-attribution-drawer",
       "kind": "widget",
       "known_limitations": [],
