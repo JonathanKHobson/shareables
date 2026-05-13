@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T23:51:07.852076+00:00",
+  "generated_at": "2026-05-13T01:52:20.309982+00:00",
   "items": [
     {
       "description": "Use editorial when a shareable needs a strong argument, plain-language evidence, and a reader-friendly narrative arc.",
@@ -119,7 +119,7 @@
       }
     },
     {
-      "description": "A canonical full-page sample used to QA this Shareables template.",
+      "description": "Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.",
       "example_payload": {
         "sections": "canonical sample",
         "style_source": "product-studio",
@@ -4196,6 +4196,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4260,6 +4261,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4324,6 +4326,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4388,6 +4391,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4452,6 +4456,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4516,6 +4521,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4580,6 +4586,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4644,6 +4651,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4708,6 +4716,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4772,6 +4781,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4836,6 +4846,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4900,6 +4911,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -4964,6 +4976,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5028,6 +5041,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5092,6 +5106,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5156,6 +5171,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5220,6 +5236,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5284,6 +5301,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5348,6 +5366,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5414,6 +5433,7 @@
       "priority": "P3",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5478,6 +5498,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5542,6 +5563,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5606,6 +5628,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5670,6 +5693,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5734,6 +5758,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5798,6 +5823,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5862,6 +5888,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5926,6 +5953,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -5990,6 +6018,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6054,6 +6083,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6118,6 +6148,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6182,6 +6213,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6246,6 +6278,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6310,6 +6343,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6374,6 +6408,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6438,6 +6473,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6502,6 +6538,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6566,6 +6603,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6630,6 +6668,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6696,6 +6735,7 @@
       "priority": "P3",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6760,6 +6800,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6824,6 +6865,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6888,6 +6930,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -6952,6 +6995,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7016,6 +7060,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7080,6 +7125,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7144,6 +7190,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7208,6 +7255,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7272,6 +7320,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7336,6 +7385,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7400,6 +7450,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7464,6 +7515,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7528,6 +7580,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7592,6 +7645,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7656,6 +7710,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7720,6 +7775,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7784,6 +7840,7 @@
       "priority": "P1",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7848,6 +7905,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7912,6 +7970,7 @@
       "priority": "P2",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],
@@ -7976,6 +8035,7 @@
       "priority": "P0",
       "qa_evidence": [
         "component-showcase-builder",
+        "showcase-first-preview",
         "split-explorer-preview",
         "thumbnail-evidence-manifest"
       ],

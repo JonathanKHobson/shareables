@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Website Template Canonical Preview</title>
-  <meta name="description" content="A canonical full-page sample used to QA this Shareables template.">
-  <meta name="shareables:ai-summary" content="A canonical full-page sample used to QA this Shareables template.">
+  <meta name="description" content="Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.">
+  <meta name="shareables:ai-summary" content="Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Website Template Canonical Preview">
-  <meta property="og:description" content="A canonical full-page sample used to QA this Shareables template.">
+  <meta property="og:description" content="Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Website Template Canonical Preview">
-  <meta name="twitter:description" content="A canonical full-page sample used to QA this Shareables template.">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Website Template Canonical Preview", "description": "A canonical full-page sample used to QA this Shareables template."}</script>
+  <meta name="twitter:description" content="Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Website Template Canonical Preview", "description": "Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action."}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20role%3D%22img%22%20aria-label%3D%22Shareables%20mark%22%3E%0A%20%20%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2216%22%20fill%3D%22%23f8fbf9%22%2F%3E%0A%20%20%3Crect%20x%3D%2226%22%20y%3D%2224%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%230f766e%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Crect%20x%3D%2246%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23527a39%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M45%2067h30%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M64%2056l13%2011-13%2011%22%20fill%3D%22none%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2237%22%20cy%3D%2238%22%20r%3D%224%22%20fill%3D%22%23b7791f%22%2F%3E%0A%3C%2Fsvg%3E">
   <style>
     :root {
@@ -146,7 +146,7 @@
       border: 1px solid var(--line);
       border-left: 4px solid var(--teal);
       border-radius: 8px;
-      background: #fff;
+      background: var(--surface, #fff);
       overflow: clip;
     }
     .accordion details.notice { border-left-color: var(--gold); }
@@ -173,7 +173,7 @@
       border: 1px solid var(--line);
       border-left: 4px solid var(--primary);
       border-radius: 8px;
-      background: #fff;
+      background: var(--surface, #fff);
       padding: var(--comfort-inset-tight);
     }
     .stat-card.positive { border-left-color: var(--positive); }
@@ -210,6 +210,116 @@
     tr.tone-risk td { background: color-mix(in srgb, var(--risk) 9%, transparent); }
     tr.tone-critical td { background: color-mix(in srgb, var(--critical) 10%, transparent); }
     tr.tone-primary td { background: color-mix(in srgb, var(--primary) 9%, transparent); }
+    .showcase-section {
+      display: grid;
+      gap: var(--comfort-inset-tight);
+      min-width: 0;
+      max-width: 100%;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--comfort-radius);
+      background: var(--surface, #fff);
+      padding: var(--comfort-inset);
+      margin: 0 0 20px;
+      overflow: hidden;
+    }
+    .showcase-section > * { min-width: 0; }
+    .showcase-demo {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      background: color-mix(in srgb, var(--paper) 74%, var(--surface, #fff));
+      padding: clamp(14px, 2vw, 18px);
+      overflow: hidden;
+    }
+    .showcase-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-width: 0; }
+    .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; min-width: 0; }
+    .showcase-mini-card,
+    .showcase-control-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface, #fff);
+      padding: 12px;
+      overflow: hidden;
+    }
+    .showcase-button {
+      border: 1px solid var(--primary);
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      padding: 9px 13px;
+    }
+    .showcase-button.secondary { background: var(--surface, #fff); color: var(--primary); }
+    .showcase-button.tertiary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .showcase-button:disabled { opacity: .52; cursor: not-allowed; }
+    .showcase-pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px; background: var(--surface, #fff); font-size: .82rem; font-weight: 800; color: var(--ink); }
+    .showcase-alert { border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--line)); border-left: 5px solid var(--primary); border-radius: 12px; background: color-mix(in srgb, var(--primary) 8%, var(--surface, #fff)); padding: 13px; }
+    .showcase-avatar { width: 42px; height: 42px; border-radius: 999px; display: grid; place-items: center; border: 2px solid var(--surface, #fff); background: var(--primary); color: #fff; font-weight: 900; box-shadow: 0 0 0 1px var(--line); margin-left: -8px; }
+    .showcase-avatar:first-child { margin-left: 0; }
+    .showcase-crumbs ol { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .showcase-crumbs li:not(:last-child)::after { content: "/"; color: var(--muted); margin-left: 6px; }
+    .showcase-field { display: grid; gap: 5px; min-width: min(220px, 100%); }
+    .showcase-field label { font-size: .82rem; font-weight: 850; color: var(--ink); }
+    .showcase-field input,
+    .showcase-field select,
+    .showcase-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--surface, #fff);
+      color: var(--ink);
+      font: inherit;
+      padding: 9px 10px;
+    }
+    .showcase-field textarea { min-height: 76px; resize: vertical; }
+    .showcase-table { min-width: 0; max-width: 100%; font-size: .82rem; overflow: hidden; }
+    .showcase-table table { width: 100%; min-width: 0 !important; table-layout: fixed; }
+    .showcase-table th, .showcase-table td { padding: 6px 7px; font-size: .78rem; overflow-wrap: anywhere; }
+    .showcase-bars { display: grid; gap: 7px; }
+    .showcase-bar { height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--primary) var(--bar, 50%), var(--line)); }
+    .showcase-code { display: block; border-radius: 10px; background: color-mix(in srgb, var(--ink) 92%, #000); color: var(--paper); padding: 12px; overflow: hidden; font-size: .82rem; }
+    .showcase-modal { width: min(260px, 100%); border: 1px solid var(--line); border-radius: 14px; background: var(--surface, #fff); padding: 14px; box-shadow: 0 18px 48px rgba(15, 24, 21, .15); }
+    .showcase-popover { border: 1px solid var(--line); border-radius: 12px; background: var(--surface, #fff); padding: 12px; box-shadow: 0 10px 30px rgba(15, 24, 21, .11); }
+    .showcase-swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+    .showcase-swatch { min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--swatch); }
+    .showcase-type-scale { display: grid; gap: 5px; }
+    .showcase-type-scale .display { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; font-weight: 900; }
+    .showcase-type-scale .body { color: var(--muted); }
+    .showcase-icon { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--primary) 12%, var(--surface, #fff)); border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--line)); color: var(--primary); font-weight: 900; }
+    .showcase-qr {
+      width: 84px;
+      aspect-ratio: 1;
+      border: 8px solid var(--surface, #fff);
+      border-radius: 6px;
+      background:
+        linear-gradient(90deg, var(--ink) 12px, transparent 12px 20px, var(--ink) 20px 28px, transparent 28px),
+        linear-gradient(var(--ink) 12px, transparent 12px 20px, var(--ink) 20px 28px, transparent 28px),
+        color-mix(in srgb, var(--primary) 15%, var(--surface, #fff));
+      box-shadow: 0 0 0 1px var(--line);
+    }
+    .showcase-rating button,
+    .showcase-ranking span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface, #fff);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 850;
+      min-width: 34px;
+      padding: 7px 9px;
+    }
+    .showcase-rating button[aria-pressed="true"],
+    .showcase-ranking span:first-child { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .showcase-thumb-note { margin: 0; color: var(--muted); font-size: .84rem; }
+    @media (max-width: 680px) {
+      .showcase-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .showcase-grid { grid-template-columns: 1fr; }
+    }
     .dashboard-section {
       display: grid;
       gap: 16px;
@@ -2165,9 +2275,9 @@
           <div class="website-bar__desktop">
             <nav class="website-nav" aria-label="Page sections">
               <span class="website-nav__label">Page sections</span>
-              <a href="#website-hero" data-section-link="true" aria-current="true">Overview</a><a href="#overview-1" data-section-link="true" aria-label="Overview">Overview</a><a href="#best-uses-2" data-section-link="true" aria-label="Best Uses">Best Uses</a><a href="#template-fit-3" data-section-link="true" aria-label="Template Fit">Template Fit</a>
+              <a href="#website-hero" data-section-link="true" aria-current="true">Overview</a><a href="#website-exemplar-1" data-section-link="true" aria-label="Website Exemplar">Website Exemplar</a><a href="#proof-strip-2" data-section-link="true" aria-label="Proof Strip">Proof Strip</a><a href="#feature-grid-3" data-section-link="true" aria-label="Feature Grid">Feature Grid</a>
             </nav>
-            <a class="website-bar__cta" href="#overview">Review the pattern <span aria-hidden="true">→</span></a>
+            <a class="website-bar__cta" href="#features">Start the tour <span aria-hidden="true">→</span></a>
           </div>
           <button class="website-menu-toggle" type="button" data-website-menu-toggle aria-label="Open page menu" aria-expanded="false" aria-controls="website-mobile-sheet">
             <span class="website-menu-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -2175,55 +2285,62 @@
         </div>
         <div class="website-mobile-sheet" id="website-mobile-sheet" data-website-mobile-sheet data-open="false">
           <nav aria-label="Mobile page sections">
-            <a href="#website-hero" data-section-link="true" aria-current="true">Overview</a><a href="#overview-1" data-section-link="true" aria-label="Overview">Overview</a><a href="#best-uses-2" data-section-link="true" aria-label="Best Uses">Best Uses</a><a href="#template-fit-3" data-section-link="true" aria-label="Template Fit">Template Fit</a>
+            <a href="#website-hero" data-section-link="true" aria-current="true">Overview</a><a href="#website-exemplar-1" data-section-link="true" aria-label="Website Exemplar">Website Exemplar</a><a href="#proof-strip-2" data-section-link="true" aria-label="Proof Strip">Proof Strip</a><a href="#feature-grid-3" data-section-link="true" aria-label="Feature Grid">Feature Grid</a>
           </nav>
-          <div class="website-mobile-sheet__cta"><a class="website-bar__cta" href="#overview">Review the pattern <span aria-hidden="true">→</span></a></div>
+          <div class="website-mobile-sheet__cta"><a class="website-bar__cta" href="#features">Start the tour <span aria-hidden="true">→</span></a></div>
         </div>
       </header>
       <section id="website-hero" class="website-hero">
         <div class="website-hero__wrap">
-          <div class="website-hero__stamp">Template Preview</div>
+          <div class="website-hero__stamp">Website Template</div>
           <div class="website-hero__layout">
             <div class="website-hero__content">
-              <h1 class="website-hero__title">Website Template Canonical Preview</h1>
-              <p class="website-hero__lead">A canonical full-page sample used to QA this Shareables template.</p>
-          <div class="website-hero-actions"><a class="button" href="#overview">Review the pattern</a></div>
+              <h1 class="website-hero__title">Product story with proof and one CTA</h1>
+              <p class="website-hero__lead">Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.</p>
+          <div class="website-hero-actions"><a class="button" href="#features">Start the tour</a><a class="button" href="#proof">Compare examples</a></div>
             </div>
           </div>
         </div>
       </section>
-    <section data-shareables-path="/sections/0" data-shareables-json-pointer="/sections/0" data-shareables-kind="prose" id="overview-1" class="card">
-      <h2>Overview</h2>
-      <p>This page shows the template in its strongest default use case.</p>
-      <p>The layout is generated through the Shareables MCP renderer, not a static thumbnail.</p>
+    <section data-shareables-path="/sections/0" data-shareables-json-pointer="/sections/0" data-shareables-kind="showcase" id="website-exemplar-1" class="showcase-section" data-showcase-type="template">
+      <h2>Website Exemplar</h2>
+
+      <p class="showcase-thumb-note">Navigation, hero, proof strip, and CTA make the website template distinct from docs or packets.</p>
+      <div class="showcase-demo">
+        <div class="showcase-mini-card"><div class="showcase-row"><strong>Brand</strong><span class="showcase-pill">Product</span><span class="showcase-pill">Pricing</span></div><h3>Hero offer with proof strip</h3><p>Website previews show navigation, hero, proof, and CTA.</p><button class="showcase-button">Get started</button></div>
+      </div>
     </section>
-    <section data-shareables-path="/sections/1" data-shareables-json-pointer="/sections/1" data-shareables-kind="cards" id="best-uses-2">
-      <h2>Best Uses</h2>
-      <div class="grid">
-        <article class="card">
-          
-          <h3>Explain</h3>
-          <p>Clarify a decision or artifact.</p>
+    <section data-shareables-path="/sections/1" data-shareables-json-pointer="/sections/1" data-shareables-kind="stats" id="proof-strip-2">
+      <h2>Proof Strip</h2>
+      <div class="stats-grid">
+        <article class="stat-card primary">
+          <span class="stat-card__value">6</span>
+          <span class="stat-card__label">Reusable sections</span>
         </article>
-        <article class="card">
-          
-          <h3>Compare</h3>
-          <p>Make tradeoffs visible.</p>
-        </article>
-        <article class="card">
-          
-          <h3>Share</h3>
-          <p>Create a public-safe handoff.</p>
+        <article class="stat-card primary">
+          <span class="stat-card__value">1</span>
+          <span class="stat-card__label">Primary CTA</span>
         </article>
       </div>
     </section>
-    <section data-shareables-path="/sections/2" data-shareables-json-pointer="/sections/2" data-shareables-kind="table" id="template-fit-3" class="card">
-      <h2>Template Fit</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th scope="col">Use case</th><th scope="col">Fit</th></tr></thead>
-          <tbody><tr><td data-label="Use case">Narrative</td><td data-label="Fit">Strong</td></tr><tr><td data-label="Use case">Reference</td><td data-label="Fit">Medium</td></tr><tr><td data-label="Use case">Presentation</td><td data-label="Fit">Depends</td></tr></tbody>
-        </table>
+    <section data-shareables-path="/sections/2" data-shareables-json-pointer="/sections/2" data-shareables-kind="cards" id="feature-grid-3">
+      <h2>Feature Grid</h2>
+      <div class="grid">
+        <article class="card">
+          
+          <h3>Hero</h3>
+          <p>Offer and action are visible immediately.</p>
+        </article>
+        <article class="card">
+          
+          <h3>Proof</h3>
+          <p>Evidence appears before the reader commits.</p>
+        </article>
+        <article class="card">
+          
+          <h3>CTA</h3>
+          <p>The next step is explicit and keyboard reachable.</p>
+        </article>
       </div>
     </section>
     </div>

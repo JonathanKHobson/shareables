@@ -146,7 +146,7 @@
       border: 1px solid var(--line);
       border-left: 4px solid var(--teal);
       border-radius: 8px;
-      background: #fff;
+      background: var(--surface, #fff);
       overflow: clip;
     }
     .accordion details.notice { border-left-color: var(--gold); }
@@ -173,7 +173,7 @@
       border: 1px solid var(--line);
       border-left: 4px solid var(--primary);
       border-radius: 8px;
-      background: #fff;
+      background: var(--surface, #fff);
       padding: var(--comfort-inset-tight);
     }
     .stat-card.positive { border-left-color: var(--positive); }
@@ -210,6 +210,116 @@
     tr.tone-risk td { background: color-mix(in srgb, var(--risk) 9%, transparent); }
     tr.tone-critical td { background: color-mix(in srgb, var(--critical) 10%, transparent); }
     tr.tone-primary td { background: color-mix(in srgb, var(--primary) 9%, transparent); }
+    .showcase-section {
+      display: grid;
+      gap: var(--comfort-inset-tight);
+      min-width: 0;
+      max-width: 100%;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--comfort-radius);
+      background: var(--surface, #fff);
+      padding: var(--comfort-inset);
+      margin: 0 0 20px;
+      overflow: hidden;
+    }
+    .showcase-section > * { min-width: 0; }
+    .showcase-demo {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+      border-radius: 14px;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      background: color-mix(in srgb, var(--paper) 74%, var(--surface, #fff));
+      padding: clamp(14px, 2vw, 18px);
+      overflow: hidden;
+    }
+    .showcase-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; min-width: 0; }
+    .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; min-width: 0; }
+    .showcase-mini-card,
+    .showcase-control-card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface, #fff);
+      padding: 12px;
+      overflow: hidden;
+    }
+    .showcase-button {
+      border: 1px solid var(--primary);
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      padding: 9px 13px;
+    }
+    .showcase-button.secondary { background: var(--surface, #fff); color: var(--primary); }
+    .showcase-button.tertiary { background: transparent; color: var(--ink); border-color: var(--line); }
+    .showcase-button:disabled { opacity: .52; cursor: not-allowed; }
+    .showcase-pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px; background: var(--surface, #fff); font-size: .82rem; font-weight: 800; color: var(--ink); }
+    .showcase-alert { border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--line)); border-left: 5px solid var(--primary); border-radius: 12px; background: color-mix(in srgb, var(--primary) 8%, var(--surface, #fff)); padding: 13px; }
+    .showcase-avatar { width: 42px; height: 42px; border-radius: 999px; display: grid; place-items: center; border: 2px solid var(--surface, #fff); background: var(--primary); color: #fff; font-weight: 900; box-shadow: 0 0 0 1px var(--line); margin-left: -8px; }
+    .showcase-avatar:first-child { margin-left: 0; }
+    .showcase-crumbs ol { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+    .showcase-crumbs li:not(:last-child)::after { content: "/"; color: var(--muted); margin-left: 6px; }
+    .showcase-field { display: grid; gap: 5px; min-width: min(220px, 100%); }
+    .showcase-field label { font-size: .82rem; font-weight: 850; color: var(--ink); }
+    .showcase-field input,
+    .showcase-field select,
+    .showcase-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--surface, #fff);
+      color: var(--ink);
+      font: inherit;
+      padding: 9px 10px;
+    }
+    .showcase-field textarea { min-height: 76px; resize: vertical; }
+    .showcase-table { min-width: 0; max-width: 100%; font-size: .82rem; overflow: hidden; }
+    .showcase-table table { width: 100%; min-width: 0 !important; table-layout: fixed; }
+    .showcase-table th, .showcase-table td { padding: 6px 7px; font-size: .78rem; overflow-wrap: anywhere; }
+    .showcase-bars { display: grid; gap: 7px; }
+    .showcase-bar { height: 12px; border-radius: 999px; background: color-mix(in srgb, var(--primary) var(--bar, 50%), var(--line)); }
+    .showcase-code { display: block; border-radius: 10px; background: color-mix(in srgb, var(--ink) 92%, #000); color: var(--paper); padding: 12px; overflow: hidden; font-size: .82rem; }
+    .showcase-modal { width: min(260px, 100%); border: 1px solid var(--line); border-radius: 14px; background: var(--surface, #fff); padding: 14px; box-shadow: 0 18px 48px rgba(15, 24, 21, .15); }
+    .showcase-popover { border: 1px solid var(--line); border-radius: 12px; background: var(--surface, #fff); padding: 12px; box-shadow: 0 10px 30px rgba(15, 24, 21, .11); }
+    .showcase-swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+    .showcase-swatch { min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--swatch); }
+    .showcase-type-scale { display: grid; gap: 5px; }
+    .showcase-type-scale .display { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; font-weight: 900; }
+    .showcase-type-scale .body { color: var(--muted); }
+    .showcase-icon { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--primary) 12%, var(--surface, #fff)); border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--line)); color: var(--primary); font-weight: 900; }
+    .showcase-qr {
+      width: 84px;
+      aspect-ratio: 1;
+      border: 8px solid var(--surface, #fff);
+      border-radius: 6px;
+      background:
+        linear-gradient(90deg, var(--ink) 12px, transparent 12px 20px, var(--ink) 20px 28px, transparent 28px),
+        linear-gradient(var(--ink) 12px, transparent 12px 20px, var(--ink) 20px 28px, transparent 28px),
+        color-mix(in srgb, var(--primary) 15%, var(--surface, #fff));
+      box-shadow: 0 0 0 1px var(--line);
+    }
+    .showcase-rating button,
+    .showcase-ranking span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface, #fff);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 850;
+      min-width: 34px;
+      padding: 7px 9px;
+    }
+    .showcase-rating button[aria-pressed="true"],
+    .showcase-ranking span:first-child { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .showcase-thumb-note { margin: 0; color: var(--muted); font-size: .84rem; }
+    @media (max-width: 680px) {
+      .showcase-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .showcase-grid { grid-template-columns: 1fr; }
+    }
     .dashboard-section {
       display: grid;
       gap: 16px;
@@ -2180,18 +2290,26 @@
     <nav class="card toc" aria-label="Page sections">
       <h2>Contents</h2>
       <ul>
-        <li><a href="#field-family-role-1" data-section-link="true" aria-current="true" aria-label="Field Family Role">Field Family Role</a></li><li><a href="#required-field-states-2" data-section-link="true" aria-label="Required Field States">Required Field States</a></li><li><a href="#response-mapping-3" data-section-link="true" aria-label="Response Mapping">Response Mapping</a></li><li><a href="#qa-checks-4" data-section-link="true" aria-label="QA Checks">QA Checks</a></li><li><a href="#minimal-field-payload-5" data-section-link="true" aria-label="Minimal Field Payload">Minimal Field Payload</a></li>
+        <li><a href="#ranking-and-prioritization-fields-field-example-1" data-section-link="true" aria-current="true" aria-label="Ranking and prioritization fields Field Example">Ranking prioritization fields Field</a></li><li><a href="#field-family-role-2" data-section-link="true" aria-label="Field Family Role">Field Family Role</a></li><li><a href="#required-field-states-3" data-section-link="true" aria-label="Required Field States">Required Field States</a></li><li><a href="#response-mapping-4" data-section-link="true" aria-label="Response Mapping">Response Mapping</a></li><li><a href="#qa-checks-5" data-section-link="true" aria-label="QA Checks">QA Checks</a></li><li><a href="#minimal-field-payload-6" data-section-link="true" aria-label="Minimal Field Payload">Minimal Field Payload</a></li>
       </ul>
     </nav>
       </aside>
       <div class="content-layout__main">
-    <section data-shareables-path="/sections/0" data-shareables-json-pointer="/sections/0" data-shareables-kind="prose" id="field-family-role-1" class="card">
+    <section data-shareables-path="/sections/0" data-shareables-json-pointer="/sections/0" data-shareables-kind="showcase" id="ranking-and-prioritization-fields-field-example-1" class="showcase-section" data-showcase-type="form-field">
+      <h2>Ranking and prioritization fields Field Example</h2>
+
+      <p class="showcase-thumb-note">Actual control or static-safe surrogate appears first so form thumbnails show the field family, not the contract prose.</p>
+      <div class="showcase-demo">
+        <div class="showcase-ranking showcase-row"><span>1. Evidence</span><span>2. Impact</span><span>3. Effort</span></div>
+      </div>
+    </section>
+    <section data-shareables-path="/sections/1" data-shareables-json-pointer="/sections/1" data-shareables-kind="prose" id="field-family-role-2" class="card">
       <h2>Field Family Role</h2>
       <p>Rank order, drag sort, pairwise comparison, maxdiff, and budget allocation.</p>
       <p>Runtime status: experimental_runtime. Support level: local-copy-export-candidate.</p>
       <p>This preview describes the field contract, states, and export shape from the registry so form libraries stay inspectable without inventing a hidden network runtime.</p>
     </section>
-    <section data-shareables-path="/sections/1" data-shareables-json-pointer="/sections/1" data-shareables-kind="cards" id="required-field-states-2">
+    <section data-shareables-path="/sections/2" data-shareables-json-pointer="/sections/2" data-shareables-kind="cards" id="required-field-states-3">
       <h2>Required Field States</h2>
       <div class="grid">
         <article class="card">
@@ -2216,7 +2334,7 @@
         </article>
       </div>
     </section>
-    <section data-shareables-path="/sections/2" data-shareables-json-pointer="/sections/2" data-shareables-kind="table" id="response-mapping-3" class="card">
+    <section data-shareables-path="/sections/3" data-shareables-json-pointer="/sections/3" data-shareables-kind="table" id="response-mapping-4" class="card">
       <h2>Response Mapping</h2>
       <div class="table-wrap">
         <table>
@@ -2225,17 +2343,17 @@
         </table>
       </div>
     </section>
-    <section data-shareables-path="/sections/3" data-shareables-json-pointer="/sections/3" data-shareables-kind="checklist" id="qa-checks-4" class="card">
+    <section data-shareables-path="/sections/4" data-shareables-json-pointer="/sections/4" data-shareables-kind="checklist" id="qa-checks-5" class="card">
       <h2>QA Checks</h2>
       <ul class="checklist"><li><input type="checkbox" disabled aria-label="label-required"> <span>label-required</span></li><li><input type="checkbox" disabled aria-label="keyboard"> <span>keyboard</span></li><li><input type="checkbox" disabled aria-label="validation-state"> <span>validation-state</span></li><li><input type="checkbox" disabled aria-label="print-fallback"> <span>print-fallback</span></li><li><input type="checkbox" disabled aria-label="response-shape"> <span>response-shape</span></li></ul>
     </section>
-    <section data-shareables-path="/sections/4" data-shareables-json-pointer="/sections/4" data-shareables-kind="code" id="minimal-field-payload-5" class="code-block">
+    <section data-shareables-path="/sections/5" data-shareables-json-pointer="/sections/5" data-shareables-kind="code" id="minimal-field-payload-6" class="code-block">
       <h2>Minimal Field Payload</h2>
       <div class="code-block__header">
         <div class="code-block__label">JSON</div>
-        <button class="copy-script-button" type="button" data-copy-target="minimal-field-payload-5-code" aria-describedby="minimal-field-payload-5-copy-status">Copy text</button>
+        <button class="copy-script-button" type="button" data-copy-target="minimal-field-payload-6-code" aria-describedby="minimal-field-payload-6-copy-status">Copy text</button>
       </div>
-      <pre><code id="minimal-field-payload-5-code" class="language-json">{
+      <pre><code id="minimal-field-payload-6-code" class="language-json">{
   &quot;field_family&quot;: &quot;form-field-family.ranking-prioritization&quot;,
   &quot;label&quot;: &quot;Ranking and prioritization fields example&quot;,
   &quot;required&quot;: true,
@@ -2249,7 +2367,7 @@
   ],
   &quot;mode&quot;: &quot;local_copy_export&quot;
 }</code></pre>
-      <div id="minimal-field-payload-5-copy-status" class="copy-status" role="status" aria-live="polite"></div>
+      <div id="minimal-field-payload-6-copy-status" class="copy-status" role="status" aria-live="polite"></div>
     </section>
       </div>
     </div>
