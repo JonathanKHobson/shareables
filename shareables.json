@@ -1,12 +1,20 @@
 {
-  "generated_at": "2026-05-13T05:27:50+00:00",
+  "generated_at": "2026-05-15T13:08:13+00:00",
   "shareables": [
+    {
+      "audience": "Game developers, portfolio viewers, and AI-assisted dev enthusiasts curious about how a browser roguelike was built phase-by-phase using Codex and Claude",
+      "id": "20260515T124015+0000-p2k-roguelike-survival-game-architecture-ai-workflow",
+      "purpose": "Showcase the architecture, AI-assisted development workflow, phase history, visual screenshots, and honest lessons learned building a Phaser 3 + TypeScript browser roguelike from scratch",
+      "title": "P2K Roguelike Survival — Game Architecture & AI Workflow",
+      "updated_at": "2026-05-15T13:08:13+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/p2k-roguelike-survival-game-architecture-ai-workflow/"
+    },
     {
       "audience": "Shareables MCP users and collaborators",
       "id": "20260511T182131+0000-shareables-design-system-explorer",
       "purpose": "Provide a public, interactive reference for Shareables templates, design systems, widgets, components, and tokens.",
       "title": "Shareables Design System Explorer",
-      "updated_at": "2026-05-13T05:27:50+00:00",
+      "updated_at": "2026-05-13T05:31:42+00:00",
       "url": "https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/"
     },
     {
