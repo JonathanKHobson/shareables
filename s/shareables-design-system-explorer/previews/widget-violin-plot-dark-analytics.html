@@ -59,7 +59,7 @@
     p { margin: 0 0 12px; }
     a { color: var(--teal); font-weight: 700; }
     a:focus-visible, button:focus-visible {
-      outline: 3px solid color-mix(in srgb, var(--gold) 72%, white);
+      outline: 3px solid var(--focus-ring-light, color-mix(in srgb, var(--gold) 72%, white));
       outline-offset: 3px;
     }
     .reading-progress {
@@ -138,8 +138,8 @@
     .checklist span { min-width: 0; overflow-wrap: anywhere; }
     .checklist input { margin-top: .35rem; accent-color: var(--teal); }
     .tab-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
-    .tab-nav button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; font: inherit; font-weight: 700; padding: 9px 12px; }
-    .tab-nav button[aria-selected="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .tab-nav button { border: 1px solid var(--line); border-radius: 8px; background: var(--surface, #fff); color: var(--ink); cursor: pointer; font: inherit; font-weight: 700; padding: 9px 12px; }
+    .tab-nav button[aria-selected="true"] { background: var(--tab-selected-bg, var(--teal)); border-color: var(--tab-selected-border, var(--teal)); color: var(--tab-selected-text, #fff); }
     .tab-panel[hidden] { display: none; }
     .accordion { display: grid; gap: 12px; }
     .accordion details {
@@ -1688,8 +1688,8 @@
     .website-nav a:hover,
     .website-nav a[aria-current="true"] {
       color: var(--ink);
-      border-bottom-color: var(--teal);
-      background: color-mix(in srgb, var(--ink) 5%, transparent);
+      border-bottom-color: var(--leaf);
+      background: color-mix(in srgb, var(--paper) 88%, var(--leaf) 12%);
       text-decoration: none;
     }
     .website-bar__cta {
@@ -1767,7 +1767,7 @@
     }
     .website-mobile-sheet a:hover,
     .website-mobile-sheet a[aria-current="true"] {
-      background: color-mix(in srgb, var(--ink) 5%, transparent);
+      background: color-mix(in srgb, var(--paper) 88%, var(--leaf) 12%);
       text-decoration: none;
     }
     .website-mobile-sheet__cta {
@@ -1807,10 +1807,10 @@
       width: fit-content;
       padding: 6px 12px;
       border-radius: 999px;
-      background: color-mix(in srgb, var(--teal) 16%, white);
-      color: var(--teal);
+      background: color-mix(in srgb, var(--leaf) 12%, white);
+      color: var(--leaf);
       font-family: var(--font-retro);
-      font-size: 0.72rem;
+      font-size: max(0.875rem, 14px);
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -1895,6 +1895,35 @@
     }
     body.shareable-shell[data-template="website"] footer {
       padding-top: 36px;
+    }
+    .website-back-to-top {
+      position: fixed;
+      right: max(18px, env(safe-area-inset-right));
+      bottom: max(18px, env(safe-area-inset-bottom));
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 1px solid color-mix(in srgb, var(--leaf) 64%, var(--ink));
+      border-radius: 999px;
+      background: var(--leaf);
+      color: var(--paper);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 850;
+      text-decoration: none;
+      box-shadow: var(--shadow-rest);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+    .website-back-to-top[data-visible="true"] {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
     }
     body.shareable-shell[data-template="reel"] {
       overflow: hidden;
@@ -2540,6 +2569,15 @@
       --shadow-hover: 0 22px 52px -26px rgba(56, 189, 248, 0.24);
       --button-shadow: 0 12px 24px -18px rgba(56, 189, 248, 0.65);
       --button-shadow-hover: 0 16px 32px -18px rgba(56, 189, 248, 0.72);
+      --control-surface: #111b2d;
+      --control-surface-hover: #17263c;
+      --control-selected-bg: #67e8f9;
+      --control-selected-text: #07111f;
+      --focus-ring-light: #67e8f9;
+      --focus-ring-dark: #fbbf24;
+      --tab-selected-bg: #67e8f9;
+      --tab-selected-border: #67e8f9;
+      --tab-selected-text: #07111f;
       --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-retro: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
@@ -2589,6 +2627,26 @@
     }
     body.shareable-shell .button.secondary { background: #182337; border-color: #334761; color: var(--ink); }
     body.shareable-shell .button.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+    body.shareable-shell[data-style-source="dark-analytics"] .tab-nav button,
+    body.shareable-shell[data-style-source="dark-analytics"] .packet-page-nav button,
+    body.shareable-shell[data-style-source="dark-analytics"] .preset-gallery__button {
+      background: var(--control-surface);
+      color: var(--ink);
+      border-color: var(--rule-strong);
+    }
+    body.shareable-shell[data-style-source="dark-analytics"] .tab-nav button:hover,
+    body.shareable-shell[data-style-source="dark-analytics"] .packet-page-nav button:hover,
+    body.shareable-shell[data-style-source="dark-analytics"] .preset-gallery__button:hover {
+      background: var(--control-surface-hover);
+      color: var(--ink);
+    }
+    body.shareable-shell[data-style-source="dark-analytics"] .tab-nav button[aria-selected="true"],
+    body.shareable-shell[data-style-source="dark-analytics"] .packet-page-nav button[aria-selected="true"],
+    body.shareable-shell[data-style-source="dark-analytics"] .preset-gallery__button[aria-pressed="true"] {
+      background: var(--control-selected-bg);
+      border-color: var(--control-selected-bg);
+      color: var(--control-selected-text);
+    }
 
   </style>
 </head>
@@ -2621,7 +2679,7 @@
         </article>
       </div>
     </section>
-    <section data-shareables-path="/sections/1" data-shareables-json-pointer="/sections/1" data-shareables-kind="prose" id="when-to-use-2" class="card">
+    <section data-shareables-path="/sections/1" data-shareables-json-pointer="/sections/1" data-shareables-kind="prose" id="when-to-use-2" class="card" aria-label="When To Use">
       <h2>When To Use</h2>
       <p>Use <code>violin-plot</code> when this exact visual grammar matches the data, evidence, or research job.</p>
     </section>
@@ -2786,6 +2844,15 @@
       });
       window.addEventListener('scroll', syncCurrent, { passive: true });
       syncCurrent();
+      const backToTop = shell.querySelector('[data-back-to-top]');
+      if (backToTop) {
+        const syncBackToTop = () => {
+          backToTop.dataset.visible = window.scrollY > window.innerHeight * 0.5 ? 'true' : 'false';
+        };
+        window.addEventListener('scroll', syncBackToTop, { passive: true });
+        window.addEventListener('resize', syncBackToTop);
+        syncBackToTop();
+      }
     });
 
     document.querySelectorAll('.toc').forEach((toc) => {
