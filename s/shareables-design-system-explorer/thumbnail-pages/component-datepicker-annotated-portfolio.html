@@ -2713,8 +2713,11 @@
       --muted: #5c5651;
       --paper: #f5f0e8;
       --line: #d4c9bc;
-      --teal: #2d6a8f;
+      --primary: #b8522a;
+      --terracotta: #b8522a;
+      --teal: #b8522a;
       --coral: #b8522a;
+      --secondary: #5c5651;
       --leaf: #4f7042;
       --gold: #c4963d;
       --sky: #c0d9ea;
@@ -2728,19 +2731,19 @@
       --nav-surface: rgba(245, 240, 232, 0.96);
       --shadow-rest: 0 16px 38px -28px rgba(44, 42, 39, 0.38);
       --shadow-hover: 0 20px 48px -26px rgba(44, 42, 39, 0.46);
-      --button-shadow: 0 10px 24px -18px rgba(45, 106, 143, 0.48);
-      --button-shadow-hover: 0 14px 30px -18px rgba(45, 106, 143, 0.55);
-      --focus-ring-light: var(--steel);
+      --button-shadow: 0 10px 24px -18px rgba(184, 82, 42, 0.48);
+      --button-shadow-hover: 0 14px 30px -18px rgba(184, 82, 42, 0.55);
+      --focus-ring-light: var(--primary);
       --focus-ring-dark: var(--gold);
-      --tab-selected-bg: var(--steel);
-      --tab-selected-border: var(--steel);
+      --tab-selected-bg: var(--primary);
+      --tab-selected-border: var(--primary);
       --tab-selected-text: #fffaf2;
       --font-body: ui-serif, Georgia, "Times New Roman", serif;
       --font-display: ui-serif, Georgia, "Times New Roman", serif;
       --font-retro: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       --body-overlay:
-        linear-gradient(90deg, rgba(45, 106, 143, 0.08), transparent 28%),
+        linear-gradient(90deg, rgba(184, 82, 42, 0.08), transparent 28%),
         radial-gradient(circle at 86% 8%, rgba(184, 82, 42, 0.12), transparent 34%);
       font-family: var(--font-body);
     }
@@ -2772,26 +2775,26 @@
       box-shadow: var(--shadow-rest);
     }
     body.shareable-shell .button {
-      background: var(--steel);
-      border: 1.5px solid var(--steel);
+      background: var(--primary);
+      border: 1.5px solid var(--primary);
       border-radius: 999px;
       color: #fffaf2;
       box-shadow: var(--button-shadow);
       font-family: var(--font-retro);
       font-weight: 850;
     }
-    body.shareable-shell .button.secondary { background: var(--rust); border-color: var(--rust); color: #fffaf2; }
+    body.shareable-shell .button.secondary { background: var(--secondary); border-color: var(--secondary); color: #fffaf2; }
     body.shareable-shell .button.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-    body.shareable-shell[data-style-source="annotated-portfolio"] .portfolio-widget--case { border-left-color: var(--steel); }
+    body.shareable-shell[data-style-source="annotated-portfolio"] .portfolio-widget--case { border-left-color: var(--primary); }
     body.shareable-shell[data-style-source="annotated-portfolio"] .portfolio-widget--artifact { border-left-color: var(--rust); }
     body.shareable-shell[data-style-source="annotated-portfolio"] .portfolio-widget--proof { border-left-color: var(--leaf); }
     body.shareable-shell[data-style-source="annotated-portfolio"] .portfolio-widget--caveat { border-left-color: var(--gold); }
     body.shareable-shell[data-style-source="annotated-portfolio"] .portfolio-meter span {
-      background: linear-gradient(90deg, var(--steel), var(--rust));
+      background: linear-gradient(90deg, var(--primary), var(--rust));
     }
     body.shareable-shell[data-style-source="annotated-portfolio"] .reel-stage {
       background:
-        linear-gradient(90deg, rgba(45, 106, 143, 0.12), transparent 40%),
+        linear-gradient(90deg, rgba(184, 82, 42, 0.12), transparent 40%),
         var(--paper);
     }
     body.shareable-shell[data-style-source="annotated-portfolio"] .reel-slide {
