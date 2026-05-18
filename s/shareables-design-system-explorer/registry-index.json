@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-18T00:38:12.163277+00:00",
+  "generated_at": "2026-05-18T03:06:34.577368+00:00",
   "items": [
     {
       "description": "Use editorial when a shareable needs a strong argument, plain-language evidence, and a reader-friendly narrative arc.",
       "example_payload": {
         "sections": "canonical sample",
-        "style_source": "product-studio",
+        "style_source": "core-utility",
         "template": "editorial"
       },
       "family": "Template",
@@ -35,7 +35,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -44,7 +45,7 @@
       "description": "Use docs when readers need orientation, durable reference, exact steps, and a visible section rail.",
       "example_payload": {
         "sections": "canonical sample",
-        "style_source": "product-studio",
+        "style_source": "core-utility",
         "template": "docs"
       },
       "family": "Template",
@@ -74,7 +75,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -83,7 +85,7 @@
       "description": "A canonical full-page sample used to QA this Shareables template.",
       "example_payload": {
         "sections": "canonical sample",
-        "style_source": "product-studio",
+        "style_source": "core-utility",
         "template": "packet"
       },
       "family": "Template",
@@ -113,7 +115,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -122,7 +125,7 @@
       "description": "Use website when the first viewport needs navigation, offer clarity, proof, and a conversion action.",
       "example_payload": {
         "sections": "canonical sample",
-        "style_source": "product-studio",
+        "style_source": "core-utility",
         "template": "website"
       },
       "family": "Template",
@@ -152,7 +155,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -161,7 +165,7 @@
       "description": "A canonical full-page sample used to QA this Shareables template.",
       "example_payload": {
         "sections": "canonical sample",
-        "style_source": "product-studio",
+        "style_source": "core-utility",
         "template": "reel"
       },
       "family": "Template",
@@ -191,7 +195,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -200,7 +205,7 @@
       "description": "A canonical full-page sample used to QA this Shareables template.",
       "example_payload": {
         "sections": "canonical sample",
-        "style_source": "product-studio",
+        "style_source": "core-utility",
         "template": "storyboard"
       },
       "family": "Template",
@@ -230,7 +235,48 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
+        ],
+        "unsupported_style_sources": []
+      }
+    },
+    {
+      "description": "Use portfolio casebook when a reviewer needs to understand the problem, role, methods, artifacts, evidence, caveats, and what the work proves.",
+      "example_payload": {
+        "sections": "canonical sample",
+        "style_source": "annotated-portfolio",
+        "template": "portfolio-casebook"
+      },
+      "family": "Template",
+      "id": "template-portfolio-casebook",
+      "kind": "template",
+      "known_limitations": [],
+      "name": "Portfolio Casebook",
+      "qa_evidence": [
+        "template-preview-builder",
+        "render-qa",
+        "split-explorer-preview"
+      ],
+      "renderer_family": "template-portfolio-casebook-canonical-renderer",
+      "runtime_kind": "template",
+      "runtime_status": "runtime_promoted",
+      "states": [
+        "desktop",
+        "mobile",
+        "keyboard",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -297,7 +343,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -366,7 +413,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -440,7 +488,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -508,7 +557,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -574,7 +624,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -652,7 +703,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -707,7 +759,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -929,7 +982,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1009,7 +1063,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1079,7 +1134,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1145,7 +1201,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1211,7 +1268,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1278,7 +1336,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1351,7 +1410,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1423,7 +1483,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1505,7 +1566,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1571,7 +1633,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1634,7 +1697,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1707,7 +1771,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1777,7 +1842,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1841,7 +1907,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -1912,7 +1979,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2010,7 +2078,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2108,7 +2177,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2183,7 +2253,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2258,7 +2329,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2336,7 +2408,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2413,7 +2486,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2479,7 +2553,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2545,7 +2620,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2604,7 +2680,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2671,7 +2748,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2739,7 +2817,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2788,7 +2867,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2839,7 +2919,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2890,7 +2971,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -2955,7 +3037,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3012,7 +3095,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3072,7 +3156,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3121,7 +3206,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3178,7 +3264,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3250,7 +3337,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3309,7 +3397,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3372,7 +3461,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3431,7 +3521,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3488,7 +3579,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3541,7 +3633,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3600,7 +3693,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3670,7 +3764,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3724,7 +3819,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3779,7 +3875,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3849,7 +3946,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3902,7 +4000,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -3954,7 +4053,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4006,7 +4106,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4059,7 +4160,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4113,7 +4215,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4166,7 +4269,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4232,7 +4336,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4293,7 +4398,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4354,7 +4460,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4420,7 +4527,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4480,7 +4588,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4547,7 +4656,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4620,7 +4730,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4701,7 +4812,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4760,7 +4872,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4833,7 +4946,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4898,7 +5012,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -4975,7 +5090,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5044,7 +5160,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5113,7 +5230,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5182,7 +5300,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5236,7 +5355,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5290,7 +5410,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5353,7 +5474,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5402,7 +5524,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5463,7 +5586,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5524,7 +5648,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5585,7 +5710,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5646,7 +5772,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5703,7 +5830,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5764,7 +5892,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5825,7 +5954,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5886,7 +6016,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -5947,7 +6078,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6009,7 +6141,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6066,7 +6199,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6131,7 +6265,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6196,7 +6331,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6261,7 +6397,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6326,7 +6463,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6391,7 +6529,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6456,7 +6595,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6521,7 +6661,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6586,7 +6727,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6651,7 +6793,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6716,7 +6859,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6781,7 +6925,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6846,7 +6991,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6911,7 +7057,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -6976,7 +7123,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7041,7 +7189,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7106,7 +7255,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7171,7 +7321,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7236,7 +7387,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7301,7 +7453,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7368,7 +7521,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7433,7 +7587,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7498,7 +7653,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7563,7 +7719,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7628,7 +7785,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7693,7 +7851,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7758,7 +7917,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7823,7 +7983,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7888,7 +8049,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -7953,7 +8115,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8018,7 +8181,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8083,7 +8247,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8148,7 +8313,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8213,7 +8379,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8278,7 +8445,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8343,7 +8511,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8408,7 +8577,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8473,7 +8643,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8538,7 +8709,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8603,7 +8775,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8670,7 +8843,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8735,7 +8909,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8800,7 +8975,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8865,7 +9041,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8930,7 +9107,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -8995,7 +9173,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9060,7 +9239,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9125,7 +9305,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9190,7 +9371,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9255,7 +9437,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9320,7 +9503,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9385,7 +9569,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9450,7 +9635,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9515,7 +9701,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9580,7 +9767,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9645,7 +9833,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9710,7 +9899,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9775,7 +9965,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9840,7 +10031,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9905,7 +10097,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -9970,7 +10163,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -11689,7 +11883,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -13249,7 +13444,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -13771,7 +13967,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -13887,7 +14084,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -14699,7 +14897,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -14931,7 +15130,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -16091,7 +16291,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -16381,7 +16582,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -16671,7 +16873,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -16845,7 +17048,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -17715,7 +17919,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -17947,7 +18152,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -19861,7 +20067,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -19919,7 +20126,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -20905,7 +21113,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -20963,7 +21172,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -21195,7 +21405,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -22239,7 +22450,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -22355,7 +22567,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -22587,7 +22800,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -22935,7 +23149,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -23515,7 +23730,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -23747,7 +23963,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -23921,7 +24138,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -24327,7 +24545,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -24675,7 +24894,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       },
@@ -24770,7 +24990,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -24806,7 +25027,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -24842,7 +25064,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -24878,7 +25101,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -24914,7 +25138,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -24950,7 +25175,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -24986,7 +25212,8 @@
           "structured-bridge",
           "product-studio",
           "dark-analytics",
-          "research-academic"
+          "research-academic",
+          "annotated-portfolio"
         ],
         "unsupported_style_sources": []
       }
@@ -25017,6 +25244,10 @@
     {
       "id": "research-academic",
       "name": "Research Academic"
+    },
+    {
+      "id": "annotated-portfolio",
+      "name": "Annotated Portfolio"
     }
   ]
 }

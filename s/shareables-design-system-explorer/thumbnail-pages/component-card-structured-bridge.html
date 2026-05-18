@@ -1442,6 +1442,12 @@
       --website-prose-width: 74ch;
       --website-section-pad-y: clamp(34px, 4vw, 52px);
     }
+    body.shareable-shell[data-template="portfolio-casebook"] {
+      --toc-top: 76px;
+      --portfolio-shell-width: min(1180px, calc(100vw - 48px));
+      --portfolio-prose-width: 74ch;
+      --portfolio-rail-color: var(--teal);
+    }
     body.shareable-shell h1,
     body.shareable-shell h2,
     body.shareable-shell h3 { font-family: var(--font-display); }
@@ -2416,6 +2422,142 @@
       color: var(--muted);
       margin: 0;
     }
+    .portfolio-casebook-shell {
+      display: grid;
+      gap: clamp(28px, 5vw, 64px);
+      margin: 0 auto;
+      max-width: var(--portfolio-shell-width);
+      min-width: 0;
+      position: relative;
+      width: var(--portfolio-shell-width);
+    }
+    .portfolio-casebook-shell::before {
+      background: linear-gradient(var(--portfolio-rail-color), color-mix(in srgb, var(--portfolio-rail-color) 26%, transparent));
+      border-radius: 999px;
+      content: "";
+      inset: 26px auto 24px 10px;
+      opacity: .32;
+      position: absolute;
+      width: 3px;
+    }
+    .portfolio-casebook-hero,
+    .portfolio-casebook-section {
+      margin-left: clamp(18px, 3vw, 42px);
+      min-width: 0;
+      position: relative;
+    }
+    .portfolio-casebook-hero {
+      display: grid;
+      gap: 18px;
+      padding: clamp(36px, 6vw, 78px) 0 10px;
+    }
+    .portfolio-casebook-hero::before,
+    .portfolio-casebook-section::before {
+      background: var(--surface);
+      border: 3px solid var(--portfolio-rail-color);
+      border-radius: 999px;
+      content: "";
+      height: 16px;
+      left: calc(clamp(18px, 3vw, 42px) * -1 - 1px);
+      position: absolute;
+      top: 42px;
+      width: 16px;
+      z-index: 1;
+    }
+    .portfolio-casebook__eyebrow,
+    .portfolio-casebook__label {
+      color: var(--teal);
+      font-size: max(.82rem, 14px);
+      font-weight: 850;
+      margin: 0;
+    }
+    .portfolio-casebook__title {
+      font-size: clamp(2.6rem, 7vw, 6rem);
+      letter-spacing: 0;
+      line-height: .96;
+      margin: 0;
+      max-width: 11ch;
+    }
+    .portfolio-casebook__lead {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.38rem);
+      line-height: 1.55;
+      margin: 0;
+      max-width: var(--portfolio-prose-width);
+    }
+    .portfolio-casebook__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+    .portfolio-casebook__meta span,
+    .portfolio-casebook__proof-chip {
+      background: color-mix(in srgb, var(--teal) 10%, var(--surface));
+      border: 1px solid color-mix(in srgb, var(--teal) 38%, var(--line));
+      border-radius: 999px;
+      color: var(--ink);
+      display: inline-flex;
+      font-family: var(--font-retro);
+      font-size: max(.78rem, 13px);
+      font-weight: 850;
+      line-height: 1;
+      padding: 8px 10px;
+    }
+    .portfolio-casebook__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .portfolio-casebook__section-head {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 18px;
+      max-width: var(--portfolio-prose-width);
+    }
+    .portfolio-casebook__section-head h2 {
+      font-size: clamp(1.7rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      margin: 0;
+    }
+    .portfolio-casebook__section-head p {
+      color: var(--muted);
+      margin: 0;
+    }
+    .portfolio-casebook-section > .widget-section,
+    .portfolio-casebook-section > .dashboard-section,
+    .portfolio-casebook-section > .card,
+    .portfolio-casebook-section > section {
+      margin-top: 0;
+    }
+    .portfolio-casebook__proof-strip {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      min-width: 0;
+    }
+    .portfolio-casebook__proof-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow-rest);
+      display: grid;
+      gap: 6px;
+      padding: 14px;
+    }
+    .portfolio-casebook__proof-card strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      line-height: 1;
+    }
+    .portfolio-casebook__proof-card span {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.35;
+    }
     .toc a[aria-current="true"] {
       color: var(--ink);
       text-decoration: underline;
@@ -2459,6 +2601,20 @@
       }
       .website-hero__layout {
         grid-template-columns: 1fr;
+      }
+      .portfolio-casebook-shell {
+        width: min(100%, calc(100vw - 28px));
+      }
+      .portfolio-casebook-shell::before {
+        left: 3px;
+      }
+      .portfolio-casebook-hero,
+      .portfolio-casebook-section {
+        margin-left: 28px;
+      }
+      .portfolio-casebook-hero::before,
+      .portfolio-casebook-section::before {
+        left: -32px;
       }
       .preset-gallery__viewport iframe { height: 420px; }
       .storyboard-hero__layout {
