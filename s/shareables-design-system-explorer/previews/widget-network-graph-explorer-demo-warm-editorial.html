@@ -11,8 +11,11 @@ body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMac
 h1 { margin: 0; font-size: clamp(2rem, 6vw, 4.5rem); line-height: .95; letter-spacing: 0; }
 .lede { color: #5c6965; max-width: 72ch; }
 .visualization-root, .fallback { border: 1px solid #cedbd5; background: #fff; border-radius: 8px; padding: 18px; }
+.state-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.state-controls button[aria-pressed="true"], aside button[aria-pressed="true"] { background: #0f766e; border-color: #0f766e; color: #fff; }
 .bars { display: grid; gap: 10px; margin-top: 12px; }
 .bar { display: grid; grid-template-columns: 110px minmax(0, 1fr) 48px; gap: 10px; align-items: center; }
+.bar[data-active="true"] { outline: 3px solid rgba(15,118,110,.24); outline-offset: 3px; }
 .bar span { color: #5c6965; font-weight: 700; }
 .bar i { display: block; height: 18px; border-radius: 4px; background: #0f766e; }
 .story-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
@@ -22,6 +25,7 @@ h1 { margin: 0; font-size: clamp(2rem, 6vw, 4.5rem); line-height: .95; letter-sp
 .map-layer svg, .network-layer svg, .webgl-layer canvas { width: 100%; min-height: 280px; border: 1px solid #cedbd5; border-radius: 8px; background: #eef7f4; }
 .map-layer path { fill: #dbeee8; stroke: #0f766e; stroke-width: 1.4; }
 .map-point circle, .network-node circle { fill: #0f766e; opacity: .82; }
+.map-point[data-active="true"] circle, .network-node[data-active="true"] circle { fill: #d95f43; opacity: 1; stroke: #17211f; stroke-width: 1.2; }
 .map-point text, .network-node text { font-size: 4px; fill: #17211f; font-weight: 800; }
 .network-layer line { stroke: #7a8a85; stroke-width: 1.2; }
 .network-layer aside, .quest-controls, .dashboard-cards { display: grid; gap: 10px; }
@@ -29,11 +33,15 @@ button { border: 1px solid #9ab0a8; border-radius: 6px; background: #fff; color:
 .destination-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .destination-links a { border: 1px solid #9ab0a8; border-radius: 6px; color: #0f766e; padding: 8px 10px; font-weight: 800; text-decoration: none; }
 progress { width: 100%; height: 14px; accent-color: #0f766e; }
-.live-layer[data-state="stale"] { border-left: 6px solid #b7791f; padding-left: 14px; }
+.live-layer { border-left: 6px solid #0f766e; padding-left: 14px; }
+.live-layer[data-state="stale"] { border-left-color: #b7791f; }
+.live-layer[data-state="offline"] { border-left-color: #8f2d25; }
+.live-layer[data-state="partial"] { border-left-color: #d95f43; }
 .dashboard-cards { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
 .dashboard-cards span, .chat-layer small, .attribution { color: #5c6965; }
 .chat-layer ol { display: grid; gap: 10px; margin: 0; padding-left: 20px; }
 .chat-layer li[data-role="assistant"] { background: #eef7f4; }
+.chat-layer li[data-active="true"] { outline: 3px solid rgba(15,118,110,.24); outline-offset: 3px; }
 table { width: 100%; border-collapse: collapse; margin-top: 10px; }
 th, td { border-top: 1px solid #cedbd5; padding: 8px; text-align: left; }
 @media (max-width: 720px) { .map-layer, .network-layer, .webgl-layer, .chat-layer, .game-layer { grid-template-columns: 1fr; } }
@@ -47,6 +55,7 @@ th, td { border-top: 1px solid #cedbd5; padding: 8px; text-align: left; }
       <p class="eyebrow">Shareables dynamic visualization</p>
       <h1>Network Graph Explorer Example</h1>
       <p class="lede">Adapter lane: network-adapter. Compatibility target: github_pages_dynamic.</p>
+      <p class="lede">Source: Bundled public-safe scaffold data. Caveat: Replace scaffold data with reviewed source data before publishing.</p>
     </header>
     <section id="visualization-root" class="visualization-root" aria-live="polite">
       <noscript>This shareable includes a static fallback below because JavaScript is unavailable.</noscript>
@@ -56,7 +65,7 @@ th, td { border-top: 1px solid #cedbd5; padding: 8px; text-align: left; }
       <p>Source, caveat, and exact values remain readable without dynamic runtime behavior.</p>
       <table>
         <thead><tr><th>Label</th><th>Value</th></tr></thead>
-        <tbody><tr><td>Evidence</td><td>72</td></tr><tr><td>Context</td><td>48</td></tr><tr><td>Caveat</td><td>31</td></tr></tbody>
+        <tbody><tr><td>Nodes</td><td>4</td></tr><tr><td>Edges</td><td>4</td></tr></tbody>
       </table>
     </section>
   </main>
@@ -133,21 +142,47 @@ function escapeHtml(value) {
   }[char]));
 }
 
+const params = new URLSearchParams(window.location.search);
+
+function updateParam(key, value) {
+  const next = new URLSearchParams(window.location.search);
+  if (value === undefined || value === null || value === '') next.delete(key);
+  else next.set(key, String(value));
+  const query = next.toString();
+  const url = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
+  window.history.replaceState({}, '', url);
+}
+
+function activeValue(key, fallback = '') {
+  return params.get(key) || fallback;
+}
+
 function renderChart(payload) {
   const rows = Array.isArray(payload.rows) ? payload.rows : [];
   const max = Math.max(...rows.map(row => Number(row.value) || 0), 1);
+  const focus = activeValue('focus', rows[0]?.label || '');
   root.innerHTML = `
     <h2>${escapeHtml(payload.title || 'Dynamic visualization')}</h2>
     <p>${escapeHtml(payload.source || 'Bundled data source.')}</p>
+    <div class="state-controls" aria-label="Chart focus controls">
+      ${rows.map(row => `<button type="button" data-focus-row="${escapeHtml(row.label)}" aria-pressed="${row.label === focus}">${escapeHtml(row.label)}</button>`).join('')}
+    </div>
     <div class="bars">
       ${rows.map(row => {
         const value = Number(row.value) || 0;
         const width = Math.max(2, Math.round((value / max) * 100));
-        return `<div class="bar"><span>${escapeHtml(row.label)}</span><i style="width:${width}%"></i><strong>${value}</strong></div>`;
+        return `<div class="bar" data-active="${row.label === focus}"><span>${escapeHtml(row.label)}</span><i style="width:${width}%"></i><strong>${value}</strong></div>`;
       }).join('')}
     </div>
     <p>${escapeHtml(payload.caveat || '')}</p>
   `;
+  root.querySelectorAll('[data-focus-row]').forEach(button => {
+    button.addEventListener('click', () => {
+      updateParam('focus', button.dataset.focusRow);
+      root.querySelectorAll('[data-focus-row]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      root.querySelectorAll('.bar').forEach(bar => bar.dataset.active = String(bar.querySelector('span')?.textContent === button.dataset.focusRow));
+    });
+  });
 }
 
 function renderStoryFlow(payload) {
@@ -170,23 +205,33 @@ function renderStoryFlow(payload) {
 function renderMap(payload) {
   const map = payload.map || {};
   const regions = Array.isArray(map.regions) ? map.regions : [];
+  const activePoint = activeValue('point', regions[0]?.id || '');
   root.innerHTML = `
     <div class="map-layer" role="img" aria-label="Synthetic map scaffold with labeled public-safe points">
       <svg viewBox="0 0 100 100" aria-hidden="true">
         <path d="M17 11 L77 8 L90 36 L75 87 L24 91 L8 57 Z" />
         ${regions.map(region => `
-          <g class="map-point" transform="translate(${Number(region.x) || 0} ${Number(region.y) || 0})">
+          <g class="map-point" data-active="${region.id === activePoint}" transform="translate(${Number(region.x) || 0} ${Number(region.y) || 0})">
             <circle r="${Math.max(5, Math.min(16, (Number(region.value) || 0) / 7))}" />
             <text x="8" y="4">${escapeHtml(region.label)}</text>
           </g>
         `).join('')}
       </svg>
       <aside>
-        ${regions.map(region => `<p><strong>${escapeHtml(region.label)}</strong> ${Number(region.value) || 0}</p>`).join('')}
+        ${regions.map(region => `<button type="button" data-point="${escapeHtml(region.id)}" aria-pressed="${region.id === activePoint}"><strong>${escapeHtml(region.label)}</strong> ${Number(region.value) || 0}</button>`).join('')}
       </aside>
     </div>
     <p class="attribution">${escapeHtml(map.attribution || 'Add map attribution before publish.')}</p>
   `;
+  root.querySelectorAll('[data-point]').forEach(button => {
+    button.addEventListener('click', () => {
+      updateParam('point', button.dataset.point);
+      root.querySelectorAll('[data-point]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      root.querySelectorAll('.map-point').forEach((point, index) => {
+        point.dataset.active = String(regions[index]?.id === button.dataset.point);
+      });
+    });
+  });
 }
 
 function renderNetwork(payload) {
@@ -194,6 +239,7 @@ function renderNetwork(payload) {
   const nodes = Array.isArray(graph.nodes) ? graph.nodes : [];
   const edges = Array.isArray(graph.edges) ? graph.edges : [];
   const byId = Object.fromEntries(nodes.map(node => [node.id, node]));
+  const activeNode = activeValue('node', nodes[0]?.id || '');
   root.innerHTML = `
     <div class="network-layer">
       <svg viewBox="0 0 100 100" role="img" aria-label="Network scaffold with deterministic positions">
@@ -203,19 +249,32 @@ function renderNetwork(payload) {
           return `<line x1="${Number(source.x) || 0}" y1="${Number(source.y) || 0}" x2="${Number(target.x) || 0}" y2="${Number(target.y) || 0}" />`;
         }).join('')}
         ${nodes.map(node => `
-          <g class="network-node" transform="translate(${Number(node.x) || 0} ${Number(node.y) || 0})">
+          <g class="network-node" data-active="${node.id === activeNode}" transform="translate(${Number(node.x) || 0} ${Number(node.y) || 0})">
             <circle r="5" />
             <text x="7" y="4">${escapeHtml(node.label)}</text>
           </g>
         `).join('')}
       </svg>
-      <aside>${nodes.map(node => `<button type="button">${escapeHtml(node.label)}</button>`).join('')}</aside>
+      <aside><div class="state-controls">${nodes.map(node => `<button type="button" data-node="${escapeHtml(node.id)}" aria-pressed="${node.id === activeNode}">${escapeHtml(node.label)}</button>`).join('')}<button type="button" data-node="">Reset</button></div><div class="inspector" aria-live="polite"></div></aside>
     </div>
   `;
+  const inspector = root.querySelector('.inspector');
+  function inspect(nodeId) {
+    const node = byId[nodeId] || nodes[0] || {};
+    inspector.innerHTML = `<h2>${escapeHtml(node.label || 'Network')}</h2><p>Group: ${escapeHtml(node.group || 'unclassified')}</p><p>Edges: ${edges.filter(edge => edge.source === node.id || edge.target === node.id).length}</p>`;
+    root.querySelectorAll('[data-node]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.node === node.id)));
+    root.querySelectorAll('.network-node').forEach((point, index) => point.dataset.active = String(nodes[index]?.id === node.id));
+  }
+  root.querySelectorAll('[data-node]').forEach(button => button.addEventListener('click', () => {
+    updateParam('node', button.dataset.node);
+    inspect(button.dataset.node);
+  }));
+  inspect(activeNode);
 }
 
 function renderWebgl(payload) {
   const destinations = Array.isArray(payload.destinations) ? payload.destinations : [];
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   root.innerHTML = `
     <div class="webgl-layer">
       <canvas width="720" height="420" aria-label="WebGL scaffold scene"></canvas>
@@ -223,6 +282,7 @@ function renderWebgl(payload) {
         <h2>3D explainer scaffold</h2>
         <p>Camera presets: ${escapeHtml((payload.scene?.camera_presets || []).join(', '))}</p>
         <p>Asset budget: ${Number(payload.scene?.asset_budget_kb) || 0} KB</p>
+        <p>Reduced motion: ${reduced ? 'static camera' : 'motion allowed'}</p>
         <div class="destination-links">${destinations.map(link => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('')}</div>
       </aside>
     </div>
@@ -233,18 +293,28 @@ function renderWebgl(payload) {
     canvas.insertAdjacentHTML('afterend', '<p>WebGL is unavailable; static explanation fallback remains below.</p>');
     return;
   }
+  canvas.addEventListener('webglcontextlost', event => {
+    event.preventDefault();
+    canvas.insertAdjacentHTML('afterend', '<p role="status">WebGL context was lost; static fallback remains readable below.</p>');
+  }, false);
   gl.viewport(0, 0, canvas.width, canvas.height);
   gl.clearColor(0.05, 0.46, 0.43, 1);
   gl.clear(gl.COLOR_BUFFER_BIT);
+  destinations.forEach(link => {
+    const target = root.querySelector(`a[href="${link.href}"]`);
+    if (target) target.addEventListener('click', () => {
+      root.dataset.camera = link.href.replace('#camera-', '');
+    });
+  });
 }
 
 function renderGamified(payload) {
   const steps = Array.isArray(payload.quest?.steps) ? payload.quest.steps : [];
   const destinations = Array.isArray(payload.destinations) ? payload.destinations : [];
-  let index = 0;
+  let index = Math.max(0, steps.findIndex(step => step.id === activeValue('step', steps[0]?.id || '')));
   root.innerHTML = `
     <div class="game-layer">
-      <div class="quest-board" tabindex="0"></div>
+      <div class="quest-board" tabindex="0" role="group" aria-label="Playable evidence route"></div>
       <div class="quest-controls">
         <button type="button" data-action="prev">Back</button>
         <button type="button" data-action="next">Next</button>
@@ -256,6 +326,7 @@ function renderGamified(payload) {
   const board = root.querySelector('.quest-board');
   function paint() {
     const step = steps[index] || {};
+    updateParam('step', step.id || '');
     board.innerHTML = `
       <p>${escapeHtml(payload.quest?.progress_label || 'Progress')}</p>
       <h2>${escapeHtml(step.label || 'Quest step')}</h2>
@@ -270,42 +341,66 @@ function renderGamified(payload) {
     if (action === 'restart') index = 0;
     paint();
   });
+  board.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'Enter') index = Math.min(index + 1, Math.max(steps.length - 1, 0));
+    if (event.key === 'ArrowLeft') index = Math.max(index - 1, 0);
+    if (event.key.toLowerCase() === 'r') index = 0;
+    paint();
+  });
+  root.querySelector('a[href="#quest-start"]')?.addEventListener('click', () => { index = 0; paint(); });
+  root.querySelector('a[href="#quest-reward"]')?.addEventListener('click', () => { index = Math.min(1, Math.max(steps.length - 1, 0)); paint(); });
   paint();
 }
 
 function renderLiveDashboard(payload) {
   const freshness = payload.freshness || {};
   const cards = Array.isArray(freshness.cards) ? freshness.cards : [];
+  const activeState = activeValue('state', freshness.state || 'stale');
   root.innerHTML = `
-    <div class="live-layer" data-state="${escapeHtml(freshness.state || 'snapshot')}">
+    <div class="live-layer" data-state="${escapeHtml(activeState)}">
       <header>
         <h2>Freshness states</h2>
         <p>Last updated: ${escapeHtml(freshness.last_updated || 'snapshot')}</p>
       </header>
+      <div class="state-controls" aria-label="Freshness state controls">
+        ${cards.map(card => `<button type="button" data-state-choice="${escapeHtml(card.state)}" aria-pressed="${card.state === activeState}">${escapeHtml(card.label)}</button>`).join('')}
+      </div>
       <div class="dashboard-cards">
         ${cards.map(card => `<article data-state="${escapeHtml(card.state)}"><span>${escapeHtml(card.label)}</span><strong>${escapeHtml(card.value)}</strong></article>`).join('')}
       </div>
       <p>Last-known-good snapshot: ${freshness.last_known_good ? 'available' : 'missing'}</p>
     </div>
   `;
+  root.querySelectorAll('[data-state-choice]').forEach(button => button.addEventListener('click', () => {
+    updateParam('state', button.dataset.stateChoice);
+    const layer = root.querySelector('.live-layer');
+    layer.dataset.state = button.dataset.stateChoice;
+    root.querySelectorAll('[data-state-choice]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  }));
 }
 
 function renderChat(payload) {
   const chat = payload.chat || {};
   const messages = Array.isArray(chat.messages) ? chat.messages : [];
   const citations = Array.isArray(chat.citations) ? chat.citations : [];
+  const activeCitation = activeValue('citation', messages[0]?.citation || '');
   root.innerHTML = `
     <div class="chat-layer">
       <ol>
-        ${messages.map(message => `<li data-role="${escapeHtml(message.role)}"><strong>${escapeHtml(message.role)}</strong><p>${escapeHtml(message.text)}</p><small>${escapeHtml(message.citation)}</small></li>`).join('')}
+        ${messages.map(message => `<li data-role="${escapeHtml(message.role)}" data-active="${message.citation === activeCitation}"><strong>${escapeHtml(message.role)}</strong><p>${escapeHtml(message.text)}</p><small>${escapeHtml(message.citation)}</small></li>`).join('')}
       </ol>
       <aside>
         <h2>Citations</h2>
-        ${citations.map(citation => `<p><strong>${escapeHtml(citation.id)}</strong> ${escapeHtml(citation.label)}</p>`).join('')}
+        ${citations.map(citation => `<button type="button" data-citation="${escapeHtml(citation.id)}" aria-pressed="${citation.id === activeCitation}"><strong>${escapeHtml(citation.id)}</strong> ${escapeHtml(citation.label)}</button>`).join('')}
       </aside>
     </div>
     <p>Redaction reviewed: ${chat.redaction_reviewed ? 'yes' : 'no'}</p>
   `;
+  root.querySelectorAll('[data-citation]').forEach(button => button.addEventListener('click', () => {
+    updateParam('citation', button.dataset.citation);
+    root.querySelectorAll('[data-citation]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    root.querySelectorAll('.chat-layer li').forEach(item => item.dataset.active = String(item.querySelector('small')?.textContent === button.dataset.citation));
+  }));
 }
 
 switch (payload.adapter) {
@@ -334,7 +429,6 @@ switch (payload.adapter) {
     renderChart(payload);
 }
 
-const params = new URLSearchParams(window.location.search);
 if (params.get('focus')) {
   root.dataset.focus = params.get('focus');
 }
