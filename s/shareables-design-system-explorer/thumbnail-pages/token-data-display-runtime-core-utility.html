@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Display Runtime Tokens</title>
+  <style>
+:root { color-scheme: light; --ink:#17211f; --muted:#54615e; --paper:#f8fbf9; --surface:#ffffff; --line:#cbd8d3; --primary:#0f766e; --secondary:#2563eb; --accent:#d97706; --danger:#dc2626; --radius:8px; }
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink); font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+main.demo-shell { width:min(1120px, calc(100vw - 32px)); margin:0 auto; padding:28px 0 42px; display:grid; gap:18px; }
+.eyebrow { margin:0 0 7px; color:var(--primary); font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+h1 { margin:0; font-size:clamp(2rem, 5vw, 4.2rem); line-height:1; letter-spacing:0; }
+h2, h3, p { overflow-wrap:anywhere; }
+.lede { color:var(--muted); max-width:76ch; line-height:1.55; }
+.panel { border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); padding:16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+.controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+button, select, input, textarea { font:inherit; }
+button, .link-button { border:1px solid color-mix(in srgb, var(--primary) 52%, var(--line)); border-radius:6px; background:#fff; color:var(--ink); padding:10px 12px; font-weight:800; cursor:pointer; text-decoration:none; display:inline-flex; gap:8px; align-items:center; justify-content:center; }
+button[aria-pressed="true"], button.primary { background:var(--primary); color:#fff; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline:3px solid color-mix(in srgb, var(--primary) 42%, white); outline-offset:2px; }
+.chip-row { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:5px 8px; color:var(--muted); font-size:.82rem; font-weight:800; background:#fff; }
+svg { max-width:100%; height:auto; }
+table { width:100%; border-collapse:collapse; }
+th, td { border-top:1px solid var(--line); padding:9px; text-align:left; vertical-align:top; }
+label { display:grid; gap:6px; font-weight:800; color:var(--ink); }
+input, select, textarea { width:100%; border:1px solid var(--line); border-radius:6px; padding:10px; background:#fff; color:var(--ink); }
+textarea { min-height:96px; resize:vertical; }
+pre.output { white-space:pre-wrap; background:#111827; color:#e5eef8; border-radius:6px; padding:12px; overflow:auto; min-height:84px; }
+.bars { display:grid; gap:9px; }
+.bar { display:grid; grid-template-columns:120px minmax(0,1fr) 48px; align-items:center; gap:9px; }
+.bar i { display:block; height:18px; border-radius:4px; background:var(--primary); }
+.status-live { border-left:6px solid #059669; }
+.status-stale { border-left:6px solid #d97706; }
+.status-offline { border-left:6px solid #dc2626; }
+.status-partial { border-left:6px solid #2563eb; }
+@media (max-width: 640px) { main.demo-shell { width:min(100% - 20px, 1120px); } .bar { grid-template-columns:1fr; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+</style>
+<style>
+      html, body { margin: 0 !important; width: 420px; min-height: 260px; overflow: hidden !important; background: var(--paper, #f8fbf9) !important; }
+      header, footer, .reading-progress, .content-layout__rail { display: none !important; }
+      main { width: 420px !important; max-width: none !important; margin: 0 !important; padding: 12px !important; }
+      .content-layout, .content-layout--toc-rail, .content-layout__main { display: block !important; width: 100% !important; }
+      .showcase-section { margin: 0 !important; min-height: 236px; max-height: 236px; padding: 14px !important; gap: 8px !important; }
+      .showcase-section h2 { font-size: 1rem !important; margin-bottom: 0 !important; }
+      .showcase-demo { padding: 10px !important; gap: 8px !important; }
+      .showcase-grid { grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)) !important; gap: 8px !important; }
+      .showcase-mini-card, .showcase-control-card { padding: 9px !important; }
+      .showcase-thumb-note { display: none !important; }
+      .showcase-type-scale .display { font-size: 1.35rem !important; }
+      .showcase-code { font-size: .68rem !important; max-height: 92px; }
+      .showcase-table table { display: table !important; table-layout: fixed !important; width: 100% !important; font-size: .68rem !important; }
+      .showcase-table thead { position: static !important; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; clip: auto !important; white-space: normal !important; }
+      .showcase-table tbody { display: table-row-group !important; width: auto !important; }
+      .showcase-table tr { display: table-row !important; width: auto !important; border: 0 !important; margin: 0 !important; background: transparent !important; }
+      .showcase-table th, .showcase-table td { display: table-cell !important; width: auto !important; padding: 5px 6px !important; }
+    </style></head>
+<body data-style-source="core-utility">
+  <main class="demo-shell" data-demo-title="Data Display Runtime Tokens">
+    <header>
+      <p class="eyebrow">Token demo</p>
+      <h1>Data Display Runtime Tokens</h1>
+      <p class="lede">A working token sample that applies categorical, sequential, and freshness colors to live chart states.</p>
+    </header>
+    
+<section class="panel">
+  <div class="controls" role="group" aria-label="Token palette controls">
+    <button type="button" data-palette="categorical" aria-pressed="true">Categorical</button>
+    <button type="button" data-palette="sequential" aria-pressed="false">Sequential</button>
+    <button type="button" data-palette="freshness" aria-pressed="false">Freshness</button>
+  </div>
+</section>
+<section class="panel" id="tokenDemo" aria-live="polite"></section>
+
+  </main>
+  <script>
+const palettes = {
+  categorical: [["Segment A","#0f766e"],["Segment B","#2563eb"],["Segment C","#d97706"],["Neutral","#64748b"]],
+  sequential: [["Low","#dbeafe"],["Medium","#60a5fa"],["High","#2563eb"],["Peak","#1e3a8a"]],
+  freshness: [["Live","#059669"],["Stale","#d97706"],["Offline","#dc2626"],["Partial","#2563eb"]]
+};
+const demo = document.querySelector("#tokenDemo");
+function paint(name) {
+  document.querySelectorAll("[data-palette]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.palette === name)));
+  const rows = palettes[name];
+  demo.innerHTML = `<h2>${name.replace("-", " ")} tokens</h2><div class="grid">${rows.map(([label,color], index) => `<article class="panel"><span class="chip">${label}</span><div style="height:72px;border-radius:8px;background:${color};margin-top:10px"></div><p>${color}</p><svg viewBox="0 0 100 28" aria-hidden="true"><rect x="2" y="8" width="${28 + index * 16}" height="12" rx="3" fill="${color}"/></svg></article>`).join("")}</div>`;
+}
+document.querySelectorAll("[data-palette]").forEach(button => button.addEventListener("click", () => paint(button.dataset.palette)));
+paint("categorical");
+</script>
+</body>
+</html>

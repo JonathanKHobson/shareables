@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T20:00:12.655719+00:00",
+  "generated_at": "2026-05-29T20:38:51.849827+00:00",
   "items": [
     {
       "description": "Use editorial when a shareable needs a strong argument, plain-language evidence, and a reader-friendly narrative arc.",
@@ -6411,6 +6411,489 @@
         ],
         "unsupported_style_sources": []
       }
+    },
+    {
+      "adapter_lane": "static-csv-core",
+      "aliases": [
+        "csv-core-widget-examples",
+        "static-csv-core",
+        "single_file_html"
+      ],
+      "compatibility_target": "single_file_html",
+      "description": "A single-file CSV parser that renders a bar chart, line chart, and exact table from bundled text data.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "static-csv-core",
+        "compatibility_target": "single_file_html",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "csv-core-widget-examples"
+      },
+      "family": "CSV Core Widgets",
+      "id": "widget-csv-core-widget-examples",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Static CSV Core Widget Examples",
+      "qa_evidence": [
+        "inline-csv-parser",
+        "svg-render",
+        "table-fallback",
+        "visual-qa"
+      ],
+      "renderer_family": "csv-core-widget-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Static CSV Core Widget Examples CSV Core Widgets A single-file CSV parser that renders a bar chart, line chart, and exact table from bundled text data. csv-core-widget-examples static-csv-core single_file_html inline-csv-parser svg-render table-fallback visual-qa",
+      "states": [
+        "bar-view",
+        "line-view",
+        "table-view",
+        "keyboard",
+        "mobile",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "declarative-chart-adapter",
+      "aliases": [
+        "declarative-chart-adapter-demo",
+        "declarative-chart-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A Pages-safe bundled chart adapter with source, caveat, static fallback, and client-side rendering.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "declarative-chart-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "declarative-chart-adapter-demo"
+      },
+      "family": "Declarative Chart Adapter",
+      "id": "widget-declarative-chart-adapter-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Declarative Chart Adapter Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "bundled-json",
+        "nonblank-render",
+        "source-caveat-visible"
+      ],
+      "renderer_family": "dynamic-chart-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Declarative Chart Adapter Example Declarative Chart Adapter A Pages-safe bundled chart adapter with source, caveat, static fallback, and client-side rendering. declarative-chart-adapter-demo declarative-chart-adapter github_pages_dynamic adapter-scaffold bundled-json nonblank-render source-caveat-visible",
+      "states": [
+        "rendered",
+        "fallback",
+        "mobile",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "infographic-story-flow",
+      "aliases": [
+        "editorial-infographic-story-demo",
+        "infographic-story-flow",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A three-panel explanatory story with readable final-frame fallback and reduced-motion-safe structure.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "infographic-story-flow",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "editorial-infographic-story-demo"
+      },
+      "family": "Editorial Story Flow",
+      "id": "widget-editorial-infographic-story-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Editorial Infographic Story Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "static-panels",
+        "mobile-reading-order",
+        "source-caveat-visible"
+      ],
+      "renderer_family": "infographic-story-flow-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Editorial Infographic Story Example Editorial Story Flow A three-panel explanatory story with readable final-frame fallback and reduced-motion-safe structure. editorial-infographic-story-demo infographic-story-flow github_pages_dynamic adapter-scaffold static-panels mobile-reading-order source-caveat-visible",
+      "states": [
+        "frame-1",
+        "frame-2",
+        "frame-3",
+        "mobile",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "map-adapter",
+      "aliases": [
+        "map-public-geojson-demo",
+        "map-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A public-safe map layer with visible attribution, bounded points, and table fallback.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "map-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "map-public-geojson-demo"
+      },
+      "family": "Map Adapter",
+      "id": "widget-map-public-geojson-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Public Geojson Map Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "map-attribution",
+        "viewport-bounds",
+        "fallback-table"
+      ],
+      "renderer_family": "map-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Public Geojson Map Example Map Adapter A public-safe map layer with visible attribution, bounded points, and table fallback. map-public-geojson-demo map-adapter github_pages_dynamic adapter-scaffold map-attribution viewport-bounds fallback-table",
+      "states": [
+        "default-viewport",
+        "point-list",
+        "fallback",
+        "mobile"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "network-adapter",
+      "aliases": [
+        "network-graph-explorer-demo",
+        "network-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A deterministic network graph with node controls, inspector rail, and adjacency fallback.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "network-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "network-graph-explorer-demo"
+      },
+      "family": "Network Adapter",
+      "id": "widget-network-graph-explorer-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Network Graph Explorer Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "deterministic-layout",
+        "node-controls",
+        "adjacency-fallback"
+      ],
+      "renderer_family": "network-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Network Graph Explorer Example Network Adapter A deterministic network graph with node controls, inspector rail, and adjacency fallback. network-graph-explorer-demo network-adapter github_pages_dynamic adapter-scaffold deterministic-layout node-controls adjacency-fallback",
+      "states": [
+        "default-focus",
+        "node-selection",
+        "reset",
+        "mobile"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "webgl-3d-adapter",
+      "aliases": [
+        "webgl-3d-adapter-demo",
+        "webgl-3d-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A bundled WebGL explainer with nonblank canvas, camera destination links, and static fallback.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "webgl-3d-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "webgl-3d-adapter-demo"
+      },
+      "family": "WebGL 3D Adapter",
+      "id": "widget-webgl-3d-adapter-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "WebGL 3D Adapter Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "canvas-nonblank-check",
+        "camera-destinations",
+        "static-fallback"
+      ],
+      "renderer_family": "webgl-3d-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "WebGL 3D Adapter Example WebGL 3D Adapter A bundled WebGL explainer with nonblank canvas, camera destination links, and static fallback. webgl-3d-adapter-demo webgl-3d-adapter github_pages_dynamic adapter-scaffold canvas-nonblank-check camera-destinations static-fallback",
+      "states": [
+        "overview",
+        "detail-link",
+        "fallback",
+        "mobile",
+        "reduced-motion"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "gamified-shareable-adapter",
+      "aliases": [
+        "gamified-playable-explainer-demo",
+        "gamified-shareable-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A restartable evidence quest with progress controls, playable steps, and static explanation fallback.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "gamified-shareable-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "gamified-playable-explainer-demo"
+      },
+      "family": "Playable Explainer Adapter",
+      "id": "widget-gamified-playable-explainer-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Gamified Playable Explainer Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "quest-progress",
+        "restart-control",
+        "playtest-path"
+      ],
+      "renderer_family": "gamified-shareable-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Gamified Playable Explainer Example Playable Explainer Adapter A restartable evidence quest with progress controls, playable steps, and static explanation fallback. gamified-playable-explainer-demo gamified-shareable-adapter github_pages_dynamic adapter-scaffold quest-progress restart-control playtest-path",
+      "states": [
+        "start",
+        "next-step",
+        "back",
+        "restart",
+        "mobile"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "live-dashboard-adapter",
+      "aliases": [
+        "live-dashboard-snapshot-demo",
+        "live-dashboard-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A Pages-safe dashboard snapshot that visibly distinguishes live, stale, offline, and partial states.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "live-dashboard-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "live-dashboard-snapshot-demo"
+      },
+      "family": "Public JSON Dashboard Adapter",
+      "id": "widget-live-dashboard-snapshot-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Live Dashboard Snapshot Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "freshness-states",
+        "last-updated-visible",
+        "api-boundary"
+      ],
+      "renderer_family": "live-dashboard-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Live Dashboard Snapshot Example Public JSON Dashboard Adapter A Pages-safe dashboard snapshot that visibly distinguishes live, stale, offline, and partial states. live-dashboard-snapshot-demo live-dashboard-adapter github_pages_dynamic adapter-scaffold freshness-states last-updated-visible api-boundary",
+      "states": [
+        "live",
+        "stale",
+        "offline",
+        "partial",
+        "last-known-good"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "adapter_lane": "chat-render-adapter",
+      "aliases": [
+        "chat-render-conversation-demo",
+        "chat-render-adapter",
+        "github_pages_dynamic"
+      ],
+      "compatibility_target": "github_pages_dynamic",
+      "description": "A static, redaction-reviewed conversation explorer with citation rail and transcript fallback.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "adapter_lane": "chat-render-adapter",
+        "compatibility_target": "github_pages_dynamic",
+        "demo_page": "self-contained HTML preview",
+        "widget_type": "chat-render-conversation-demo"
+      },
+      "family": "Chat Render Adapter",
+      "id": "widget-chat-render-conversation-demo",
+      "kind": "widget",
+      "known_limitations": [],
+      "name": "Chat Render Conversation Example",
+      "qa_evidence": [
+        "adapter-scaffold",
+        "redaction-reviewed",
+        "citation-visible",
+        "static-transcript"
+      ],
+      "renderer_family": "chat-render-adapter-demo",
+      "runtime_kind": "widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Chat Render Conversation Example Chat Render Adapter A static, redaction-reviewed conversation explorer with citation rail and transcript fallback. chat-render-conversation-demo chat-render-adapter github_pages_dynamic adapter-scaffold redaction-reviewed citation-visible static-transcript",
+      "states": [
+        "transcript",
+        "citation-rail",
+        "keyboard",
+        "mobile"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
     },
     {
       "aliases": [
@@ -25517,6 +26000,250 @@
         ],
         "unsupported_style_sources": []
       }
+    },
+    {
+      "aliases": [
+        "component-runtime-state-controls",
+        "runtime-state-controls-demo"
+      ],
+      "description": "Segmented controls, toggles, and reset actions for dynamic shareable demos.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "demo_id": "component-runtime-state-controls",
+        "library": "component",
+        "mode": "self-contained-html"
+      },
+      "family": "Component",
+      "id": "component-runtime-state-controls",
+      "kind": "component",
+      "known_limitations": [],
+      "name": "Runtime State Controls",
+      "qa_evidence": [
+        "click-controls",
+        "aria-pressed",
+        "reset-state",
+        "keyboard-targets"
+      ],
+      "renderer_family": "runtime-state-controls-demo",
+      "runtime_kind": "component",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Runtime State Controls Component Segmented controls, toggles, and reset actions for dynamic shareable demos. component-runtime-state-controls runtime-state-controls-demo click-controls aria-pressed reset-state keyboard-targets",
+      "states": [
+        "default",
+        "selected",
+        "disabled",
+        "focus-visible"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "aliases": [
+        "component-data-source-citation-panel",
+        "data-source-citation-panel-demo"
+      ],
+      "description": "A compact source, caveat, row-count, license, and reviewed-at disclosure panel.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "demo_id": "component-data-source-citation-panel",
+        "library": "component",
+        "mode": "self-contained-html"
+      },
+      "family": "Component",
+      "id": "component-data-source-citation-panel",
+      "kind": "component",
+      "known_limitations": [],
+      "name": "Data Source Citation Panel",
+      "qa_evidence": [
+        "details-disclosure",
+        "copy-citation",
+        "source-caveat-visible"
+      ],
+      "renderer_family": "data-source-citation-panel-demo",
+      "runtime_kind": "component",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Data Source Citation Panel Component A compact source, caveat, row-count, license, and reviewed-at disclosure panel. component-data-source-citation-panel data-source-citation-panel-demo details-disclosure copy-citation source-caveat-visible",
+      "states": [
+        "collapsed",
+        "expanded",
+        "copy",
+        "focus-visible"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "aliases": [
+        "component-static-fallback-panel",
+        "static-fallback-panel-demo"
+      ],
+      "description": "A visible fallback block for dynamic demos when JavaScript, WebGL, or live data is unavailable.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "demo_id": "component-static-fallback-panel",
+        "library": "component",
+        "mode": "self-contained-html"
+      },
+      "family": "Component",
+      "id": "component-static-fallback-panel",
+      "kind": "component",
+      "known_limitations": [],
+      "name": "Static Fallback Panel",
+      "qa_evidence": [
+        "fallback-toggle",
+        "no-js-copy",
+        "print-visible"
+      ],
+      "renderer_family": "static-fallback-panel-demo",
+      "runtime_kind": "component",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Static Fallback Panel Component A visible fallback block for dynamic demos when JavaScript, WebGL, or live data is unavailable. component-static-fallback-panel static-fallback-panel-demo fallback-toggle no-js-copy print-visible",
+      "states": [
+        "runtime-on",
+        "runtime-off",
+        "fallback-visible",
+        "print"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "aliases": [
+        "form-widget-dynamic-artifact-brief",
+        "dynamic-artifact-brief-form-demo"
+      ],
+      "description": "A local-only brief form for adapter choice, compatibility target, source caveat, and QA checks.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "demo_id": "form-widget-dynamic-artifact-brief",
+        "library": "form-widget",
+        "mode": "self-contained-html"
+      },
+      "family": "local copy export",
+      "id": "form-widget-dynamic-artifact-brief",
+      "kind": "form-widget",
+      "known_limitations": [],
+      "name": "Dynamic Artifact Brief Form",
+      "qa_evidence": [
+        "local-only-form",
+        "copy-json",
+        "required-field-validation",
+        "no-network-submit"
+      ],
+      "renderer_family": "dynamic-artifact-brief-form-demo",
+      "runtime_kind": "form_widget",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Dynamic Artifact Brief Form local copy export A local-only brief form for adapter choice, compatibility target, source caveat, and QA checks. form-widget-dynamic-artifact-brief dynamic-artifact-brief-form-demo local-only-form copy-json required-field-validation no-network-submit",
+      "states": [
+        "empty",
+        "complete",
+        "error",
+        "copy-json",
+        "reset"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
+    },
+    {
+      "aliases": [
+        "token-data-display-runtime",
+        "data-display-token-demo"
+      ],
+      "description": "Categorical, sequential, freshness, and focus tokens applied to chart and dashboard states.",
+      "design_system_evidence": true,
+      "example_payload": {
+        "demo_id": "token-data-display-runtime",
+        "library": "token",
+        "mode": "self-contained-html"
+      },
+      "family": "Token",
+      "id": "token-data-display-runtime",
+      "kind": "token",
+      "known_limitations": [],
+      "name": "Data Display Runtime Tokens",
+      "qa_evidence": [
+        "token-swatches",
+        "chart-recolor",
+        "freshness-labels",
+        "contrast-check"
+      ],
+      "renderer_family": "data-display-token-demo",
+      "runtime_kind": "token",
+      "runtime_status": "runtime_promoted",
+      "search_blob": "Data Display Runtime Tokens Token Categorical, sequential, freshness, and focus tokens applied to chart and dashboard states. token-data-display-runtime data-display-token-demo token-swatches chart-recolor freshness-labels contrast-check",
+      "states": [
+        "categorical",
+        "sequential",
+        "freshness",
+        "focus-visible"
+      ],
+      "style_compatibility": {
+        "notes": "Uses Shareables CSS custom properties and offline-safe runtime defaults.",
+        "supported_style_sources": [
+          "core-utility",
+          "warm-editorial",
+          "structured-bridge",
+          "product-studio",
+          "dark-analytics",
+          "research-academic",
+          "annotated-portfolio",
+          "warm-field-report"
+        ],
+        "unsupported_style_sources": []
+      },
+      "thumbnail_from_page": true
     }
   ],
   "schema_version": "shareables.explorer_registry_index.v1",

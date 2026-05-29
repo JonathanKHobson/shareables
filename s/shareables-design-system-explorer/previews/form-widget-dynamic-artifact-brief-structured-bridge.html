@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic Artifact Brief Form</title>
+  <style>
+:root { color-scheme: light; --ink:#17211f; --muted:#54615e; --paper:#f8fbf9; --surface:#ffffff; --line:#cbd8d3; --primary:#0f766e; --secondary:#2563eb; --accent:#d97706; --danger:#dc2626; --radius:8px; }
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; background:var(--paper); color:var(--ink); font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+main.demo-shell { width:min(1120px, calc(100vw - 32px)); margin:0 auto; padding:28px 0 42px; display:grid; gap:18px; }
+.eyebrow { margin:0 0 7px; color:var(--primary); font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+h1 { margin:0; font-size:clamp(2rem, 5vw, 4.2rem); line-height:1; letter-spacing:0; }
+h2, h3, p { overflow-wrap:anywhere; }
+.lede { color:var(--muted); max-width:76ch; line-height:1.55; }
+.panel { border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); padding:16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
+.controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+button, select, input, textarea { font:inherit; }
+button, .link-button { border:1px solid color-mix(in srgb, var(--primary) 52%, var(--line)); border-radius:6px; background:#fff; color:var(--ink); padding:10px 12px; font-weight:800; cursor:pointer; text-decoration:none; display:inline-flex; gap:8px; align-items:center; justify-content:center; }
+button[aria-pressed="true"], button.primary { background:var(--primary); color:#fff; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline:3px solid color-mix(in srgb, var(--primary) 42%, white); outline-offset:2px; }
+.chip-row { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:5px 8px; color:var(--muted); font-size:.82rem; font-weight:800; background:#fff; }
+svg { max-width:100%; height:auto; }
+table { width:100%; border-collapse:collapse; }
+th, td { border-top:1px solid var(--line); padding:9px; text-align:left; vertical-align:top; }
+label { display:grid; gap:6px; font-weight:800; color:var(--ink); }
+input, select, textarea { width:100%; border:1px solid var(--line); border-radius:6px; padding:10px; background:#fff; color:var(--ink); }
+textarea { min-height:96px; resize:vertical; }
+pre.output { white-space:pre-wrap; background:#111827; color:#e5eef8; border-radius:6px; padding:12px; overflow:auto; min-height:84px; }
+.bars { display:grid; gap:9px; }
+.bar { display:grid; grid-template-columns:120px minmax(0,1fr) 48px; align-items:center; gap:9px; }
+.bar i { display:block; height:18px; border-radius:4px; background:var(--primary); }
+.status-live { border-left:6px solid #059669; }
+.status-stale { border-left:6px solid #d97706; }
+.status-offline { border-left:6px solid #dc2626; }
+.status-partial { border-left:6px solid #2563eb; }
+@media (max-width: 640px) { main.demo-shell { width:min(100% - 20px, 1120px); } .bar { grid-template-columns:1fr; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+</style>
+</head>
+<body data-style-source="structured-bridge">
+  <main class="demo-shell" data-demo-title="Dynamic Artifact Brief Form">
+    <header>
+      <p class="eyebrow">Form widget demo</p>
+      <h1>Dynamic Artifact Brief Form</h1>
+      <p class="lede">A local-only brief form that creates a copyable adapter packet without submitting to a server.</p>
+    </header>
+    
+<form class="panel" id="briefForm">
+  <div class="grid">
+    <label>Artifact title<input name="title" value="Public dashboard explainer" required></label>
+    <label>Adapter lane<select name="adapter"><option>declarative-chart-adapter</option><option>infographic-story-flow</option><option>webgl-3d-adapter</option><option>gamified-shareable-adapter</option><option>live-dashboard-adapter</option></select></label>
+    <label>Compatibility target<select name="target"><option>github_pages_dynamic</option><option>single_file_html</option><option>local_dynamic</option><option>local_server</option></select></label>
+    <label>Source line<input name="source" value="Bundled public-safe CSV fixture" required></label>
+  </div>
+  <label style="margin-top:12px">Caveat<textarea name="caveat" required>Synthetic demo data. Replace with reviewed source data before publish.</textarea></label>
+  <fieldset class="panel" style="margin-top:12px">
+    <legend>Required QA checks</legend>
+    <label><input type="checkbox" name="qa" value="mobile visual QA" checked> mobile visual QA</label>
+    <label><input type="checkbox" name="qa" value="source and caveat visible" checked> source and caveat visible</label>
+    <label><input type="checkbox" name="qa" value="static fallback verified" checked> static fallback verified</label>
+  </fieldset>
+  <div class="controls" style="margin-top:12px">
+    <button class="primary" type="submit">Validate brief</button>
+    <button type="button" data-copy-json>Copy JSON</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
+<section class="panel"><pre class="output" id="briefOut">Submit the form to generate a local brief packet.</pre></section>
+
+  </main>
+  <script>
+const form = document.querySelector("#briefForm");
+const out = document.querySelector("#briefOut");
+function packet() {
+  const data = new FormData(form);
+  return {
+    title: data.get("title"),
+    adapter_lane: data.get("adapter"),
+    compatibility_target: data.get("target"),
+    source_line: data.get("source"),
+    caveat: data.get("caveat"),
+    qa_checks: data.getAll("qa"),
+    network_submit: false
+  };
+}
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  out.textContent = JSON.stringify({ ok: true, brief: packet() }, null, 2);
+});
+document.querySelector("[data-copy-json]").addEventListener("click", async () => {
+  const text = JSON.stringify(packet(), null, 2);
+  out.textContent = text;
+  try { await navigator.clipboard.writeText(text); out.textContent += "\nCopied to clipboard."; }
+  catch { out.textContent += "\nClipboard unavailable, packet is selectable above."; }
+});
+form.addEventListener("reset", () => setTimeout(() => { out.textContent = "Form reset. Submit again to generate a local brief packet."; }, 0));
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Geojson Map Example</title>
+  <style>html { color-scheme: light; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f8fbf9; color: #17211f; }
+.dynamic-shareable { width: min(1080px, calc(100vw - 32px)); margin: 0 auto; padding: 32px 0 48px; display: grid; gap: 22px; }
+.eyebrow { margin: 0 0 8px; color: #0f766e; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+h1 { margin: 0; font-size: clamp(2rem, 6vw, 4.5rem); line-height: .95; letter-spacing: 0; }
+.lede { color: #5c6965; max-width: 72ch; }
+.visualization-root, .fallback { border: 1px solid #cedbd5; background: #fff; border-radius: 8px; padding: 18px; }
+.bars { display: grid; gap: 10px; margin-top: 12px; }
+.bar { display: grid; grid-template-columns: 110px minmax(0, 1fr) 48px; gap: 10px; align-items: center; }
+.bar span { color: #5c6965; font-weight: 700; }
+.bar i { display: block; height: 18px; border-radius: 4px; background: #0f766e; }
+.story-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.story-frame, .quest-board, .dashboard-cards article, .chat-layer li { border: 1px solid #cedbd5; border-radius: 8px; padding: 14px; background: #f8fbf9; }
+.story-frame span, .story-frame strong { color: #0f766e; font-weight: 900; }
+.map-layer, .network-layer, .webgl-layer, .chat-layer, .game-layer { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, .6fr); gap: 16px; align-items: start; }
+.map-layer svg, .network-layer svg, .webgl-layer canvas { width: 100%; min-height: 280px; border: 1px solid #cedbd5; border-radius: 8px; background: #eef7f4; }
+.map-layer path { fill: #dbeee8; stroke: #0f766e; stroke-width: 1.4; }
+.map-point circle, .network-node circle { fill: #0f766e; opacity: .82; }
+.map-point text, .network-node text { font-size: 4px; fill: #17211f; font-weight: 800; }
+.network-layer line { stroke: #7a8a85; stroke-width: 1.2; }
+.network-layer aside, .quest-controls, .dashboard-cards { display: grid; gap: 10px; }
+button { border: 1px solid #9ab0a8; border-radius: 6px; background: #fff; color: #17211f; padding: 10px 12px; font-weight: 800; cursor: pointer; }
+.destination-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.destination-links a { border: 1px solid #9ab0a8; border-radius: 6px; color: #0f766e; padding: 8px 10px; font-weight: 800; text-decoration: none; }
+progress { width: 100%; height: 14px; accent-color: #0f766e; }
+.live-layer[data-state="stale"] { border-left: 6px solid #b7791f; padding-left: 14px; }
+.dashboard-cards { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.dashboard-cards span, .chat-layer small, .attribution { color: #5c6965; }
+.chat-layer ol { display: grid; gap: 10px; margin: 0; padding-left: 20px; }
+.chat-layer li[data-role="assistant"] { background: #eef7f4; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border-top: 1px solid #cedbd5; padding: 8px; text-align: left; }
+@media (max-width: 720px) { .map-layer, .network-layer, .webgl-layer, .chat-layer, .game-layer { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .bar { grid-template-columns: 1fr; } .dynamic-shareable { width: min(100% - 20px, 1080px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+</style>
+</head>
+<body data-style-source="warm-field-report">
+  <main class="dynamic-shareable" data-adapter="map-adapter" data-compatibility-target="github_pages_dynamic">
+    <header>
+      <p class="eyebrow">Shareables dynamic visualization</p>
+      <h1>Public Geojson Map Example</h1>
+      <p class="lede">Adapter lane: map-adapter. Compatibility target: github_pages_dynamic.</p>
+    </header>
+    <section id="visualization-root" class="visualization-root" aria-live="polite">
+      <noscript>This shareable includes a static fallback below because JavaScript is unavailable.</noscript>
+    </section>
+    <section class="fallback" aria-labelledby="fallback-title">
+      <h2 id="fallback-title">Static fallback</h2>
+      <p>Source, caveat, and exact values remain readable without dynamic runtime behavior.</p>
+      <table>
+        <thead><tr><th>Label</th><th>Value</th></tr></thead>
+        <tbody><tr><td>Evidence</td><td>72</td></tr><tr><td>Context</td><td>48</td></tr><tr><td>Caveat</td><td>31</td></tr></tbody>
+      </table>
+    </section>
+  </main>
+  <script type="application/json" id="shareable-data">{
+  "title": "Public Geojson Map Example",
+  "adapter": "map-adapter",
+  "source": "Bundled public-safe scaffold data.",
+  "caveat": "Replace scaffold data with reviewed source data before publishing.",
+  "map": {
+    "attribution": "Scaffold map uses synthetic coordinates; add tile/data attribution before publish.",
+    "regions": [
+      {
+        "id": "north",
+        "label": "North Hub",
+        "value": 68,
+        "x": 30,
+        "y": 24
+      },
+      {
+        "id": "central",
+        "label": "Central Hub",
+        "value": 82,
+        "x": 54,
+        "y": 48
+      },
+      {
+        "id": "south",
+        "label": "South Hub",
+        "value": 41,
+        "x": 44,
+        "y": 72
+      }
+    ]
+  }
+}
+</script>
+  <script type="module">const root = document.querySelector('#visualization-root');
+const inlineData = document.querySelector('#shareable-data');
+const payload = inlineData
+  ? JSON.parse(inlineData.textContent || '{}')
+  : await fetch('./assets/shareable-data.json').then(response => response.json());
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  }[char]));
+}
+
+function renderChart(payload) {
+  const rows = Array.isArray(payload.rows) ? payload.rows : [];
+  const max = Math.max(...rows.map(row => Number(row.value) || 0), 1);
+  root.innerHTML = `
+    <h2>${escapeHtml(payload.title || 'Dynamic visualization')}</h2>
+    <p>${escapeHtml(payload.source || 'Bundled data source.')}</p>
+    <div class="bars">
+      ${rows.map(row => {
+        const value = Number(row.value) || 0;
+        const width = Math.max(2, Math.round((value / max) * 100));
+        return `<div class="bar"><span>${escapeHtml(row.label)}</span><i style="width:${width}%"></i><strong>${value}</strong></div>`;
+      }).join('')}
+    </div>
+    <p>${escapeHtml(payload.caveat || '')}</p>
+  `;
+}
+
+function renderStoryFlow(payload) {
+  const frames = Array.isArray(payload.frames) ? payload.frames : [];
+  root.innerHTML = `
+    <div class="story-flow">
+      ${frames.map(frame => `
+        <article class="story-frame">
+          <span>${escapeHtml(frame.kicker)}</span>
+          <h2>${escapeHtml(frame.headline)}</h2>
+          <p>${escapeHtml(frame.body)}</p>
+          <strong>${escapeHtml(frame.metric)}</strong>
+        </article>
+      `).join('')}
+    </div>
+    <p>${escapeHtml(payload.caveat || '')}</p>
+  `;
+}
+
+function renderMap(payload) {
+  const map = payload.map || {};
+  const regions = Array.isArray(map.regions) ? map.regions : [];
+  root.innerHTML = `
+    <div class="map-layer" role="img" aria-label="Synthetic map scaffold with labeled public-safe points">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M17 11 L77 8 L90 36 L75 87 L24 91 L8 57 Z" />
+        ${regions.map(region => `
+          <g class="map-point" transform="translate(${Number(region.x) || 0} ${Number(region.y) || 0})">
+            <circle r="${Math.max(5, Math.min(16, (Number(region.value) || 0) / 7))}" />
+            <text x="8" y="4">${escapeHtml(region.label)}</text>
+          </g>
+        `).join('')}
+      </svg>
+      <aside>
+        ${regions.map(region => `<p><strong>${escapeHtml(region.label)}</strong> ${Number(region.value) || 0}</p>`).join('')}
+      </aside>
+    </div>
+    <p class="attribution">${escapeHtml(map.attribution || 'Add map attribution before publish.')}</p>
+  `;
+}
+
+function renderNetwork(payload) {
+  const graph = payload.graph || {};
+  const nodes = Array.isArray(graph.nodes) ? graph.nodes : [];
+  const edges = Array.isArray(graph.edges) ? graph.edges : [];
+  const byId = Object.fromEntries(nodes.map(node => [node.id, node]));
+  root.innerHTML = `
+    <div class="network-layer">
+      <svg viewBox="0 0 100 100" role="img" aria-label="Network scaffold with deterministic positions">
+        ${edges.map(edge => {
+          const source = byId[edge.source] || {};
+          const target = byId[edge.target] || {};
+          return `<line x1="${Number(source.x) || 0}" y1="${Number(source.y) || 0}" x2="${Number(target.x) || 0}" y2="${Number(target.y) || 0}" />`;
+        }).join('')}
+        ${nodes.map(node => `
+          <g class="network-node" transform="translate(${Number(node.x) || 0} ${Number(node.y) || 0})">
+            <circle r="5" />
+            <text x="7" y="4">${escapeHtml(node.label)}</text>
+          </g>
+        `).join('')}
+      </svg>
+      <aside>${nodes.map(node => `<button type="button">${escapeHtml(node.label)}</button>`).join('')}</aside>
+    </div>
+  `;
+}
+
+function renderWebgl(payload) {
+  const destinations = Array.isArray(payload.destinations) ? payload.destinations : [];
+  root.innerHTML = `
+    <div class="webgl-layer">
+      <canvas width="720" height="420" aria-label="WebGL scaffold scene"></canvas>
+      <aside>
+        <h2>3D explainer scaffold</h2>
+        <p>Camera presets: ${escapeHtml((payload.scene?.camera_presets || []).join(', '))}</p>
+        <p>Asset budget: ${Number(payload.scene?.asset_budget_kb) || 0} KB</p>
+        <div class="destination-links">${destinations.map(link => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('')}</div>
+      </aside>
+    </div>
+  `;
+  const canvas = root.querySelector('canvas');
+  const gl = canvas.getContext('webgl', { antialias: true, preserveDrawingBuffer: true });
+  if (!gl) {
+    canvas.insertAdjacentHTML('afterend', '<p>WebGL is unavailable; static explanation fallback remains below.</p>');
+    return;
+  }
+  gl.viewport(0, 0, canvas.width, canvas.height);
+  gl.clearColor(0.05, 0.46, 0.43, 1);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+}
+
+function renderGamified(payload) {
+  const steps = Array.isArray(payload.quest?.steps) ? payload.quest.steps : [];
+  const destinations = Array.isArray(payload.destinations) ? payload.destinations : [];
+  let index = 0;
+  root.innerHTML = `
+    <div class="game-layer">
+      <div class="quest-board" tabindex="0"></div>
+      <div class="quest-controls">
+        <button type="button" data-action="prev">Back</button>
+        <button type="button" data-action="next">Next</button>
+        <button type="button" data-action="restart">Restart</button>
+        <div class="destination-links">${destinations.map(link => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('')}</div>
+      </div>
+    </div>
+  `;
+  const board = root.querySelector('.quest-board');
+  function paint() {
+    const step = steps[index] || {};
+    board.innerHTML = `
+      <p>${escapeHtml(payload.quest?.progress_label || 'Progress')}</p>
+      <h2>${escapeHtml(step.label || 'Quest step')}</h2>
+      <strong>${escapeHtml(step.reward || '')}</strong>
+      <progress value="${index + 1}" max="${Math.max(steps.length, 1)}"></progress>
+    `;
+  }
+  root.addEventListener('click', event => {
+    const action = event.target?.dataset?.action;
+    if (action === 'next') index = Math.min(index + 1, Math.max(steps.length - 1, 0));
+    if (action === 'prev') index = Math.max(index - 1, 0);
+    if (action === 'restart') index = 0;
+    paint();
+  });
+  paint();
+}
+
+function renderLiveDashboard(payload) {
+  const freshness = payload.freshness || {};
+  const cards = Array.isArray(freshness.cards) ? freshness.cards : [];
+  root.innerHTML = `
+    <div class="live-layer" data-state="${escapeHtml(freshness.state || 'snapshot')}">
+      <header>
+        <h2>Freshness states</h2>
+        <p>Last updated: ${escapeHtml(freshness.last_updated || 'snapshot')}</p>
+      </header>
+      <div class="dashboard-cards">
+        ${cards.map(card => `<article data-state="${escapeHtml(card.state)}"><span>${escapeHtml(card.label)}</span><strong>${escapeHtml(card.value)}</strong></article>`).join('')}
+      </div>
+      <p>Last-known-good snapshot: ${freshness.last_known_good ? 'available' : 'missing'}</p>
+    </div>
+  `;
+}
+
+function renderChat(payload) {
+  const chat = payload.chat || {};
+  const messages = Array.isArray(chat.messages) ? chat.messages : [];
+  const citations = Array.isArray(chat.citations) ? chat.citations : [];
+  root.innerHTML = `
+    <div class="chat-layer">
+      <ol>
+        ${messages.map(message => `<li data-role="${escapeHtml(message.role)}"><strong>${escapeHtml(message.role)}</strong><p>${escapeHtml(message.text)}</p><small>${escapeHtml(message.citation)}</small></li>`).join('')}
+      </ol>
+      <aside>
+        <h2>Citations</h2>
+        ${citations.map(citation => `<p><strong>${escapeHtml(citation.id)}</strong> ${escapeHtml(citation.label)}</p>`).join('')}
+      </aside>
+    </div>
+    <p>Redaction reviewed: ${chat.redaction_reviewed ? 'yes' : 'no'}</p>
+  `;
+}
+
+switch (payload.adapter) {
+  case 'infographic-story-flow':
+    renderStoryFlow(payload);
+    break;
+  case 'map-adapter':
+    renderMap(payload);
+    break;
+  case 'network-adapter':
+    renderNetwork(payload);
+    break;
+  case 'webgl-3d-adapter':
+    renderWebgl(payload);
+    break;
+  case 'gamified-shareable-adapter':
+    renderGamified(payload);
+    break;
+  case 'live-dashboard-adapter':
+    renderLiveDashboard(payload);
+    break;
+  case 'chat-render-adapter':
+    renderChat(payload);
+    break;
+  default:
+    renderChart(payload);
+}
+
+const params = new URLSearchParams(window.location.search);
+if (params.get('focus')) {
+  root.dataset.focus = params.get('focus');
+}
+</script>
+</body>
+</html>
