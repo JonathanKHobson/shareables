@@ -4,49 +4,553 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chat Render Conversation Example</title>
-  <style>html { color-scheme: light; }
-body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f8fbf9; color: #17211f; }
-.dynamic-shareable { width: min(1080px, calc(100vw - 32px)); margin: 0 auto; padding: 32px 0 48px; display: grid; gap: 22px; }
-.eyebrow { margin: 0 0 8px; color: #0f766e; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
-h1 { margin: 0; font-size: clamp(2rem, 6vw, 4.5rem); line-height: .95; letter-spacing: 0; }
-.lede { color: #5c6965; max-width: 72ch; }
-.visualization-root, .fallback { border: 1px solid #cedbd5; background: #fff; border-radius: 8px; padding: 18px; }
-.state-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-.state-controls button[aria-pressed="true"], aside button[aria-pressed="true"] { background: #0f766e; border-color: #0f766e; color: #fff; }
-.bars { display: grid; gap: 10px; margin-top: 12px; }
-.bar { display: grid; grid-template-columns: 110px minmax(0, 1fr) 48px; gap: 10px; align-items: center; }
-.bar[data-active="true"] { outline: 3px solid rgba(15,118,110,.24); outline-offset: 3px; }
-.bar span { color: #5c6965; font-weight: 700; }
-.bar i { display: block; height: 18px; border-radius: 4px; background: #0f766e; }
-.story-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
-.story-frame, .quest-board, .dashboard-cards article, .chat-layer li { border: 1px solid #cedbd5; border-radius: 8px; padding: 14px; background: #f8fbf9; }
-.story-frame span, .story-frame strong { color: #0f766e; font-weight: 900; }
-.map-layer, .network-layer, .webgl-layer, .chat-layer, .game-layer { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, .6fr); gap: 16px; align-items: start; }
-.map-layer svg, .network-layer svg, .webgl-layer canvas { width: 100%; min-height: 280px; border: 1px solid #cedbd5; border-radius: 8px; background: #eef7f4; }
-.map-layer path { fill: #dbeee8; stroke: #0f766e; stroke-width: 1.4; }
-.map-point circle, .network-node circle { fill: #0f766e; opacity: .82; }
-.map-point[data-active="true"] circle, .network-node[data-active="true"] circle { fill: #d95f43; opacity: 1; stroke: #17211f; stroke-width: 1.2; }
-.map-point text, .network-node text { font-size: 4px; fill: #17211f; font-weight: 800; }
-.network-layer line { stroke: #7a8a85; stroke-width: 1.2; }
-.network-layer aside, .quest-controls, .dashboard-cards { display: grid; gap: 10px; }
-button { border: 1px solid #9ab0a8; border-radius: 6px; background: #fff; color: #17211f; padding: 10px 12px; font-weight: 800; cursor: pointer; }
-.destination-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.destination-links a { border: 1px solid #9ab0a8; border-radius: 6px; color: #0f766e; padding: 8px 10px; font-weight: 800; text-decoration: none; }
-progress { width: 100%; height: 14px; accent-color: #0f766e; }
-.live-layer { border-left: 6px solid #0f766e; padding-left: 14px; }
-.live-layer[data-state="stale"] { border-left-color: #b7791f; }
-.live-layer[data-state="offline"] { border-left-color: #8f2d25; }
-.live-layer[data-state="partial"] { border-left-color: #d95f43; }
-.dashboard-cards { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-.dashboard-cards span, .chat-layer small, .attribution { color: #5c6965; }
-.chat-layer ol { display: grid; gap: 10px; margin: 0; padding-left: 20px; }
-.chat-layer li[data-role="assistant"] { background: #eef7f4; }
-.chat-layer li[data-active="true"] { outline: 3px solid rgba(15,118,110,.24); outline-offset: 3px; }
-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-th, td { border-top: 1px solid #cedbd5; padding: 8px; text-align: left; }
-@media (max-width: 720px) { .map-layer, .network-layer, .webgl-layer, .chat-layer, .game-layer { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .bar { grid-template-columns: 1fr; } .dynamic-shareable { width: min(100% - 20px, 1080px); } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  <style>
+:root {
+  --ink: #332a26;
+  --muted: #6b5c53;
+  --paper: #fff8f1;
+  --surface: #fffefc;
+  --line: #dfd3c8;
+  --primary: #8a5134;
+  --secondary: #4f7fa0;
+  --accent: #c0782f;
+  --danger: #b91c1c;
+  --success: #15803d;
+  --focus: #8a5134;
+  --font-stack-body: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  --font-stack-heading: 'Gill Sans', 'Segoe UI', sans-serif;
+}
+  </style>
+  <style>:root {
+  --ink: #332a26;
+  --muted: #6b5c53;
+  --paper: #fff8f1;
+  --surface: #fffefc;
+  --line: #dfd3c8;
+  --primary: #8a5134;
+  --secondary: #4f7fa0;
+  --accent: #c0782f;
+  --danger: #b91c1c;
+  --success: #15803d;
+  --focus: #8a5134;
+  --font-stack-body: 'Avenir Next', 'Avenir', 'Segoe UI', sans-serif;
+  --font-stack-heading: 'Gill Sans', 'Segoe UI', sans-serif;
+}</style><style>@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  color-scheme: light;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-stack-body);
+  line-height: 1.4;
+}
+
+.dynamic-shareable {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 40px) 0 clamp(28px, 5vw, 52px);
+  display: grid;
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-stack-heading);
+  font-size: clamp(1.8rem, 5.5vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.lede {
+  color: var(--muted);
+  margin: 0.45rem 0 0;
+  max-width: 72ch;
+}
+
+.fallback,
+.visualization-root > section {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.fallback table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.fallback th,
+.fallback td {
+  border-top: 1px solid var(--line);
+  padding: 8px;
+  text-align: left;
+}
+
+button,
+.link-button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 9px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+button[aria-pressed="true"],
+.link-button:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--paper);
+}
+
+.state-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.note {
+  color: var(--muted);
+  margin-top: 0.8rem;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) minmax(190px, 3fr) minmax(44px, 0.6fr);
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 92%, var(--surface) 8%);
+}
+
+.bar[data-active="true"] {
+  outline: 2px solid color-mix(in srgb, var(--focus) 36%, transparent 64%);
+  outline-offset: 2px;
+}
+
+.bar span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.bar i {
+  display: block;
+  height: 16px;
+  border-radius: 9px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.bar-track {
+  min-height: 16px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--line) 42%, transparent 58%);
+}
+
+.stat-grid {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.stat-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  background: color-mix(in srgb, var(--paper) 86%, var(--surface) 14%);
+}
+
+.story-shell,
+.map-layer,
+.network-layer,
+.webgl-layer,
+.chat-shell,
+.game-layer,
+.live-layer,
+.dashboard-layer,
+.dashboard-summary,
+.story-progress {
+  display: grid;
+  gap: 12px;
+}
+
+.story-nav,
+.destination-links,
+.network-search,
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.story-nav {
+  gap: 6px;
+}
+
+.story-progress {
+  flex-direction: row;
+}
+
+.story-progress span {
+  width: 26px;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--paper);
+}
+
+.story-progress span[data-active="true"] {
+  background: var(--primary);
+  color: var(--paper);
+  border-color: var(--primary);
+}
+
+.story-frame {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--paper) 90%, var(--surface) 10%);
+}
+
+.story-frame span {
+  color: var(--muted);
+}
+
+.story-frame h2,
+.story-frame h3,
+.story-frame strong {
+  margin: 0.3rem 0;
+  color: var(--ink);
+}
+
+.map-layer,
+.network-layer,
+.webgl-layer,
+.chat-shell,
+.game-layer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  align-items: start;
+  gap: 14px;
+}
+
+.webgl-layer,
+.dashboard-cards {
+  align-items: stretch;
+}
+
+.map-layer svg,
+.network-layer svg,
+.webgl-layer canvas {
+  width: 100%;
+  min-height: 280px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+}
+
+.map-point circle,
+.network-node circle {
+  fill: var(--primary);
+  opacity: 0.86;
+}
+
+.map-point[data-active="true"] circle,
+.network-node[data-active="true"] circle {
+  fill: var(--accent);
+  opacity: 1;
+}
+
+.map-point text,
+.network-node text {
+  font-size: 4px;
+  fill: var(--ink);
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 0.8px;
+  stroke-linejoin: round;
+}
+
+.map-layer aside,
+.network-layer aside,
+.webgl-layer aside,
+.chat-aside,
+.quest-sidebar {
+  display: grid;
+  gap: 10px;
+}
+
+.map-point,
+.network-node {
+  cursor: pointer;
+}
+
+.network-layer line {
+  stroke: color-mix(in srgb, var(--line) 66%, var(--ink) 34%);
+  stroke-width: 1.1;
+}
+
+.inspector,
+.edge-list,
+.panel-map-detail,
+.search-row,
+.quest-controls,
+.reward-cloud,
+.citation-detail {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--muted);
+}
+
+.inspector,
+.panel-map-detail {
+  background: color-mix(in srgb, var(--paper) 85%, var(--surface) 15%);
+}
+
+.search-row input {
+  flex: 1;
+  min-width: 140px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.destination-links button,
+.state-controls button {
+  flex: 0 1 auto;
+}
+
+.webgl-layer aside {
+  min-width: 220px;
+}
+
+.webgl-fallback-message {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.game-layer {
+  gap: 14px;
+}
+
+.quest-board {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper);
+  padding: 8px;
+  min-width: 0;
+}
+
+#questProgress {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.quest-board canvas {
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  height: auto;
+  display: block;
+  image-rendering: auto;
+}
+
+.mobile-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(44px, 1fr));
+  gap: 8px;
+  width: min(360px, 100%);
+}
+
+.mobile-controls button {
+  width: 100%;
+}
+
+.reward-cloud {
+  min-height: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.reward-cloud span {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 52%, var(--line) 48%);
+  background: color-mix(in srgb, var(--accent) 16%, transparent 84%);
+  color: var(--ink);
+}
+
+.live-layer {
+  border-left: 6px solid var(--primary);
+}
+
+.live-layer[data-state="stale"] { border-left-color: var(--accent); }
+.live-layer[data-state="offline"] { border-left-color: var(--danger); }
+.live-layer[data-state="partial"] { border-left-color: var(--secondary); }
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.dashboard-cards article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  background: color-mix(in srgb, var(--paper) 85%, var(--surface) 15%);
+}
+
+.dashboard-cards article.is-active {
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface) 92%);
+}
+
+.dashboard-cards article > strong {
+  font-size: 1.1rem;
+}
+
+.dashboard-summary {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.dashboard-summary article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--surface);
+}
+
+.progress {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--line) 60%, transparent 40%);
+  overflow: hidden;
+}
+
+.progress i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.chat-shell {
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
+}
+
+.chat-frame {
+  margin: 0;
+}
+
+.chat-frame ol {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.chat-frame li {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  list-style-position: inside;
+}
+
+.chat-frame li[data-role="assistant"] {
+  background: color-mix(in srgb, var(--primary) 9%, var(--surface) 91%);
+}
+
+.chat-frame li[data-active="true"] {
+  outline: 2px solid color-mix(in srgb, var(--focus) 40%, transparent 60%);
+  outline-offset: 2px;
+}
+
+.chat-frame small {
+  color: var(--muted);
+}
+
+.chat-aside .search-label {
+  display: grid;
+  gap: 6px;
+}
+
+.chat-aside input,
+.search-label input {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.citation-list {
+  display: grid;
+  gap: 8px;
+}
+
+@media (max-width: 760px) {
+  .story-flow,
+  .map-layer,
+  .network-layer,
+  .webgl-layer,
+  .chat-shell,
+  .game-layer {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-controls { grid-template-columns: repeat(2, 1fr); }
+  .fallback,
+  .visualization-root > section { padding: 12px; }
+}
+
+@media (max-width: 560px) {
+  .bar { grid-template-columns: 1fr; }
+  .dynamic-shareable { width: min(100% - 20px, 1120px); }
+}
 </style>
 <style>
       html, body { margin: 0 !important; width: 420px; min-height: 260px; overflow: hidden !important; background: var(--paper, #f8fbf9) !important; }
@@ -128,14 +632,59 @@ th, td { border-top: 1px solid #cedbd5; padding: 8px; text-align: left; }
   }
 }
 </script>
-  <script type="module">const root = document.querySelector('#visualization-root');
+  <script type="module">const body = document.body;
+const root = document.querySelector('#visualization-root');
 const inlineData = document.querySelector('#shareable-data');
 const payload = inlineData
   ? JSON.parse(inlineData.textContent || '{}')
   : await fetch('./assets/shareable-data.json').then(response => response.json());
 
+const adapter = String(payload.adapter || 'declarative-chart-adapter');
+const params = new URLSearchParams(window.location.search);
+const styleSource = body?.dataset?.styleSource || 'core-utility';
+const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const palette = {
+  ink: getComputedStyle(body).getPropertyValue('--ink').trim() || '#17211f',
+  muted: getComputedStyle(body).getPropertyValue('--muted').trim() || '#54615e',
+  paper: getComputedStyle(body).getPropertyValue('--paper').trim() || '#f8fbf9',
+  surface: getComputedStyle(body).getPropertyValue('--surface').trim() || '#ffffff',
+  line: getComputedStyle(body).getPropertyValue('--line').trim() || '#cbd8d3',
+  primary: getComputedStyle(body).getPropertyValue('--primary').trim() || '#0f766e',
+  secondary: getComputedStyle(body).getPropertyValue('--secondary').trim() || '#2563eb',
+  accent: getComputedStyle(body).getPropertyValue('--accent').trim() || '#d97706',
+  danger: getComputedStyle(body).getPropertyValue('--danger').trim() || '#dc2626',
+  success: getComputedStyle(body).getPropertyValue('--success').trim() || '#059669',
+  focus: getComputedStyle(body).getPropertyValue('--focus').trim() || '#0ea5e9',
+};
+
+function cssColorToRgb(value, fallback = [0.07, 0.12, 0.16]) {
+  const hex = String(value || '').trim();
+  if (/^#[0-9a-f]{6}$/i.test(hex)) {
+    return [
+      parseInt(hex.slice(1, 3), 16) / 255,
+      parseInt(hex.slice(3, 5), 16) / 255,
+      parseInt(hex.slice(5, 7), 16) / 255,
+    ];
+  }
+  return fallback;
+}
+
+function rgbaFromHex(value, alpha = 1) {
+  const rgb = cssColorToRgb(value, [0.08, 0.32, 0.28]);
+  return `rgba(${Math.round(rgb[0] * 255)}, ${Math.round(rgb[1] * 255)}, ${Math.round(rgb[2] * 255)}, ${alpha})`;
+}
+
+const visualState = {
+  board: {
+    player: { x: 4, y: 3 },
+    discovered: new Set(),
+  },
+  chatFilter: 'all',
+};
+
 function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, char => ({
+  return String(value ?? '').replace(/[&<>\"']/g, char => ({
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -144,96 +693,199 @@ function escapeHtml(value) {
   }[char]));
 }
 
-const params = new URLSearchParams(window.location.search);
-
-function updateParam(key, value) {
-  const next = new URLSearchParams(window.location.search);
-  if (value === undefined || value === null || value === '') next.delete(key);
-  else next.set(key, String(value));
-  const query = next.toString();
-  const url = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
-  window.history.replaceState({}, '', url);
+function percent(value, max) {
+  const safeMax = Math.max(1, Number(max) || 1);
+  return Math.round((Number(value) || 0) / safeMax * 1000) / 10;
 }
 
 function activeValue(key, fallback = '') {
   return params.get(key) || fallback;
 }
 
+function updateParam(key, value) {
+  const next = new URLSearchParams(window.location.search);
+  if (value === undefined || value === null || value === '') {
+    next.delete(key);
+  } else {
+    next.set(key, String(value));
+  }
+  const query = next.toString();
+  const url = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
+  window.history.replaceState({}, '', url);
+  if (value === undefined || value === null || value === '') {
+    params.delete(key);
+  } else {
+    params.set(key, String(value));
+  }
+}
+
+function setPressedFromKey(selector, key, activeValueKey) {
+  const expected = String(activeValue(key, activeValueKey || ''));
+  document.querySelectorAll(selector).forEach(node => {
+    node.setAttribute('aria-pressed', String(node.dataset && node.dataset.value === expected));
+  });
+}
+
+function makeRange(total) {
+  return `0-${Math.max(0, Number(total) - 1)}`;
+}
+
 function renderChart(payload) {
   const rows = Array.isArray(payload.rows) ? payload.rows : [];
+  const activeRow = activeValue('focus', rows[0]?.label || '');
   const max = Math.max(...rows.map(row => Number(row.value) || 0), 1);
-  const focus = activeValue('focus', rows[0]?.label || '');
+  const selected = rows.find(row => String(row.label) === activeRow) || rows[0] || {};
+  const total = rows.reduce((sum, row) => sum + (Number(row.value) || 0), 0) || 0;
   root.innerHTML = `
-    <h2>${escapeHtml(payload.title || 'Dynamic visualization')}</h2>
-    <p>${escapeHtml(payload.source || 'Bundled data source.')}</p>
-    <div class="state-controls" aria-label="Chart focus controls">
-      ${rows.map(row => `<button type="button" data-focus-row="${escapeHtml(row.label)}" aria-pressed="${row.label === focus}">${escapeHtml(row.label)}</button>`).join('')}
-    </div>
-    <div class="bars">
-      ${rows.map(row => {
-        const value = Number(row.value) || 0;
-        const width = Math.max(2, Math.round((value / max) * 100));
-        return `<div class="bar" data-active="${row.label === focus}"><span>${escapeHtml(row.label)}</span><i style="width:${width}%"></i><strong>${value}</strong></div>`;
-      }).join('')}
-    </div>
-    <p>${escapeHtml(payload.caveat || '')}</p>
+    <section class="demo-shell">
+      <header>
+        <h2>Dynamic evidence chart</h2>
+        <p>${escapeHtml(payload.source || 'Bundled public-safe fixture.')}</p>
+      </header>
+      <div class="state-controls" aria-label="chart segment controls">
+        ${rows.map(row => `<button type="button" data-focus-row="${escapeHtml(row.label)}" data-value="${escapeHtml(row.label)}" aria-pressed="${row.label === selected.label}">${escapeHtml(row.label)}</button>`).join('')}
+      </div>
+      <div class="chart-grid">
+        <div class="bars" aria-live="polite">
+          ${rows.map(row => {
+            const value = Number(row.value) || 0;
+            const width = percent(value, max);
+            return `
+              <div class="bar" data-active="${row.label === selected.label}">
+                <span>${escapeHtml(row.label)}</span>
+                <div class="bar-track"><i style="width:${width}%"></i></div>
+                <strong>${value}</strong>
+              </div>`;
+          }).join('')}
+        </div>
+        <aside class="stat-grid">
+          <article class="selected-stat"><h3>Selected</h3><p>${escapeHtml(selected.label || 'none')}</p><strong>${escapeHtml(selected.value ?? '—')}</strong></article>
+          <article><h3>Total</h3><p>Current sample total</p><strong>${total}</strong></article>
+          <article><h3>Source</h3><p>Caveat is visible in the fallback</p><strong>${escapeHtml(payload.caveat || '—')}</strong></article>
+        </aside>
+      </div>
+      <p class="note">Tip: use row buttons to switch focus, and check URL parameters to reproduce state.</p>
+    </section>
   `;
+
   root.querySelectorAll('[data-focus-row]').forEach(button => {
     button.addEventListener('click', () => {
-      updateParam('focus', button.dataset.focusRow);
+      const value = button.dataset.focusRow;
+      updateParam('focus', value);
       root.querySelectorAll('[data-focus-row]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      root.querySelectorAll('.bar').forEach(bar => bar.dataset.active = String(bar.querySelector('span')?.textContent === button.dataset.focusRow));
+      root.querySelectorAll('.bar').forEach(bar => bar.dataset.active = String(bar.querySelector('span')?.textContent === value));
+      const selected = rows.find(row => row.label === value) || rows[0] || {};
+      const selectedLabel = root.querySelector('.selected-stat p');
+      const selectedValue = root.querySelector('.selected-stat strong');
+      if (selectedLabel) selectedLabel.textContent = String(selected.label ?? 'none');
+      if (selectedValue) selectedValue.textContent = String(selected.value ?? '—');
     });
   });
 }
 
 function renderStoryFlow(payload) {
   const frames = Array.isArray(payload.frames) ? payload.frames : [];
+  const frameValues = frames.length ? frames : [{ kicker: '1', headline: 'No frame data', body: 'A scaffold frame is visible until real content is attached.', metric: '00' }];
+  const normalizeFrame = (value) => {
+    const parsed = Number(value);
+    if (!Number.isFinite(parsed)) {
+      return 0;
+    }
+    return Math.max(0, Math.min(frameValues.length - 1, Math.floor(parsed)));
+  };
+  let activeIndex = normalizeFrame(activeValue('frame', 0));
+
   root.innerHTML = `
-    <div class="story-flow">
-      ${frames.map(frame => `
-        <article class="story-frame">
-          <span>${escapeHtml(frame.kicker)}</span>
-          <h2>${escapeHtml(frame.headline)}</h2>
-          <p>${escapeHtml(frame.body)}</p>
-          <strong>${escapeHtml(frame.metric)}</strong>
-        </article>
-      `).join('')}
-    </div>
-    <p>${escapeHtml(payload.caveat || '')}</p>
+    <section class="story-shell">
+      <div class="story-nav">
+        ${frameValues.map((frame, index) => `<button type="button" data-frame="${escapeHtml(String(index))}" aria-pressed="${index === activeIndex}">Frame ${String(index + 1)}${frame.kicker ? ` · ${escapeHtml(frame.kicker)}` : ''}</button>`).join('')}
+        <button type="button" data-frame="0" data-action="reset" aria-pressed="false">Reset</button>
+      </div>
+      <article class="story-frame"></article>
+      <div class="story-progress" role="list" aria-label="Frame bullets">
+        ${frameValues.map((_, index) => `<span data-step="${index}" data-active="${index === activeIndex}">${index + 1}</span>`).join('')}
+      </div>
+      <p>${escapeHtml(payload.caveat || '')}</p>
+    </section>
   `;
+
+  const renderFrame = index => {
+    activeIndex = normalizeFrame(index);
+    const frame = frameValues[activeIndex] || frameValues[0];
+    updateParam('frame', String(activeIndex));
+    root.querySelector('.story-frame').innerHTML = `
+      <p>${escapeHtml(frame.kicker || 'Frame')}</p>
+      <h2>${escapeHtml(frame.headline || 'Untitled')}</h2>
+      <p>${escapeHtml(frame.body || 'No body copy.')}</p>
+      <strong>${escapeHtml(frame.metric || '')}</strong>
+    `;
+    root.querySelectorAll('.story-progress span').forEach(span => {
+      span.dataset.active = String(Number(span.dataset.step || 0) === activeIndex);
+    });
+    root.querySelectorAll('[data-frame]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.frame === String(activeIndex)));
+    });
+  };
+
+  root.querySelectorAll('[data-frame]').forEach(button => {
+    button.addEventListener('click', () => {
+      const index = Number(button.dataset.frame || 0);
+      renderFrame(index);
+    });
+  });
+  renderFrame(activeIndex);
 }
 
 function renderMap(payload) {
   const map = payload.map || {};
   const regions = Array.isArray(map.regions) ? map.regions : [];
-  const activePoint = activeValue('point', regions[0]?.id || '');
+  const ordered = [...regions].sort((a, b) => (Number(b.value) || 0) - (Number(a.value) || 0));
+  const activePoint = activeValue('point', ordered[0]?.id || '');
   root.innerHTML = `
-    <div class="map-layer" role="img" aria-label="Synthetic map scaffold with labeled public-safe points">
+    <section class="map-layer" role="img" aria-label="Synthetic map scaffold with labeled public-safe points">
       <svg viewBox="0 0 100 100" aria-hidden="true">
-        <path d="M17 11 L77 8 L90 36 L75 87 L24 91 L8 57 Z" />
-        ${regions.map(region => `
-          <g class="map-point" data-active="${region.id === activePoint}" transform="translate(${Number(region.x) || 0} ${Number(region.y) || 0})">
-            <circle r="${Math.max(5, Math.min(16, (Number(region.value) || 0) / 7))}" />
-            <text x="8" y="4">${escapeHtml(region.label)}</text>
-          </g>
-        `).join('')}
+        <path d="M12 16 L76 12 L90 39 L74 86 L24 92 L7 60 Z" />
+        ${ordered.map(region => {
+          const x = Number(region.x) || 0;
+          const y = Number(region.y) || 0;
+          const radius = Math.max(4, Math.min(12, (Number(region.value) || 0) / 8));
+          return `<g class="map-point" data-id="${escapeHtml(region.id)}" transform="translate(${x} ${y})" data-active="${region.id === activePoint}">
+            <circle r="${radius}" />
+            <text x="${radius + 2}" y="4">${escapeHtml(region.label)}</text>
+          </g>`;
+        }).join('')}
       </svg>
       <aside>
-        ${regions.map(region => `<button type="button" data-point="${escapeHtml(region.id)}" aria-pressed="${region.id === activePoint}"><strong>${escapeHtml(region.label)}</strong> ${Number(region.value) || 0}</button>`).join('')}
+        <div class="state-controls">
+          ${ordered.map(region => `<button type="button" data-point="${escapeHtml(region.id)}" data-value="${escapeHtml(region.id)}" aria-pressed="${region.id === activePoint}">${escapeHtml(region.label)} (${Number(region.value) || 0})</button>`).join('')}
+        </div>
+        <div class="panel-map-detail" aria-live="polite">
+          ${ordered.length ? `<p>${escapeHtml(ordered[0].label)} currently selected.</p>` : '<p>No map points available.</p>'}
+        </div>
+        <p class="attribution">${escapeHtml(map.attribution || 'Add map attribution before publish.')}</p>
       </aside>
-    </div>
-    <p class="attribution">${escapeHtml(map.attribution || 'Add map attribution before publish.')}</p>
+    </section>
   `;
+
+  const panel = root.querySelector('.panel-map-detail');
+  const setActivePoint = value => {
+    const item = ordered.find(item => item.id === value) || ordered[0] || {};
+    if (panel) {
+      panel.innerHTML = `<p>Region: ${escapeHtml(item.label || 'None')} &middot; Value: ${Number(item.value) || 0} &middot; Point: ${escapeHtml(item.id || 'n/a')}</p>`;
+    }
+    root.querySelectorAll('.map-point').forEach(point => point.dataset.active = String(point.dataset.id === value));
+  };
+
   root.querySelectorAll('[data-point]').forEach(button => {
     button.addEventListener('click', () => {
-      updateParam('point', button.dataset.point);
-      root.querySelectorAll('[data-point]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      root.querySelectorAll('.map-point').forEach((point, index) => {
-        point.dataset.active = String(regions[index]?.id === button.dataset.point);
-      });
+      const value = button.dataset.point;
+      updateParam('point', value);
+      root.querySelectorAll('[data-point]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.point === value)));
+      setActivePoint(value);
     });
   });
+
+  setActivePoint(activePoint);
 }
 
 function renderNetwork(payload) {
@@ -242,198 +894,840 @@ function renderNetwork(payload) {
   const edges = Array.isArray(graph.edges) ? graph.edges : [];
   const byId = Object.fromEntries(nodes.map(node => [node.id, node]));
   const activeNode = activeValue('node', nodes[0]?.id || '');
+  const selectedNode = byId[activeNode] || nodes[0] || {};
+  const query = activeValue('q', '');
+
+  const filteredNodes = nodes.filter(node => !query || String(node.label || '').toLowerCase().includes(query.toLowerCase()));
+
   root.innerHTML = `
-    <div class="network-layer">
-      <svg viewBox="0 0 100 100" role="img" aria-label="Network scaffold with deterministic positions">
-        ${edges.map(edge => {
-          const source = byId[edge.source] || {};
-          const target = byId[edge.target] || {};
-          return `<line x1="${Number(source.x) || 0}" y1="${Number(source.y) || 0}" x2="${Number(target.x) || 0}" y2="${Number(target.y) || 0}" />`;
-        }).join('')}
-        ${nodes.map(node => `
-          <g class="network-node" data-active="${node.id === activeNode}" transform="translate(${Number(node.x) || 0} ${Number(node.y) || 0})">
-            <circle r="5" />
-            <text x="7" y="4">${escapeHtml(node.label)}</text>
-          </g>
-        `).join('')}
-      </svg>
-      <aside><div class="state-controls">${nodes.map(node => `<button type="button" data-node="${escapeHtml(node.id)}" aria-pressed="${node.id === activeNode}">${escapeHtml(node.label)}</button>`).join('')}<button type="button" data-node="">Reset</button></div><div class="inspector" aria-live="polite"></div></aside>
-    </div>
+    <section class="network-layer">
+      <div class="network-pane">
+        <div class="search-row">
+          <input type="search" id="network-search" value="${escapeHtml(query)}" placeholder="Filter by node label" aria-label="Filter graph nodes">
+          <button type="button" id="network-reset">Clear</button>
+        </div>
+        <svg viewBox="0 0 100 100" role="img" aria-label="Network scaffold with deterministic positions">
+          ${edges.map(edge => {
+            const source = byId[edge.source] || {};
+            const target = byId[edge.target] || {};
+            return `<line x1="${Number(source.x) || 0}" y1="${Number(source.y) || 0}" x2="${Number(target.x) || 0}" y2="${Number(target.y) || 0}" />`;
+          }).join('')}
+          ${nodes.map(node => `<g class="network-node" data-id="${escapeHtml(node.id)}" data-active="${node.id === activeNode}" transform="translate(${Number(node.x) || 0} ${Number(node.y) || 0})"><circle r="4.8"/><text x="7" y="4">${escapeHtml(node.label)}</text></g>`).join('')}
+        </svg>
+      </div>
+      <aside>
+        <div class="state-controls">${filteredNodes.map(node => `<button type="button" data-node="${escapeHtml(node.id)}" data-value="${escapeHtml(node.id)}" aria-pressed="${node.id === activeNode}">${escapeHtml(node.label)}</button>`).join('')}</div>
+        <div class="inspector" aria-live="polite"></div>
+        <div class="edge-list"></div>
+      </aside>
+    </section>
   `;
+
   const inspector = root.querySelector('.inspector');
-  function inspect(nodeId) {
-    const node = byId[nodeId] || nodes[0] || {};
-    inspector.innerHTML = `<h2>${escapeHtml(node.label || 'Network')}</h2><p>Group: ${escapeHtml(node.group || 'unclassified')}</p><p>Edges: ${edges.filter(edge => edge.source === node.id || edge.target === node.id).length}</p>`;
-    root.querySelectorAll('[data-node]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.node === node.id)));
-    root.querySelectorAll('.network-node').forEach((point, index) => point.dataset.active = String(nodes[index]?.id === node.id));
+  const edgeList = root.querySelector('.edge-list');
+  const listAll = edges.length;
+
+  function paint(nodeId) {
+    const node = byId[nodeId] || selectedNode || {};
+    const related = edges.filter(edge => edge.source === node.id || edge.target === node.id);
+    if (inspector) {
+      inspector.innerHTML = `<h3>${escapeHtml(node.label || 'Network Node')}</h3><p>Group: ${escapeHtml(node.group || 'unclassified')}</p><p>Degree: ${related.length}</p><p>Links: ${listAll}</p>`;
+    }
+    if (edgeList) {
+      edgeList.innerHTML = related.length ? related.map(edge => `<p>${escapeHtml(edge.source)} → ${escapeHtml(edge.target)}</p>`).join('') : '<p>No direct links.</p>';
+    }
+    root.querySelectorAll('.network-node').forEach(item => item.dataset.active = String(item.dataset.id === node.id));
+    root.querySelectorAll('[data-node]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.node === node.id)));
   }
-  root.querySelectorAll('[data-node]').forEach(button => button.addEventListener('click', () => {
-    updateParam('node', button.dataset.node);
-    inspect(button.dataset.node);
-  }));
-  inspect(activeNode);
+
+  root.querySelectorAll('[data-node]').forEach(button => {
+    button.addEventListener('click', () => {
+      const nodeId = button.dataset.node;
+      updateParam('node', nodeId);
+      paint(nodeId);
+    });
+  });
+
+  const search = root.querySelector('#network-search');
+  search?.addEventListener('input', () => {
+    updateParam('q', search.value || '');
+    const filtered = nodes.filter(node => !search.value || String(node.label || '').toLowerCase().includes(search.value.toLowerCase()));
+    root.querySelector('svg').nextElementSibling?.scrollIntoView();
+    root.querySelectorAll('[data-node]').forEach(button => {
+      const keep = filtered.some(item => item.id === button.dataset.node);
+      button.style.display = keep ? '' : 'none';
+    });
+  });
+  root.querySelector('#network-reset')?.addEventListener('click', () => {
+    if (!search) return;
+    search.value = '';
+    updateParam('q', '');
+    root.querySelectorAll('[data-node]').forEach(button => button.style.display = '');
+  });
+
+  paint(activeNode || nodes[0]?.id || '');
 }
 
 function renderWebgl(payload) {
   const destinations = Array.isArray(payload.destinations) ? payload.destinations : [];
-  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scene = payload.scene || {};
+  const selectedMode = activeValue('camera', scene.camera_presets?.[0] || 'overview');
   root.innerHTML = `
-    <div class="webgl-layer">
-      <canvas width="720" height="420" aria-label="WebGL scaffold scene"></canvas>
+    <section class="webgl-layer">
+      <div>
+        <canvas id="sceneCanvas" width="960" height="460" aria-label="WebGL 3D explainer"></canvas>
+      </div>
       <aside>
-        <h2>3D explainer scaffold</h2>
-        <p>Camera presets: ${escapeHtml((payload.scene?.camera_presets || []).join(', '))}</p>
-        <p>Asset budget: ${Number(payload.scene?.asset_budget_kb) || 0} KB</p>
-        <p>Reduced motion: ${reduced ? 'static camera' : 'motion allowed'}</p>
-        <div class="destination-links">${destinations.map(link => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('')}</div>
+        <h2>3D explainer scene</h2>
+        <p>Asset budget: ${Number(scene.asset_budget_kb || 0)} KB</p>
+        <p>Available camera presets: ${(scene.camera_presets || []).join(', ') || 'overview, detail, fallback'}</p>
+        <p>Reduced motion: ${reducedMotion ? 'static camera path' : 'animated path'}</p>
+        <div class="destination-links">${destinations.map(link => `<button type="button" data-camera="${escapeHtml(link.href.replace('#camera-', ''))}">${escapeHtml(link.label)}</button>`).join('')}</div>
+        <div class="state-controls" role="group" aria-label="Camera presets">
+          <button type="button" data-camera="overview" aria-pressed="${selectedMode === 'overview'}">Overview</button>
+          <button type="button" data-camera="detail" aria-pressed="${selectedMode === 'detail'}">Detail</button>
+          <button type="button" data-camera="fallback" aria-pressed="${selectedMode === 'fallback'}">Fallback</button>
+        </div>
+        <p class="note">If WebGL is unavailable, a high-contrast 2D model remains below.</p>
       </aside>
-    </div>
+    </section>
+    <p class="webgl-fallback-message" aria-live="polite"></p>
   `;
-  const canvas = root.querySelector('canvas');
+
+  const canvas = root.querySelector('#sceneCanvas');
+  const fallback = root.querySelector('.webgl-fallback-message');
   const gl = canvas.getContext('webgl', { antialias: true, preserveDrawingBuffer: true });
+
+  function fallbackRender(message) {
+    if (fallback) fallback.textContent = message || '2D fallback rendered.';
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      return;
+    }
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = Math.max(200, canvas.clientWidth || 960) * ratio;
+    canvas.height = Math.max(160, canvas.clientHeight || 460) * ratio;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(ratio, ratio);
+    ctx.fillStyle = palette.paper;
+    ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+    const cx = canvas.clientWidth / 2;
+    const cy = canvas.clientHeight / 2;
+    const w = Math.min(canvas.clientWidth, canvas.clientHeight) / 3;
+    ctx.strokeStyle = palette.primary;
+    ctx.lineWidth = 4;
+    ctx.strokeRect(cx - w, cy - w * 0.7, w * 2, w * 1.4);
+    for (let i = 0; i < 6; i++) {
+      const offset = (i / 5 - 0.5) * w;
+      const depth = i % 2 ? 0.45 : 0.28;
+      const shade = rgbaFromHex(palette.primary, depth);
+      ctx.strokeStyle = shade;
+      ctx.beginPath();
+      ctx.moveTo(cx - w + offset, cy + w * 0.7);
+      ctx.lineTo(cx + offset, cy - w * 0.7);
+      ctx.lineTo(cx + w + offset, cy + w * 0.7);
+      ctx.lineTo(cx + offset, cy + w * 1.3);
+      ctx.closePath();
+      ctx.stroke();
+    }
+    ctx.fillStyle = palette.secondary;
+    ctx.fillText('3D scaffold fallback model', 20, 24);
+  }
+
   if (!gl) {
-    canvas.insertAdjacentHTML('afterend', '<p>WebGL is unavailable; static explanation fallback remains below.</p>');
+    fallbackRender('WebGL is unavailable; 2D fallback is shown.');
     return;
   }
+
+  const vertexSource = `
+    attribute vec2 position;
+    attribute vec3 color;
+    varying vec3 vColor;
+    void main() {
+      gl_Position = vec4(position, 0.0, 1.0);
+      vColor = color;
+    }
+  `;
+
+  const fragmentSource = `
+    precision mediump float;
+    varying vec3 vColor;
+    void main() {
+      gl_FragColor = vec4(vColor, 1.0);
+    }
+  `;
+
+  function createShader(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      throw new Error(gl.getShaderInfoLog(shader) || 'shader compile failed');
+    }
+    return shader;
+  }
+
+  function createProgram() {
+    const program = gl.createProgram();
+    const vs = createShader(gl.VERTEX_SHADER, vertexSource);
+    const fs = createShader(gl.FRAGMENT_SHADER, fragmentSource);
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      throw new Error(gl.getProgramInfoLog(program) || 'program link failed');
+    }
+    return program;
+  }
+
+  const sceneNodes = [
+    [-0.6, -0.5, 0.6],
+    [0.6, -0.5, 0.6],
+    [0.6, -0.5, -0.6],
+    [-0.6, -0.5, -0.6],
+    [-0.6, 0.5, 0.6],
+    [0.6, 0.5, 0.6],
+    [0.6, 0.5, -0.6],
+    [-0.6, 0.5, -0.6],
+  ];
+  const linePairs = [
+    [0, 1], [1, 2], [2, 3], [3, 0],
+    [4, 5], [5, 6], [6, 7], [7, 4],
+    [0, 4], [1, 5], [2, 6], [3, 7],
+  ];
+  const nodeColors = [
+    cssColorToRgb(palette.accent, [1, 0.45, 0.1]),
+    cssColorToRgb(palette.secondary, [0.22, 0.64, 0.89]),
+    cssColorToRgb(palette.secondary, [0.22, 0.64, 0.89]),
+    cssColorToRgb(palette.accent, [1, 0.45, 0.1]),
+    cssColorToRgb(palette.success, [0.1, 0.8, 0.49]),
+    cssColorToRgb(palette.primary, [0.45, 0.78, 0.95]),
+    cssColorToRgb(palette.primary, [0.45, 0.78, 0.95]),
+    cssColorToRgb(palette.success, [0.1, 0.8, 0.49]),
+  ];
+  const faceColor = {
+    front: cssColorToRgb(palette.primary, [0.12, 0.55, 0.52]),
+    top: cssColorToRgb(palette.secondary, [0.14, 0.39, 0.92]),
+    side: cssColorToRgb(palette.accent, [0.85, 0.45, 0.08]),
+  };
+  const faceQuads = [
+    { points: [0, 1, 5, 4], color: faceColor.front },
+    { points: [4, 5, 6, 7], color: faceColor.top },
+    { points: [1, 2, 6, 5], color: faceColor.side },
+  ];
+
+  function rotateY(point, angle) {
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    const x = point[0] * cos - point[2] * sin;
+    const z = point[0] * sin + point[2] * cos;
+    return [x, point[1], z];
+  }
+
+  function rotateX(point, angle) {
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    const y = point[1] * cos - point[2] * sin;
+    const z = point[1] * sin + point[2] * cos;
+    return [point[0], y, z];
+  }
+
+  function project(point, preset) {
+    let v = rotateX(rotateY(point, preset.spin), preset.tilt);
+    const distance = 1.5;
+    const scale = Math.min(1, 1.25 / Math.max(0.2, v[2] + distance));
+    return [v[0] * scale * 1.35, v[1] * scale * 1.35];
+  }
+
+  const presets = {
+    overview: { tilt: -0.4, spin: 0.9, label: 'overview' },
+    detail: { tilt: -0.2, spin: -0.2, label: 'detail' },
+    fallback: { tilt: 0.2, spin: 0.4, label: 'fallback' },
+  };
+
+  let currentPreset = presets[selectedMode] || presets.overview;
+  let raf = 0;
+
+  const program = createProgram();
+  gl.useProgram(program);
+  const positionLoc = gl.getAttribLocation(program, 'position');
+  const colorLoc = gl.getAttribLocation(program, 'color');
+  const positionBuffer = gl.createBuffer();
+  const colorBuffer = gl.createBuffer();
+
+  function repaint() {
+    if (root.querySelector('#sceneCanvas') !== canvas) {
+      return;
+    }
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const ratio = window.devicePixelRatio || 1;
+    if (canvas.width !== Math.floor(width * ratio) || canvas.height !== Math.floor(height * ratio)) {
+      canvas.width = Math.floor(width * ratio);
+      canvas.height = Math.floor(height * ratio);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    const time = reducedMotion ? 0 : performance.now() * 0.0004;
+    const animatedPreset = {
+      tilt: currentPreset.tilt + (Math.sin(time) * 0.2),
+      spin: currentPreset.spin + (time * 0.8),
+      label: currentPreset.label,
+    };
+    const facePositions = [];
+    const faceColors = [];
+    const linePositions = [];
+    const lineColors = [];
+    const addVertex = (targetPositions, targetColors, point, color) => {
+      const projected = project(point, animatedPreset);
+      targetPositions.push(projected[0], -projected[1]);
+      targetColors.push(color[0], color[1], color[2]);
+    };
+    const addTriangle = (a, b, c, color, shade = 1) => {
+      const shaded = color.map(channel => Math.max(0, Math.min(1, channel * shade)));
+      addVertex(facePositions, faceColors, a, shaded);
+      addVertex(facePositions, faceColors, b, shaded);
+      addVertex(facePositions, faceColors, c, shaded);
+    };
+    const addLine = (a, b, color) => {
+      addVertex(linePositions, lineColors, a, color);
+      addVertex(linePositions, lineColors, b, color);
+    };
+    faceQuads.forEach((face, index) => {
+      const [a, b, c, d] = face.points.map(pointIndex => sceneNodes[pointIndex]);
+      addTriangle(a, b, c, face.color, 0.82 + index * 0.06);
+      addTriangle(a, c, d, face.color, 0.72 + index * 0.06);
+    });
+    linePairs.forEach(([aIdx, bIdx]) => {
+      const edgeColor = aIdx < 4 ? nodeColors[aIdx] : nodeColors[(aIdx + 1) % nodeColors.length];
+      addLine(sceneNodes[aIdx], sceneNodes[bIdx], edgeColor);
+    });
+
+    const clear = cssColorToRgb(palette.paper, [0.06, 0.09, 0.12]);
+    gl.clearColor(clear[0], clear[1], clear[2], 1);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    gl.disable(gl.DEPTH_TEST);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(facePositions), gl.STREAM_DRAW);
+    gl.enableVertexAttribArray(positionLoc);
+    gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(faceColors), gl.STREAM_DRAW);
+    gl.enableVertexAttribArray(colorLoc);
+    gl.vertexAttribPointer(colorLoc, 3, gl.FLOAT, false, 0, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, facePositions.length / 2);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(linePositions), gl.STREAM_DRAW);
+    gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(lineColors), gl.STREAM_DRAW);
+    gl.vertexAttribPointer(colorLoc, 3, gl.FLOAT, false, 0, 0);
+    gl.drawArrays(gl.LINES, 0, linePairs.length * 2);
+    if (fallback) {
+      fallback.textContent = `Camera preset: ${currentPreset.label}. Theme: ${styleSource}. Faces: ${faceQuads.length}. Edges: ${linePairs.length}.`;
+    }
+    raf = window.requestAnimationFrame(repaint);
+  }
+
+  function setCamera(presetName) {
+    const nextPreset = presets[presetName] ? presets[presetName] : presets.overview;
+    currentPreset = nextPreset;
+    updateParam('camera', presetName);
+    root.querySelectorAll('[data-camera]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.camera === presetName)));
+    root.querySelectorAll('.state-controls [data-camera]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.camera === presetName)));
+  }
+
+  root.querySelectorAll('[data-camera]').forEach(button => {
+    button.addEventListener('click', () => setCamera(button.dataset.camera));
+  });
+
+  setCamera(selectedMode);
+  repaint();
   canvas.addEventListener('webglcontextlost', event => {
     event.preventDefault();
-    canvas.insertAdjacentHTML('afterend', '<p role="status">WebGL context was lost; static fallback remains readable below.</p>');
+    if (raf) {
+      window.cancelAnimationFrame(raf);
+      raf = 0;
+    }
+    fallbackRender('WebGL context lost; switching to 2D fallback.');
   }, false);
-  gl.viewport(0, 0, canvas.width, canvas.height);
-  gl.clearColor(0.05, 0.46, 0.43, 1);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-  destinations.forEach(link => {
-    const target = root.querySelector(`a[href="${link.href}"]`);
-    if (target) target.addEventListener('click', () => {
-      root.dataset.camera = link.href.replace('#camera-', '');
-    });
-  });
 }
 
 function renderGamified(payload) {
-  const steps = Array.isArray(payload.quest?.steps) ? payload.quest.steps : [];
+  const quest = payload.quest || {};
+  const steps = Array.isArray(quest.steps) ? quest.steps : [];
   const destinations = Array.isArray(payload.destinations) ? payload.destinations : [];
+  const progressLabel = quest.progress_label || 'Evidence route';
   let index = Math.max(0, steps.findIndex(step => step.id === activeValue('step', steps[0]?.id || '')));
-  root.innerHTML = `
-    <div class="game-layer">
-      <div class="quest-board" tabindex="0" role="group" aria-label="Playable evidence route"></div>
-      <div class="quest-controls">
-        <button type="button" data-action="prev">Back</button>
-        <button type="button" data-action="next">Next</button>
-        <button type="button" data-action="restart">Restart</button>
-        <div class="destination-links">${destinations.map(link => `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a>`).join('')}</div>
-      </div>
-    </div>
-  `;
-  const board = root.querySelector('.quest-board');
-  function paint() {
-    const step = steps[index] || {};
-    updateParam('step', step.id || '');
-    board.innerHTML = `
-      <p>${escapeHtml(payload.quest?.progress_label || 'Progress')}</p>
-      <h2>${escapeHtml(step.label || 'Quest step')}</h2>
-      <strong>${escapeHtml(step.reward || '')}</strong>
-      <progress value="${index + 1}" max="${Math.max(steps.length, 1)}"></progress>
-    `;
+  const board = {
+    width: 10,
+    height: 7,
+    obstacles: new Set(['3,1', '3,2', '5,3', '6,3', '2,5', '7,4']),
+  };
+  const checkpointPositions = [
+    { x: 1, y: 1 },
+    { x: 6, y: 1 },
+    { x: 8, y: 5 },
+  ];
+  const targets = steps.map((step, stepIndex) => ({
+    id: step.id || `step-${stepIndex}`,
+    label: step.label || `Step ${stepIndex + 1}`,
+    reward: step.reward || `Reward ${stepIndex + 1}`,
+    x: checkpointPositions[stepIndex]?.x ?? Math.min(board.width - 2, 1 + stepIndex * 2),
+    y: checkpointPositions[stepIndex]?.y ?? Math.min(board.height - 2, 1 + stepIndex),
+    unlocked: stepIndex === 0,
+  }));
+
+  const gameState = {
+    x: 0,
+    y: 0,
+    collected: new Set(activeValue('collected', '').split(',').filter(Boolean)),
+    completed: activeValue('complete', '') === 'true',
+  };
+
+  if (!gameState.collected.size) {
+    gameState.collected = new Set();
   }
+
+  root.innerHTML = `
+    <section class="game-layer">
+      <aside class="quest-sidebar">
+        <h2>${escapeHtml(progressLabel)}</h2>
+        <p>Use arrow buttons or WASD to move.</p>
+        <div class="destination-links">${destinations.map(link => `<a class="link-button" href="${escapeHtml(link.href || '#quest-start')}">${escapeHtml(link.label || 'Open quest destination')}</a>`).join('')}</div>
+        <div class="state-controls" role="list" aria-label="Quest steps">
+          ${targets.map(step => `<button type="button" data-step-id="${escapeHtml(step.id)}" data-value="${escapeHtml(step.id)}" aria-pressed="${escapeHtml(targets[index] ? step.id : '')}">${escapeHtml(step.label)}</button>`).join('')}
+        </div>
+        <p>Progress: <strong id="progressText">${Math.min(index + 1, targets.length)} / ${targets.length}</strong></p>
+        <progress id="questProgress" max="${targets.length}" value="${Math.min(index + 1, targets.length)}">${Math.min(index + 1, targets.length)} / ${targets.length}</progress>
+        <p id="rewardText">Reward unlocked: ${escapeHtml(targets[index]?.reward || 'None yet')}</p>
+        <p id="gameStatus" aria-live="polite">Move to checkpoint ${Math.min(index + 1, targets.length)} and reveal the next evidence reward.</p>
+        <div class="reward-cloud" aria-live="polite"></div>
+        <div class="quest-controls">
+          <button type="button" data-action="prev">Back</button>
+          <button type="button" data-action="next">Next</button>
+          <button type="button" data-action="restart">Restart</button>
+        </div>
+      </aside>
+      <div class="quest-board" tabindex="0" role="application" aria-label="Play grid"></div>
+      <div class="mobile-controls" aria-label="Mobile controls">
+        <button type="button" data-move="up">↑</button>
+        <button type="button" data-move="left">←</button>
+        <button type="button" data-move="down">↓</button>
+        <button type="button" data-move="right">→</button>
+      </div>
+    </section>
+  `;
+
+  const boardNode = root.querySelector('.quest-board');
+  const progressNode = root.querySelector('#progressText');
+  const progressMeter = root.querySelector('#questProgress');
+  const rewardNode = root.querySelector('#rewardText');
+  const statusNode = root.querySelector('#gameStatus');
+  const rewardCloud = root.querySelector('.reward-cloud');
+  const size = Math.max(320, Math.min(boardNode.clientWidth || 500, 640));
+  const boardHeight = Math.round(size * board.height / board.width);
+  boardNode.style.setProperty('--board-width', `${size}px`);
+  boardNode.style.aspectRatio = '10 / 7';
+
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = boardHeight;
+  canvas.style.width = '100%';
+  canvas.style.height = 'auto';
+  boardNode.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  function tileKey(x, y) {
+    return `${x},${y}`;
+  }
+
+  function isObstacle(x, y) {
+    return board.obstacles.has(tileKey(x, y));
+  }
+
+  function inBounds(x, y) {
+    return x >= 0 && x < board.width && y >= 0 && y < board.height && !isObstacle(x, y);
+  }
+
+  function paintBoard() {
+    if (!ctx) {
+      return;
+    }
+    const tileW = canvas.width / board.width;
+    const tileH = canvas.height / board.height;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let y = 0; y < board.height; y++) {
+      for (let x = 0; x < board.width; x++) {
+        const blocked = isObstacle(x, y);
+        ctx.fillStyle = blocked ? rgbaFromHex(palette.danger, 0.28) : ((x + y) % 2 ? palette.surface : palette.paper);
+        ctx.fillRect(x * tileW, y * tileH, tileW, tileH);
+        ctx.strokeStyle = rgbaFromHex(palette.line, 0.85);
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x * tileW, y * tileH, tileW, tileH);
+        if (blocked) {
+          ctx.fillStyle = palette.danger;
+          ctx.font = `700 ${Math.max(10, Math.round(tileH * 0.22))}px ${getComputedStyle(body).getPropertyValue('--font-stack-heading') || 'sans-serif'}`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('block', x * tileW + tileW / 2, y * tileH + tileH / 2);
+        }
+      }
+    }
+    targets.forEach((target, targetIndex) => {
+      const color = targetIndex <= index || gameState.collected.has(target.id) ? palette.success : palette.muted;
+      ctx.fillStyle = rgbaFromHex(color, 0.9);
+      ctx.fillRect(target.x * tileW, target.y * tileH, tileW, tileH);
+      ctx.strokeStyle = gameState.collected.has(target.id) ? palette.accent : palette.ink;
+      ctx.lineWidth = Math.max(2, tileW * 0.04);
+      ctx.strokeRect(target.x * tileW + 3, target.y * tileH + 3, tileW - 6, tileH - 6);
+      ctx.fillStyle = palette.ink;
+      ctx.font = `800 ${Math.max(14, Math.round(tileH * 0.36))}px ${getComputedStyle(body).getPropertyValue('--font-stack-heading') || 'sans-serif'}`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(String(targetIndex + 1), target.x * tileW + tileW / 2, target.y * tileH + tileH / 2);
+    });
+    ctx.fillStyle = palette.primary;
+    ctx.beginPath();
+    ctx.arc(gameState.x * tileW + tileW / 2, gameState.y * tileH + tileH / 2, Math.min(tileW, tileH) * 0.34, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = palette.paper;
+    ctx.lineWidth = Math.max(2, tileW * 0.045);
+    ctx.stroke();
+    ctx.fillStyle = palette.ink;
+    ctx.font = `800 ${Math.max(11, Math.round(tileH * 0.22))}px ${getComputedStyle(body).getPropertyValue('--font-stack-heading') || 'sans-serif'}`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('you', gameState.x * tileW + tileW / 2, gameState.y * tileH + tileH / 2);
+  }
+
+  function triggerReward(text) {
+    if (!rewardCloud) {
+      return;
+    }
+    const pop = document.createElement('span');
+    pop.textContent = `+ ${text}`;
+    rewardCloud.appendChild(pop);
+    setTimeout(() => pop.remove(), 1000);
+  }
+
+  function evaluateProgress() {
+    const checkpoint = targets[index] || {};
+    if (gameState.x === (checkpoint.x || 0) && gameState.y === (checkpoint.y || 0)) {
+      gameState.collected.add(checkpoint.id);
+      if (rewardNode) rewardNode.textContent = `Reward unlocked: ${escapeHtml(checkpoint.reward || '')}`;
+      triggerReward(checkpoint.reward || 'Step unlocked');
+      updateParam('collected', [...gameState.collected].join(','));
+      if (index < targets.length - 1) {
+        index += 1;
+        if (progressNode) progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+        if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+        updateParam('step', targets[index]?.id || '');
+        if (statusNode) statusNode.textContent = `Checkpoint reached. Next: ${targets[index]?.label || 'continue'}.`;
+      } else {
+        gameState.completed = true;
+        updateParam('complete', 'true');
+        if (statusNode) statusNode.textContent = 'Route complete. All evidence rewards are unlocked.';
+      }
+    }
+    root.querySelectorAll('[data-step-id]').forEach(button => {
+      button.setAttribute('aria-pressed', String(button.dataset.stepId === targets[index]?.id));
+    });
+    paintBoard();
+  }
+
+  function move(dx, dy) {
+    const nextX = gameState.x + dx;
+    const nextY = gameState.y + dy;
+    if (!inBounds(nextX, nextY)) {
+      if (statusNode) statusNode.textContent = 'Blocked tile. Route around the obstacle and keep the evidence path readable.';
+      return;
+    }
+    gameState.x = nextX;
+    gameState.y = nextY;
+    if (statusNode) statusNode.textContent = `Moved to ${gameState.x}, ${gameState.y}.`;
+    evaluateProgress();
+  }
+
+  function resetGame() {
+    gameState.x = 0;
+    gameState.y = 0;
+    gameState.collected = new Set();
+    gameState.completed = false;
+    index = 0;
+    if (progressNode) progressNode.textContent = `1 / ${targets.length}`;
+    if (progressMeter) progressMeter.value = 1;
+    if (rewardNode) rewardNode.textContent = `Reward unlocked: ${escapeHtml(targets[0]?.reward || 'None yet')}`;
+    if (statusNode) statusNode.textContent = `Restarted. Move to checkpoint 1: ${targets[0]?.label || 'first evidence'}.`;
+    if (targets.length) updateParam('step', targets[0]?.id || '');
+    updateParam('collected', '');
+    updateParam('complete', '');
+    paintBoard();
+  }
+
   root.addEventListener('click', event => {
     const action = event.target?.dataset?.action;
-    if (action === 'next') index = Math.min(index + 1, Math.max(steps.length - 1, 0));
-    if (action === 'prev') index = Math.max(index - 1, 0);
-    if (action === 'restart') index = 0;
-    paint();
+    const moveDirection = event.target?.dataset?.move;
+    const requestedStep = event.target?.dataset?.stepId;
+    if (requestedStep) {
+      const nextIndex = Math.max(0, targets.findIndex(target => target.id === requestedStep));
+      index = nextIndex;
+      updateParam('step', targets[index]?.id || '');
+      if (progressNode) progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+      if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+      if (statusNode) statusNode.textContent = `Focused checkpoint ${index + 1}: ${targets[index]?.label || 'step'}.`;
+      paintBoard();
+      return;
+    }
+    if (action === 'prev') {
+      index = Math.max(index - 1, 0);
+      updateParam('step', targets[index]?.id || '');
+      paintBoard();
+      if (progressNode) progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+      if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+      if (statusNode) statusNode.textContent = `Moved back to checkpoint ${index + 1}.`;
+      return;
+    }
+    if (action === 'next') {
+      index = Math.min(index + 1, targets.length - 1);
+      updateParam('step', targets[index]?.id || '');
+      if (progressNode) progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+      if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+      if (statusNode) statusNode.textContent = `Advanced focus to checkpoint ${index + 1}. Reach the square to unlock it through play.`;
+      paintBoard();
+      return;
+    }
+    if (action === 'restart') {
+      resetGame();
+      return;
+    }
+    if (moveDirection === 'up') move(0, -1);
+    if (moveDirection === 'down') move(0, 1);
+    if (moveDirection === 'left') move(-1, 0);
+    if (moveDirection === 'right') move(1, 0);
   });
-  board.addEventListener('keydown', event => {
-    if (event.key === 'ArrowRight' || event.key === 'Enter') index = Math.min(index + 1, Math.max(steps.length - 1, 0));
-    if (event.key === 'ArrowLeft') index = Math.max(index - 1, 0);
-    if (event.key.toLowerCase() === 'r') index = 0;
-    paint();
+
+  boardNode.addEventListener('keydown', event => {
+    if (event.key === 'ArrowUp' || event.key === 'w' || event.key === 'W') move(0, -1);
+    if (event.key === 'ArrowDown' || event.key === 's' || event.key === 'S') move(0, 1);
+    if (event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A') move(-1, 0);
+    if (event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') move(1, 0);
+    if (event.key.toLowerCase() === 'r') resetGame();
+    if (event.key.toLowerCase() === 'n') {
+      index = Math.min(index + 1, targets.length - 1);
+      updateParam('step', targets[index]?.id || '');
+      if (progressNode) progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+      if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+      if (statusNode) statusNode.textContent = `Advanced focus to checkpoint ${index + 1}.`;
+      paintBoard();
+    }
+    if (event.key.toLowerCase() === 'p') {
+      index = Math.max(index - 1, 0);
+      updateParam('step', targets[index]?.id || '');
+      if (progressNode) progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+      if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+      if (statusNode) statusNode.textContent = `Moved back to checkpoint ${index + 1}.`;
+      paintBoard();
+    }
   });
-  root.querySelector('a[href="#quest-start"]')?.addEventListener('click', () => { index = 0; paint(); });
-  root.querySelector('a[href="#quest-reward"]')?.addEventListener('click', () => { index = Math.min(1, Math.max(steps.length - 1, 0)); paint(); });
-  paint();
+
+  evaluateProgress();
+  paintBoard();
+  if (targets.length) {
+    updateParam('step', targets[index]?.id || '');
+    progressNode.textContent = `${Math.min(index + 1, targets.length)} / ${targets.length}`;
+    if (progressMeter) progressMeter.value = Math.min(index + 1, targets.length);
+    if (statusNode) statusNode.textContent = `Start at 0,0. First checkpoint: ${targets[index]?.label || 'first evidence'} at ${targets[index]?.x},${targets[index]?.y}.`;
+  }
 }
 
 function renderLiveDashboard(payload) {
   const freshness = payload.freshness || {};
   const cards = Array.isArray(freshness.cards) ? freshness.cards : [];
-  const activeState = activeValue('state', freshness.state || 'stale');
+  const state = activeValue('state', freshness.state || (cards[0]?.state || 'stale'));
+  const active = cards.find(card => card.state === state) || cards[0] || {};
+  const profile = {
+    live: { tone: 'Live', detail: 'Streaming snapshot with confident states.', progress: 100 },
+    stale: { tone: 'Stale', detail: 'Data is older than the refresh window.', progress: 62 },
+    offline: { tone: 'Offline', detail: 'No network check completed in this run.', progress: 24 },
+    partial: { tone: 'Partial', detail: 'Some lanes are unavailable and are visibly labeled.', progress: 48 },
+    'last-known-good': { tone: 'Recovery', detail: 'Render from last reliable snapshot.', progress: 72 },
+  };
+
   root.innerHTML = `
-    <div class="live-layer" data-state="${escapeHtml(activeState)}">
+    <section class="live-layer" data-state="${escapeHtml(state)}">
       <header>
-        <h2>Freshness states</h2>
+        <h2>Public refresh states</h2>
         <p>Last updated: ${escapeHtml(freshness.last_updated || 'snapshot')}</p>
+        <p class="note" id="freshnessDetail">${escapeHtml(profile[state]?.detail || 'Inspect each state path.')}</p>
       </header>
       <div class="state-controls" aria-label="Freshness state controls">
-        ${cards.map(card => `<button type="button" data-state-choice="${escapeHtml(card.state)}" aria-pressed="${card.state === activeState}">${escapeHtml(card.label)}</button>`).join('')}
+        ${cards.map(card => `<button type="button" data-state-choice="${escapeHtml(card.state)}" data-value="${escapeHtml(card.state)}" aria-pressed="${card.state === state}">${escapeHtml(card.label)}</button>`).join('')}
       </div>
       <div class="dashboard-cards">
-        ${cards.map(card => `<article data-state="${escapeHtml(card.state)}"><span>${escapeHtml(card.label)}</span><strong>${escapeHtml(card.value)}</strong></article>`).join('')}
+        ${cards.map(card => {
+          const activeClass = card.state === state;
+          const width = percent(profile[card.state]?.progress || 35, 100);
+          return `<article data-state="${escapeHtml(card.state)}" class="${activeClass ? 'is-active' : ''}"><span>${escapeHtml(card.label)}</span><strong>${escapeHtml(card.value)}</strong><p>${escapeHtml(profile[card.state]?.tone || card.state)}</p><div class="progress"><i style="width:${width}%"></i></div></article>`;
+        }).join('')}
       </div>
-      <p>Last-known-good snapshot: ${freshness.last_known_good ? 'available' : 'missing'}</p>
-    </div>
+      <div class="dashboard-summary">
+        <article><h3>Snapshot status</h3><p id="activeStateLabel">${escapeHtml(active.label || 'No active state')}</p><p id="activeStateTone">${escapeHtml(profile[active.state]?.tone || 'Unknown')}</p></article>
+        <article><h3>Recovery</h3><p>Last-known-good snapshot: ${freshness.last_known_good ? 'Available' : 'Missing'}</p><p>${freshness.last_updated ? 'Timestamp visible' : 'No timestamp'}</p></article>
+      </div>
+    </section>
   `;
-  root.querySelectorAll('[data-state-choice]').forEach(button => button.addEventListener('click', () => {
-    updateParam('state', button.dataset.stateChoice);
+
+  const refresh = () => {
+    const current = activeValue('state', state);
+    const selected = cards.find(card => card.state === current) || cards[0] || {};
     const layer = root.querySelector('.live-layer');
-    layer.dataset.state = button.dataset.stateChoice;
-    root.querySelectorAll('[data-state-choice]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-  }));
+    if (layer) layer.dataset.state = current;
+    const title = root.querySelector('#activeStateLabel');
+    const tone = root.querySelector('#activeStateTone');
+    const detail = root.querySelector('#freshnessDetail');
+    if (title) title.textContent = `${selected.label || 'No active state'}`;
+    if (tone) tone.textContent = `${profile[current]?.tone || 'Unknown'}`;
+    if (detail) detail.textContent = `${profile[current]?.detail || 'Inspect each state path.'}`;
+    root.querySelectorAll('.dashboard-cards article').forEach(card => {
+      card.classList.toggle('is-active', card.dataset.state === current);
+    });
+    root.querySelectorAll('[data-state-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.stateChoice === current)));
+  };
+
+  root.querySelectorAll('[data-state-choice]').forEach(button => {
+    button.addEventListener('click', () => {
+      const nextState = button.dataset.stateChoice;
+      updateParam('state', nextState);
+      refresh();
+    });
+  });
+
+  refresh();
 }
 
 function renderChat(payload) {
   const chat = payload.chat || {};
   const messages = Array.isArray(chat.messages) ? chat.messages : [];
   const citations = Array.isArray(chat.citations) ? chat.citations : [];
-  const activeCitation = activeValue('citation', messages[0]?.citation || '');
+  const citationsById = Object.fromEntries(citations.map(citation => [citation.id, citation]));
+  const activeCitation = activeValue('citation', 'all');
+  const selectedRole = activeValue('role', 'all');
+  const citationText = activeValue('filter', '');
+  const matchedRole = (entry) => selectedRole === 'all' || selectedRole === (entry.role || 'assistant');
+  const matchedCitation = (entry) => activeCitation === 'all' || activeCitation === (entry.citation || '');
+  const filtered = messages.filter(msg => matchedRole(msg) && matchedCitation(msg) && (!citationText || String(msg.text || '').toLowerCase().includes(citationText.toLowerCase())));
+
   root.innerHTML = `
-    <div class="chat-layer">
-      <ol>
-        ${messages.map(message => `<li data-role="${escapeHtml(message.role)}" data-active="${message.citation === activeCitation}"><strong>${escapeHtml(message.role)}</strong><p>${escapeHtml(message.text)}</p><small>${escapeHtml(message.citation)}</small></li>`).join('')}
-      </ol>
-      <aside>
-        <h2>Citations</h2>
-        ${citations.map(citation => `<button type="button" data-citation="${escapeHtml(citation.id)}" aria-pressed="${citation.id === activeCitation}"><strong>${escapeHtml(citation.id)}</strong> ${escapeHtml(citation.label)}</button>`).join('')}
+    <section class="chat-shell">
+      <section class="chat-frame" aria-label="Conversation transcript">
+        <ol>
+          ${filtered.map(message => `<li data-role="${escapeHtml(message.role)}" data-citation="${escapeHtml(message.citation || '')}" data-active="${String((message.citation || '') === activeCitation)}"><strong>${escapeHtml(message.role || 'assistant')}</strong><p>${escapeHtml(message.text || '')}</p><small>${escapeHtml(message.citation || '')}</small></li>`).join('')}
+        </ol>
+      </section>
+      <aside class="chat-aside">
+        <h2>Citation rail</h2>
+        <div class="state-controls" role="group" aria-label="Role filter">
+          <button type="button" data-role-filter="all" aria-pressed="${selectedRole === 'all'}">All</button>
+          <button type="button" data-role-filter="user" aria-pressed="${selectedRole === 'user'}">User</button>
+          <button type="button" data-role-filter="assistant" aria-pressed="${selectedRole === 'assistant'}">Assistant</button>
+        </div>
+        <label class="search-label" for="chat-filter">Message filter
+          <input id="chat-filter" type="search" value="${escapeHtml(citationText)}" placeholder="filter by phrase" />
+        </label>
+        <div class="citation-list">
+          <button type="button" data-citation-filter="all" aria-pressed="${activeCitation === 'all'}"><strong>all</strong> All citations</button>
+          ${citations.map(citation => `<button type="button" data-citation-filter="${escapeHtml(citation.id)}" aria-pressed="${citation.id === activeCitation}"><strong>${escapeHtml(citation.id)}</strong> ${escapeHtml(citation.label || '')}</button>`).join('')}
+        </div>
+        <div class="citation-detail" aria-live="polite"></div>
+        <p class="note">Redaction reviewed: ${chat.redaction_reviewed ? 'yes' : 'no'}</p>
       </aside>
-    </div>
-    <p>Redaction reviewed: ${chat.redaction_reviewed ? 'yes' : 'no'}</p>
+    </section>
+    <p class="note">Use the citation rail and role filter to inspect source path.</p>
   `;
-  root.querySelectorAll('[data-citation]').forEach(button => button.addEventListener('click', () => {
-    updateParam('citation', button.dataset.citation);
-    root.querySelectorAll('[data-citation]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    root.querySelectorAll('.chat-layer li').forEach(item => item.dataset.active = String(item.querySelector('small')?.textContent === button.dataset.citation));
-  }));
+
+  const renderChat = () => {
+    const list = root.querySelector('ol');
+    if (!list) {
+      return;
+    }
+    const filterRole = activeValue('role', 'all');
+    const filterText = activeValue('filter', '');
+    const filterCitation = activeValue('citation', 'all');
+    const filteredMessages = messages.filter(item => (
+      (filterRole === 'all' || filterRole === (item.role || 'assistant'))
+      && (filterCitation === 'all' || filterCitation === (item.citation || ''))
+      && (!filterText || String(item.text || '').toLowerCase().includes(filterText.toLowerCase()))
+    ));
+    list.innerHTML = filteredMessages.length
+      ? filteredMessages.map(message => `<li data-role="${escapeHtml(message.role)}" data-citation="${escapeHtml(message.citation || '')}" data-active="${String(filterCitation !== 'all' && (message.citation || '') === filterCitation)}"><strong>${escapeHtml(message.role || 'assistant')}</strong><p>${escapeHtml(message.text || '')}</p><small>${escapeHtml(message.citation || '')}</small></li>`).join('')
+      : '<li data-role="system"><strong>system</strong><p>No messages match this filter.</p><small>static transcript fallback remains below</small></li>';
+    const citationDetail = root.querySelector('.citation-detail');
+    const selectedCitation = citationsById[filterCitation];
+    if (citationDetail) {
+      citationDetail.innerHTML = `<h3>${escapeHtml(filterCitation === 'all' ? 'All citation sources' : selectedCitation?.label || filterCitation)}</h3><p>${filteredMessages.length} message${filteredMessages.length === 1 ? '' : 's'} visible.</p><p>Source key: ${escapeHtml(filterCitation)}</p>`;
+    }
+    root.querySelectorAll('[data-citation-filter]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.citationFilter === filterCitation)));
+    root.querySelectorAll('[data-role-filter]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.roleFilter === filterRole)));
+  };
+
+  root.querySelectorAll('[data-role-filter]').forEach(button => {
+    button.addEventListener('click', () => {
+      updateParam('role', button.dataset.roleFilter);
+      renderChat();
+    });
+  });
+  root.querySelector('#chat-filter').addEventListener('input', event => {
+    updateParam('filter', event.target.value || '');
+    renderChat();
+  });
+
+  root.querySelectorAll('[data-citation-filter]').forEach(button => {
+    button.addEventListener('click', () => {
+      updateParam('citation', button.dataset.citationFilter === 'all' ? '' : button.dataset.citationFilter);
+      renderChat();
+    });
+  });
+
+  renderChat();
 }
 
-switch (payload.adapter) {
-  case 'infographic-story-flow':
-    renderStoryFlow(payload);
-    break;
-  case 'map-adapter':
-    renderMap(payload);
-    break;
-  case 'network-adapter':
-    renderNetwork(payload);
-    break;
-  case 'webgl-3d-adapter':
-    renderWebgl(payload);
-    break;
-  case 'gamified-shareable-adapter':
-    renderGamified(payload);
-    break;
-  case 'live-dashboard-adapter':
-    renderLiveDashboard(payload);
-    break;
-  case 'chat-render-adapter':
-    renderChat(payload);
-    break;
-  default:
-    renderChart(payload);
+function render() {
+  switch (adapter) {
+    case 'infographic-story-flow':
+      renderStoryFlow(payload);
+      break;
+    case 'map-adapter':
+      renderMap(payload);
+      break;
+    case 'network-adapter':
+      renderNetwork(payload);
+      break;
+    case 'webgl-3d-adapter':
+      renderWebgl(payload);
+      break;
+    case 'gamified-shareable-adapter':
+      renderGamified(payload);
+      break;
+    case 'live-dashboard-adapter':
+      renderLiveDashboard(payload);
+      break;
+    case 'chat-render-adapter':
+      renderChat(payload);
+      break;
+    default:
+      renderChart(payload);
+  }
 }
+
+render();
 
 if (params.get('focus')) {
   root.dataset.focus = params.get('focus');
 }
+root.dataset.styleSource = styleSource;
 </script>
 </body>
 </html>
