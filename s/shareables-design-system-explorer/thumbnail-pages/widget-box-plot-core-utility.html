@@ -59,7 +59,7 @@
     p { margin: 0 0 12px; }
     a { color: var(--teal); font-weight: 700; }
     a:focus-visible, button:focus-visible {
-      outline: 3px solid color-mix(in srgb, var(--gold) 72%, white);
+      outline: 3px solid var(--focus-ring-light, color-mix(in srgb, var(--gold) 72%, white));
       outline-offset: 3px;
     }
     .reading-progress {
@@ -138,8 +138,8 @@
     .checklist span { min-width: 0; overflow-wrap: anywhere; }
     .checklist input { margin-top: .35rem; accent-color: var(--teal); }
     .tab-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
-    .tab-nav button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer; font: inherit; font-weight: 700; padding: 9px 12px; }
-    .tab-nav button[aria-selected="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .tab-nav button { border: 1px solid var(--line); border-radius: 8px; background: var(--surface, #fff); color: var(--ink); cursor: pointer; font: inherit; font-weight: 700; padding: 9px 12px; }
+    .tab-nav button[aria-selected="true"] { background: var(--tab-selected-bg, var(--teal)); border-color: var(--tab-selected-border, var(--teal)); color: var(--tab-selected-text, #fff); }
     .tab-panel[hidden] { display: none; }
     .accordion { display: grid; gap: 12px; }
     .accordion details {
@@ -1179,6 +1179,267 @@
       padding-left: 10px;
       overflow-wrap: anywhere;
     }
+    .audio-bar {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper-deep, color-mix(in srgb, var(--paper) 75%, #fff));
+      color: var(--ink);
+      display: grid;
+      gap: 10px;
+      min-width: 0;
+      padding: 12px;
+      box-shadow: var(--shadow-rest, 0 12px 28px rgba(0,0,0,.10));
+    }
+    .audio-bar[hidden] { display: none; }
+    .audio-bar.is-floating {
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(16px, env(safe-area-inset-bottom));
+      z-index: 50;
+      width: min(620px, calc(100vw - 32px));
+      background: var(--surface, #fff);
+      box-shadow: 0 18px 54px rgba(0,0,0,.18);
+    }
+    .audio-bar.is-dismissed { display: none; }
+    .audio-bar__row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .audio-bar__controls {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .audio-bar__label {
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 850;
+      min-width: 0;
+    }
+    .audio-bar__play,
+    .audio-bar__nav,
+    .audio-bar__speed,
+    .audio-bar__close {
+      align-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--paper);
+      cursor: pointer;
+      display: inline-flex;
+      font: inherit;
+      font-weight: 850;
+      justify-content: center;
+      min-height: 40px;
+      min-width: 40px;
+      padding: 8px 11px;
+    }
+    .audio-bar__play {
+      min-height: 54px;
+      min-width: 54px;
+      font-size: 1.1rem;
+    }
+    .audio-bar__nav { background: var(--muted); border-color: var(--muted); }
+    .audio-bar__speed,
+    .audio-bar__close {
+      background: var(--surface, #fff);
+      color: var(--ink);
+      border-color: var(--line);
+      min-width: auto;
+    }
+    .audio-bar__close { display: none; }
+    .audio-bar.is-floating .audio-bar__close { display: inline-flex; }
+    .audio-bar__play:hover,
+    .audio-bar__nav:hover,
+    .audio-bar__speed:hover,
+    .audio-bar__close:hover {
+      background: var(--accent, var(--teal));
+      border-color: var(--accent, var(--teal));
+      color: var(--paper);
+    }
+    .audio-bar__play:focus-visible,
+    .audio-bar__nav:focus-visible,
+    .audio-bar__speed:focus-visible,
+    .audio-bar__close:focus-visible,
+    .audio-bar__voice:focus-visible,
+    .audio-bar__progress:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent, var(--teal)) 55%, transparent);
+      outline-offset: 2px;
+    }
+    .audio-bar__play .pause { display: none; }
+    .audio-bar__play[data-playing="true"] .play { display: none; }
+    .audio-bar__play[data-playing="true"] .pause { display: inline; }
+    .audio-bar__progress {
+      accent-color: var(--accent, var(--teal));
+      flex: 1 1 180px;
+      min-width: 120px;
+    }
+    .audio-bar__time {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      font-weight: 800;
+      min-width: 46px;
+    }
+    .audio-bar__voice {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface, #fff);
+      color: var(--ink);
+      max-width: min(260px, 100%);
+      min-height: 38px;
+      min-width: 0;
+      padding: 8px 10px;
+    }
+    .audio-bar__status {
+      color: var(--muted);
+      font-size: .84rem;
+      line-height: 1.35;
+      margin: 0;
+      min-height: 1.1em;
+    }
+    .audio-bar__fallback {
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      margin: 0;
+      padding: 9px 10px;
+    }
+    .audio-bar-sentinel { height: 1px; margin-bottom: -1px; pointer-events: none; }
+    body:has(.audio-bar) { padding-bottom: 118px; }
+    html:has(.audio-bar) { scroll-padding-bottom: 118px; }
+    .field-report-shell {
+      display: grid;
+      grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+      gap: clamp(22px, 4vw, 48px);
+      align-items: start;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+    .field-report-progress {
+      position: sticky;
+      top: 20px;
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface, #fff);
+      box-shadow: var(--shadow-rest, none);
+      padding: 14px;
+    }
+    .field-report-nav__label {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      margin: 0 0 4px;
+    }
+    .field-report-progress a {
+      border-left: 3px solid transparent;
+      color: var(--muted);
+      display: block;
+      font-size: .92rem;
+      font-weight: 760;
+      line-height: 1.25;
+      padding: 7px 8px;
+      text-decoration: none;
+    }
+    .field-report-progress a:hover,
+    .field-report-progress a:focus-visible {
+      color: var(--ink);
+      border-left-color: var(--teal);
+      outline: 2px solid transparent;
+    }
+    .field-report-content { display: grid; gap: 20px; min-width: 0; }
+    .field-report-masthead,
+    .field-report-cluster,
+    .field-report-closing,
+    .field-report-byte-diff {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface, #fff);
+      box-shadow: var(--shadow-rest, none);
+      min-width: 0;
+      padding: clamp(20px, 3vw, 34px);
+    }
+    .field-report-eyebrow,
+    .field-report-step {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .field-report-masthead h1 {
+      font-size: clamp(2rem, 6vw, 4.8rem);
+      letter-spacing: 0;
+      line-height: .95;
+      margin: 8px 0 12px;
+    }
+    .field-report-masthead__lead {
+      color: var(--muted);
+      font-size: clamp(1.06rem, 2vw, 1.34rem);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 66ch;
+    }
+    .field-report-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .field-report-meta span,
+    .field-report-byte-card strong {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--paper) 72%, #fff);
+      color: var(--ink);
+      display: inline-flex;
+      font-size: .82rem;
+      font-weight: 800;
+      padding: 6px 9px;
+    }
+    .field-report-cluster {
+      display: grid;
+      gap: 14px;
+    }
+    .field-report-cluster > h2 {
+      margin: 0;
+    }
+    .field-report-cluster > .field-report-step + h2 {
+      margin-top: -8px;
+    }
+    .field-report-byte-diff {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .field-report-byte-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--paper) 76%, #fff);
+      padding: 14px;
+    }
+    .field-report-byte-card strong {
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .field-report-byte-card p {
+      margin: 0;
+    }
+    .field-report-pull {
+      border-left: 4px solid var(--teal);
+      color: var(--ink);
+      font-size: 1.08rem;
+      font-weight: 760;
+      line-height: 1.5;
+      margin: 0;
+      padding-left: 14px;
+    }
+    .field-report-closing {
+      background: color-mix(in srgb, var(--paper) 82%, #fff);
+    }
     .runtime-countdown {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
@@ -1207,6 +1468,14 @@
     }
     @media (max-width: 720px) {
       .runtime-annotation-grid { grid-template-columns: 1fr; }
+      .field-report-shell { grid-template-columns: 1fr; }
+      .field-report-progress { position: static; }
+      .field-report-masthead h1 { font-size: clamp(2rem, 12vw, 3rem); }
+      .audio-bar { border-radius: 14px; }
+      .audio-bar__row { align-items: stretch; flex-wrap: wrap; }
+      .audio-bar__progress { flex-basis: 100%; }
+      body:has(.audio-bar) { padding-bottom: 190px; }
+      html:has(.audio-bar) { scroll-padding-bottom: 190px; }
     }
     .severity-pill,
     .priority-pill,
@@ -1399,6 +1668,12 @@
         position: static;
       }
     }
+    @media print {
+      body:has(.audio-bar) { padding-bottom: 0; }
+      html:has(.audio-bar) { scroll-padding-bottom: 0; }
+      .audio-bar,
+      .audio-bar-sentinel { display: none !important; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .reading-progress span { transition: none; }
@@ -1441,6 +1716,12 @@
       --website-content-width: min(1320px, calc(100vw - 64px));
       --website-prose-width: 74ch;
       --website-section-pad-y: clamp(34px, 4vw, 52px);
+    }
+    body.shareable-shell[data-template="portfolio-casebook"] {
+      --toc-top: 76px;
+      --portfolio-shell-width: min(1180px, calc(100vw - 48px));
+      --portfolio-prose-width: 74ch;
+      --portfolio-rail-color: var(--teal);
     }
     body.shareable-shell h1,
     body.shareable-shell h2,
@@ -1688,8 +1969,8 @@
     .website-nav a:hover,
     .website-nav a[aria-current="true"] {
       color: var(--ink);
-      border-bottom-color: var(--teal);
-      background: color-mix(in srgb, var(--ink) 5%, transparent);
+      border-bottom-color: var(--leaf);
+      background: color-mix(in srgb, var(--paper) 88%, var(--leaf) 12%);
       text-decoration: none;
     }
     .website-bar__cta {
@@ -1767,7 +2048,7 @@
     }
     .website-mobile-sheet a:hover,
     .website-mobile-sheet a[aria-current="true"] {
-      background: color-mix(in srgb, var(--ink) 5%, transparent);
+      background: color-mix(in srgb, var(--paper) 88%, var(--leaf) 12%);
       text-decoration: none;
     }
     .website-mobile-sheet__cta {
@@ -1807,10 +2088,10 @@
       width: fit-content;
       padding: 6px 12px;
       border-radius: 999px;
-      background: color-mix(in srgb, var(--teal) 16%, white);
-      color: var(--teal);
+      background: color-mix(in srgb, var(--leaf) 12%, white);
+      color: var(--leaf);
       font-family: var(--font-retro);
-      font-size: 0.72rem;
+      font-size: max(0.875rem, 14px);
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
@@ -1895,6 +2176,35 @@
     }
     body.shareable-shell[data-template="website"] footer {
       padding-top: 36px;
+    }
+    .website-back-to-top {
+      position: fixed;
+      right: max(18px, env(safe-area-inset-right));
+      bottom: max(18px, env(safe-area-inset-bottom));
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 1px solid color-mix(in srgb, var(--leaf) 64%, var(--ink));
+      border-radius: 999px;
+      background: var(--leaf);
+      color: var(--paper);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 850;
+      text-decoration: none;
+      box-shadow: var(--shadow-rest);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 150ms ease, transform 150ms ease;
+    }
+    .website-back-to-top[data-visible="true"] {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
     }
     body.shareable-shell[data-template="reel"] {
       overflow: hidden;
@@ -2387,6 +2697,142 @@
       color: var(--muted);
       margin: 0;
     }
+    .portfolio-casebook-shell {
+      display: grid;
+      gap: clamp(28px, 5vw, 64px);
+      margin: 0 auto;
+      max-width: var(--portfolio-shell-width);
+      min-width: 0;
+      position: relative;
+      width: var(--portfolio-shell-width);
+    }
+    .portfolio-casebook-shell::before {
+      background: linear-gradient(var(--portfolio-rail-color), color-mix(in srgb, var(--portfolio-rail-color) 26%, transparent));
+      border-radius: 999px;
+      content: "";
+      inset: 26px auto 24px 10px;
+      opacity: .32;
+      position: absolute;
+      width: 3px;
+    }
+    .portfolio-casebook-hero,
+    .portfolio-casebook-section {
+      margin-left: clamp(18px, 3vw, 42px);
+      min-width: 0;
+      position: relative;
+    }
+    .portfolio-casebook-hero {
+      display: grid;
+      gap: 18px;
+      padding: clamp(36px, 6vw, 78px) 0 10px;
+    }
+    .portfolio-casebook-hero::before,
+    .portfolio-casebook-section::before {
+      background: var(--surface);
+      border: 3px solid var(--portfolio-rail-color);
+      border-radius: 999px;
+      content: "";
+      height: 16px;
+      left: calc(clamp(18px, 3vw, 42px) * -1 - 1px);
+      position: absolute;
+      top: 42px;
+      width: 16px;
+      z-index: 1;
+    }
+    .portfolio-casebook__eyebrow,
+    .portfolio-casebook__label {
+      color: var(--teal);
+      font-size: max(.82rem, 14px);
+      font-weight: 850;
+      margin: 0;
+    }
+    .portfolio-casebook__title {
+      font-size: clamp(2.6rem, 7vw, 6rem);
+      letter-spacing: 0;
+      line-height: .96;
+      margin: 0;
+      max-width: 11ch;
+    }
+    .portfolio-casebook__lead {
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.38rem);
+      line-height: 1.55;
+      margin: 0;
+      max-width: var(--portfolio-prose-width);
+    }
+    .portfolio-casebook__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+    .portfolio-casebook__meta span,
+    .portfolio-casebook__proof-chip {
+      background: color-mix(in srgb, var(--teal) 10%, var(--surface));
+      border: 1px solid color-mix(in srgb, var(--teal) 38%, var(--line));
+      border-radius: 999px;
+      color: var(--ink);
+      display: inline-flex;
+      font-family: var(--font-retro);
+      font-size: max(.78rem, 13px);
+      font-weight: 850;
+      line-height: 1;
+      padding: 8px 10px;
+    }
+    .portfolio-casebook__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .portfolio-casebook__section-head {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 18px;
+      max-width: var(--portfolio-prose-width);
+    }
+    .portfolio-casebook__section-head h2 {
+      font-size: clamp(1.7rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      margin: 0;
+    }
+    .portfolio-casebook__section-head p {
+      color: var(--muted);
+      margin: 0;
+    }
+    .portfolio-casebook-section > .widget-section,
+    .portfolio-casebook-section > .dashboard-section,
+    .portfolio-casebook-section > .card,
+    .portfolio-casebook-section > section {
+      margin-top: 0;
+    }
+    .portfolio-casebook__proof-strip {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      min-width: 0;
+    }
+    .portfolio-casebook__proof-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow-rest);
+      display: grid;
+      gap: 6px;
+      padding: 14px;
+    }
+    .portfolio-casebook__proof-card strong {
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      line-height: 1;
+    }
+    .portfolio-casebook__proof-card span {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.35;
+    }
     .toc a[aria-current="true"] {
       color: var(--ink);
       text-decoration: underline;
@@ -2430,6 +2876,20 @@
       }
       .website-hero__layout {
         grid-template-columns: 1fr;
+      }
+      .portfolio-casebook-shell {
+        width: min(100%, calc(100vw - 28px));
+      }
+      .portfolio-casebook-shell::before {
+        left: 3px;
+      }
+      .portfolio-casebook-hero,
+      .portfolio-casebook-section {
+        margin-left: 28px;
+      }
+      .portfolio-casebook-hero::before,
+      .portfolio-casebook-section::before {
+        left: -32px;
       }
       .preset-gallery__viewport iframe { height: 420px; }
       .storyboard-hero__layout {
@@ -2766,6 +3226,15 @@
       });
       window.addEventListener('scroll', syncCurrent, { passive: true });
       syncCurrent();
+      const backToTop = shell.querySelector('[data-back-to-top]');
+      if (backToTop) {
+        const syncBackToTop = () => {
+          backToTop.dataset.visible = window.scrollY > window.innerHeight * 0.5 ? 'true' : 'false';
+        };
+        window.addEventListener('scroll', syncBackToTop, { passive: true });
+        window.addEventListener('resize', syncBackToTop);
+        syncBackToTop();
+      }
     });
 
     document.querySelectorAll('.toc').forEach((toc) => {
@@ -2893,6 +3362,252 @@
           syncErrors();
         }, 0);
       });
+    });
+
+    document.querySelectorAll('[data-audio-reader]').forEach((bar) => {
+      const supportsSpeech = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+      const playButton = bar.querySelector('[data-audio-play]');
+      const prevButton = bar.querySelector('[data-audio-prev]');
+      const nextButton = bar.querySelector('[data-audio-next]');
+      const speedButton = bar.querySelector('[data-audio-speed]');
+      const closeButton = bar.querySelector('[data-audio-close]');
+      const voiceSelect = bar.querySelector('[data-audio-voice]');
+      const progress = bar.querySelector('[data-audio-progress]');
+      const currentTime = bar.querySelector('[data-audio-current]');
+      const remainingTime = bar.querySelector('[data-audio-remaining]');
+      const status = bar.querySelector('[data-audio-status]');
+      const fallback = bar.querySelector('[data-audio-fallback]');
+      const controls = [playButton, prevButton, nextButton, speedButton, voiceSelect, progress].filter(Boolean);
+      const setStatus = (message) => { if (status) status.textContent = message; };
+      if (!supportsSpeech) {
+        controls.forEach((control) => control.disabled = true);
+        if (fallback) fallback.hidden = false;
+        setStatus('Read aloud is unavailable in this browser.');
+        return;
+      }
+      const rawSpeeds = (bar.dataset.speedOptions || '0.85,1,1.15,1.35').split(',')
+        .map((value) => Number(value.trim()))
+        .filter((value) => Number.isFinite(value) && value >= 0.4 && value <= 2.2);
+      const speeds = rawSpeeds.length ? rawSpeeds : [0.85, 1, 1.15, 1.35];
+      let speedIndex = Math.max(0, speeds.findIndex((value) => Math.abs(value - 1) < 0.001));
+      if (speedIndex < 0) speedIndex = 0;
+      let sectionIndex = 0;
+      let chunkIndex = 0;
+      let utterance = null;
+      let playing = false;
+      let voices = [];
+      const persistMode = (bar.dataset.persistState || 'none').toLowerCase();
+      let storage = null;
+      try {
+        if (persistMode === 'local') storage = window.localStorage;
+        if (persistMode === 'session' || persistMode === 'true') storage = window.sessionStorage;
+      } catch (error) {
+        storage = null;
+      }
+      const storageKey = 'shareables-audio:' + (bar.dataset.storageKey || location.pathname || 'reader');
+      const wpm = Math.max(100, Number(bar.dataset.estimatedWpm || 165));
+      const excludeSelector = [
+        '.audio-bar',
+        '.audio-bar-sentinel',
+        '.field-report-progress',
+        '.progress-nav',
+        '.reading-progress',
+        'script',
+        'style',
+        'noscript',
+        '[hidden]',
+        '[aria-hidden="true"]',
+        bar.dataset.excludeSelectors || ''
+      ].filter(Boolean).join(',');
+      const rootForScope = () => {
+        const selector = bar.dataset.scopeSelector || (bar.dataset.readScope === 'article' ? 'article' : 'main');
+        return document.querySelector(selector) || document.querySelector('main') || document.body;
+      };
+      const readableText = (node) => {
+        const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, {
+          acceptNode(textNode) {
+            const parent = textNode.parentElement;
+            if (!parent || !textNode.textContent.trim()) return NodeFilter.FILTER_REJECT;
+            if (parent.closest(excludeSelector)) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        const parts = [];
+        while (walker.nextNode()) parts.push(walker.currentNode.textContent.trim());
+        return parts.join(' ').replace(/\s+/g, ' ').trim();
+      };
+      const splitChunks = (text) => {
+        const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [text];
+        const chunks = [];
+        let buffer = '';
+        sentences.forEach((sentence) => {
+          const next = (buffer + ' ' + sentence.trim()).trim();
+          if (next.length > 260 && buffer) {
+            chunks.push(buffer);
+            buffer = sentence.trim();
+          } else {
+            buffer = next;
+          }
+        });
+        if (buffer) chunks.push(buffer);
+        return chunks.filter(Boolean);
+      };
+      const buildSections = () => {
+        const root = rootForScope();
+        const candidates = Array.from(root.querySelectorAll('header.field-report-masthead, section, article.ux-widget, article.card'))
+          .filter((node) => !node.closest(excludeSelector));
+        const sections = candidates.map((node, index) => {
+          const heading = node.querySelector('h1,h2,h3,h4');
+          const title = (heading ? heading.textContent : `Section ${index + 1}`).trim();
+          return { title, chunks: splitChunks(readableText(node)) };
+        }).filter((section) => section.chunks.length);
+        if (!sections.length) {
+          const text = readableText(root);
+          if (text) sections.push({ title: 'Page', chunks: splitChunks(text) });
+        }
+        return sections;
+      };
+      const sections = buildSections();
+      if (!sections.length) {
+        controls.forEach((control) => control.disabled = true);
+        setStatus('No readable page content found.');
+        return;
+      }
+      const formatTime = (seconds) => {
+        const total = Math.max(0, Math.round(seconds));
+        const minutes = Math.floor(total / 60);
+        return minutes + ':' + String(total % 60).padStart(2, '0');
+      };
+      const totalChunks = () => sections.reduce((sum, section) => sum + section.chunks.length, 0);
+      const absoluteIndex = () => sections.slice(0, sectionIndex).reduce((sum, section) => sum + section.chunks.length, 0) + chunkIndex;
+      const estimateSeconds = () => {
+        const words = sections.flatMap((section) => section.chunks).join(' ').split(/\s+/).filter(Boolean).length;
+        return (words / Math.max(wpm * speeds[speedIndex], 1)) * 60;
+      };
+      const syncUi = () => {
+        const total = Math.max(totalChunks() - 1, 1);
+        const percent = Math.round((absoluteIndex() / total) * 100);
+        if (progress) progress.value = String(percent);
+        if (playButton) playButton.dataset.playing = playing ? 'true' : 'false';
+        if (speedButton) speedButton.textContent = speeds[speedIndex] + 'x';
+        const elapsed = estimateSeconds() * (percent / 100);
+        const remaining = Math.max(estimateSeconds() - elapsed, 0);
+        if (currentTime) currentTime.textContent = formatTime(elapsed);
+        if (remainingTime) remainingTime.textContent = '-' + formatTime(remaining);
+        const current = sections[sectionIndex] || sections[0];
+        setStatus((playing ? 'Reading ' : 'Ready at ') + current.title + '.');
+        if (storage) {
+          try { storage.setItem(storageKey, JSON.stringify({ sectionIndex, chunkIndex, speedIndex })); } catch (error) {}
+        }
+      };
+      const loadState = () => {
+        if (!storage) return;
+        try {
+          const saved = JSON.parse(storage.getItem(storageKey) || '{}');
+          if (Number.isInteger(saved.sectionIndex)) sectionIndex = Math.max(0, Math.min(saved.sectionIndex, sections.length - 1));
+          if (Number.isInteger(saved.chunkIndex)) chunkIndex = Math.max(0, Math.min(saved.chunkIndex, sections[sectionIndex].chunks.length - 1));
+          if (Number.isInteger(saved.speedIndex)) speedIndex = Math.max(0, Math.min(saved.speedIndex, speeds.length - 1));
+        } catch (error) {}
+      };
+      const populateVoices = () => {
+        voices = window.speechSynthesis.getVoices() || [];
+        if (!voiceSelect) return;
+        const selected = voiceSelect.value;
+        voiceSelect.innerHTML = '<option value="">Default voice</option>' + voices.map((voice, index) => `<option value="${index}">${voice.name} (${voice.lang})</option>`).join('');
+        voiceSelect.value = selected;
+      };
+      const stopSpeech = () => {
+        window.speechSynthesis.cancel();
+        utterance = null;
+        playing = false;
+        syncUi();
+      };
+      const speakCurrent = () => {
+        window.speechSynthesis.cancel();
+        const section = sections[sectionIndex] || sections[0];
+        const text = section.chunks[chunkIndex] || section.chunks[0] || '';
+        if (!text) return;
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = speeds[speedIndex];
+        const selectedVoice = voiceSelect && voiceSelect.value !== '' ? voices[Number(voiceSelect.value)] : null;
+        if (selectedVoice) utterance.voice = selectedVoice;
+        utterance.onend = () => {
+          if (!playing) return;
+          if (chunkIndex < section.chunks.length - 1) {
+            chunkIndex += 1;
+            speakCurrent();
+          } else if (sectionIndex < sections.length - 1) {
+            sectionIndex += 1;
+            chunkIndex = 0;
+            speakCurrent();
+          } else {
+            playing = false;
+            syncUi();
+          }
+        };
+        utterance.onerror = () => {
+          playing = false;
+          setStatus('Read aloud stopped.');
+          syncUi();
+        };
+        playing = true;
+        syncUi();
+        window.speechSynthesis.speak(utterance);
+      };
+      loadState();
+      populateVoices();
+      window.speechSynthesis.onvoiceschanged = populateVoices;
+      if (playButton) {
+        playButton.addEventListener('click', () => {
+          if (playing) {
+            stopSpeech();
+          } else {
+            speakCurrent();
+          }
+        });
+      }
+      if (prevButton) prevButton.addEventListener('click', () => {
+        if (sectionIndex > 0) sectionIndex -= 1;
+        chunkIndex = 0;
+        if (playing) speakCurrent(); else syncUi();
+      });
+      if (nextButton) nextButton.addEventListener('click', () => {
+        if (sectionIndex < sections.length - 1) sectionIndex += 1;
+        chunkIndex = 0;
+        if (playing) speakCurrent(); else syncUi();
+      });
+      if (speedButton) speedButton.addEventListener('click', () => {
+        speedIndex = (speedIndex + 1) % speeds.length;
+        if (playing) speakCurrent(); else syncUi();
+      });
+      if (progress) progress.addEventListener('input', () => {
+        const target = Math.round((Number(progress.value || 0) / 100) * Math.max(totalChunks() - 1, 0));
+        let remaining = target;
+        for (let i = 0; i < sections.length; i += 1) {
+          if (remaining < sections[i].chunks.length) {
+            sectionIndex = i;
+            chunkIndex = remaining;
+            break;
+          }
+          remaining -= sections[i].chunks.length;
+        }
+        if (playing) speakCurrent(); else syncUi();
+      });
+      if (voiceSelect) voiceSelect.addEventListener('change', () => { if (playing) speakCurrent(); });
+      if (closeButton) closeButton.addEventListener('click', () => { stopSpeech(); bar.classList.add('is-dismissed'); });
+      const sentinel = bar.previousElementSibling && bar.previousElementSibling.classList.contains('audio-bar-sentinel') ? bar.previousElementSibling : null;
+      if (sentinel && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const entry = entries[0];
+          bar.classList.toggle('is-floating', entry && !entry.isIntersecting);
+          bar.classList.remove('is-dismissed');
+        });
+        observer.observe(sentinel);
+      }
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && playing) stopSpeech();
+      });
+      syncUi();
     });
 
     const itemText = (item) => {
