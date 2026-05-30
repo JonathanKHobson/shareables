@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Use the Shopify CSV</title>
+  <meta name="description" content="Plain-language notes for importing the Etsy image rescue Shopify starter CSV.">
+  <style>
+    :root {
+      --ink:#1e2428; --muted:#657179; --line:#d9e0e3; --paper:#fbfaf7; --panel:#ffffff;
+      --accent:#0d6b63; --accent-dark:#084b47; --soft:#eef6f4; --warn:#fff7e2;
+      color-scheme: light;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { max-width:860px; margin:0 auto; padding:32px 20px 48px; }
+    h1 { margin:0 0 10px; font-size:clamp(32px,6vw,52px); line-height:1; letter-spacing:0; }
+    h2 { margin:28px 0 8px; font-size:22px; }
+    p { margin:0 0 14px; }
+    ul, ol { margin:10px 0 18px; padding-left:24px; }
+    li { margin:8px 0; }
+    a { color:var(--accent-dark); font-weight:700; }
+    .lead { color:var(--muted); font-size:19px; max-width:760px; }
+    .box { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px; margin:18px 0; }
+    .box.warn { background:var(--warn); border-color:#e2bd60; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink); text-decoration:none; font-weight:800; }
+    .button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+    code { background:#eef2f1; border:1px solid var(--line); border-radius:6px; padding:1px 5px; }
+    @media (max-width:560px) { .button { width:100%; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>How to Use the Shopify CSV</h1>
+    <p class="lead">Your CSV download is a starter import file for Shopify products. It includes the recovered listing text and hosted product image links from this rescue gallery.</p>
+
+    <section class="box">
+      <h2>Quick Steps</h2>
+      <ol>
+        <li>Open your Shopify admin and go to <strong>Products</strong>.</li>
+        <li>Click <strong>Import</strong>, then choose the CSV file that just downloaded.</li>
+        <li>Use Shopify's preview/review step to check the products before importing.</li>
+        <li>After import, review each draft product before publishing it live.</li>
+      </ol>
+      <div class="actions">
+        <a class="button primary" href="https://help.shopify.com/en/manual/products/import-export/import-products" target="_blank" rel="noopener">Open Shopify import instructions</a>
+        <a class="button" href="https://help.shopify.com/en/manual/products/import-export/using-csv" target="_blank" rel="noopener">Open Shopify CSV field guide</a>
+      </div>
+    </section>
+
+    <section class="box warn">
+      <h2>Important Caveats</h2>
+      <ul>
+        <li>This is a <strong>draft starter CSV</strong>, not a final store setup. Prices, inventory, category, vendor, shipping, taxes, variants, and product status may need edits.</li>
+        <li>Products are set to <code>draft</code>/<code>Published = FALSE</code> where possible so they can be reviewed before going live.</li>
+        <li>Some titles and descriptions came from screenshot OCR. Proofread spelling, line breaks, and any listing marked for review.</li>
+        <li>Image links point to the temporary public GitHub-hosted gallery. Keep the Google Drive backup and move images into your long-term Shopify workflow when ready.</li>
+        <li>If you already have matching products in Shopify, be careful with overwrite options. Matching handles can update existing product records.</li>
+        <li>Avoid sorting or rearranging rows in a spreadsheet unless you know how Shopify product-image rows work. Extra image rows rely on staying grouped with the same product handle.</li>
+      </ul>
+    </section>
+
+    <section class="box">
+      <h2>What the CSV Contains</h2>
+      <ul>
+        <li>One product handle per recovered listing.</li>
+        <li>Recovered title and description where available.</li>
+        <li>One image row per recovered product image, using public image URLs.</li>
+        <li>Suggested tags, product type, SKU, image alt text, and draft status where available.</li>
+      </ul>
+    </section>
+
+    <p>When in doubt, import one listing first as a test, confirm it looks right, then continue with the larger CSV.</p>
+  </main>
+</body>
+</html>
