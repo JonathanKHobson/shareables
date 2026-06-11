@@ -1,484 +1,1643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GameMasterKyle · Professional Game Master and Community Host</title>
-<meta name="description" content="Jonathan Kyle Hobson builds welcoming tabletop experiences where new players feel at home and everyone leaves wanting the next session." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E66036'/%3E%3Cpath d='M16 5l9 5v12l-9 5-9-5V10z' fill='none' stroke='%23140D07' stroke-width='1.7'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23140D07'/%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#140D07; --bg-dark:#13100C; --bg-dark-2:#1F1914;
-    --paper:#FBF6ED; --paper-2:#F1E8D8; --card:#FFFFFF;
-    --ember:#E66036; --ember-soft:#F0855E; --ember-on-light:#A6360F;
-    --gold:#CBA255; --gold-on-light:#7C5A1C;
-    --cream:#FCF6EC; --cream-2:#EADCC6; --cream-3:#BFAB8C;
-    --ink-2:#3D3124; --ink-3:#574A38; --line:rgba(20,13,7,.16); --line-dark:rgba(252,246,236,.18);
-    --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --mono:"Space Grotesk",ui-monospace,monospace;
-    --maxw:1180px; --r:18px; --navh:66px;
-    --shadow:0 26px 54px -24px rgba(20,13,7,.5);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameMasterKyle | Professional Game Master and Community Host</title>
+  <meta name="description" content="Jonathan Kyle Hobson runs welcoming, story-rich tabletop games for stores, events, private groups, and mixed-experience players." />
+  <meta property="og:title" content="GameMasterKyle | Professional Game Master" />
+  <meta property="og:description" content="Warm tables, strong worlds, clean systems, and store-night-ready game experiences." />
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHBhdGggZD0iTTMyIDQgNTggMTl2MzBMMzIgNjQgNiA0OVYxOUwzMiA0WiIgZmlsbD0iI0U2NUYzNiIvPgogIDxwYXRoIGQ9Ik0zMiAxMSA1MS41IDIyLjJ2MTkuNkwzMiA1MyAxMi41IDQxLjhWMjIuMkwzMiAxMVoiIGZpbGw9IiMxNjEwMEIiLz4KICA8cGF0aCBkPSJNMTggMzJjMC04LjEgNi4zLTE0LjUgMTQtMTQuNVM0NiAyMy45IDQ2IDMyYzAgOC44LTkuOSAxNi42LTEzIDE4LjlhMS43IDEuNyAwIDAgMS0yIDBDMjcuOSA0OC42IDE4IDQwLjggMTggMzJaIiBmaWxsPSIjQzlBMzVDIi8+CiAgPGNpcmNsZSBjeD0iMzIiIGN5PSIzMS41IiByPSI3LjUiIGZpbGw9IiMxNjEwMEIiLz4KPC9zdmc+Cg==" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,650;1,9..144,500&family=Inter:wght@400;550;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <style data-inlined-from="styles/tokens.css">
+:root {
+  color-scheme: light;
+  --ink: #17100b;
+  --ink-soft: #36281d;
+  --ink-muted: #665543;
+  --void: #071319;
+  --night: #11100c;
+  --night-2: #1c1712;
+  --paper: #fbf4e8;
+  --paper-2: #efe0c7;
+  --paper-3: #dfca9f;
+  --card: #fffaf1;
+  --ember: #e66036;
+  --ember-strong: #c84924;
+  --ember-dark: #7f2c16;
+  --brass: #c9a35c;
+  --brass-dark: #7a5b25;
+  --teal: #6faeb7;
+  --teal-dark: #243b43;
+  --cream: #f8edda;
+  --line: rgba(23, 16, 11, 0.16);
+  --line-dark: rgba(248, 237, 218, 0.2);
+  --shadow: 0 22px 60px rgba(14, 8, 4, 0.28);
+  --shadow-soft: 0 12px 34px rgba(14, 8, 4, 0.16);
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --maxw: 1180px;
+  --navh: 72px;
+  --radius: 8px;
+  --radius-sm: 6px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+}
+
+</style>
+  <style data-inlined-from="styles/base.css">
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: var(--night) url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAwIDEyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icGFwZXIiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzJBMTgxMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNDYiIHN0b3AtY29sb3I9IiMxNzEyMEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMEMxMTE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImdyYWluIiB3aWR0aD0iNTIiIGhlaWdodD0iNTIiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cGF0aCBkPSJNMCA1MS41SDUyTTUxLjUgMFY1MiIgc3Ryb2tlPSIjRjdFNUM0IiBzdHJva2Utb3BhY2l0eT0iMC4wMzUiLz4KICAgICAgPGNpcmNsZSBjeD0iOSIgY3k9IjE3IiByPSIxLjIiIGZpbGw9IiNGN0U1QzQiIGZpbGwtb3BhY2l0eT0iMC4wNyIvPgogICAgICA8Y2lyY2xlIGN4PSIzOSIgY3k9IjMxIiByPSIwLjkiIGZpbGw9IiNGN0U1QzQiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTgwMCIgaGVpZ2h0PSIxMjAwIiBmaWxsPSJ1cmwoI3BhcGVyKSIvPgogIDxyZWN0IHdpZHRoPSIxODAwIiBoZWlnaHQ9IjEyMDAiIGZpbGw9InVybCgjZ3JhaW4pIi8+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KICAgIDxwYXRoIGQ9Ik0xNDYgODkyQzI3NiA3NDggMzU4IDY0NCA1MDUgNjYyYzExMSAxNCAxNDMgOTMgMjc0IDgyIDE1Ny0xMyAxOTUtMTM2IDM1Ny0xMzIgMTc1IDUgMjIxIDE1MSAzODIgMTM3IDExMS05IDE4MS04OCAyMzUtMTY4IiBzdHJva2U9IiNDOUEzNUMiIHN0cm9rZS1vcGFjaXR5PSIwLjIyIiBzdHJva2Utd2lkdGg9IjUiLz4KICAgIDxwYXRoIGQ9Ik0tMzcgNTE4Qzk5IDQwNyAyMzEgMzYxIDM3MCAzOThjMTE3IDMxIDE3MSAxMTIgMjkyIDkyIDEzNy0yMyAxNjktMTQyIDMwMC0xNTMgMTY5LTE0IDI0MSAxNjggNDE3IDE0NSAxMjgtMTcgMTk0LTExOSAyNzctMjA2IiBzdHJva2U9IiNFNjYwMzYiIHN0cm9rZS1vcGFjaXR5PSIwLjE4IiBzdHJva2Utd2lkdGg9IjQiLz4KICAgIDxwYXRoIGQ9Ik0yODEgMTAwN2M4NS0xMjggMjE2LTE1NCAzMjktMTE5IDExNyAzNiAxNTQgMTMzIDI3NiAxMzIgMTU5LTEgMjAxLTE2NiAzNjYtMTg3IDEwNS0xMyAyMDMgMzQgMjkyIDExMSIgc3Ryb2tlPSIjNkZBRUI3IiBzdHJva2Utb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjQiLz4KICAgIDxwYXRoIGQ9Ik02MDQgMTg5YzkxIDQ2IDE1NSA5MSAyODYgNzYgMTEyLTEzIDE2OC02OSAyNjEtNTQgMTExIDE4IDE0MCAxMTIgMjQ4IDEyNCA3OCA5IDE0MC0yNyAxOTctNzYiIHN0cm9rZT0iI0Y3RTVDNCIgc3Ryb2tlLW9wYWNpdHk9IjAuMTIiIHN0cm9rZS13aWR0aD0iMyIvPgogICAgPHBhdGggZD0iTTEyMiAxODggMzIyIDI0NiA0MTIgMTQzIDU2MCAyMDggNjc4IDEwMiA4MjYgMTg2IDEwMDIgMTA3IDExNjkgMTkyIDEzMTUgMTE5IDE0NzAgMjA3IDE2NTggMTY0IiBzdHJva2U9IiNGN0U1QzQiIHN0cm9rZS1vcGFjaXR5PSIwLjA4IiBzdHJva2Utd2lkdGg9IjIiLz4KICA8L2c+CiAgPGcgZmlsbD0iI0M5QTM1QyIgZmlsbC1vcGFjaXR5PSIwLjI0Ij4KICAgIDxwYXRoIGQ9Ik0zNjMgNTY5IDM4MSA1ODcgMzYzIDYwNSAzNDUgNTg3WiIvPgogICAgPHBhdGggZD0iTTEwMzcgNzIxIDEwNTggNzQyIDEwMzcgNzYzIDEwMTYgNzQyWiIvPgogICAgPHBhdGggZD0iTTE0MTggNDM0IDE0MzQgNDUwIDE0MTggNDY2IDE0MDIgNDUwWiIvPgogIDwvZz4KICA8ZyBzdHJva2U9IiNGN0U1QzQiIHN0cm9rZS1vcGFjaXR5PSIwLjEyIiBmaWxsPSJub25lIj4KICAgIDxjaXJjbGUgY3g9IjE1MDIiIGN5PSI4MjAiIHI9IjExOCIvPgogICAgPGNpcmNsZSBjeD0iMTUwMiIgY3k9IjgyMCIgcj0iNzAiLz4KICAgIDxwYXRoIGQ9Ik0xNTAyIDY2OHYzMDRNMTM1MCA4MjBoMzA0TTEzOTQgNzEybDIxNiAyMTZNMTYxMCA3MTJsLTIxNiAyMTYiLz4KICA8L2c+Cjwvc3ZnPgo=") center / cover no-repeat;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(7, 19, 25, 0.76), rgba(7, 19, 25, 0.28) 32%, rgba(251, 244, 232, 0.94) 58%),
+    linear-gradient(90deg, rgba(7, 19, 25, 0.38), transparent 36%, rgba(201, 163, 92, 0.12));
+  pointer-events: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+
+section[id],
+header[id] {
+  scroll-margin-top: calc(var(--navh) + 16px);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+p {
+  margin: 0;
+}
+
+figure,
+blockquote {
+  margin: 0;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-inline: 2rem;
+}
+
+.skip {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  z-index: 200;
+  border-radius: 0 0 var(--radius) 0;
+  background: var(--teal);
+  color: var(--void);
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+}
+
+.skip:focus {
+  left: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 100%;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.6rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.lead {
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  line-height: 1.55;
+  max-width: 58ch;
+}
+
+.dark .lead {
+  color: rgba(248, 237, 218, 0.78);
+}
+
+.h-section {
+  max-width: 18ch;
+  color: inherit;
+  font-size: 2.65rem;
+}
+
+.section-head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.band {
+  padding: 5.5rem 0;
+}
+
+.paper-band {
+  background:
+    linear-gradient(180deg, rgba(251, 244, 232, 0.96), rgba(239, 224, 199, 0.96)),
+    var(--paper);
+}
+
+.dark {
+  background:
+    linear-gradient(180deg, rgba(17, 16, 12, 0.96), rgba(7, 19, 25, 0.98)),
+    var(--night);
+  color: var(--cream);
+}
+
+.asset-note {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;font-size:112.5%}
-  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.62;font-size:1rem;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem)}
-  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.07;letter-spacing:-.015em}
-  a{color:inherit;text-decoration:none}
-  :focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:5px}
-  .eyebrow{font-family:var(--mono);font-weight:600;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
-  section[id],header[id]{scroll-margin-top:calc(var(--navh) + 14px)}
-  .skip{position:absolute;left:-9999px;top:0;background:var(--ember);color:#190c05;padding:.7rem 1.1rem;border-radius:0 0 10px 0;z-index:100;font-weight:600}
-  .skip:focus{left:0}
-  svg.lucide{width:24px;height:24px;stroke-width:1.8}
 
-  .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:1rem;
-    padding:.9rem 1.55rem;border-radius:100px;transition:transform .18s ease,box-shadow .18s ease,background .18s,color .18s;cursor:pointer;border:0}
-  .btn svg.lucide{width:18px;height:18px}
-  .btn-primary{background:var(--ember);color:#190c05;box-shadow:0 14px 30px -12px rgba(234,99,54,.65)}
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 42px -12px rgba(234,99,54,.85);background:var(--ember-soft)}
-  .btn-ghost{background:transparent;color:var(--cream);border:1.5px solid var(--cream-3)}
-  .btn-ghost:hover{border-color:var(--ember);color:#fff;transform:translateY(-3px)}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
-  /* sticky nav with logo placeholder + wordmark */
-  .nav{position:sticky;top:0;z-index:50;height:var(--navh);display:flex;align-items:center;background:rgba(15,11,7,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:background .25s,border-color .25s,box-shadow .25s}
-  .nav.scrolled{background:rgba(13,9,5,.94);border-bottom:1px solid var(--line-dark);box-shadow:0 10px 30px -18px rgba(0,0,0,.8)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
-  .brand{display:flex;align-items:center;gap:.65rem}
-  .logo-ph{width:38px;height:38px;border-radius:10px;border:1.5px dashed rgba(234,99,54,.6);display:grid;place-items:center;color:var(--ember);flex:0 0 auto}
-  .logo-ph svg.lucide{width:20px;height:20px}
-  .brand-name{color:var(--cream);font-family:var(--mono);font-weight:700;font-size:1.08rem;letter-spacing:.01em}
-  .nav .links{display:flex;gap:1.7rem;align-items:center}
-  .nav a.navlink{position:relative;color:var(--cream-2);font-size:1rem;font-weight:500;padding:.3rem 0}
-  .nav a.navlink::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--ember);transition:right .25s ease}
-  .nav a.navlink:hover{color:var(--cream)}
-  .nav a.navlink:hover::after{right:0}
-  .nav .navcta{color:#190c05;background:var(--ember);padding:.5rem 1.05rem;border-radius:100px;font-weight:600;font-size:.95rem;transition:transform .18s,background .18s}
-  .nav .navcta:hover{transform:translateY(-2px);background:var(--ember-soft)}
-  .menu-btn{display:none;background:transparent;border:0;color:var(--cream);cursor:pointer;padding:.4rem}
-  @media(max-width:820px){
-    .nav .links{position:absolute;top:var(--navh);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:rgba(13,9,5,.98);border-bottom:1px solid var(--line-dark);padding:.4rem 0;display:none}
-    .nav .links.open{display:flex}
-    .nav a.navlink{padding:.85rem clamp(1.25rem,5vw,2.5rem)}
-    .nav a.navlink::after{display:none}
-    .nav .navcta{margin:.5rem clamp(1.25rem,5vw,2.5rem)}
-    .menu-btn{display:block}
+</style>
+  <style data-inlined-from="styles/components.css">
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: var(--navh);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(248, 237, 218, 0.12);
+  background: rgba(9, 12, 12, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.nav.scrolled {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  background: rgba(7, 11, 12, 0.96);
+}
+
+.nav .wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--cream);
+}
+
+.brand-mark {
+  width: 2.55rem;
+  height: 2.55rem;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28));
+}
+
+.brand-name {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.brand-name strong {
+  font-family: var(--mono);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.brand-name span {
+  color: rgba(248, 237, 218, 0.72);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.navlink {
+  position: relative;
+  color: rgba(248, 237, 218, 0.82);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.6rem 0;
+}
+
+.navlink::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.34rem;
+  left: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--teal);
+  transition: transform 160ms ease;
+}
+
+.navlink:hover,
+.navlink:focus-visible {
+  color: #fff;
+}
+
+.navlink:hover::after,
+.navlink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  background: var(--brass);
+  color: var(--void);
+}
+
+.menu-lines,
+.menu-lines::before,
+.menu-lines::after {
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.menu-lines {
+  position: relative;
+}
+
+.menu-lines::before,
+.menu-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-lines::before {
+  top: -0.4rem;
+}
+
+.menu-lines::after {
+  top: 0.4rem;
+}
+
+.btn,
+.chip-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.85rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 800;
+  line-height: 1;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.btn:hover,
+.chip-link:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--ember);
+  color: #170c07;
+  padding: 0.86rem 1.2rem;
+  box-shadow: 0 16px 30px rgba(230, 96, 54, 0.24);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: #f27a45;
+}
+
+.btn-secondary {
+  border-color: rgba(248, 237, 218, 0.38);
+  color: var(--cream);
+  padding: 0.86rem 1.1rem;
+  background: rgba(248, 237, 218, 0.05);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: var(--teal);
+  color: #fff;
+}
+
+.nav-cta {
+  min-height: 2.35rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--brass);
+  color: #1a1008;
+  font-size: 0.86rem;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: var(--cream);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 19, 25, 0.96), rgba(7, 19, 25, 0.68) 48%, rgba(7, 19, 25, 0.2)),
+    linear-gradient(180deg, transparent, rgba(7, 19, 25, 0.92));
+}
+
+.hero .wrap {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.98fr 1.02fr;
+  gap: 3.5rem;
+  align-items: center;
+  min-height: 43rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1.35rem;
+  min-width: 0;
+}
+
+.hero .eyebrow {
+  color: var(--teal);
+}
+
+.hero h1 {
+  max-width: 11ch;
+  color: #fff;
+  font-size: 4rem;
+}
+
+.hero h1 em {
+  color: var(--brass);
+  font-style: italic;
+}
+
+.hero-lede {
+  max-width: 36rem;
+  color: rgba(248, 237, 218, 0.86);
+  font-size: 1.16rem;
+  line-height: 1.58;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.hero-proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+  max-width: 42rem;
+}
+
+.proof-micro {
+  border-left: 3px solid var(--teal);
+  padding: 0.75rem 0.8rem;
+  background: rgba(248, 237, 218, 0.07);
+}
+
+.proof-micro b {
+  display: block;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+
+.proof-micro span {
+  display: block;
+  margin-top: 0.15rem;
+  color: rgba(248, 237, 218, 0.72);
+  font-size: 0.82rem;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 34rem;
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  min-height: 34rem;
+  object-fit: cover;
+  border: 1px solid rgba(248, 237, 218, 0.2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-caption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid rgba(248, 237, 218, 0.18);
+  border-radius: var(--radius);
+  background: rgba(7, 19, 25, 0.82);
+  color: var(--cream);
+}
+
+.hero-caption strong {
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-caption span {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.proof-strip {
+  border-top: 1px solid rgba(248, 237, 218, 0.14);
+  border-bottom: 1px solid rgba(248, 237, 218, 0.14);
+  background: rgba(7, 19, 25, 0.86);
+  color: var(--cream);
+}
+
+.proof-strip .wrap {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+}
+
+.stat {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.stat strong {
+  color: var(--brass);
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.stat span {
+  color: rgba(248, 237, 218, 0.72);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pillar,
+.audience-card,
+.quote-card,
+.contact-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 250, 241, 0.92);
+  box-shadow: var(--shadow-soft);
+}
+
+.pillar {
+  min-height: 14rem;
+  padding: 1.25rem;
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+}
+
+.pillar .icon-box,
+.audience-card .icon-box {
+  width: 2.7rem;
+  height: 2.7rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--night);
+  color: var(--brass);
+  font-family: var(--mono);
+  font-weight: 900;
+}
+
+.pillar h3,
+.audience-card h3,
+.case-copy h3,
+.contact-card h3 {
+  color: var(--ink);
+  font-size: 1.28rem;
+}
+
+.pillar p,
+.audience-card p {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.audience-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24rem;
+  gap: 2rem;
+  align-items: start;
+}
+
+.audience-stack {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.audience-card {
+  display: grid;
+  grid-template-columns: 2.7rem 1fr;
+  gap: 0.95rem;
+  align-items: start;
+  padding: 1rem;
+}
+
+.portrait-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--night);
+  color: var(--cream);
+  box-shadow: var(--shadow);
+}
+
+.portrait-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.portrait-body {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.25rem;
+}
+
+.portrait-body h3 {
+  color: #fff;
+  font-size: 1.45rem;
+}
+
+.portrait-body p {
+  color: rgba(248, 237, 218, 0.76);
+}
+
+.signature {
+  margin-top: 0.45rem;
+  color: var(--brass);
+  font-family: var(--serif);
+  font-size: 1.32rem;
+  font-style: italic;
+}
+
+.case-list {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  background: rgba(28, 23, 18, 0.94);
+  box-shadow: var(--shadow-soft);
+}
+
+.case-card:nth-child(even) {
+  grid-template-columns: 1.08fr 0.92fr;
+}
+
+.case-card:nth-child(even) .case-media {
+  order: 2;
+}
+
+.case-media {
+  position: relative;
+  min-height: 23rem;
+  background: var(--night);
+}
+
+.case-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 23rem;
+  object-fit: cover;
+}
+
+.case-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.36rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(7, 19, 25, 0.84);
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-copy {
+  display: grid;
+  align-content: center;
+  gap: 0.8rem;
+  padding: 2rem;
+}
+
+.case-copy .meta {
+  color: var(--teal);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-copy h3 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.case-copy p {
+  color: rgba(248, 237, 218, 0.76);
+}
+
+.case-proof {
+  margin-top: 0.35rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line-dark);
+  color: var(--cream);
+  font-size: 0.95rem;
+}
+
+.case-proof b {
+  color: var(--brass);
+}
+
+.quote-feature {
+  max-width: 50rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.quote-feature blockquote {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  line-height: 1.34;
+}
+
+.quote-feature figcaption {
+  margin-top: 1rem;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.quote-card {
+  padding: 1.25rem;
+}
+
+.quote-card blockquote {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+.quote-card figcaption {
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+}
+
+.quote-card b,
+.quote-feature b {
+  color: var(--ink);
+  font-family: var(--mono);
+}
+
+.proof-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.chip-link {
+  border-color: rgba(127, 44, 22, 0.26);
+  background: rgba(255, 250, 241, 0.86);
+  color: var(--ember-dark);
+  padding: 0.78rem 1rem;
+}
+
+.chip-link:hover,
+.chip-link:focus-visible {
+  border-color: var(--ember);
+  background: #fff;
+}
+
+.contact {
+  position: relative;
+  color: var(--cream);
+}
+
+.contact .eyebrow {
+  color: var(--teal);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(21rem, 0.72fr);
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.contact h2 {
+  color: #fff;
+  font-size: 2.8rem;
+  max-width: 15ch;
+}
+
+.contact-copy {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.contact-copy p {
+  max-width: 38rem;
+  color: rgba(248, 237, 218, 0.8);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.65rem;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  padding: 0.68rem 0.8rem;
+  background: rgba(248, 237, 218, 0.06);
+  color: var(--cream);
+  font-weight: 750;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  border-color: var(--teal);
+  background: rgba(111, 174, 183, 0.14);
+}
+
+.contact-link svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+.contact-card {
+  padding: 1.25rem;
+  background: rgba(248, 237, 218, 0.07);
+  border-color: var(--line-dark);
+}
+
+.contact-card h3 {
+  color: #fff;
+}
+
+.form-hint {
+  margin-top: 0.2rem;
+  color: rgba(248, 237, 218, 0.76);
+  font-size: 0.92rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.field label {
+  color: var(--cream);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(248, 237, 218, 0.28);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 19, 25, 0.42);
+  color: #fff;
+  padding: 0.78rem 0.85rem;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(248, 237, 218, 0.52);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--teal);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 174, 183, 0.24);
+}
+
+.contact-card .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.form-note {
+  min-height: 1.3rem;
+  margin-top: 0.8rem;
+  color: rgba(248, 237, 218, 0.8);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.form-note a {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+.site-footer {
+  background: #07090b;
+  color: rgba(248, 237, 218, 0.62);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1.4rem;
+  padding-bottom: 1.4rem;
+}
+
+@media (min-width: 901px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+</style>
+  <style data-inlined-from="styles/responsive.css">
+@media (max-width: 1100px) {
+  .hero h1 {
+    font-size: 3.45rem;
   }
 
-  /* hero */
-  .hero{position:relative;background:radial-gradient(1050px 600px at 82% -14%,rgba(234,99,54,.28),transparent 56%),linear-gradient(180deg,#18110A,#13100C 62%,#110C07);color:var(--cream);overflow:hidden}
-  .hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(252,246,236,.05) 1px,transparent 1px);background-size:27px 27px;opacity:.5;pointer-events:none}
-  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding-top:clamp(2.6rem,5vw,3.8rem);padding-bottom:clamp(3rem,6vw,5rem)}
-  .hero .eyebrow{color:var(--gold);display:flex;align-items:center;gap:.7rem}
-  .hero .eyebrow::before{content:"";width:28px;height:2px;background:var(--gold)}
-  .hero h1{font-size:clamp(2.7rem,5.6vw,4.4rem);margin:1.1rem 0 1.3rem;color:#fff;font-weight:600}
-  .hero h1 em{font-style:italic;color:var(--ember);font-weight:500}
-  .hero p.lede{font-size:1.22rem;color:var(--cream);max-width:36ch;margin-bottom:2rem;line-height:1.5}
-  .hero .cta-row{display:flex;gap:.9rem;flex-wrap:wrap}
-
-  .stats{position:relative;z-index:2;border-top:1px solid var(--line-dark);background:rgba(8,5,3,.5)}
-  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:2.1rem clamp(1.25rem,5vw,2.5rem)}
-  .stat .num{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,4vw,3rem);color:var(--gold);line-height:1}
-  .stat .lab{color:var(--cream-2);font-size:1rem;margin-top:.45rem;max-width:18ch}
-
-  section.band{padding:clamp(4.5rem,8vw,6.8rem) 0}
-  .dark{background:var(--bg-dark);color:var(--cream)}
-  .paper2{background:var(--paper-2)}
-  .seclabel{display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem}
-  .seclabel .eyebrow{color:var(--gold-on-light)}
-  .dark .seclabel .eyebrow{color:var(--gold)}
-  .seclabel .dot{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
-  .h-section{font-size:clamp(2.1rem,4.2vw,3rem);max-width:20ch}
-  .lead{font-size:1.18rem;color:var(--ink-2);max-width:54ch;margin-top:1.1rem;line-height:1.5}
-  .dark .lead{color:var(--cream-2)}
-
-  .divider{display:flex;align-items:center;justify-content:center;gap:1.2rem}
-  .divider .rule{height:2px;width:min(120px,18vw);background:linear-gradient(90deg,transparent,var(--gold))}
-  .divider .rule.r{background:linear-gradient(90deg,var(--gold),transparent)}
-  .divider .d20{width:16px;height:16px;border:1.7px solid var(--gold);transform:rotate(45deg)}
-
-  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.8rem}
-  .pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.7rem 1.5rem;transition:transform .22s,box-shadow .22s,border-color .22s}
-  .pillar:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(234,99,54,.35)}
-  .pillar .ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:rgba(203,162,85,.16);color:var(--gold-on-light);margin-bottom:1rem;transition:transform .22s}
-  .pillar:hover .ic{transform:scale(1.08) rotate(-4deg)}
-  .pillar h3{font-size:1.28rem;margin-bottom:.45rem}
-  .pillar p{color:var(--ink-2);font-size:1.02rem;line-height:1.45}
-
-  .aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
-  .aud-cards{display:flex;flex-direction:column;gap:1.1rem}
-  .aud{display:flex;gap:1.1rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:1.35rem 1.45rem;transition:transform .2s,box-shadow .2s}
-  .aud:hover{transform:translateX(6px);box-shadow:var(--shadow)}
-  .aud .ic{flex:0 0 auto;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:var(--gold)}
-  .aud h3{font-size:1.2rem;margin-bottom:.25rem}
-  .aud p{color:var(--ink-2);font-size:1.01rem;line-height:1.45}
-  .persona{background:var(--ink);color:var(--cream);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
-  .persona .pbody{padding:1.6rem 1.7rem 1.8rem}
-  .persona .nm{font-family:var(--serif);font-size:1.38rem;color:#fff}
-  .persona .rl{font-size:1.01rem;color:var(--cream-2);margin-top:.15rem}
-  .persona .sig{font-family:var(--serif);font-style:italic;font-size:1.55rem;color:var(--gold);margin-top:.9rem}
-
-  .cases{display:grid;gap:1.5rem;margin-top:2.8rem}
-  .case{display:grid;grid-template-columns:.92fr 1.08fr;background:var(--bg-dark-2);border:1px solid var(--line-dark);border-radius:var(--r);overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s}
-  .case:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(203,162,85,.4)}
-  .case:nth-child(even){grid-template-columns:1.08fr .92fr}
-  .case:nth-child(even) .ph{order:2}
-  .case .cbody{padding:clamp(1.7rem,3vw,2.5rem);display:flex;flex-direction:column;justify-content:center}
-  .case .meta{font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.65rem}
-  .case h3{font-size:clamp(1.6rem,2.6vw,2.2rem);color:#fff;margin-bottom:.7rem}
-  .case p{color:var(--cream-2);font-size:1.05rem;line-height:1.5}
-  .case .why{margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line-dark);font-size:1.01rem;color:var(--cream)}
-  .case .why b{color:var(--ember-soft);font-weight:600}
-
-  .qfeature{max-width:46ch;margin:2.8rem auto 0;text-align:center}
-  .qfeature .big{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.32;color:var(--ink)}
-  .qfeature .big::before{content:"\201C";color:var(--gold-on-light)}
-  .qfeature .big::after{content:"\201D";color:var(--gold-on-light)}
-  .qfeature .by{margin-top:1.2rem;font-size:1rem;color:var(--ink-3)}
-  .qfeature .by b{color:var(--ink);font-weight:600;font-family:var(--mono);letter-spacing:.02em}
-  .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:2.8rem}
-  .quote{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.7rem 1.6rem;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .quote:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(203,162,85,.4)}
-  .quote .mk{font-family:var(--serif);font-weight:600;font-size:2.6rem;color:var(--gold-on-light);line-height:.5;height:1rem}
-  .quote blockquote{font-family:var(--serif);font-size:1.18rem;line-height:1.42;color:var(--ink);margin:.6rem 0 1.2rem;flex:1}
-  .quote .by{font-size:.96rem;color:var(--ink-3);border-top:1px solid var(--line);padding-top:.85rem}
-  .quote .by b{display:block;color:var(--ink);font-weight:600;font-family:var(--mono);font-size:.92rem;letter-spacing:.02em;margin-bottom:.1rem}
-  .proof-cta{margin-top:2.4rem;display:flex;justify-content:center}
-  .sp-link{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;color:var(--ember-on-light);border:1.5px solid rgba(234,99,54,.5);padding:.8rem 1.4rem;border-radius:100px;transition:background .18s,transform .18s,color .18s}
-  .sp-link:hover{background:var(--ember);color:#190c05;transform:translateY(-2px)}
-
-  .cta{position:relative;background:radial-gradient(820px 480px at 18% -10%,rgba(234,99,54,.24),transparent 60%),var(--bg-dark);overflow:hidden}
-  .cta::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(252,246,236,.05) 1px,transparent 1px);background-size:27px 27px;opacity:.45}
-  .cta .wrap{position:relative;z-index:2}
-  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
-  .cta h2{font-size:clamp(2.1rem,4.4vw,3.1rem);color:#fff;max-width:16ch;margin-bottom:1rem}
-  .cta .first{color:var(--cream);font-size:1.12rem;line-height:1.5;max-width:42ch}
-  .alt-contact{margin-top:1.8rem;display:flex;flex-direction:column;gap:.7rem}
-  .alt-contact .label{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-3);margin-bottom:.2rem}
-  .lnk{display:inline-flex;align-items:center;gap:.6rem;font-weight:500;font-size:1.01rem;color:var(--cream);border:1.5px solid var(--line-dark);padding:.7rem 1.15rem;border-radius:12px;transition:border-color .18s,color .18s,transform .18s,background .18s;width:fit-content}
-  .lnk:hover{border-color:var(--ember);background:rgba(234,99,54,.1);transform:translateX(4px)}
-  .lnk svg.lucide{width:20px;height:20px;color:var(--gold)}
-
-  form.cform{background:rgba(252,246,236,.04);border:1px solid var(--line-dark);border-radius:var(--r);padding:1.7rem}
-  form.cform h3{font-family:var(--serif);font-size:1.45rem;color:#fff;margin-bottom:.3rem}
-  form.cform .fhint{color:var(--cream-2);font-size:1rem;margin-bottom:1.3rem}
-  .field{margin-bottom:1rem}
-  .field label{display:block;font-size:.95rem;color:var(--cream);margin-bottom:.35rem;font-weight:500}
-  .field input,.field textarea{width:100%;font-family:var(--sans);font-size:1rem;color:#fff;background:rgba(252,246,236,.08);border:1.5px solid var(--line-dark);border-radius:10px;padding:.75rem .9rem;transition:border-color .18s,background .18s}
-  .field input::placeholder,.field textarea::placeholder{color:var(--cream-3)}
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--ember);background:rgba(252,246,236,.12)}
-  form.cform button{width:100%;justify-content:center;margin-top:.3rem}
-  #formnote{margin-top:.85rem;font-size:.95rem;color:var(--cream-2);text-align:center;min-height:1.2em}
-
-  footer.foot{background:#0D0905;color:var(--cream-3);padding:2.2rem 0;font-size:.95rem;font-family:var(--mono);letter-spacing:.03em}
-  footer.foot .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
-  footer.foot a:hover{color:var(--ember)}
-
-  /* image placeholder regions */
-  .ph{position:relative;min-height:290px;display:flex;align-items:flex-end;background:linear-gradient(150deg,#1d150d,#2a1c11 55%,#3a2613)}
-  .ph::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 30% 24%,rgba(234,99,54,.34),transparent 48%),radial-gradient(circle at 82% 80%,rgba(203,162,85,.24),transparent 44%),repeating-linear-gradient(45deg,rgba(252,246,236,.05) 0 2px,transparent 2px 13px)}
-  .ph.light{background:linear-gradient(150deg,#eee0ca,#e4d2b3 60%,#dac29a)}
-  .ph.light::before{background-image:radial-gradient(circle at 28% 24%,rgba(234,99,54,.2),transparent 48%),repeating-linear-gradient(45deg,rgba(20,13,7,.06) 0 2px,transparent 2px 13px)}
-  .ph .badge{position:absolute;top:.9rem;left:.9rem;z-index:3;font-family:var(--mono);font-weight:700;font-size:.78rem;letter-spacing:.08em;color:#190c05;background:var(--gold);padding:.32rem .75rem;border-radius:100px}
-  .ph .pcap{position:relative;z-index:3;width:100%;padding:1.1rem 1.2rem 1.2rem;background:linear-gradient(0deg,rgba(6,4,2,.92) 60%,transparent)}
-  .ph.light .pcap{background:linear-gradient(0deg,rgba(244,237,225,.96) 60%,transparent)}
-  .ph .spec{font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--gold);text-transform:uppercase;margin-bottom:.4rem}
-  .ph.light .spec{color:var(--gold-on-light)}
-  .ph .prompt{font-size:.92rem;line-height:1.5;color:#fff}
-  .ph.light .prompt{color:var(--ink)}
-  .ph.tall{min-height:360px}
-  .persona .ph{min-height:310px}
-
-  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  @media(max-width:900px){
-    .pillars{grid-template-columns:1fr 1fr}
-    .case,.case:nth-child(even){grid-template-columns:1fr}
-    .case:nth-child(even) .ph{order:0}
-    .cta-grid{grid-template-columns:1fr}
+  .hero .wrap,
+  .contact-grid {
+    gap: 2rem;
   }
-  @media(max-width:760px){
-    html{font-size:104%}
-    .hero .wrap{grid-template-columns:1fr;padding-top:2.4rem}
-    .hero .ph{min-height:230px}
-    .stats .wrap{grid-template-columns:1fr 1fr;gap:1.5rem}
-    .aud-grid{grid-template-columns:1fr}
-    .pillars{grid-template-columns:1fr}
-    .quotes{grid-template-columns:1fr}
+
+  .mission-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  @media(prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    .reveal{opacity:1;transform:none;transition:none}
-    .btn:hover,.pillar:hover,.aud:hover,.case:hover,.quote:hover,.lnk:hover,.sp-link:hover,.navcta:hover{transform:none}
+
+  .quote-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    padding-inline: 1.25rem;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .nav {
+    min-height: auto;
+  }
+
+  .nav .wrap {
+    flex-wrap: wrap;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .nav-links {
+    display: flex;
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
+    border: 0;
+    background: transparent;
+    padding: 0.45rem 0 0;
+  }
+
+  .navlink {
+    flex: 0 0 auto;
+    padding: 0.35rem 0;
+    white-space: nowrap;
+  }
+
+  .navlink::after {
+    display: none;
+  }
+
+  .nav-cta {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 2.1rem;
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    white-space: nowrap;
+  }
+
+  .hero .wrap {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 3rem;
+  }
+
+  .hero-copy,
+  .hero h1,
+  .hero-lede,
+  .hero-proof,
+  .hero-art,
+  .cta-row {
+    width: min(100%, calc(100vw - 2.5rem));
+    max-width: calc(100vw - 2.5rem);
+  }
+
+  .hero-art {
+    min-width: 0;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-lede {
+    max-width: 20rem;
+  }
+
+  .hero h1 {
+    max-width: 13ch;
+    font-size: 3.05rem;
+  }
+
+  .hero-art {
+    min-height: 22rem;
+  }
+
+  .hero-art img {
+    min-height: 22rem;
+  }
+
+  .proof-strip .wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .audience-layout,
+  .case-card,
+  .case-card:nth-child(even),
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card:nth-child(even) .case-media {
+    order: 0;
+  }
+
+  .portrait-card {
+    max-width: 28rem;
+  }
+}
+
+@media (max-width: 680px) {
+  html {
+    font-size: 16px;
+  }
+
+  .brand-name span {
+    display: none;
+  }
+
+  .brand {
+    max-width: calc(100% - 4.5rem);
+  }
+
+  .brand-name {
+    min-width: 0;
+  }
+
+  .brand-name strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .band {
+    padding: 4rem 0;
+  }
+
+  .h-section,
+  .contact h2 {
+    font-size: 2.25rem;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero-proof,
+  .mission-grid,
+  .quote-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-strip .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .case-copy {
+    padding: 1.35rem;
+  }
+
+  .case-copy h3 {
+    font-size: 1.65rem;
+  }
+
+  .case-media,
+  .case-media img {
+    min-height: 18rem;
+  }
+
+  .quote-feature blockquote {
+    font-size: 1.32rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+  }
+
+  .contact-link {
+    width: 100%;
+  }
+}
+
 </style>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
+<body class="shareable-shell" data-template="website" data-style-source="warm-editorial">
+  <a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav" id="nav">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="GameMasterKyle, home">
-      <span class="logo-ph" title="Logo placeholder (A0): drop the real logo here"><i data-lucide="dices" aria-hidden="true"></i></span>
-      <span class="brand-name">GameMasterKyle</span>
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
-      <i data-lucide="menu" aria-hidden="true"></i>
-    </button>
-    <div class="links" id="navlinks">
-      <a class="navlink" href="#mission">Mission</a>
-      <a class="navlink" href="#who">Who it's for</a>
-      <a class="navlink" href="#work">The work</a>
-      <a class="navlink" href="#table">Players</a>
-      <a class="navcta" href="#contact">Get in touch</a>
-    </div>
-  </div>
-</nav>
-
-<main id="main">
-
-<!-- HERO · A1 -->
-<header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow">Professional Game Master · Community Host</div>
-      <h1>I make the table a place where strangers <em>become a party.</em></h1>
-      <p class="lede">Fifteen years building worlds and running tables where new players feel at home and everyone leaves wanting the next session.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#work">See the work <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+  <header class="site-header website-bar website-bar-wrap" data-anchor="Nav01">
+    <nav class="nav" id="nav" aria-label="Primary navigation">
+      <div class="wrap">
+        <a class="brand" href="#top" aria-label="GameMasterKyle home">
+          <img class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4IiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+CiAgPHRpdGxlIGlkPSJ0aXRsZSI+R2FtZU1hc3Rlckt5bGUgbWFyazwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgYnJhc3MgYW5kIGVtYmVyIGhleCBtYXJrIGNvbWJpbmluZyBhIG1hcCBwaW4sIHRhYmxlIGRpZSwgYW5kIEdNIGluaXRpYWxzLjwvZGVzYz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZW1iZXIiIHgxPSIyMiIgeTE9IjEyIiB4Mj0iMTA2IiB5Mj0iMTE2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGMDc2M0UiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjQ4IiBzdG9wLWNvbG9yPSIjQzg0OTI0Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdGMkMxNiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYnJhc3MiIHgxPSIzNyIgeTE9IjI0IiB4Mj0iOTEiIHkyPSIxMDUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0YyRDM4QSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTIiIHN0b3AtY29sb3I9IiNDOUEzNUMiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjN0E1QjI1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMjAlIiB5PSItMjAlIiB3aWR0aD0iMTQwJSIgaGVpZ2h0PSIxNDAlIj4KICAgICAgPGZlRHJvcFNoYWRvdyBkeD0iMCIgZHk9IjgiIHN0ZERldmlhdGlvbj0iOCIgZmxvb2QtY29sb3I9IiMxNjBEMDgiIGZsb29kLW9wYWNpdHk9IjAuMzUiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cGF0aCBmaWx0ZXI9InVybCgjc2hhZG93KSIgZD0iTTY0IDcgMTE0IDM1LjV2NTdMNjQgMTIxIDE0IDkyLjV2LTU3TDY0IDdaIiBmaWxsPSIjMTUxMTBEIi8+CiAgPHBhdGggZD0iTTY0IDE0IDEwNi41IDM4LjN2NTEuNEw2NCAxMTQgMjEuNSA4OS43VjM4LjNMNjQgMTRaIiBmaWxsPSJ1cmwoI2VtYmVyKSIvPgogIDxwYXRoIGQ9Ik02NCAyMyA5OC41IDQyLjl2NDIuMkw2NCAxMDUgMjkuNSA4NS4xVjQyLjlMNjQgMjNaIiBmaWxsPSIjMTkxMjBEIiBvcGFjaXR5PSIwLjk2Ii8+CiAgPHBhdGggZD0iTTM5IDY0YzAtMTQuNCAxMS40LTI1LjkgMjUtMjUuOVM4OSA0OS42IDg5IDY0YzAgMTUuOC0xNy43IDI5LjctMjMuMyAzMy43YTMgMyAwIDAgMS0zLjQgMEM1Ni43IDkzLjcgMzkgNzkuOCAzOSA2NFoiIGZpbGw9InVybCgjYnJhc3MpIi8+CiAgPGNpcmNsZSBjeD0iNjQiIGN5PSI2MyIgcj0iMTQuNSIgZmlsbD0iIzE3MTAwQiIvPgogIDxwYXRoIGQ9Ik01Mi41IDYwLjJoNy4ydjQuM2gtMi40djcuMWgtNC44VjYwLjJabTkuOCAwSDY3bDQuMiA1LjN2LTUuM2g0Ljh2MTEuNGgtNC41bC00LjQtNS40djUuNGgtNC44VjYwLjJaIiBmaWxsPSIjRjhFRERBIi8+CiAgPHBhdGggZD0iTTQxIDQzLjIgNjQgMzBsMjMgMTMuMk00MSA4NC44IDY0IDk4bDIzLTEzLjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgb3BhY2l0eT0iMC40MiIvPgo8L3N2Zz4K" alt="" width="44" height="44" data-asset-id="A0" />
+          <span class="brand-name">
+            <strong>GameMasterKyle</strong>
+            <span>Table craft for real rooms</span>
+          </span>
+        </a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+          <span class="menu-lines" aria-hidden="true"></span>
+        </button>
+        <div class="nav-links website-nav" id="navlinks">
+          <a class="navlink" href="#mission">Mission</a>
+          <a class="navlink" href="#who">Who</a>
+          <a class="navlink" href="#work">Proof</a>
+          <a class="navlink" href="#table">Players</a>
+          <a class="btn nav-cta" href="#contact">Book</a>
+        </div>
       </div>
-    </div>
-    <div class="ph tall" role="img" aria-label="Hero image to generate: the warm, electric feeling of a great game night.">
-      <span class="badge">A1 · HERO</span>
-      <div class="pcap">
-        <div class="spec">3:2 landscape · ~1600px · generate · vibe over detail</div>
-        <p class="prompt">The feeling of a great game night: warm lantern light, dice and a map on a wooden table, people leaning in. Cozy, a little cinematic, faces soft. Run with it.</p>
-      </div>
-    </div>
-  </div>
-  <div class="stats">
-    <div class="wrap">
-      <div class="stat"><div class="num">15+</div><div class="lab">Years running tables</div></div>
-      <div class="stat"><div class="num">5+</div><div class="lab">Years on one campaign</div></div>
-      <div class="stat"><div class="num">200+</div><div class="lab">Players welcomed</div></div>
-      <div class="stat"><div class="num">60+</div><div class="lab">Factions in one world</div></div>
-    </div>
-  </div>
-</header>
+    </nav>
+  </header>
 
-<!-- MISSION -->
-<section class="band" id="mission">
-  <div class="wrap reveal">
-    <div class="seclabel"><span class="dot"></span><span class="eyebrow">The mission</span></div>
-    <h2 class="h-section">Great game nights are not luck. They are designed.</h2>
-    <p class="lead">I design the structure that makes a table effortless, so mixed groups learn fast, get invested, and come back.</p>
-    <div class="pillars">
-      <div class="pillar reveal"><div class="ic"><i data-lucide="heart-handshake" aria-hidden="true"></i></div><h3>Welcoming culture</h3><p>Everyone feels safe and seen from the first roll.</p></div>
-      <div class="pillar reveal"><div class="ic"><i data-lucide="globe" aria-hidden="true"></i></div><h3>Worlds that pull people back</h3><p>Rich enough to return to, clear enough to follow.</p></div>
-      <div class="pillar reveal"><div class="ic"><i data-lucide="layers" aria-hidden="true"></i></div><h3>Systems that stay invisible</h3><p>Custom rules that keep complex games fast and clean.</p></div>
-      <div class="pillar reveal"><div class="ic"><i data-lucide="calendar-check" aria-hidden="true"></i></div><h3>A host you can rely on</h3><p>Prepped, on time, and easy to schedule around.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"><span class="rule"></span><span class="d20"></span><span class="rule r"></span></div>
-
-<!-- AUDIENCE + IDENTITY · A2 -->
-<section class="band paper2" id="who">
-  <div class="wrap reveal">
-    <div class="seclabel"><span class="dot"></span><span class="eyebrow">Who this is for</span></div>
-    <div class="aud-grid">
-      <div class="aud-cards">
-        <div class="aud"><div class="ic"><i data-lucide="store" aria-hidden="true"></i></div><div><h3>Game stores and event spaces</h3><p>Organized play and beginner nights that grow a crowd.</p></div></div>
-        <div class="aud"><div class="ic"><i data-lucide="users" aria-hidden="true"></i></div><div><h3>New and mixed groups</h3><p>First timers and veterans, all having a good time.</p></div></div>
-        <div class="aud"><div class="ic"><i data-lucide="shield-check" aria-hidden="true"></i></div><div><h3>Organizers who need trust</h3><p>A dependable host who represents your space well.</p></div></div>
-      </div>
-      <div class="persona">
-        <div class="ph light" role="img" aria-label="Photo of Jonathan Kyle Hobson to add: a warm, friendly portrait.">
-          <span class="badge">A2 · PHOTO OF KYLE</span>
-          <div class="pcap">
-            <div class="spec">1:1 square · real photo · headshot</div>
-            <p class="prompt">A warm, friendly photo of Kyle behind the screen. Natural light, real smile, approachable. A real phone portrait is perfect.</p>
+  <main id="main">
+    <section class="hero website-hero" id="top" data-anchor="Hero01" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Professional Game Master | Community Host</div>
+          <h1 id="hero-title">I make the table a place where strangers <em>become a party.</em></h1>
+          <p class="hero-lede">I run tabletop games that lower the social friction, make complex worlds playable, and give stores or private groups a host they can trust with the room.</p>
+          <div class="cta-row website-hero-actions" aria-label="Primary actions">
+            <a class="button btn btn-primary" href="#work">See proof of craft</a>
+            <a class="button btn btn-secondary" href="#contact">Start an inquiry</a>
+          </div>
+          <div class="hero-proof" aria-label="Quick proof points">
+            <div class="proof-micro"><b>15+ years</b><span>running tabletop games and long arcs</span></div>
+            <div class="proof-micro"><b>Store-night ready</b><span>clear setup, warm onboarding, reliable facilitation</span></div>
+            <div class="proof-micro"><b>Custom systems</b><span>mechanics built to serve the table, not bury it</span></div>
           </div>
         </div>
-        <div class="pbody">
-          <div class="nm">Jonathan &ldquo;Kyle&rdquo; Hobson</div>
-          <div class="rl">Game Master · World builder · Community host</div>
-          <div class="sig">Pull up a chair.</div>
+
+        <figure class="hero-art reveal">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwNTAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5HYW1lIHRhYmxlIHdpdGggbWFwLCBkaWNlLCBjYXJkcywgYW5kIHdhcm0gbGlnaHQ8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIGNpbmVtYXRpYyB0YWJsZXRvcCBzY2VuZSB3aXRoIGEgcGFyY2htZW50IG1hcCwgZGljZSwgY2FyZHMsIGFuZCB3YXJtIGxhbXAgbGlnaHQuPC9kZXNjPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ3b29kIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM0QjI2MTciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU1IiBzdG9wLWNvbG9yPSIjMUIxMjBEIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA3MTMxOSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0ibGFtcCIgY3g9IjM1JSIgY3k9IjI0JSIgcj0iNjUlIj4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Y4RDU4QiIgc3RvcC1vcGFjaXR5PSIwLjk1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0U2NjAzNiIgc3RvcC1vcGFjaXR5PSIwLjM2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA3MTMxOSIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdCIgeD0iLTEwJSIgeT0iLTEwJSIgd2lkdGg9IjEyMCUiIGhlaWdodD0iMTIwJSI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjQiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTYwMCIgaGVpZ2h0PSIxMDUwIiBmaWxsPSJ1cmwoI3dvb2QpIi8+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTA1MCIgZmlsbD0idXJsKCNsYW1wKSIvPgogIDxwYXRoIGQ9Ik0yMDUgMjQxYzIyMi01OCA0NzItODggNzM2LTM5IDE1NCAyOSAyODMgODQgNDQyIDY2IDM5LTQgNjkgMzAgNjIgNjlsLTgzIDQ5MWMtNiAzNS00MSA1OC03NiA0OS0xNzktNDctMzIxIDctNDk0IDctMTgzIDAtMzYyLTU4LTU0NS0yNi00NCA4LTgyLTMyLTcxLTc1bDEwMi00ODJjOC0zNi0yNi02OC03My02MFoiIGZpbGw9IiNFOUQ3QjQiIG9wYWNpdHk9IjAuOTMiLz4KICA8cGF0aCBkPSJNMzEwIDM0M2MxNjEtNDAgMzQwLTQzIDUxNiAxIDEyOSAzMiAyNTQgNzEgNDEzIDQyTTI3NSA1MTFjMTg2LTU0IDM0MCAyNyA1MTEgNiAxNzMtMjEgMjU4LTExMSA0NjItNzZNMjU1IDY3M2MxODYtMjUgMzA2IDgyIDQ5NiA3MyAxNTMtNyAyNDgtOTQgNDkxLTQ0IiBmaWxsPSJub25lIiBzdHJva2U9IiM3QTVCMjUiIHN0cm9rZS1vcGFjaXR5PSIwLjM3IiBzdHJva2Utd2lkdGg9IjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik00NDUgMzAyIDQ5MiAzNTAgNDQ1IDM5OCAzOTggMzUwWiIgZmlsbD0iI0M4NDkyNCIgb3BhY2l0eT0iMC44NSIvPgogIDxwYXRoIGQ9Ik0xMDYyIDUwMyAxMTExIDU1MiAxMDYyIDYwMSAxMDEzIDU1MloiIGZpbGw9IiM2RkFFQjciIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik03NDkgNzE5IDc5MyA3NjMgNzQ5IDgwNyA3MDUgNzYzWiIgZmlsbD0iI0M5QTM1QyIgb3BhY2l0eT0iMC45Ii8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEyMCAxMjApIHJvdGF0ZSgxMSkiPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjIzMCIgaGVpZ2h0PSIzMzAiIHJ4PSIxOCIgZmlsbD0iIzE0MTAwQyIgc3Ryb2tlPSIjQzlBMzVDIiBzdHJva2Utd2lkdGg9IjYiLz4KICAgIDxyZWN0IHg9IjIwIiB5PSIyNCIgd2lkdGg9IjE5MCIgaGVpZ2h0PSIxMjYiIHJ4PSIxMCIgZmlsbD0iIzI0M0I0MyIvPgogICAgPHBhdGggZD0iTTM4IDE5MmgxNTRNMzggMjI1aDEzOE0zOCAyNThoMTA4IiBzdHJva2U9IiNFOUQ3QjQiIHN0cm9rZS1vcGFjaXR5PSIwLjU4IiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDxjaXJjbGUgY3g9IjE2NCIgY3k9Ijg2IiByPSIzNiIgZmlsbD0iI0U2NjAzNiIgb3BhY2l0eT0iMC43OCIvPgogIDwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzcgNzE4KSByb3RhdGUoLTEzKSI+CiAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTI0IiBoZWlnaHQ9IjEyNCIgcng9IjIyIiBmaWxsPSIjRjhFRERBIi8+CiAgICA8Y2lyY2xlIGN4PSIzOCIgY3k9IjM4IiByPSI5IiBmaWxsPSIjMTYxMDBCIi8+CiAgICA8Y2lyY2xlIGN4PSI4NiIgY3k9Ijg2IiByPSI5IiBmaWxsPSIjMTYxMDBCIi8+CiAgICA8Y2lyY2xlIGN4PSI2MiIgY3k9IjYyIiByPSI5IiBmaWxsPSIjMTYxMDBCIi8+CiAgPC9nPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMjEgNzU4KSByb3RhdGUoMTkpIiBvcGFjaXR5PSIwLjkyIj4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxNTYiIGhlaWdodD0iMzgiIHJ4PSI2IiBmaWxsPSIjQzlBMzVDIi8+CiAgICA8cmVjdCB4PSIxOCIgeT0iNDMiIHdpZHRoPSIxNTYiIGhlaWdodD0iMzgiIHJ4PSI2IiBmaWxsPSIjRTY2MDM2Ii8+CiAgICA8cmVjdCB4PSItMTMiIHk9Ijg2IiB3aWR0aD0iMTU2IiBoZWlnaHQ9IjM4IiByeD0iNiIgZmlsbD0iIzZGQUVCNyIvPgogIDwvZz4KICA8ZWxsaXBzZSBjeD0iODMwIiBjeT0iMTAwMCIgcng9Ijc2MCIgcnk9IjkwIiBmaWxsPSIjMDcwOTBCIiBvcGFjaXR5PSIwLjQyIiBmaWx0ZXI9InVybCgjc29mdCkiLz4KPC9zdmc+Cg==" alt="A cinematic tabletop scene with a parchment map, dice, cards, and warm lamp light." width="1600" height="1050" data-asset-id="A1" />
+          <figcaption class="hero-caption">
+            <strong>A1 | Table-map world</strong>
+            <span>Generated environment art. Real campaign artifacts are tracked separately in the asset manifest.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <aside class="proof-strip" aria-label="Portfolio proof summary">
+      <div class="wrap">
+        <div class="stat"><strong>Long-form</strong><span>campaign continuity across factions, places, and character consequences</span></div>
+        <div class="stat"><strong>Beginner-safe</strong><span>tables where new players know what to do next</span></div>
+        <div class="stat"><strong>Event-ready</strong><span>one-shots that can run cleanly for a full table</span></div>
+        <div class="stat"><strong>Tool-minded</strong><span>maps, cards, rules, and prep systems that support play</span></div>
+      </div>
+    </aside>
+
+    <section class="band paper-band" id="mission" data-anchor="Mission01">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div class="eyebrow">The mission</div>
+          <h2 class="h-section">Great game nights are not luck. They are designed.</h2>
+          <p class="lead">The job is not just lore. It is welcome, pace, clarity, trust, recovery, and payoff. I design the room so people can relax into the story.</p>
+        </div>
+        <div class="mission-grid">
+          <article class="pillar">
+            <div class="icon-box" aria-hidden="true">01</div>
+            <h3>Welcome before wonder</h3>
+            <p>Players get enough structure to feel safe, then enough space to surprise the table.</p>
+          </article>
+          <article class="pillar">
+            <div class="icon-box" aria-hidden="true">02</div>
+            <h3>Worlds with handles</h3>
+            <p>Deep settings become playable through clear factions, visible stakes, and choices people remember.</p>
+          </article>
+          <article class="pillar">
+            <div class="icon-box" aria-hidden="true">03</div>
+            <h3>Rules that disappear</h3>
+            <p>Custom mechanics do their job quietly: they create pressure, reveal tradeoffs, and keep the scene moving.</p>
+          </article>
+          <article class="pillar">
+            <div class="icon-box" aria-hidden="true">04</div>
+            <h3>A reliable host</h3>
+            <p>Prepped, warm, adaptable, and focused on making the table easy for organizers and players.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- THE WORK -->
-<section class="band dark" id="work">
-  <div class="wrap reveal">
-    <div class="seclabel"><span class="dot"></span><span class="eyebrow">Proof of craft</span></div>
-    <h2 class="h-section">Three worlds I built and run.</h2>
-    <p class="lead">Judgment, design, and player experience, not just lore.</p>
-    <div class="cases">
-      <div class="case reveal">
-        <div class="ph" role="img" aria-label="Key art to generate for Peasants to Kings.">
-          <span class="badge">A3 · WORLD ART</span>
-          <div class="pcap"><div class="spec">3:2 landscape · generate</div><p class="prompt">A nobody at the edge of a vast kingdom at golden hour, about to become a legend. Painterly, warm, epic. Vibe over detail.</p></div>
+    <section class="band paper-band" id="who" data-anchor="Audience01">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div class="eyebrow">Who it helps</div>
+          <h2 class="h-section">A safer bet for the person booking the room.</h2>
+          <p class="lead">A good GM lowers buyer risk. People need to know the event will start cleanly, include newcomers, and leave the group wanting another session.</p>
         </div>
-        <div class="cbody">
-          <div class="meta">Flagship campaign · five years and counting</div>
-          <h3>Peasants to Kings</h3>
-          <p>A nation of nobodies rising to legend. Sixty plus factions, twenty two regions, and a story players have lived in for five years.</p>
-          <div class="why"><b>Why it lands.</b> I can hold a world and a group together for the long haul.</div>
-        </div>
-      </div>
-      <div class="case reveal">
-        <div class="ph" role="img" aria-label="Photo to generate for Peril to Profit: a Jenga tower mid pull.">
-          <span class="badge">A4 · EVENT PHOTO</span>
-          <div class="pcap"><div class="spec">3:2 landscape · photo or generate</div><p class="prompt">A Jenga tower mid pull at a game table, the moment before it falls. Tense, warm light, shallow focus. A real session photo is ideal.</p></div>
-        </div>
-        <div class="cbody">
-          <div class="meta">Daggerheart one shot · six players</div>
-          <h3>Peril to Profit</h3>
-          <p>Corporate fantasy satire where a Jenga tower is the Fear die. Prepped and ready to drop into any store night.</p>
-          <div class="why"><b>Why it lands.</b> An event in a box. A full table is playing the same night.</div>
-        </div>
-      </div>
-      <div class="case reveal">
-        <div class="ph" role="img" aria-label="Product shot to generate for the Stargate Card Universe.">
-          <span class="badge">A5 · CARD DESIGN</span>
-          <div class="pcap"><div class="spec">3:2 landscape · render or photo</div><p class="prompt">A handful of custom Stargate trading cards laid out on a dark surface, faction colors varied. Clean, premium product feel.</p></div>
-        </div>
-        <div class="cbody">
-          <div class="meta">Custom card design · playtested</div>
-          <h3>Stargate Card Universe</h3>
-          <p>A custom Stargate card universe with distinct factions, balanced through real play.</p>
-          <div class="why"><b>Why it lands.</b> I can run the card side of a floor, not just the RPG tables.</div>
+        <div class="audience-layout">
+          <div class="audience-stack">
+            <article class="audience-card">
+              <div class="icon-box" aria-hidden="true">ST</div>
+              <div>
+                <h3>Game stores and event spaces</h3>
+                <p>Beginner nights, organized play, and special events that need a host who can represent the space well.</p>
+              </div>
+            </article>
+            <article class="audience-card">
+              <div class="icon-box" aria-hidden="true">GR</div>
+              <div>
+                <h3>New and mixed groups</h3>
+                <p>First-timers and veterans can share the same table without one side feeling lost or slowed down.</p>
+              </div>
+            </article>
+            <article class="audience-card">
+              <div class="icon-box" aria-hidden="true">EV</div>
+              <div>
+                <h3>Events that need a hook</h3>
+                <p>One-shots with a strong premise, clean onboarding, and enough texture to feel bigger than a demo.</p>
+              </div>
+            </article>
+          </div>
+          <aside class="portrait-card" data-anchor="Portrait01">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5HYW1lIE1hc3RlciBwb3J0cmFpdCBmYWxsYmFjazwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgbm9uLWxpa2VuZXNzIGlsbHVzdHJhdGlvbiBvZiBhIGdhbWUgbWFzdGVyIGJlaGluZCBhIHNjcmVlbiBhdCBhIHdhcm0gdGFibGUuPC9kZXNjPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRThEM0FFIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41NSIgc3RvcC1jb2xvcj0iI0I5ODI0RCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNzJCMzIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9InVybCgjYmcpIi8+CiAgPHBhdGggZD0iTTAgNzIwYzE1MC03MiAyOTMtOTMgNDMwLTYyIDEzOCAzMSAyNDIgMTExIDM5OSA5MSA2Ny04IDEyNC0zMSAxNzEtNTh2MzA5SDBaIiBmaWxsPSIjMTcxMDBCIiBvcGFjaXR5PSIwLjg4Ii8+CiAgPGNpcmNsZSBjeD0iNTE1IiBjeT0iMzM0IiByPSIxMTIiIGZpbGw9IiM2QTNEMjYiLz4KICA8cGF0aCBkPSJNMzczIDY0MGMyNS0xMjMgODYtMTk0IDE4NC0xOTRzMTYxIDcxIDE4NyAxOTRaIiBmaWxsPSIjMkIxODEyIi8+CiAgPHBhdGggZD0iTTI3MiA1OTFoNTAwbDU2IDI0NUgyMTZaIiBmaWxsPSIjMjAxNjBGIiBzdHJva2U9IiNDOUEzNUMiIHN0cm9rZS13aWR0aD0iMTAiLz4KICA8cGF0aCBkPSJNMzIyIDY1NGg5Nk00NzQgNjU0aDk2TTYyNiA2NTRoOTZNMzQ4IDcxOWgzMjIiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLW9wYWNpdHk9IjAuMzQiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMjUgMjE0YzE3MS05NCAzMjYtMTM3IDQ2NS0xMjkgMTE3IDcgMjA5IDQ5IDI4NSAxMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLW9wYWNpdHk9IjAuMjIiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xNzMgMjkyYzExNy01NyAyMjktODAgMzM1LTY4IDkzIDExIDE2OSA0NyAyMzAgOTciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0U2NjAzNiIgc3Ryb2tlLW9wYWNpdHk9IjAuMjYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=" alt="A non-likeness illustration of a game master behind a screen at a warm table." width="1000" height="1000" loading="lazy" data-asset-id="A2" />
+            <div class="portrait-body">
+              <p class="asset-note">A2 | non-likeness fallback</p>
+              <h3>Jonathan "Kyle" Hobson</h3>
+              <p>Game Master, world builder, community host, and maker of suspiciously effective table scaffolding.</p>
+              <div class="signature">Pull up a chair.</div>
+            </div>
+          </aside>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FROM THE TABLE -->
-<section class="band" id="table">
-  <div class="wrap reveal">
-    <div class="seclabel"><span class="dot"></span><span class="eyebrow">From the table</span></div>
-    <h2 class="h-section">What players say after.</h2>
-    <p class="lead">Real words, by Discord handle and the character they played.</p>
+    <section class="band dark" id="work" data-anchor="Work01">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div class="eyebrow">Proof of craft</div>
+          <h2 class="h-section">Three worlds, three ways to trust the work.</h2>
+          <p class="lead">These are not lore trophies. They show how I build welcome, pressure, systems, and payoff into playable experiences.</p>
+        </div>
 
-    <figure class="qfeature">
-      <p class="big">Kyle makes the world feel like it keeps moving even when our characters are not looking at it. I always felt like my choices mattered and that my character had a real place in the larger story.</p>
-      <figcaption class="by"><b>@avalonr</b> played Sly and Raven</figcaption>
-    </figure>
+        <div class="case-list">
+          <article class="case-card" data-anchor="CaseP2K">
+            <figure class="case-media">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5QZWFzYW50cyB0byBLaW5ncyBjYW1wYWlnbiBtYXAgYXJ0aWZhY3Q8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIHN0eWxpemVkIGNhbXBhaWduIG1hcCB3aXRoIHJlZ2lvbnMsIGZhY3Rpb24gcm91dGVzLCBhbmQgYSBsb25nLXJ1bm5pbmcgd29ybGQgZmVlbC48L2Rlc2M+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0iIzFCMTMwRCIvPgogIDxwYXRoIGQ9Ik0xODggMjMzYzIzMC0xMzQgNDQ1LTE1NCA2NDUtNjAgMTQzIDY3IDI4MSA5OCA0MTQgMzYgODItMzggMTU0LTMxIDIwOSAyNSAzMSAzMSAzNiA4MCAxMiAxMTctNTAgNzgtNTYgMTQ5LTE4IDIxMyAzNiA2MCAyOSAxMzMtMjUgMTgwLTExNyAxMDItMjUyIDEyNC00MDQgNjUtMTU3LTYxLTMxMC03Ni00NjEtNDUtMTQxIDI5LTI2MC0xLTM1Ny05MC05NS04Ny0xMDYtMjAxLTM0LTM0MCAxOC0zNCAyMi02OCAxOS0xMDFaIiBmaWxsPSIjRTZEMUE3Ii8+CiAgPHBhdGggZD0iTTI2NyA0MjFjMTYwLTQ4IDMxMC0yNiA0NTEgNjQgMTM2IDg3IDI3NSA5OSA0MTYgMzZNNDA1IDI0OWM3MyAxMzEgOTcgMjY2IDcyIDQwNE03ODkgMTgyYy0zOCAxOTEgMyAzNTMgMTI1IDQ4Nk0xMTQ2IDIzN2MtNjQgMTQ5LTQ2IDI3NyA1NCAzODQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzdBNUIyNSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2Utb3BhY2l0eT0iMC41NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGcgZmlsbD0iI0M4NDkyNCI+CiAgICA8Y2lyY2xlIGN4PSI0NzgiIGN5PSIzMjYiIHI9IjE4Ii8+CiAgICA8Y2lyY2xlIGN4PSI3ODciIGN5PSI1MzYiIHI9IjE4Ii8+CiAgICA8Y2lyY2xlIGN4PSIxMTE4IiBjeT0iMzgyIiByPSIxOCIvPgogICAgPGNpcmNsZSBjeD0iMTAxNyIgY3k9IjY4NiIgcj0iMTgiLz4KICA8L2c+CiAgPGcgZmlsbD0iIzI0M0I0MyI+CiAgICA8cGF0aCBkPSJNMzA1IDYwOCAzMjYgNjI5IDMwNSA2NTAgMjg0IDYyOVoiLz4KICAgIDxwYXRoIGQ9Ik02NjUgMjYyIDY4NiAyODMgNjY1IDMwNCA2NDQgMjgzWiIvPgogICAgPHBhdGggZD0iTTEyNzYgNTY2IDEyOTcgNTg3IDEyNzYgNjA4IDEyNTUgNTg3WiIvPgogIDwvZz4KICA8cGF0aCBkPSJNNDc4IDMyNkM1ODkgNDEzIDY3NyA0NzMgNzg3IDUzNnMxOTYgMTAyIDMzMS0xNTRNNzg3IDUzNmM2NyA3MSAxMzAgMTE2IDIzMCAxNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0M4NDkyNCIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtZGFzaGFycmF5PSIxOCAxNiIgc3Ryb2tlLW9wYWNpdHk9IjAuNyIvPgogIDxwYXRoIGQ9Ik0xMTggODMwaDM3MU0xMTggODcyaDI1OCIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utb3BhY2l0eT0iMC4zNSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHRleHQgeD0iMTE4IiB5PSI3ODIiIGZpbGw9IiNDOUEzNUMiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSI0NiI+QSB3b3JsZCB0aGF0IHJlbWVtYmVyczwvdGV4dD4KPC9zdmc+Cg==" alt="A stylized campaign map with regions, faction routes, and a long-running world feel." width="1600" height="1000" loading="lazy" data-asset-id="A3" />
+              <figcaption class="case-label">A3 | campaign map</figcaption>
+            </figure>
+            <div class="case-copy">
+              <div class="meta">Flagship campaign | long-form worldbuilding</div>
+              <h3>Peasants to Kings</h3>
+              <p>A long-running fantasy campaign about nobodies becoming dangerous enough for the world to notice. The value is continuity: factions move, consequences echo, and players can still find the thread.</p>
+              <p class="case-proof"><b>What this proves:</b> I can hold a deep world without making the table carry the complexity.</p>
+            </div>
+          </article>
 
-    <div class="quotes">
-      <figure class="quote reveal">
-        <div class="mk" aria-hidden="true">&ldquo;</div>
-        <blockquote>Kyle creates the kind of table where people feel safe enough to take creative risks. He pays attention to the room and still keeps the story moving.</blockquote>
-        <figcaption class="by"><b>@betweentheivyandthemoss</b>played Maia</figcaption>
-      </figure>
-      <figure class="quote reveal">
-        <div class="mk" aria-hidden="true">&ldquo;</div>
-        <blockquote>Kyle can handle absolute player chaos and still make it feel like part of the story. He keeps the table welcoming no matter how much experience someone has.</blockquote>
-        <figcaption class="by"><b>@corncornthecorngod</b>played Logan and Brax</figcaption>
-      </figure>
-      <figure class="quote reveal">
-        <div class="mk" aria-hidden="true">&ldquo;</div>
-        <blockquote>In Peril to Profit, every faction and place felt like it had a reason to exist. The world was huge, but I never felt lost.</blockquote>
-        <figcaption class="by"><b>@StasyFrey</b>played Amber</figcaption>
-      </figure>
-      <figure class="quote reveal">
-        <div class="mk" aria-hidden="true">&ldquo;</div>
-        <blockquote>I have played with Kyle across very different games. There is a huge amount behind the scenes, but at the table it still feels clear and fast.</blockquote>
-        <figcaption class="by"><b>@Infinitely0</b>played Crag and Kroc</figcaption>
-      </figure>
-    </div>
+          <article class="case-card" data-anchor="CaseP2P">
+            <figure class="case-media">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5QZXJpbCB0byBQcm9maXQgdGFibGUgc2NlbmU8L3RpdGxlPgogIDxkZXNjIGlkPSJkZXNjIj5BIGNvcnBvcmF0ZSBmYW50YXN5IG9uZS1zaG90IHRhYmxlIHdpdGggYSBKZW5nYSB0b3dlciwgbWVtb3MsIGNvaW5zLCBhbmQgdGVuc2Ugd2FybSBsaWdodC48L2Rlc2M+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0iIzExMTAwQyIvPgogIDxwYXRoIGQ9Ik0wIDBoMTYwMHYxMDAwSDB6IiBmaWxsPSIjMjQzQjQzIiBvcGFjaXR5PSIwLjMyIi8+CiAgPGVsbGlwc2UgY3g9IjgwMCIgY3k9IjY0MCIgcng9IjY4MCIgcnk9IjI3MCIgZmlsbD0iIzU1MzAxQyIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcxMCAyNTgpIj4KICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxNTAiIGhlaWdodD0iNDIiIHJ4PSI0IiBmaWxsPSIjRDlDMjlBIi8+CiAgICA8cmVjdCB4PSIxOCIgeT0iNDgiIHdpZHRoPSIxNTAiIGhlaWdodD0iNDIiIHJ4PSI0IiBmaWxsPSIjRjBEQUIyIi8+CiAgICA8cmVjdCB4PSItOCIgeT0iOTYiIHdpZHRoPSIxNTAiIGhlaWdodD0iNDIiIHJ4PSI0IiBmaWxsPSIjQzlBMzVDIi8+CiAgICA8cmVjdCB4PSIyMiIgeT0iMTQ0IiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQyIiByeD0iNCIgZmlsbD0iI0U4RDNBRSIvPgogICAgPHJlY3QgeD0iMiIgeT0iMTkyIiB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQyIiByeD0iNCIgZmlsbD0iI0Q5QzI5QSIvPgogICAgPHJlY3QgeD0iMzkiIHk9IjI0MCIgd2lkdGg9IjE1MCIgaGVpZ2h0PSI0MiIgcng9IjQiIGZpbGw9IiNGMERBQjIiLz4KICA8L2c+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUwIDI4MCkgcm90YXRlKC0xMCkiPgogICAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMzAiIHJ4PSIxNiIgZmlsbD0iI0U5RDdCNCIvPgogICAgPHBhdGggZD0iTTM4IDYyaDIzNk0zOCAxMDRoMjg2TTM4IDE0NmgxOTgiIHN0cm9rZT0iIzNDMkMyMCIgc3Ryb2tlLW9wYWNpdHk9IjAuNTUiIHN0cm9rZS13aWR0aD0iMTMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPHBhdGggZD0iTTI1OCAxNTZoNjR2NDJoLTY0WiIgZmlsbD0iI0U2NjAzNiIvPgogICAgPHRleHQgeD0iMzgiIHk9IjM5IiBmb250LXNpemU9IjI4IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZpbGw9IiM3RjJDMTYiPlJJU0sgQUNDRVBUQU5DRSBGT1JNPC90ZXh0PgogIDwvZz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NDUgMzAyKSByb3RhdGUoOSkiPgogICAgPHJlY3Qgd2lkdGg9IjMyMCIgaGVpZ2h0PSIyMjAiIHJ4PSIxNiIgZmlsbD0iIzE2MTAwQiIgc3Ryb2tlPSIjQzlBMzVDIiBzdHJva2Utd2lkdGg9IjYiLz4KICAgIDxwYXRoIGQ9Ik00MCA1OGgxNjJNNDAgOThoMjM2TTQwIDEzOGgxOTQiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLW9wYWNpdHk9IjAuNDIiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iMjUwIiBjeT0iNjQiIHI9IjMxIiBmaWxsPSIjRTY2MDM2Ii8+CiAgPC9nPgogIDxnIGZpbGw9IiNDOUEzNUMiPgogICAgPGNpcmNsZSBjeD0iNTA3IiBjeT0iNjkwIiByPSIzNCIvPgogICAgPGNpcmNsZSBjeD0iMTA4NSIgY3k9IjY5MyIgcj0iMjkiLz4KICAgIDxjaXJjbGUgY3g9IjEwMTQiIGN5PSI3NTMiIHI9IjIzIi8+CiAgPC9nPgogIDxwYXRoIGQ9Ik0yMzUgODA1YzE2MSA2NCAzNTQgOTYgNTgwIDg0IDIzMy0xMiA0MTAtNjYgNTM2LTE2MSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utb3BhY2l0eT0iMC4xNSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHRleHQgeD0iMTg1IiB5PSIxNTAiIGZpbGw9IiNGOEVEREEiIGZvbnQtZmFtaWx5PSJzZXJpZiIgZm9udC1zaXplPSI1OCI+UGVyaWwgdG8gUHJvZml0PC90ZXh0PgogIDx0ZXh0IHg9IjE4OCIgeT0iMjAyIiBmaWxsPSIjQzlBMzVDIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjYiPlRoZSBtb3JhbGUgZXZlbnQgaGFzIHRlZXRoLjwvdGV4dD4KPC9zdmc+Cg==" alt="A corporate fantasy one-shot table with a Jenga tower, memos, coins, and tense warm light." width="1600" height="1000" loading="lazy" data-asset-id="A4" />
+              <figcaption class="case-label">A4 | event one-shot</figcaption>
+            </figure>
+            <div class="case-copy">
+              <div class="meta">Daggerheart one-shot | corporate fantasy satire</div>
+              <h3>Peril to Profit</h3>
+              <p>A fantasy workplace hazard disguised as a team-building opportunity. The Jenga tower turns risk into a shared physical joke: HR would call it morale. The table knows better.</p>
+              <p class="case-proof"><b>What this proves:</b> I can package tone, mechanics, and onboarding into an event that starts fast.</p>
+            </div>
+          </article>
 
-    <div class="proof-cta">
-      <a class="sp-link" href="https://startplaying.games/gm/gamemasterkyle" target="_blank" rel="noopener noreferrer">Read my verified reviews on StartPlaying <i data-lucide="external-link" aria-hidden="true"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="cta band" id="contact">
-  <div class="wrap reveal">
-    <div class="cta-grid">
-      <div>
-        <div class="seclabel"><span class="dot"></span><span class="eyebrow">Get in touch</span></div>
-        <h2>Let's make a table people come back to.</h2>
-        <p class="first">If you run a store, an event, or a group that needs a host, send a note and let's talk.</p>
-        <div class="alt-contact">
-          <span class="label">Or reach me directly</span>
-          <a class="lnk" href="https://discord.gg/A9JNzTRucn" target="_blank" rel="noopener noreferrer"><i data-lucide="message-circle" aria-hidden="true"></i>Join the Discord</a>
-          <a class="lnk" href="https://startplaying.games/gm/gamemasterkyle" target="_blank" rel="noopener noreferrer"><i data-lucide="star" aria-hidden="true"></i>Book me on StartPlaying</a>
-          <a class="lnk" href="https://github.com/JonathanKHobson" target="_blank" rel="noopener noreferrer"><i data-lucide="github" aria-hidden="true"></i>GitHub</a>
-          <a class="lnk" href="mailto:jonathankylehobson@gmail.com?subject=Game%20Master%20inquiry"><i data-lucide="mail" aria-hidden="true"></i>Email me directly</a>
+          <article class="case-card" data-anchor="CaseStargate">
+            <figure class="case-media">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbGxlZGJ5PSJ0aXRsZSBkZXNjIj4KICA8dGl0bGUgaWQ9InRpdGxlIj5DdXN0b20gU3RhcmdhdGUtaW5zcGlyZWQgY2FyZCBncmlkPC90aXRsZT4KICA8ZGVzYyBpZD0iZGVzYyI+QSBwcmVtaXVtIGdyaWQgb2YgY3VzdG9tIHNjaS1maSBmYWN0aW9uIGNhcmRzIG9uIGEgZGFyayB0YWJsZS48L2Rlc2M+CiAgPHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0iIzA3MTMxOSIvPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjYXJkQSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiM2RkFFQjciLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNzJCMzIiLz48L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjYXJkQiIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNFNjYwMzYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzMzE0MEQiLz48L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJjYXJkQyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNDOUEzNUMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyQTFCMEIiLz48L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTYgMTE4KSI+CiAgICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgtNiAxNzAgMjUwKSI+CiAgICAgIDxyZWN0IHdpZHRoPSIyOTAiIGhlaWdodD0iNDEwIiByeD0iMTgiIGZpbGw9IiMxNDEwMEMiIHN0cm9rZT0iIzZGQUVCNyIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgICAgIDxyZWN0IHg9IjI0IiB5PSIyOCIgd2lkdGg9IjI0MiIgaGVpZ2h0PSIxNTAiIHJ4PSIxMCIgZmlsbD0idXJsKCNjYXJkQSkiLz4KICAgICAgPGNpcmNsZSBjeD0iMTQ1IiBjeT0iMTAzIiByPSI1NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utd2lkdGg9IjEwIiBvcGFjaXR5PSIwLjY1Ii8+CiAgICAgIDxwYXRoIGQ9Ik00MiAyMzJoMTkwTTQyIDI3MmgyMTBNNDIgMzEyaDE2MCIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDwvZz4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1MCAzNCkgcm90YXRlKDMgMTcwIDI1MCkiPgogICAgICA8cmVjdCB3aWR0aD0iMjkwIiBoZWlnaHQ9IjQxMCIgcng9IjE4IiBmaWxsPSIjMTQxMDBDIiBzdHJva2U9IiNFNjYwMzYiIHN0cm9rZS13aWR0aD0iOCIvPgogICAgICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSIyNDIiIGhlaWdodD0iMTUwIiByeD0iMTAiIGZpbGw9InVybCgjY2FyZEIpIi8+CiAgICAgIDxwYXRoIGQ9Ik03MyAxNDMgMTQ1IDYxIDIxNyAxNDNaIiBmaWxsPSJub25lIiBzdHJva2U9IiNGOEVEREEiIHN0cm9rZS13aWR0aD0iMTIiIG9wYWNpdHk9IjAuNjYiLz4KICAgICAgPHBhdGggZD0iTTQyIDIzMmgxOTBNNDIgMjcyaDIxME00MiAzMTJoMTYwIiBzdHJva2U9IiNGOEVEREEiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAwIC0xMikgcm90YXRlKDggMTcwIDI1MCkiPgogICAgICA8cmVjdCB3aWR0aD0iMjkwIiBoZWlnaHQ9IjQxMCIgcng9IjE4IiBmaWxsPSIjMTQxMDBDIiBzdHJva2U9IiNDOUEzNUMiIHN0cm9rZS13aWR0aD0iOCIvPgogICAgICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSIyNDIiIGhlaWdodD0iMTUwIiByeD0iMTAiIGZpbGw9InVybCgjY2FyZEMpIi8+CiAgICAgIDxwYXRoIGQ9Ik0xNDUgNDkgMjAzIDE1MEg4N1oiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLXdpZHRoPSIxMiIgb3BhY2l0eT0iMC42NiIvPgogICAgICA8cGF0aCBkPSJNNDIgMjMyaDE5ME00MiAyNzJoMjEwTTQyIDMxMmgxNjAiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8L2c+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAgNDIwKSByb3RhdGUoNSAxNzAgMjUwKSI+CiAgICAgIDxyZWN0IHdpZHRoPSIyOTAiIGhlaWdodD0iNDEwIiByeD0iMTgiIGZpbGw9IiMxNDEwMEMiIHN0cm9rZT0iI0M5QTM1QyIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgICAgIDxyZWN0IHg9IjI0IiB5PSIyOCIgd2lkdGg9IjI0MiIgaGVpZ2h0PSIxNTAiIHJ4PSIxMCIgZmlsbD0idXJsKCNjYXJkQykiLz4KICAgICAgPHBhdGggZD0iTTgyIDEwMmgxMjZNMTQ1IDM5djEyNiIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utd2lkdGg9IjEyIiBvcGFjaXR5PSIwLjY2Ii8+CiAgICAgIDxwYXRoIGQ9Ik00MiAyMzJoMTkwTTQyIDI3MmgyMTBNNDIgMzEyaDE2MCIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICAgIDwvZz4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzMCA0MTIpIHJvdGF0ZSgtMyAxNzAgMjUwKSI+CiAgICAgIDxyZWN0IHdpZHRoPSIyOTAiIGhlaWdodD0iNDEwIiByeD0iMTgiIGZpbGw9IiMxNDEwMEMiIHN0cm9rZT0iIzZGQUVCNyIgc3Ryb2tlLXdpZHRoPSI4Ii8+CiAgICAgIDxyZWN0IHg9IjI0IiB5PSIyOCIgd2lkdGg9IjI0MiIgaGVpZ2h0PSIxNTAiIHJ4PSIxMCIgZmlsbD0idXJsKCNjYXJkQSkiLz4KICAgICAgPGNpcmNsZSBjeD0iMTQ1IiBjeT0iMTAzIiByPSI2MiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjhFRERBIiBzdHJva2Utd2lkdGg9IjgiIG9wYWNpdHk9IjAuNjYiLz4KICAgICAgPHBhdGggZD0iTTEwMCAxMDNoOTAiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLXdpZHRoPSIxMiIgb3BhY2l0eT0iMC42NiIvPgogICAgICA8cGF0aCBkPSJNNDIgMjMyaDE5ME00MiAyNzJoMjEwTTQyIDMxMmgxNjAiIHN0cm9rZT0iI0Y4RUREQSIgc3Ryb2tlLW9wYWNpdHk9IjAuNSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K" alt="A premium grid of custom sci-fi faction cards on a dark table." width="1600" height="1000" loading="lazy" data-asset-id="A5" />
+              <figcaption class="case-label">A5 | card systems</figcaption>
+            </figure>
+            <div class="case-copy">
+              <div class="meta">Custom card universe | play and systems thinking</div>
+              <h3>Stargate Card Universe</h3>
+              <p>A custom sci-fi card world built around factions, missions, and table-tested pressure. The card work shows a different side of GM craft: readable mechanics, faction identity, and balance you can actually play.</p>
+              <p class="case-proof"><b>What this proves:</b> I can support card-table play and custom systems, not just roleplay scenes.</p>
+            </div>
+          </article>
         </div>
       </div>
-      <form class="cform" id="cform" novalidate>
-        <h3>Send a message</h3>
-        <p class="fhint">Tell me about your space, group, or event. I reply within a day or two.</p>
-        <div class="field"><label for="cf-name">Your name</label><input id="cf-name" type="text" placeholder="First and last" required></div>
-        <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" placeholder="you@example.com" required></div>
-        <div class="field"><label for="cf-msg">What do you have in mind?</label><textarea id="cf-msg" rows="4" placeholder="A store night, a private event, a group looking for a GM..." required></textarea></div>
-        <button class="btn btn-primary" type="submit">Send message <i data-lucide="arrow-right" aria-hidden="true"></i></button>
-        <p id="formnote" role="status" aria-live="polite"></p>
-      </form>
+    </section>
+
+    <section class="band paper-band" id="table" data-anchor="Quotes01">
+      <div class="wrap reveal">
+        <div class="section-head">
+          <div class="eyebrow">From the table</div>
+          <h2 class="h-section">The proof that matters most is how players talk after.</h2>
+          <p class="lead">Player words are kept in project metadata with source and approval status. The public page uses handle-based attribution.</p>
+        </div>
+
+        <figure class="quote-feature">
+          <blockquote>Kyle makes the world feel like it keeps moving even when our characters are not looking at it. I always felt like my choices mattered and that my character had a real place in the larger story.</blockquote>
+          <figcaption><b>@avalonr</b> | played Sly and Raven</figcaption>
+        </figure>
+
+        <div class="quote-grid">
+          <figure class="quote-card">
+            <blockquote>Kyle creates the kind of table where people feel safe enough to take creative risks. He pays attention to the room and still keeps the story moving.</blockquote>
+            <figcaption><b>@betweentheivyandthemoss</b> | played Maia</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>Kyle can handle absolute player chaos and still make it feel like part of the story. He keeps the table welcoming no matter how much experience someone has.</blockquote>
+            <figcaption><b>@corncornthecorngod</b> | played Logan and Brax</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>In Peril to Profit, every faction and place felt like it had a reason to exist. The world was huge, but I never felt lost.</blockquote>
+            <figcaption><b>@StasyFrey</b> | played Amber</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>I have played with Kyle across very different games. There is a huge amount behind the scenes, but at the table it still feels clear and fast.</blockquote>
+            <figcaption><b>@Infinitely0</b> | played Crag and Kroc</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>Kyle puts a lot of invisible work into making custom systems feel smooth at the table. In Stargate, the mechanics supported the cinematic feeling instead of getting in the way.</blockquote>
+            <figcaption><b>Chris</b> | played Xan and O'Lacran</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>My character felt like they mattered to the world. That is what kept me excited between sessions.</blockquote>
+            <figcaption><b>June</b> | played Lila</figcaption>
+          </figure>
+        </div>
+
+        <div class="proof-cta">
+          <a class="chip-link" href="https://startplaying.games/gm/gamemasterkyle" target="_blank" rel="noopener noreferrer">Read verified StartPlaying reviews</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band dark contact" id="contact" data-anchor="Contact01">
+      <div class="wrap reveal">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <div class="eyebrow">Get in touch</div>
+            <h2>Let's make a table people come back to.</h2>
+            <p>Tell me the room, the players, the tone, and what would make the event a win. I will help shape the first session into something clear, welcoming, and worth returning to.</p>
+            <div class="contact-links" aria-label="Direct contact links">
+              <a class="contact-link" href="https://discord.gg/A9JNzTRucn" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+              <a class="contact-link" href="https://startplaying.games/gm/gamemasterkyle" target="_blank" rel="noopener noreferrer">Book on StartPlaying</a>
+              <a class="contact-link" href="https://github.com/JonathanKHobson" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.33-3.76-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1 .1.26 2.63 1.76 3.16 1.08.31 1.95.24 2.43.18.1-.73.39-1.23.71-1.51-2.47-.28-5.08-1.24-5.08-5.5 0-1.22.43-2.21 1.16-2.99-.12-.28-.5-1.42.11-2.95 0 0 .95-.3 3.1 1.14a10.7 10.7 0 0 1 5.64 0c2.15-1.44 3.09-1.14 3.09-1.14.62 1.53.23 2.67.12 2.95.72.78 1.16 1.77 1.16 2.99 0 4.27-2.61 5.22-5.09 5.5.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+                GitHub
+              </a>
+              <a class="contact-link" href="mailto:jonathankylehobson@gmail.com?subject=Game%20Master%20inquiry">Email Kyle</a>
+            </div>
+          </div>
+
+          <form class="contact-card" id="contactForm" novalidate>
+            <h3>Send the first note</h3>
+            <p class="form-hint">This opens your email app with the details ready. No account or portal required.</p>
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="First and last" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required />
+            </div>
+            <div class="field">
+              <label for="cf-msg">What do you want to run?</label>
+              <textarea id="cf-msg" name="message" rows="5" placeholder="A store night, private group, beginner table, custom one-shot, or something stranger..." required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Open email draft</button>
+            <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>GameMasterKyle | @GameMasterKyle</span>
+      <span>Built table by table in the Phoenix East Valley</span>
     </div>
-  </div>
-</section>
+  </footer>
 
-<footer class="foot">
-  <div class="wrap">
-    <span>GameMasterKyle · @GameMasterKyle</span>
-    <span>Built table by table in the Phoenix East Valley</span>
-  </div>
-</footer>
+  <script data-inlined-from="scripts/main.js">
+(function () {
+  var nav = document.querySelector("[data-anchor='Nav01']");
+  var menuButton = document.getElementById("menuBtn");
+  var navLinks = document.getElementById("navlinks");
+  var form = document.getElementById("contactForm");
+  var note = document.getElementById("formNote");
 
-</main>
+  function updateNav() {
+    if (!nav) return;
+    nav.classList.toggle("scrolled", window.scrollY > 18);
+  }
 
-<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-(function(){
-  if(window.lucide&&lucide.createIcons){lucide.createIcons();}
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav();
 
-  var nav=document.getElementById('nav');
-  var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>24); };
-  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  if (menuButton && navLinks) {
+    menuButton.addEventListener("click", function () {
+      var open = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+    });
 
-  var btn=document.getElementById('menuBtn'), links=document.getElementById('navlinks');
-  btn.addEventListener('click',function(){ var o=links.classList.toggle('open'); btn.setAttribute('aria-expanded',o?'true':'false'); });
-  links.addEventListener('click',function(e){ if(e.target.closest('a')){links.classList.remove('open');btn.setAttribute('aria-expanded','false');} });
+    navLinks.addEventListener("click", function (event) {
+      if (!event.target.closest("a")) return;
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+    });
 
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);} }); },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+    window.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.focus();
+    });
+  }
 
-  // Contact form via EmailJS (reuses the existing AI-glossary service)
-  var EMAILJS_PUBLIC="DpN9hLocoU__4dYVX", EMAILJS_SERVICE="service_9wx16fe", EMAILJS_TEMPLATE="template_hjbmxbn";
-  try{ if(window.emailjs) emailjs.init(EMAILJS_PUBLIC); }catch(e){}
-  var form=document.getElementById('cform'), note=document.getElementById('formnote');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name=document.getElementById('cf-name').value.trim();
-    var email=document.getElementById('cf-email').value.trim();
-    var message=document.getElementById('cf-msg').value.trim();
-    if(name.length<2||!email||message.length<5){ note.textContent='Please add your name, email, and a little detail.'; return; }
-    var send=form.querySelector('button[type=submit]');
-    send.disabled=true; note.textContent='Sending...';
-    var params={ title:'Portfolio contact', name:name, email:email, message:message, page:location.href };
-    var done=function(){ form.reset(); note.textContent='Thanks! Your message was sent. I will reply within a day or two.'; send.disabled=false; };
-    var fail=function(err){ console.error(err); note.innerHTML='Could not send right now. Email me at <a href="mailto:jonathankylehobson@gmail.com" style="color:var(--ember-soft)">jonathankylehobson@gmail.com</a>.'; send.disabled=false; };
-    try{ emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,params).then(done,fail); }catch(err){ fail(err); }
-  });
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+    reveals.forEach(function (element) {
+      observer.observe(element);
+    });
+  } else {
+    reveals.forEach(function (element) {
+      element.classList.add("in");
+    });
+  }
+
+  function validEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  if (form && note) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var name = document.getElementById("cf-name").value.trim();
+      var email = document.getElementById("cf-email").value.trim();
+      var message = document.getElementById("cf-msg").value.trim();
+
+      if (name.length < 2) {
+        note.textContent = "Add your name so I know who I am talking with.";
+        document.getElementById("cf-name").focus();
+        return;
+      }
+
+      if (!validEmail(email)) {
+        note.textContent = "Enter a valid email, like name@example.com.";
+        document.getElementById("cf-email").focus();
+        return;
+      }
+
+      if (message.length < 12) {
+        note.textContent = "Add a little detail about the event, group, or table.";
+        document.getElementById("cf-msg").focus();
+        return;
+      }
+
+      var subject = encodeURIComponent("Game Master inquiry from " + name);
+      var body = encodeURIComponent(message + "\n\nReply to: " + email);
+      window.location.href = "mailto:jonathankylehobson@gmail.com?subject=" + subject + "&body=" + body;
+      note.textContent = "Opening your email app. If it does not open, use the direct email link below.";
+    });
+  }
 })();
+
 </script>
 </body>
 </html>
