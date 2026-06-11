@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-05-18T21:10:26+00:00",
+  "generated_at": "2026-06-11T00:40:58+00:00",
   "shareables": [
+    {
+      "audience": "Friend or public reviewer evaluating the Luma 3D project and the Shareables artifact quality.",
+      "id": "20260611T002945+0000-luma-3d-field-notes",
+      "purpose": "A public listed Shareables showcase for the Lumina3D work-in-progress browser game, embedding a playable compressed screen-recording demo and linking to the GitHub repo.",
+      "title": "Luma 3D Field Notes",
+      "updated_at": "2026-06-11T00:40:58+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/"
+    },
     {
       "audience": "Shareables MCP users and collaborators",
       "id": "20260511T182131+0000-shareables-design-system-explorer",
