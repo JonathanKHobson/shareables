@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Luma 3D Field Notes</title>
   <meta name="description" content="A magical progressive landing Shareable for the Luma 3D work-in-progress browser game, with playable demo video, screenshots, workflow notes, code architecture, and public GitHub proof.">
-  <meta name="shareables:ai-summary" content="This listed Shareables page presents Luma 3D as an in-progress cozy 3D browser-game prototype. It embeds a compressed playable demo video, adds real screenshots from local debug scenes, explains the level path, shows progressive code/workflow/prompting detail, links to the public GitHub repo, and states WIP caveats without claiming a finished release.">
+  <meta name="shareables:ai-summary" content="This listed Shareables page presents Luma 3D as an in-progress cozy 3D browser-game prototype. It embeds a YouTube-hosted full demo video, adds real screenshots from local debug scenes, explains the level path, shows progressive code/workflow/prompting detail, links to the public GitHub repo, and states WIP caveats without claiming a finished release.">
   <link rel="canonical" href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/luma-sigil-192.png">
@@ -23,7 +23,7 @@
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": "Luma 3D Field Notes",
-    "description": "A public Shareables showcase for the Luma 3D work-in-progress browser game with an embedded playable demo video, real screenshots, workflow notes, and GitHub repo links.",
+    "description": "A public Shareables showcase for the Luma 3D work-in-progress browser game with an embedded YouTube demo video, real screenshots, workflow notes, and GitHub repo links.",
     "url": "https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/",
     "creator": {"@type": "Person", "name": "Jonathan Kyle Hobson"},
     "datePublished": "2026-06-11",
@@ -86,7 +86,7 @@
     }
 
     a { color: inherit; }
-    a:focus-visible, button:focus-visible, summary:focus-visible, video:focus-visible {
+    a:focus-visible, button:focus-visible, summary:focus-visible, iframe:focus-visible {
       outline: 3px solid var(--sky);
       outline-offset: 4px;
     }
@@ -296,6 +296,10 @@
       padding: 78px 0;
     }
 
+    main section[id] {
+      scroll-margin-top: 92px;
+    }
+
     .band {
       border-block: 1px solid var(--line);
       background: rgba(255, 245, 219, 0.035);
@@ -367,11 +371,29 @@
     .pips span:nth-child(2) { background: var(--moss); }
     .pips span:nth-child(3) { background: var(--rune); }
 
-    video {
-      display: block;
+    .youtube-shell {
+      position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background: #06080d;
+      overflow: hidden;
+    }
+
+    .youtube-poster,
+    .youtube-embed {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .youtube-poster {
+      object-fit: cover;
+    }
+
+    .youtube-embed {
+      border: 0;
     }
 
     figcaption {
@@ -820,7 +842,7 @@
         <div class="hero-metrics" aria-label="Project status highlights">
           <div class="metric"><strong>7</strong><span>fresh screenshots captured from the local game build</span></div>
           <div class="metric"><strong>8</strong><span>debug-routable scenes in the current level registry</span></div>
-          <div class="metric"><strong>720p</strong><span>HD demo video embedded with metadata-only preload</span></div>
+          <div class="metric"><strong>YouTube</strong><span>full demo hosted for sharper playback</span></div>
         </div>
       </div>
     </section>
@@ -829,18 +851,18 @@
       <div class="section-head">
         <p class="section-kicker">First reveal</p>
         <h2 id="demo-title">Watch the current build before reading the spellbook.</h2>
-        <p class="lead">This is the public, compressed version of the attached screen recording. It gives a fast sense of motion, scale, tone, and direction. The game is still a work in progress, so the honest promise is progress with receipts, not a finished release trailer.</p>
+        <p class="lead">This is the full demo recording hosted on YouTube so the game stays crisp instead of being squeezed through GitHub Pages video limits. It gives a fast sense of motion, scale, tone, and direction while keeping the honest WIP boundary: progress with receipts, not a finished release trailer.</p>
       </div>
       <div class="intro-grid">
         <figure class="demo-frame">
           <div class="demo-topline"><span>Playable capture: Luma 3D WIP</span><span class="pips" aria-hidden="true"><span></span><span></span><span></span></span></div>
-          <video controls preload="metadata" poster="assets/luma3d-demo-share-m4v-2.png" aria-label="Playable Luma 3D work-in-progress demo video">
-            <source src="assets/luma3d-demo-sharp-720p.m4v" type="video/mp4">
-            Your browser does not support embedded video playback. Open the GitHub repository to review the project source.
-          </video>
+          <div class="youtube-shell">
+            <img class="youtube-poster" src="assets/luma3d-demo-share-m4v-2.png" alt="Luma 3D gameplay poster frame from the demo video." width="1280" height="800" loading="eager" decoding="async">
+            <iframe class="youtube-embed" src="https://www.youtube-nocookie.com/embed/A8p7NMTYUrY?rel=0&modestbranding=1" title="Luma 3D work-in-progress demo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
           <figcaption>
-            The embedded video now uses a 720p HD web encode from the original 276 MB screen recording, with metadata-only preload so the page stays shareable.
-            <span class="media-links"><a href="assets/luma3d-demo-clear-web.m4v">Open quick version (9.9 MB)</a><a href="assets/luma3d-demo-public.m4v">Open lightweight version (4.1 MB)</a></span>
+            The demo now plays from YouTube using the original full screen recording instead of a heavily compressed GitHub Pages file.
+            <span class="media-links"><a href="https://youtu.be/A8p7NMTYUrY" target="_blank" rel="noopener noreferrer">Open on YouTube</a></span>
           </figcaption>
         </figure>
         <aside class="paper-panel" aria-label="Why this matters">
