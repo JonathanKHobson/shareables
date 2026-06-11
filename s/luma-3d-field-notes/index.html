@@ -7,6 +7,8 @@
   <meta name="description" content="A magical progressive landing Shareable for the Luma 3D work-in-progress browser game, with playable demo video, screenshots, workflow notes, code architecture, and public GitHub proof.">
   <meta name="shareables:ai-summary" content="This listed Shareables page presents Luma 3D as an in-progress cozy 3D browser-game prototype. It embeds a compressed playable demo video, adds real screenshots from local debug scenes, explains the level path, shows progressive code/workflow/prompting detail, links to the public GitHub repo, and states WIP caveats without claiming a finished release.">
   <link rel="canonical" href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/luma-sigil-192.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">
   <meta property="og:title" content="Luma 3D Field Notes">
@@ -125,11 +127,17 @@
       border-radius: 50%;
       display: grid;
       place-items: center;
-      color: #20150a;
-      background: linear-gradient(135deg, #fff1bc, #c98d2f);
-      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.2);
-      font-family: var(--serif);
-      font-weight: 900;
+      overflow: hidden;
+      background: #071022;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+      flex: 0 0 auto;
+    }
+
+    .sigil img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .nav-links {
@@ -155,6 +163,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       min-height: 44px;
       padding: 11px 17px;
       border: 1px solid rgba(255, 245, 219, 0.18);
@@ -164,6 +173,12 @@
       font-weight: 900;
       text-decoration: none;
       box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .button svg {
+      width: 1.08em;
+      height: 1.08em;
+      flex: 0 0 auto;
     }
 
     .button.secondary {
@@ -366,6 +381,21 @@
       font-size: 0.92rem;
     }
 
+    .media-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      font-family: var(--sans);
+    }
+
+    .media-links a {
+      color: #f8e6b0;
+      font-weight: 850;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
     .paper-panel {
       padding: 24px;
       background: linear-gradient(180deg, var(--panel-2), var(--panel));
@@ -385,13 +415,13 @@
       color: var(--paper-muted);
     }
 
-    .rhetoric {
+    .promise-list {
       display: grid;
       gap: 12px;
       margin-top: 18px;
     }
 
-    .rhetoric-row {
+    .promise-row {
       display: grid;
       grid-template-columns: 86px 1fr;
       gap: 12px;
@@ -399,8 +429,8 @@
       border-top: 1px solid var(--line-dark);
     }
 
-    .rhetoric-row strong { color: var(--paper-ink); }
-    .rhetoric-row p { margin: 0; }
+    .promise-row strong { color: var(--paper-ink); }
+    .promise-row p { margin: 0; }
 
     .route-strip {
       display: grid;
@@ -753,7 +783,7 @@
       .cta-panel { padding: 18px; }
       summary { padding: 16px; }
       .detail-content { padding: 0 16px 16px; }
-      .rhetoric-row { grid-template-columns: 1fr; }
+      .promise-row { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -764,7 +794,7 @@
 <body data-template="website" data-style-source="dark-analytics" data-style-notes="structured-bridge annotated-portfolio field-report-explainer">
   <header class="site-header">
     <nav class="nav" aria-label="Luma 3D Field Notes">
-      <a class="mark" href="#top" aria-label="Luma 3D Field Notes home"><span class="sigil" aria-hidden="true">L</span><span>Luma 3D Field Notes</span></a>
+      <a class="mark" href="#top" aria-label="Luma 3D Field Notes home"><span class="sigil" aria-hidden="true"><img src="assets/luma-sigil-192.png" alt=""></span><span>Luma 3D Field Notes</span></a>
       <div class="nav-links">
         <a href="#demo">Demo</a>
         <a href="#atlas">Levels</a>
@@ -783,14 +813,14 @@
         <h1 id="hero-title">Luma 3D</h1>
         <p class="hero-copy">A cozy magical browser-game prototype about little helpers, environmental puzzles, love-letter story beats, and the satisfying feeling of making a tiny world come alive one playable slice at a time.</p>
         <div class="hero-actions" aria-label="Primary actions">
-          <a class="button" href="#demo">Watch the demo</a>
-          <a class="button secondary" href="#atlas">Tour the levels</a>
-          <a class="button secondary" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Open GitHub</a>
+          <a class="button" href="#demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.14v13.72c0 .78.86 1.25 1.52.83l10.1-6.86a1 1 0 0 0 0-1.66L9.52 4.31A.99.99 0 0 0 8 5.14Z"/></svg><span>Watch the demo</span></a>
+          <a class="button secondary" href="#atlas"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3-6-3Zm0 0V3m6 18V6"/></svg><span>Tour the levels</span></a>
+          <a class="button secondary" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.38-3.9-1.38-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.74-1.56-2.57-.29-5.28-1.29-5.28-5.73 0-1.27.45-2.3 1.2-3.12-.12-.29-.52-1.47.11-3.07 0 0 .98-.31 3.18 1.19A11.05 11.05 0 0 1 12 6.03c.98 0 1.96.13 2.88.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.6.23 2.78.11 3.07.75.82 1.2 1.85 1.2 3.12 0 4.46-2.71 5.43-5.3 5.72.42.36.8 1.08.8 2.18v3.02c0 .31.2.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>Open GitHub</span></a>
         </div>
         <div class="hero-metrics" aria-label="Project status highlights">
           <div class="metric"><strong>7</strong><span>fresh screenshots captured from the local game build</span></div>
           <div class="metric"><strong>8</strong><span>debug-routable scenes in the current level registry</span></div>
-          <div class="metric"><strong>3.9 MB</strong><span>compressed playable demo video embedded for sharing</span></div>
+          <div class="metric"><strong>720p</strong><span>HD demo video embedded with metadata-only preload</span></div>
         </div>
       </div>
     </section>
@@ -805,18 +835,21 @@
         <figure class="demo-frame">
           <div class="demo-topline"><span>Playable capture: Luma 3D WIP</span><span class="pips" aria-hidden="true"><span></span><span></span><span></span></span></div>
           <video controls preload="metadata" poster="assets/luma3d-demo-share-m4v-2.png" aria-label="Playable Luma 3D work-in-progress demo video">
-            <source src="assets/luma3d-demo-public.m4v" type="video/mp4">
+            <source src="assets/luma3d-demo-sharp-720p.m4v" type="video/mp4">
             Your browser does not support embedded video playback. Open the GitHub repository to review the project source.
           </video>
-          <figcaption>The public video is 3.9 MB, produced from the original 276 MB screen recording for fast browser playback.</figcaption>
+          <figcaption>
+            The embedded video now uses a 720p HD web encode from the original 276 MB screen recording, with metadata-only preload so the page stays shareable.
+            <span class="media-links"><a href="assets/luma3d-demo-clear-web.m4v">Open quick version (9.9 MB)</a><a href="assets/luma3d-demo-public.m4v">Open lightweight version (4.1 MB)</a></span>
+          </figcaption>
         </figure>
         <aside class="paper-panel" aria-label="Why this matters">
-          <p class="micro-label">Reader promise</p>
-          <h3>A landing page, a case note, and a proof trail in one.</h3>
-          <div class="rhetoric" aria-label="Ethos logos pathos">
-            <div class="rhetoric-row"><strong>Pathos</strong><p>A tiny blue hero moves through floating islands, helper creatures, rivers, city crossings, and little story moments that feel like a handmade adventure.</p></div>
-            <div class="rhetoric-row"><strong>Logos</strong><p>The page progressively reveals the stack, level registry, source-file map, debug keys, and testing posture without forcing every reader into code first.</p></div>
-            <div class="rhetoric-row"><strong>Ethos</strong><p>The public GitHub repo, WIP caveats, asset-license note, and visual QA flow make the claim inspectable.</p></div>
+          <p class="micro-label">Why it works</p>
+          <h3>A tiny game world you can feel and inspect.</h3>
+          <div class="promise-list" aria-label="Project proof and value">
+            <div class="promise-row"><strong>Heart</strong><p>A small blue hero moves through floating islands, helper moments, rivers, city crossings, and story beats that feel handmade.</p></div>
+            <div class="promise-row"><strong>Proof</strong><p>Real screenshots, a playable clip, debug-routed scenes, and source links show what exists now without making the reader dig first.</p></div>
+            <div class="promise-row"><strong>Trust</strong><p>The page keeps the WIP boundary visible: this is a growing prototype with receipts, not a finished release claim.</p></div>
           </div>
         </aside>
       </div>
@@ -832,84 +865,84 @@
         <div class="shot-grid">
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/01-tutorial.jpg" alt="Tutorial scene with Lumina on a floating green grid island and a movement instruction prompt." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/01-tutorial.jpg" alt="Tutorial scene with Lumina on a floating green grid island and a movement instruction prompt." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">01</span>
             </div>
             <div class="shot-body">
               <h3>Tutorial: the first spell is movement.</h3>
-              <p>Placeholder brief: show the smallest playable moment, where the player learns to move and the world announces that this is interactive, not just a concept image.</p>
+              <p>The smallest playable promise: movement instructions, a readable grid, and a first character moment.</p>
               <div class="shot-meta"><span class="tag">Debug key 1</span><span class="tag">Onboarding</span></div>
             </div>
           </article>
 
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/02-home-intro.jpg" alt="Home Intro scene with Lumina near a small house, trees, and a greeting speech bubble." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/02-home-intro.jpg" alt="Home Intro scene with Lumina near a small house, trees, and a greeting speech bubble." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">02</span>
             </div>
             <div class="shot-body">
               <h3>Home Intro: the quest begins softly.</h3>
-              <p>Placeholder brief: show the cozy origin point, the house, and the first emotional cue so the reader understands this project is playful and story-led.</p>
+              <p>The cozy origin point: a house, a greeting, and the first signal that this is playful and story-led.</p>
               <div class="shot-meta"><span class="tag">Debug key 2</span><span class="tag">Story setup</span></div>
             </div>
           </article>
 
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/03-level-one.jpg" alt="Level One scene with Lumina, a river, lily pads, trees, and a large title overlay." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/03-level-one.jpg" alt="Level One scene with Lumina, a river, lily pads, trees, and a large title overlay." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">03</span>
             </div>
             <div class="shot-body">
               <h3>Level One: the world teaches with terrain.</h3>
-              <p>Placeholder brief: capture the first full level identity, with water and pathing visible enough to show how the game starts turning movement into environmental puzzles.</p>
+              <p>The first full level identity: water, pathing, and terrain begin turning movement into environmental puzzles.</p>
               <div class="shot-meta"><span class="tag">Debug key 3</span><span class="tag">First route</span></div>
             </div>
           </article>
 
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/04-level-two.jpg" alt="Level Two scene with raised terrain, path tiles, a button pad, and a large title overlay." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/04-level-two.jpg" alt="Level Two scene with raised terrain, path tiles, a button pad, and a large title overlay." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">04</span>
             </div>
             <div class="shot-body">
               <h3>Level Two: mechanisms start to matter.</h3>
-              <p>Placeholder brief: show that the prototype can hold more than walking: elevation, buttons, paths, and a more structured route through a compact scene.</p>
+              <p>More than walking: elevation, buttons, paths, and a structured route start to shape a compact puzzle space.</p>
               <div class="shot-meta"><span class="tag">Debug key 4</span><span class="tag">Puzzle language</span></div>
             </div>
           </article>
 
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/05-level-three.jpg" alt="Level Three scene with Lumina, islands, a bridge, lily pads, and water crossing space." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/05-level-three.jpg" alt="Level Three scene with Lumina, islands, a bridge, lily pads, and water crossing space." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">05</span>
             </div>
             <div class="shot-body">
               <h3>Level Three: the lake becomes a design lane.</h3>
-              <p>Placeholder brief: show the active lake and island work, where the project is currently exploring water routes, bridge logic, and a bigger sense of travel.</p>
+              <p>The active lake lane: water routes, bridge logic, and a bigger sense of travel are coming into view.</p>
               <div class="shot-meta"><span class="tag">Debug key 5</span><span class="tag">Active WIP</span></div>
             </div>
           </article>
 
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/06-level-four.jpg" alt="Level Four scene with Lumina, blue block structures, lily pads, logs, water lanes, and a title overlay." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/06-level-four.jpg" alt="Level Four scene with Lumina, blue block structures, lily pads, logs, water lanes, and a title overlay." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">06</span>
             </div>
             <div class="shot-body">
               <h3>Level Four: a river-crossing slice appears.</h3>
-              <p>Placeholder brief: show the debug-playable river-crossing work, including moving-route ingredients and reusable component thinking starting to surface.</p>
+              <p>A debug-playable river slice with moving-route ingredients and reusable component thinking starting to surface.</p>
               <div class="shot-meta"><span class="tag">Debug key 6</span><span class="tag">River system</span></div>
             </div>
           </article>
 
           <article class="shot-card">
             <div class="shot-media">
-              <img src="assets/level-shots/07-city-level.jpg" alt="City Level scene with roads, traffic, buildings, a traffic light, a green helper cube, and Lumina." width="1280" height="800" loading="lazy" decoding="async">
+              <img src="assets/level-shots/07-city-level.jpg" alt="City Level scene with roads, traffic, buildings, a traffic light, and Lumina." width="1280" height="800" loading="eager" decoding="async">
               <span class="shot-number">07</span>
             </div>
             <div class="shot-body">
               <h3>City Level: a future pattern tests itself.</h3>
-              <p>Placeholder brief: use the forward-looking city scene as proof that the world is not locked to grass islands; traffic crossings and reusable challenge patterns are on the horizon.</p>
+              <p>A forward-looking city shell that shows the world can grow beyond grass islands into traffic crossings and reusable challenge patterns.</p>
               <div class="shot-meta"><span class="tag">Debug key 7</span><span class="tag">Future shell</span></div>
             </div>
           </article>
@@ -1111,7 +1144,7 @@
             <h2 id="share-title">Send the field note, then let the repo carry the receipts.</h2>
             <p>Start with the video and screenshots. If the reader wants more, the disclosure panels explain the workflow, code shape, prompting strategy, and WIP boundary without overwhelming them on arrival.</p>
           </div>
-          <a class="button" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Review the GitHub repo</a>
+          <a class="button" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 8.36 22.9c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.38-3.9-1.38-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.7.08-.7 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.1-.75.4-1.27.74-1.56-2.57-.29-5.28-1.29-5.28-5.73 0-1.27.45-2.3 1.2-3.12-.12-.29-.52-1.47.11-3.07 0 0 .98-.31 3.18 1.19A11.05 11.05 0 0 1 12 6.03c.98 0 1.96.13 2.88.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.6.23 2.78.11 3.07.75.82 1.2 1.85 1.2 3.12 0 4.46-2.71 5.43-5.3 5.72.42.36.8 1.08.8 2.18v3.02c0 .31.2.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>Review the GitHub repo</span></a>
         </div>
       </div>
     </section>
