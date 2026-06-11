@@ -4,49 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Luma 3D Field Notes</title>
-  <meta name="description" content="A public field-guide style Shareable for the Luma 3D work-in-progress browser game, with a playable compressed demo video and GitHub repo links.">
-  <meta name="shareables:ai-summary" content="This listed Shareables page presents Luma 3D as an in-progress cozy 3D browser-game prototype. It embeds a compressed playable demo video, links to the public GitHub repo and active branch, and states the current proof and limits without claiming a finished release.">
+  <meta name="description" content="A magical progressive landing Shareable for the Luma 3D work-in-progress browser game, with playable demo video, screenshots, workflow notes, code architecture, and public GitHub proof.">
+  <meta name="shareables:ai-summary" content="This listed Shareables page presents Luma 3D as an in-progress cozy 3D browser-game prototype. It embeds a compressed playable demo video, adds real screenshots from local debug scenes, explains the level path, shows progressive code/workflow/prompting detail, links to the public GitHub repo, and states WIP caveats without claiming a finished release.">
   <link rel="canonical" href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">
   <meta property="og:title" content="Luma 3D Field Notes">
-  <meta property="og:description" content="A magical field-note showcase for the Luma 3D WIP, with playable demo footage and repo links.">
-  <meta property="og:image" content="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/assets/luma3d-demo-share-m4v-2.png">
+  <meta property="og:description" content="A magical progressive landing page for the Luma 3D WIP: playable demo, screenshots, workflow, code map, and GitHub proof.">
+  <meta property="og:image" content="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/assets/level-shots/05-level-three.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Luma 3D Field Notes">
-  <meta name="twitter:description" content="Playable demo footage and public GitHub links for the Luma 3D work-in-progress browser-game prototype.">
-  <meta name="twitter:image" content="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/assets/luma3d-demo-share-m4v-2.png">
+  <meta name="twitter:description" content="Playable demo footage, real game screenshots, workflow notes, and public GitHub links for the Luma 3D work-in-progress browser-game prototype.">
+  <meta name="twitter:image" content="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/assets/level-shots/05-level-three.jpg">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": "Luma 3D Field Notes",
-    "description": "A public Shareables showcase for the Luma 3D work-in-progress browser game with an embedded playable demo video and GitHub repo links.",
+    "description": "A public Shareables showcase for the Luma 3D work-in-progress browser game with an embedded playable demo video, real screenshots, workflow notes, and GitHub repo links.",
     "url": "https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/",
     "creator": {"@type": "Person", "name": "Jonathan Kyle Hobson"},
     "datePublished": "2026-06-11",
+    "dateModified": "2026-06-11",
     "isBasedOn": "https://github.com/JonathanKHobson/Lumina3D"
   }
   </script>
   <style>
     :root {
-      color-scheme: light;
-      --ink: #241b12;
-      --soft-ink: #594934;
-      --muted: #75654d;
-      --paper: #f2dfb8;
-      --paper-deep: #e5c98f;
-      --paper-pale: #fbefd2;
-      --line: rgba(76, 54, 27, 0.23);
-      --rune: #6d2949;
-      --moss: #2f6552;
-      --night: #1b2539;
-      --sky: #3c6d8b;
-      --gold: #b98228;
-      --ember: #b94f36;
-      --shadow: 0 18px 48px rgba(49, 31, 12, 0.16);
+      color-scheme: dark;
+      --ink: #f9f2dd;
+      --ink-strong: #fff8e5;
+      --muted: #c8bfa8;
+      --soft: #968d7c;
+      --night: #10141d;
+      --night-2: #151b27;
+      --night-3: #1f2735;
+      --panel: #f3e2bd;
+      --panel-2: #fff4d8;
+      --paper-ink: #251c13;
+      --paper-muted: #665742;
+      --line: rgba(255, 245, 219, 0.16);
+      --line-dark: rgba(58, 44, 26, 0.22);
+      --gold: #e7b757;
+      --moss: #62ba8f;
+      --sky: #6cbdd7;
+      --rune: #d86d8f;
+      --coral: #ef7d52;
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
       --radius: 8px;
-      --max: 1160px;
+      --max: 1180px;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: ui-serif, Georgia, Cambria, "Times New Roman", serif;
     }
 
     * { box-sizing: border-box; }
@@ -56,10 +64,11 @@
       min-width: 320px;
       color: var(--ink);
       background:
-        radial-gradient(circle at 14% 18%, rgba(185, 79, 54, 0.16), transparent 26rem),
-        radial-gradient(circle at 82% 8%, rgba(47, 101, 82, 0.15), transparent 24rem),
-        linear-gradient(180deg, #332318 0%, #6b4b28 16%, var(--paper) 35%, #ead09c 100%);
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+        linear-gradient(90deg, rgba(255, 245, 219, 0.035) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 245, 219, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, #0c111a 0%, #151b25 46%, #1d221b 100%);
+      background-size: 48px 48px, 48px 48px, auto;
+      font-family: var(--sans);
       line-height: 1.55;
       letter-spacing: 0;
     }
@@ -69,16 +78,13 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.34;
-      background-image:
-        linear-gradient(90deg, rgba(72, 48, 22, 0.07) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(72, 48, 22, 0.05) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mix-blend-mode: multiply;
+      background: linear-gradient(180deg, rgba(231, 183, 87, 0.08), transparent 22%, rgba(98, 186, 143, 0.06));
+      mix-blend-mode: screen;
+      opacity: 0.75;
     }
 
     a { color: inherit; }
-    a:focus-visible, button:focus-visible, video:focus-visible {
+    a:focus-visible, button:focus-visible, summary:focus-visible, video:focus-visible {
       outline: 3px solid var(--sky);
       outline-offset: 4px;
     }
@@ -86,10 +92,10 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(251, 239, 210, 0.84);
+      z-index: 20;
+      background: rgba(13, 17, 25, 0.88);
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
@@ -106,172 +112,221 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 800;
-      font-size: 0.98rem;
-      color: var(--night);
+      color: var(--ink-strong);
+      font-weight: 900;
+      text-decoration: none;
       white-space: nowrap;
     }
 
     .sigil {
-      width: 32px;
-      height: 32px;
-      border: 1px solid rgba(109, 41, 73, 0.45);
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(231, 183, 87, 0.55);
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background:
-        radial-gradient(circle, rgba(185, 130, 40, 0.35), transparent 53%),
-        linear-gradient(135deg, #f7e5bd, #d6ad62);
-      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.22);
-      color: var(--rune);
-      font-family: ui-sans-serif, system-ui, sans-serif;
+      color: #20150a;
+      background: linear-gradient(135deg, #fff1bc, #c98d2f);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.2);
+      font-family: var(--serif);
       font-weight: 900;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
       justify-content: flex-end;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.86rem;
+      gap: 4px;
+      flex-wrap: wrap;
+      font-size: 0.84rem;
+      font-weight: 800;
     }
 
     .nav-links a {
-      text-decoration: none;
       padding: 8px 10px;
       border-radius: 999px;
-      color: var(--soft-ink);
+      color: var(--muted);
+      text-decoration: none;
     }
 
-    .nav-links a:hover { background: rgba(109, 41, 73, 0.09); }
+    .nav-links a:hover { background: rgba(255, 245, 219, 0.08); color: var(--ink-strong); }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 44px;
-      padding: 11px 16px;
+      padding: 11px 17px;
+      border: 1px solid rgba(255, 245, 219, 0.18);
       border-radius: 999px;
-      border: 1px solid rgba(36, 27, 18, 0.15);
-      background: var(--night);
-      color: #fff7df;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-weight: 800;
+      background: var(--gold);
+      color: #18120a;
+      font-weight: 900;
       text-decoration: none;
-      box-shadow: 0 12px 28px rgba(27, 37, 57, 0.22);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
     }
 
     .button.secondary {
-      color: var(--night);
-      background: rgba(255, 250, 235, 0.58);
+      background: rgba(255, 245, 219, 0.1);
+      color: var(--ink-strong);
       box-shadow: none;
     }
 
     main { overflow: clip; }
 
     .hero {
-      min-height: 78svh;
+      min-height: 88svh;
       display: grid;
       align-items: end;
       position: relative;
       isolation: isolate;
-      border-bottom: 1px solid rgba(36, 27, 18, 0.18);
       background:
-        linear-gradient(180deg, rgba(22, 26, 36, 0.28), rgba(242, 223, 184, 0.2) 52%, rgba(242, 223, 184, 0.9) 100%),
-        url("assets/luma3d-demo-share-m4v-2.png") center / cover no-repeat;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 38%;
-      z-index: -1;
-      background: linear-gradient(180deg, transparent, rgba(242, 223, 184, 0.98));
+        linear-gradient(90deg, rgba(10, 13, 20, 0.9) 0%, rgba(10, 13, 20, 0.66) 43%, rgba(10, 13, 20, 0.25) 100%),
+        linear-gradient(180deg, rgba(10, 13, 20, 0.15), rgba(10, 13, 20, 0.92)),
+        url("assets/level-shots/05-level-three.jpg") center / cover no-repeat;
+      border-bottom: 1px solid var(--line);
     }
 
     .hero-inner {
       width: min(var(--max), calc(100% - 44px));
       margin: 0 auto;
-      padding: 92px 0 54px;
+      padding: 104px 0 58px;
+    }
+
+    .eyebrow,
+    .section-kicker,
+    .micro-label {
+      margin: 0;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .eyebrow {
       display: inline-flex;
-      align-items: center;
       gap: 8px;
-      margin: 0 0 18px;
+      align-items: center;
+      margin-bottom: 18px;
       padding: 8px 11px;
-      border: 1px solid rgba(251, 239, 210, 0.44);
-      background: rgba(36, 27, 18, 0.58);
-      color: #fff2cf;
+      border: 1px solid rgba(231, 183, 87, 0.36);
       border-radius: 999px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.82rem;
-      font-weight: 800;
+      color: #ffedb7;
+      background: rgba(14, 18, 27, 0.74);
     }
 
-    h1, h2, h3 { line-height: 1.05; margin: 0; letter-spacing: 0; }
+    h1, h2, h3 { margin: 0; line-height: 1.03; letter-spacing: 0; }
     h1 {
-      max-width: 860px;
-      color: #fff7df;
-      text-shadow: 0 3px 18px rgba(27, 18, 10, 0.62);
-      font-size: clamp(3rem, 9vw, 7.6rem);
-      font-weight: 900;
+      max-width: 920px;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 11vw, 8.4rem);
+      font-weight: 950;
+      color: var(--ink-strong);
+      text-shadow: 0 4px 22px rgba(0, 0, 0, 0.62);
     }
 
     .hero-copy {
-      max-width: 720px;
+      max-width: 760px;
       margin: 18px 0 0;
-      color: #fff7df;
-      text-shadow: 0 2px 12px rgba(27, 18, 10, 0.58);
-      font-size: clamp(1.08rem, 2.1vw, 1.38rem);
+      color: #fff0c5;
+      font-family: var(--serif);
+      font-size: clamp(1.16rem, 2.2vw, 1.48rem);
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.62);
     }
 
-    .hero-actions {
+    .hero-actions,
+    .inline-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 28px;
     }
 
-    .section {
-      position: relative;
-      max-width: var(--max);
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 780px;
+      margin-top: 36px;
+    }
+
+    .metric {
+      min-height: 104px;
+      padding: 16px;
+      border: 1px solid rgba(255, 245, 219, 0.16);
+      border-radius: var(--radius);
+      background: rgba(13, 17, 25, 0.72);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.18);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink-strong);
+      font-size: 1.38rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section,
+    .band-inner {
+      width: min(var(--max), calc(100% - 44px));
       margin: 0 auto;
-      padding: 76px 22px;
+      padding: 78px 0;
     }
 
-    .section-kicker {
-      margin: 0 0 12px;
-      color: var(--rune);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
+    .band {
+      border-block: 1px solid var(--line);
+      background: rgba(255, 245, 219, 0.035);
     }
 
-    .section h2 {
-      color: var(--night);
-      font-size: clamp(2rem, 5vw, 4.4rem);
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2,
+    .cta-panel h2 {
+      margin-top: 10px;
+      color: var(--ink-strong);
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5.2vw, 4.5rem);
     }
 
     .lead {
-      max-width: 760px;
-      margin: 18px 0 0;
-      color: var(--soft-ink);
-      font-size: 1.08rem;
+      max-width: 780px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .demo-frame,
+    .paper-panel,
+    .dark-panel,
+    .shot-card,
+    .process-card,
+    .detail-panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
     .demo-frame {
-      margin-top: 28px;
-      border: 1px solid rgba(74, 48, 22, 0.22);
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(255, 247, 223, 0.78), rgba(224, 190, 120, 0.46));
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      background: var(--night-2);
     }
 
     .demo-topline {
@@ -280,20 +335,19 @@
       justify-content: space-between;
       gap: 14px;
       padding: 13px 16px;
-      border-bottom: 1px solid rgba(74, 48, 22, 0.2);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--soft-ink);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
       font-size: 0.86rem;
-      background: rgba(255, 250, 235, 0.5);
+      background: rgba(255, 245, 219, 0.045);
     }
 
-    .pips { display: flex; gap: 6px; }
+    .pips { display: flex; gap: 6px; flex: 0 0 auto; }
     .pips span {
       width: 9px;
       height: 9px;
       border-radius: 50%;
+      border: 1px solid rgba(255, 245, 219, 0.22);
       background: var(--gold);
-      border: 1px solid rgba(36, 27, 18, 0.18);
     }
     .pips span:nth-child(2) { background: var(--moss); }
     .pips span:nth-child(3) { background: var(--rune); }
@@ -302,123 +356,404 @@
       display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #1a1f2b;
+      background: #06080d;
     }
 
     figcaption {
       padding: 15px 18px 18px;
-      color: var(--soft-ink);
-      font-size: 0.94rem;
-      border-top: 1px solid rgba(74, 48, 22, 0.14);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 26px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
-      background: rgba(255, 249, 231, 0.56);
-      box-shadow: 0 10px 26px rgba(49, 31, 12, 0.08);
-    }
-
-    .card h3 {
-      color: var(--night);
-      font-size: 1.16rem;
-      margin-bottom: 9px;
-    }
-
-    .card p { margin: 0; color: var(--soft-ink); }
-
-    .proof-band {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .ledger {
-      border-radius: var(--radius);
-      border: 1px solid rgba(27, 37, 57, 0.25);
-      background: linear-gradient(145deg, #20283a, #101726);
-      color: #fff5da;
+    .paper-panel {
       padding: 24px;
-      box-shadow: var(--shadow);
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      color: var(--paper-ink);
+      border-color: var(--line-dark);
     }
 
-    .ledger h3 { font-size: 1.42rem; margin-bottom: 14px; color: #fff2cf; }
-    .ledger ul { margin: 0; padding-left: 20px; }
-    .ledger li + li { margin-top: 10px; }
+    .paper-panel h3,
+    .process-card h3,
+    .detail-panel h3 {
+      color: inherit;
+      font-size: 1.28rem;
+    }
 
-    .notes {
+    .paper-panel p,
+    .paper-panel li {
+      color: var(--paper-muted);
+    }
+
+    .rhetoric {
       display: grid;
       gap: 12px;
+      margin-top: 18px;
     }
 
-    .note {
-      border-left: 4px solid var(--moss);
+    .rhetoric-row {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 12px;
+      padding-top: 13px;
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .rhetoric-row strong { color: var(--paper-ink); }
+    .rhetoric-row p { margin: 0; }
+
+    .route-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .route-step {
+      padding: 14px;
+      min-height: 110px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 17px 18px;
-      background: rgba(255, 249, 231, 0.62);
-      border-top: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      background: rgba(255, 245, 219, 0.055);
     }
 
-    .note strong { color: var(--night); }
-    .note p { margin: 5px 0 0; color: var(--soft-ink); }
+    .route-step span {
+      display: block;
+      color: var(--sky);
+      font-size: 0.74rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .route-step strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink-strong);
+      line-height: 1.15;
+    }
+
+    .route-step p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .shot-card {
+      background: rgba(255, 245, 219, 0.045);
+    }
+
+    .shot-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #070b11;
+    }
+
+    .shot-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .shot-number {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 245, 219, 0.3);
+      border-radius: 999px;
+      color: #1b1207;
+      background: rgba(255, 238, 174, 0.92);
+      font-weight: 950;
+    }
+
+    .shot-body {
+      padding: 18px;
+    }
+
+    .shot-body h3 {
+      color: var(--ink-strong);
+      font-size: 1.2rem;
+      line-height: 1.16;
+    }
+
+    .shot-body p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .shot-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #d9f6ff;
+      background: rgba(108, 189, 215, 0.12);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .disclosure-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 245, 219, 0.045);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.17);
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 18px 20px;
+      color: var(--ink-strong);
+      font-weight: 950;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    details[open] summary::after { content: "-"; }
+
+    .detail-content {
+      padding: 0 20px 20px;
+      color: var(--muted);
+    }
+
+    .detail-content p { margin: 0; }
+    .detail-content p + p { margin-top: 12px; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .process-card {
+      padding: 20px;
+      background: rgba(255, 245, 219, 0.055);
+    }
+
+    .process-card h3 { color: var(--ink-strong); }
+    .process-card p,
+    .process-card li {
+      color: var(--muted);
+    }
+
+    .process-card ul,
+    .code-list {
+      margin: 12px 0 0;
+      padding-left: 19px;
+    }
+
+    .process-card li + li,
+    .code-list li + li {
+      margin-top: 8px;
+    }
+
+    .code-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      margin-top: 20px;
+      align-items: start;
+    }
+
+    .dark-panel,
+    .detail-panel {
+      padding: 22px;
+      background: rgba(13, 17, 25, 0.68);
+    }
+
+    .detail-panel h3 { color: var(--ink-strong); }
+    .detail-panel p { color: var(--muted); margin: 10px 0 0; }
+
+    pre {
+      margin: 16px 0 0;
+      padding: 16px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #080c13;
+      color: #f7e8bd;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    pre code {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .prompt-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 245, 219, 0.05);
+    }
+
+    .prompt-card h3 {
+      color: var(--ink-strong);
+      font-size: 1.05rem;
+    }
+
+    .prompt-card p {
+      color: var(--muted);
+      margin: 10px 0 0;
+      font-size: 0.92rem;
+    }
+
+    .quote-prompt {
+      margin-top: 12px;
+      padding: 13px;
+      border-left: 4px solid var(--rune);
+      border-radius: var(--radius);
+      background: rgba(216, 109, 143, 0.12);
+      color: #ffe5ef;
+      font-family: var(--serif);
+      font-size: 0.96rem;
+    }
 
     .cta-panel {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 20px;
+      gap: 22px;
       align-items: center;
-      margin-top: 28px;
-      padding: 24px;
+      padding: 28px;
+      border: 1px solid rgba(231, 183, 87, 0.28);
       border-radius: var(--radius);
-      color: #fff7df;
+      color: var(--ink-strong);
       background:
-        linear-gradient(135deg, rgba(109, 41, 73, 0.94), rgba(27, 37, 57, 0.94)),
-        radial-gradient(circle at 100% 0%, rgba(185, 130, 40, 0.3), transparent 20rem);
+        linear-gradient(135deg, rgba(69, 33, 52, 0.94), rgba(18, 28, 43, 0.94)),
+        linear-gradient(90deg, rgba(231, 183, 87, 0.16), transparent);
       box-shadow: var(--shadow);
     }
 
-    .cta-panel h2 { color: #fff7df; font-size: clamp(1.8rem, 4vw, 3.1rem); }
-    .cta-panel p { color: rgba(255, 247, 223, 0.86); margin: 10px 0 0; max-width: 690px; }
-    .cta-panel .button { background: #fff7df; color: var(--night); white-space: nowrap; }
+    .cta-panel p {
+      max-width: 720px;
+      margin: 12px 0 0;
+      color: rgba(255, 248, 229, 0.84);
+    }
 
     footer {
       border-top: 1px solid var(--line);
       padding: 24px 22px 38px;
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--soft);
       font-size: 0.86rem;
     }
-    footer div { max-width: var(--max); margin: 0 auto; }
 
-    @media (max-width: 820px) {
-      .nav { align-items: flex-start; flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-      .hero { min-height: 72svh; }
-      .hero-inner { width: min(var(--max), calc(100% - 34px)); padding-top: 74px; }
-      .grid, .proof-band, .cta-panel { grid-template-columns: 1fr; }
+    footer div {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 940px) {
+      .intro-grid,
+      .code-grid,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .route-strip,
+      .timeline,
+      .prompt-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .cta-panel .button { width: 100%; }
     }
 
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .hero { min-height: 78svh; }
+      .hero-inner { width: min(var(--max), calc(100% - 34px)); padding-top: 82px; }
+      .hero-metrics,
+      .shot-grid,
+      .route-strip,
+      .timeline,
+      .prompt-grid {
+        grid-template-columns: 1fr;
+      }
+      .section,
+      .band-inner {
+        width: min(var(--max), calc(100% - 34px));
+        padding: 60px 0;
+      }
+      h1 { font-size: clamp(3rem, 18vw, 5.2rem); }
+      .section-head h2,
+      .cta-panel h2 {
+        font-size: clamp(2rem, 11vw, 3.2rem);
+      }
+    }
+
     @media (max-width: 520px) {
-      .nav-links { gap: 2px; }
+      .nav { padding: 12px 17px; }
+      .mark { white-space: normal; }
       .nav-links a { padding: 7px 8px; }
-      .hero-inner { padding-bottom: 38px; }
-      .section { padding: 56px 17px; }
-      .hero-actions .button { width: 100%; }
+      .hero-inner { padding-bottom: 42px; }
+      .hero-actions .button,
+      .inline-actions .button { width: 100%; }
       .demo-topline { align-items: flex-start; flex-direction: column; }
-      .card, .ledger, .note, .cta-panel { padding: 18px; }
+      .paper-panel,
+      .dark-panel,
+      .detail-panel,
+      .process-card,
+      .cta-panel { padding: 18px; }
+      summary { padding: 16px; }
+      .detail-content { padding: 0 16px 16px; }
+      .rhetoric-row { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -426,14 +761,16 @@
     }
   </style>
 </head>
-<body>
+<body data-template="website" data-style-source="dark-analytics" data-style-notes="structured-bridge annotated-portfolio field-report-explainer">
   <header class="site-header">
     <nav class="nav" aria-label="Luma 3D Field Notes">
       <a class="mark" href="#top" aria-label="Luma 3D Field Notes home"><span class="sigil" aria-hidden="true">L</span><span>Luma 3D Field Notes</span></a>
       <div class="nav-links">
         <a href="#demo">Demo</a>
-        <a href="#craft">Craft</a>
-        <a href="#proof">Proof</a>
+        <a href="#atlas">Levels</a>
+        <a href="#process">Process</a>
+        <a href="#code">Code</a>
+        <a href="#prompting">Prompting</a>
         <a href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </nav>
@@ -442,83 +779,346 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
-        <p class="eyebrow">Public WIP demo field note</p>
+        <p class="eyebrow">Public WIP game landing page</p>
         <h1 id="hero-title">Luma 3D</h1>
-        <p class="hero-copy">A cozy Three.js browser-game prototype with Cubeling helpers, environmental puzzles, Love Letter story beats, and a local-first build process that keeps the work visible as it grows.</p>
+        <p class="hero-copy">A cozy magical browser-game prototype about little helpers, environmental puzzles, love-letter story beats, and the satisfying feeling of making a tiny world come alive one playable slice at a time.</p>
         <div class="hero-actions" aria-label="Primary actions">
-          <a class="button" href="#demo">Watch the playable demo</a>
-          <a class="button secondary" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Open the GitHub repo</a>
+          <a class="button" href="#demo">Watch the demo</a>
+          <a class="button secondary" href="#atlas">Tour the levels</a>
+          <a class="button secondary" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Open GitHub</a>
+        </div>
+        <div class="hero-metrics" aria-label="Project status highlights">
+          <div class="metric"><strong>7</strong><span>fresh screenshots captured from the local game build</span></div>
+          <div class="metric"><strong>8</strong><span>debug-routable scenes in the current level registry</span></div>
+          <div class="metric"><strong>3.9 MB</strong><span>compressed playable demo video embedded for sharing</span></div>
         </div>
       </div>
     </section>
 
     <section class="section" id="demo" aria-labelledby="demo-title">
-      <p class="section-kicker">Demo mirror</p>
-      <h2 id="demo-title">The current build, compressed for sharing.</h2>
-      <p class="lead">This video is the attached screen recording converted into a small public web version. It is meant as current proof of motion and project direction, not a release trailer or finished-game claim.</p>
-      <figure class="demo-frame">
-        <div class="demo-topline"><span>Playable capture: Luma 3D WIP</span><span class="pips" aria-hidden="true"><span></span><span></span><span></span></span></div>
-        <video controls preload="metadata" poster="assets/luma3d-demo-share-m4v-2.png" aria-label="Playable Luma 3D work-in-progress demo video">
-          <source src="assets/luma3d-demo-public.m4v" type="video/mp4">
-          Your browser does not support embedded video playback. Open the GitHub repository to review the project source.
-        </video>
-        <figcaption>The public video is 3.9 MB, produced from the original 276 MB screen recording for fast browser playback.</figcaption>
-      </figure>
-    </section>
-
-    <section class="section" id="craft" aria-labelledby="craft-title">
-      <p class="section-kicker">What this shows</p>
-      <h2 id="craft-title">A fantasy game lane with real implementation teeth.</h2>
-      <p class="lead">Luma 3D is still in active development, but the visible work already shows a real 3D browser-game direction rather than a static concept board. The project uses Vite, Three.js, scene systems, asset registries, collision helpers, debug shortcuts, smoke checks, and documented level-building patterns.</p>
-      <div class="grid" aria-label="Project signals">
-        <article class="card">
-          <h3>3D browser foundation</h3>
-          <p>Three.js scenes, a GLTF main character, KayKit and voxel assets, orthographic camera work, and custom runtime systems.</p>
-        </article>
-        <article class="card">
-          <h3>Game-feel experiments</h3>
-          <p>Cubeling helpers, puzzle mechanisms, river and traffic slices, dialogue flows, and Love Letter moments are being tested as small playable loops.</p>
-        </article>
-        <article class="card">
-          <h3>Local-first proof</h3>
-          <p>The public repo documents commands, project structure, level registry tooling, and the current WIP caveat so reviewers can inspect the work honestly.</p>
-        </article>
+      <div class="section-head">
+        <p class="section-kicker">First reveal</p>
+        <h2 id="demo-title">Watch the current build before reading the spellbook.</h2>
+        <p class="lead">This is the public, compressed version of the attached screen recording. It gives a fast sense of motion, scale, tone, and direction. The game is still a work in progress, so the honest promise is progress with receipts, not a finished release trailer.</p>
       </div>
-    </section>
-
-    <section class="section" id="proof" aria-labelledby="proof-title">
-      <p class="section-kicker">Repo proof</p>
-      <h2 id="proof-title">Open source trail, clear caveats.</h2>
-      <p class="lead">The useful thing to share right now is progress with boundaries: this is public portfolio/process visibility for a game prototype, not a published playable release.</p>
-      <div class="proof-band">
-        <aside class="ledger" aria-label="Repository links">
-          <h3>Project ledger</h3>
-          <ul>
-            <li><a href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Public repository: JonathanKHobson/Lumina3D</a></li>
-            <li><a href="https://github.com/JonathanKHobson/Lumina3D/tree/codex/lumina3d-level-editor-mvp" target="_blank" rel="noopener noreferrer">Active branch: codex/lumina3d-level-editor-mvp</a></li>
-            <li>Stack: Vite, Three.js, browser-native HTML/CSS, local smoke tooling.</li>
-            <li>Status: work in progress, public for review and portfolio visibility.</li>
-          </ul>
+      <div class="intro-grid">
+        <figure class="demo-frame">
+          <div class="demo-topline"><span>Playable capture: Luma 3D WIP</span><span class="pips" aria-hidden="true"><span></span><span></span><span></span></span></div>
+          <video controls preload="metadata" poster="assets/luma3d-demo-share-m4v-2.png" aria-label="Playable Luma 3D work-in-progress demo video">
+            <source src="assets/luma3d-demo-public.m4v" type="video/mp4">
+            Your browser does not support embedded video playback. Open the GitHub repository to review the project source.
+          </video>
+          <figcaption>The public video is 3.9 MB, produced from the original 276 MB screen recording for fast browser playback.</figcaption>
+        </figure>
+        <aside class="paper-panel" aria-label="Why this matters">
+          <p class="micro-label">Reader promise</p>
+          <h3>A landing page, a case note, and a proof trail in one.</h3>
+          <div class="rhetoric" aria-label="Ethos logos pathos">
+            <div class="rhetoric-row"><strong>Pathos</strong><p>A tiny blue hero moves through floating islands, helper creatures, rivers, city crossings, and little story moments that feel like a handmade adventure.</p></div>
+            <div class="rhetoric-row"><strong>Logos</strong><p>The page progressively reveals the stack, level registry, source-file map, debug keys, and testing posture without forcing every reader into code first.</p></div>
+            <div class="rhetoric-row"><strong>Ethos</strong><p>The public GitHub repo, WIP caveats, asset-license note, and visual QA flow make the claim inspectable.</p></div>
+          </div>
         </aside>
-        <div class="notes" aria-label="Quality notes">
-          <div class="note"><strong>Truthful frame.</strong><p>The page does not call the game shipped. It presents current visible progress and gives reviewers the repo trail.</p></div>
-          <div class="note"><strong>Shareable frame.</strong><p>The artifact itself demonstrates the Shareables pipeline: custom theme, playable media, public-safety checks, responsive layout, and GitHub Pages delivery.</p></div>
-          <div class="note"><strong>Next useful proof.</strong><p>The next stronger public milestone would be a hosted playable build after an asset-license and attribution pass.</p></div>
+      </div>
+    </section>
+
+    <section class="band" id="atlas" aria-labelledby="atlas-title">
+      <div class="band-inner">
+        <div class="section-head">
+          <p class="section-kicker">Second reveal</p>
+          <h2 id="atlas-title">A numbered tour through the current world.</h2>
+          <p class="lead">These started as numbered screenshot placeholders with capture briefs, then were replaced by real Playwright screenshots from the local dev build. Each card shows the scene, the debug key used to capture it, and the role that scene plays in the game arc.</p>
+        </div>
+        <div class="shot-grid">
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/01-tutorial.jpg" alt="Tutorial scene with Lumina on a floating green grid island and a movement instruction prompt." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">01</span>
+            </div>
+            <div class="shot-body">
+              <h3>Tutorial: the first spell is movement.</h3>
+              <p>Placeholder brief: show the smallest playable moment, where the player learns to move and the world announces that this is interactive, not just a concept image.</p>
+              <div class="shot-meta"><span class="tag">Debug key 1</span><span class="tag">Onboarding</span></div>
+            </div>
+          </article>
+
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/02-home-intro.jpg" alt="Home Intro scene with Lumina near a small house, trees, and a greeting speech bubble." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">02</span>
+            </div>
+            <div class="shot-body">
+              <h3>Home Intro: the quest begins softly.</h3>
+              <p>Placeholder brief: show the cozy origin point, the house, and the first emotional cue so the reader understands this project is playful and story-led.</p>
+              <div class="shot-meta"><span class="tag">Debug key 2</span><span class="tag">Story setup</span></div>
+            </div>
+          </article>
+
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/03-level-one.jpg" alt="Level One scene with Lumina, a river, lily pads, trees, and a large title overlay." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">03</span>
+            </div>
+            <div class="shot-body">
+              <h3>Level One: the world teaches with terrain.</h3>
+              <p>Placeholder brief: capture the first full level identity, with water and pathing visible enough to show how the game starts turning movement into environmental puzzles.</p>
+              <div class="shot-meta"><span class="tag">Debug key 3</span><span class="tag">First route</span></div>
+            </div>
+          </article>
+
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/04-level-two.jpg" alt="Level Two scene with raised terrain, path tiles, a button pad, and a large title overlay." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">04</span>
+            </div>
+            <div class="shot-body">
+              <h3>Level Two: mechanisms start to matter.</h3>
+              <p>Placeholder brief: show that the prototype can hold more than walking: elevation, buttons, paths, and a more structured route through a compact scene.</p>
+              <div class="shot-meta"><span class="tag">Debug key 4</span><span class="tag">Puzzle language</span></div>
+            </div>
+          </article>
+
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/05-level-three.jpg" alt="Level Three scene with Lumina, islands, a bridge, lily pads, and water crossing space." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">05</span>
+            </div>
+            <div class="shot-body">
+              <h3>Level Three: the lake becomes a design lane.</h3>
+              <p>Placeholder brief: show the active lake and island work, where the project is currently exploring water routes, bridge logic, and a bigger sense of travel.</p>
+              <div class="shot-meta"><span class="tag">Debug key 5</span><span class="tag">Active WIP</span></div>
+            </div>
+          </article>
+
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/06-level-four.jpg" alt="Level Four scene with Lumina, blue block structures, lily pads, logs, water lanes, and a title overlay." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">06</span>
+            </div>
+            <div class="shot-body">
+              <h3>Level Four: a river-crossing slice appears.</h3>
+              <p>Placeholder brief: show the debug-playable river-crossing work, including moving-route ingredients and reusable component thinking starting to surface.</p>
+              <div class="shot-meta"><span class="tag">Debug key 6</span><span class="tag">River system</span></div>
+            </div>
+          </article>
+
+          <article class="shot-card">
+            <div class="shot-media">
+              <img src="assets/level-shots/07-city-level.jpg" alt="City Level scene with roads, traffic, buildings, a traffic light, a green helper cube, and Lumina." width="1280" height="800" loading="lazy" decoding="async">
+              <span class="shot-number">07</span>
+            </div>
+            <div class="shot-body">
+              <h3>City Level: a future pattern tests itself.</h3>
+              <p>Placeholder brief: use the forward-looking city scene as proof that the world is not locked to grass islands; traffic crossings and reusable challenge patterns are on the horizon.</p>
+              <div class="shot-meta"><span class="tag">Debug key 7</span><span class="tag">Future shell</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="disclosure-stack" aria-label="Level details">
+          <details>
+            <summary>Open the level status notes</summary>
+            <div class="detail-content">
+              <p>The Tutorial, Home Intro, Level One, Level Two, and Level Three are marked as editor-supported in the current level registry. Level Three is an active lake/island lane, not a finished route.</p>
+              <p>Level Four is a debug-playable river-crossing first slice. The City Level is a debug-only provisional future Level Five candidate and reusable traffic-crossing pattern. The Portal Cinematic exists as a noninteractive story bridge between Level Four and the City shell.</p>
+            </div>
+          </details>
         </div>
       </div>
-      <div class="cta-panel" id="share" aria-labelledby="share-title">
-        <div>
-          <p class="section-kicker">Share next</p>
-          <h2 id="share-title">Send the field note, then let the repo carry the receipts.</h2>
-          <p>The page is designed for a friend or reviewer to watch the clip first, understand the WIP boundary, and open the source when they want more.</p>
+    </section>
+
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="section-head">
+        <p class="section-kicker">Third reveal</p>
+        <h2 id="process-title">Where the project has been, where it is, where it is going.</h2>
+        <p class="lead">The page should feel magical, but the project story should stay concrete. Luma 3D is a growing browser-game prototype with a visible path from first playable movement to reusable level systems.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="process-card">
+          <p class="micro-label">Has been</p>
+          <h3>From sample world to playable language.</h3>
+          <ul>
+            <li>Established Vite and Three.js as the browser-game foundation.</li>
+            <li>Added a GLTF main character, KayKit and voxel assets, and orthographic camera language.</li>
+            <li>Built the first loop of movement, prompts, dialogue, buttons, terrain, water, and helper characters.</li>
+          </ul>
+        </article>
+
+        <article class="process-card">
+          <p class="micro-label">Is now</p>
+          <h3>A public WIP with inspectable structure.</h3>
+          <ul>
+            <li>Eight scenes are routable through the debug registry.</li>
+            <li>Level Three and Level Four are active design/development lanes.</li>
+            <li>The repo documents commands, level patterns, asset handling, smoke tooling, and known caveats.</li>
+          </ul>
+        </article>
+
+        <article class="process-card">
+          <p class="micro-label">Going next</p>
+          <h3>Toward a stronger playable release candidate.</h3>
+          <ul>
+            <li>Harden Level Three and Level Four into clearer routes.</li>
+            <li>Promote reusable Cubeling, river, and traffic patterns where they reduce duplication.</li>
+            <li>Complete an asset-license and attribution pass before any public playable release claim.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="disclosure-stack">
+        <details>
+          <summary>Open the build workflow</summary>
+          <div class="detail-content">
+            <p>The working rhythm is small-slice game development: define the next playable moment, add or adjust the scene and systems, run the local dev build, visually inspect the result, then record what is proven and what is still WIP.</p>
+            <p>For this Shareable update, the workflow was deliberately placeholder-first: create numbered image slots with capture intent, open the game locally, route to scenes with debug keys, capture screenshots, compress them for web, and replace the placeholders with real images.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Open the QA workflow</summary>
+          <div class="detail-content">
+            <p>The quality bar is not just "the HTML exists." The page needs playable media, real screenshots, public-safe language, no private local paths, no layout clipping, mobile readability, live GitHub Pages verification, and browser automation cleanup.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="band" id="code" aria-labelledby="code-title">
+      <div class="band-inner">
+        <div class="section-head">
+          <p class="section-kicker">Fourth reveal</p>
+          <h2 id="code-title">The code map, revealed in layers.</h2>
+          <p class="lead">A nontechnical reader can stop at "it is a Three.js browser game." A technical reader can keep opening panels until the project shape becomes inspectable.</p>
         </div>
-        <a class="button" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Review the repo</a>
+
+        <div class="code-grid">
+          <article class="detail-panel">
+            <p class="micro-label">Plain English</p>
+            <h3>Scenes are worlds. Systems make them move.</h3>
+            <p>The project separates scene IDs, level data, scene builders, runtime systems, UI, debug hooks, and documentation. That makes it possible to add a new level without turning every idea into a one-off patch in the entry file.</p>
+            <ul class="code-list">
+              <li><code>src/config/scenes.js</code> names the scene IDs.</li>
+              <li><code>src/config/levelRegistry.js</code> maps scenes to debug keys, smoke IDs, and source files.</li>
+              <li><code>src/levels/</code> stores level layout data.</li>
+              <li><code>src/scenes/</code> builds scene objects and flow behavior.</li>
+              <li><code>src/systems/</code> holds runtime systems such as movement, collisions, dialogue, audio, river crossing, and city traffic.</li>
+            </ul>
+          </article>
+
+          <article class="dark-panel" aria-label="Code excerpt">
+            <p class="micro-label">Representative structure</p>
+            <h3>Level routing is explicit.</h3>
+            <pre><code>export const SCENES = {
+  TUTORIAL: "tutorial",
+  HOME: "home_intro",
+  LEVEL_ONE: "level_one",
+  LEVEL_TWO: "level_two",
+  LEVEL_THREE: "level_three",
+  LEVEL_FOUR: "level_four",
+  POST_LEVEL_FOUR_PORTAL: "post_level_four_portal",
+  CITY_LEVEL: "city_level"
+};
+
+// The level registry connects each scene to:
+// display name, debug key, catalog ID,
+// smoke ID, editor support, and source files.</code></pre>
+          </article>
+        </div>
+
+        <div class="disclosure-stack">
+          <details>
+            <summary>Open the new-level recipe</summary>
+            <div class="detail-content">
+              <p>The README's recipe is intentionally procedural: add layout constants in <code>src/levels/newLevel.js</code>, build logic in <code>src/scenes/newLevelScene.js</code>, add a scene ID, register metadata in <code>src/config/levelRegistry.js</code>, add catalog/tooling coverage, wire only the smallest needed runtime handoff through <code>src/main.js</code>, then add scene smoke coverage.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Open the reusable-component direction</summary>
+            <div class="detail-content">
+              <p>The project is moving away from one-off gameplay objects. Cubeling Echo, Totem, actor factories, traffic-crossing contracts, and river-crossing contracts live under <code>src/components/</code> and companion docs. That is the path from "cool prototype" to "world that can keep growing."</p>
+            </div>
+          </details>
+          <details>
+            <summary>Open the technical honesty note</summary>
+            <div class="detail-content">
+              <p>The repo currently has active WIP changes. This Shareable treats the game repo as runtime and evidence, not as a polished release branch. The page links to the public source trail and keeps caveats visible instead of implying a finished game.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prompting" aria-labelledby="prompting-title">
+      <div class="section-head">
+        <p class="section-kicker">Fifth reveal</p>
+        <h2 id="prompting-title">How I prompted the process without dumping the private transcript.</h2>
+        <p class="lead">The useful public lesson is the workflow pattern: ask for a playable slice, require proof, protect WIP truth, and make the artifact explain itself at more than one depth level.</p>
+      </div>
+
+      <div class="prompt-grid">
+        <article class="prompt-card">
+          <h3>1. Start with the player moment.</h3>
+          <p>Prompts framed the next slice as something visible: a route, a helper, a bridge, a crossing, a level identity, or a story beat.</p>
+          <div class="quote-prompt">"Make the next playable moment obvious before adding more systems."</div>
+        </article>
+        <article class="prompt-card">
+          <h3>2. Ask for proof, not vibes.</h3>
+          <p>The workflow pushed for screenshots, smoke checks, browser validation, and repo evidence before saying the work was shareable.</p>
+          <div class="quote-prompt">"Open the game, capture the scene, and tell me what was actually verified."</div>
+        </article>
+        <article class="prompt-card">
+          <h3>3. Turn process into public story.</h3>
+          <p>This Shareable uses sanitized prompt patterns and progressive disclosure so the reader can learn the method without seeing private chat logs.</p>
+          <div class="quote-prompt">"Reveal the technical details only as the reader asks for more."</div>
+        </article>
+      </div>
+
+      <div class="disclosure-stack">
+        <details>
+          <summary>Open the screenshot prompt pattern</summary>
+          <div class="detail-content">
+            <p>Pattern: create numbered placeholders first, name what each image should prove, then replace each slot only after capturing the actual running game. That keeps the page from becoming decorative. Every image has a job.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Open the public-safety rule</summary>
+          <div class="detail-content">
+            <p>Representative process details are public; raw private transcripts, secrets, local machine paths, and unreviewed personal material are not. The page uses relative repo paths and public GitHub links where a reader needs proof.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="band" id="proof" aria-labelledby="proof-title">
+      <div class="band-inner">
+        <div class="section-head">
+          <p class="section-kicker">Final reveal</p>
+          <h2 id="proof-title">Open source trail, clear caveats, real next step.</h2>
+          <p class="lead">The useful public posture is simple: Luma 3D is real, visible, and growing. It is not yet a finished playable release.</p>
+        </div>
+
+        <div class="route-strip" aria-label="Project ledger">
+          <div class="route-step"><span>Repo</span><strong>JonathanKHobson/Lumina3D</strong><p>Public source trail for the browser-game prototype.</p></div>
+          <div class="route-step"><span>Stack</span><strong>Vite + Three.js</strong><p>Browser-native runtime with local development and smoke tooling.</p></div>
+          <div class="route-step"><span>Scenes</span><strong>Debug keys 1-8</strong><p>Temporary QA shortcuts, not final player-facing UI.</p></div>
+          <div class="route-step"><span>Status</span><strong>Public WIP</strong><p>Portfolio/process visibility with release caveats.</p></div>
+          <div class="route-step"><span>Next</span><strong>Playable milestone</strong><p>Harden routes and complete asset attribution before stronger launch claims.</p></div>
+        </div>
+
+        <div class="cta-panel" id="share" aria-labelledby="share-title">
+          <div>
+            <p class="section-kicker">Share next</p>
+            <h2 id="share-title">Send the field note, then let the repo carry the receipts.</h2>
+            <p>Start with the video and screenshots. If the reader wants more, the disclosure panels explain the workflow, code shape, prompting strategy, and WIP boundary without overwhelming them on arrival.</p>
+          </div>
+          <a class="button" href="https://github.com/JonathanKHobson/Lumina3D" target="_blank" rel="noopener noreferrer">Review the GitHub repo</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div>Built as a listed public Shareable for Luma 3D. No analytics or tracking. Generated June 11, 2026.</div>
+    <div>Built as a listed public Shareable for Luma 3D. No analytics or tracking. Revised June 11, 2026 with real local-game screenshots, progressive workflow disclosure, and public GitHub proof.</div>
   </footer>
 </body>
 </html>
