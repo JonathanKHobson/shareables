@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-06-12T22:01:26+00:00",
+  "generated_at": "2026-06-12T22:20:52+00:00",
   "shareables": [
+    {
+      "audience": "Friend or public reviewer evaluating the Luma 3D project and the Shareables artifact quality.",
+      "id": "20260611T002945+0000-luma-3d-field-notes",
+      "purpose": "A public listed Shareables showcase for the Lumina3D work-in-progress browser game, embedding a playable compressed screen-recording demo and linking to the GitHub repo.",
+      "title": "Luma 3D Field Notes",
+      "updated_at": "2026-06-11T20:00:48+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/"
+    },
     {
       "audience": "Game stores, event organizers, and prospective players looking to hire or book a professional Game Master",
       "id": "20260611T010250+0000-gamemasterkyle-professional-game-master-portfolio",
       "purpose": "Public positioning and credibility portfolio for Jonathan Kyle Hobson (GameMasterKyle): mission, value, audience fit, signature work, real player testimonials, and a working contact form.",
       "title": "GameMasterKyle — Professional Game Master Portfolio",
-      "updated_at": "2026-06-12T02:03:28+00:00",
+      "updated_at": "2026-06-11T05:39:58+00:00",
       "url": "https://jonathankhobson.github.io/shareables/s/gamemasterkyle-professional-game-master-portfolio/"
-    },
-    {
-      "audience": "Friend or public reviewer evaluating the Lumina 3D project and the Shareables artifact quality.",
-      "id": "20260611T002945+0000-lumina-3d-field-notes",
-      "purpose": "A public listed Shareables showcase for the Lumina3D work-in-progress browser game, embedding a YouTube-hosted demo and linking to the GitHub repo.",
-      "title": "Lumina 3D Field Notes",
-      "updated_at": "2026-06-12T22:01:26+00:00",
-      "url": "https://jonathankhobson.github.io/shareables/s/lumina-3d-field-notes/"
     },
     {
       "audience": "Shareables MCP users and collaborators",
