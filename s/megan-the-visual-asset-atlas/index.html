@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Megan, The Visual Asset Atlas</title>
+  <meta name="description" content="A found-manuscript shareable that demos the Visual Asset Integration workflow, anchor mapping, generated asset recovery, Pro GM portfolio use, QA, and install kit.">
+  <meta name="shareables:ai-summary" content="A public found-manuscript explainer for Megan showing how Visual Asset Integration plans, generates, recovers, anchors, QA's, and publishes image-led shareables without confusing generated illustration with proof.">
+  <link rel="canonical" href="https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/">
+  <meta property="og:title" content="Megan, The Visual Asset Atlas">
+  <meta property="og:description" content="A found-manuscript demo of the Visual Asset Integration workflow, anchor mapping, generated asset recovery, QA, and install kit.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/">
+  <meta property="og:image" content="https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/assets/hero-parchment-background.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Megan, The Visual Asset Atlas">
+  <meta name="twitter:description" content="A found-manuscript demo of the Visual Asset Integration workflow, anchor mapping, generated asset recovery, QA, and install kit.">
+  <meta name="twitter:image" content="https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/assets/hero-parchment-background.jpg">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Megan, The Visual Asset Atlas",
+      "description": "A public found-manuscript explainer showing how Visual Asset Integration plans, generates, recovers, anchors, QA's, and publishes image-led shareables without confusing generated illustration with proof.",
+      "url": "https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Megan"
+      },
+      "image": "https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/assets/hero-parchment-background.jpg"
+    }
+  </script>
+  <style>
+    :root {
+      --paper: #f3e3bd;
+      --paper-soft: #f9efd4;
+      --ink: #392b1c;
+      --ink-soft: #6b5339;
+      --oxblood: #8c2f25;
+      --teal: #396f65;
+      --brass: #b98532;
+      --olive: #596747;
+      --shadow: rgba(42, 28, 14, .18);
+      --panel: rgba(255, 247, 220, .88);
+      --mx: 50%;
+      --my: 32%;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(245, 228, 191, .86), rgba(245, 228, 191, .92)),
+        url("assets/manuscript-texture.jpg") center / 720px auto repeat;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      letter-spacing: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,.34), transparent 22rem),
+        radial-gradient(circle at 80% 12%, rgba(185,133,50,.18), transparent 18rem);
+      mix-blend-mode: soft-light;
+      z-index: 5;
+    }
+
+    a {
+      color: #5d241d;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button, a.button {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 50;
+      background: var(--ink);
+      color: var(--paper-soft);
+      padding: .65rem 1rem;
+      border-radius: 4px;
+    }
+
+    .skip-link:focus { top: 1rem; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(55, 41, 26, .88);
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      color: #fff3d3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      gap: .35rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: #fff3d3;
+      text-decoration: none;
+      font-size: .9rem;
+      padding: .45rem .6rem;
+      border-radius: 4px;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: rgba(255,255,255,.12);
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(760px, 84vh);
+      display: grid;
+      align-items: center;
+      overflow: clip;
+      border-bottom: 1px solid rgba(75, 51, 31, .18);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(35,24,15,.34), rgba(78,50,24,.08) 46%, rgba(44,29,16,.18)),
+        url("assets/hero-parchment-background.jpg") center / cover no-repeat;
+      transform: translate(calc((var(--mx) - 50%) * -.018), calc((var(--my) - 50%) * -.012)) scale(1.035);
+      transform-origin: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 170px;
+      background: linear-gradient(transparent, rgba(243, 227, 188, .96));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(780px, calc(100% - 2rem));
+      margin-left: max(1rem, calc((100% - 1180px) / 2));
+      margin-right: auto;
+      padding: 4.5rem 0 3.25rem;
+      justify-self: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: rgba(255, 245, 211, .82);
+      color: #5a3720;
+      border: 1px solid rgba(90, 55, 32, .25);
+      padding: .45rem .7rem;
+      border-radius: 4px;
+      font-size: .84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .eyebrow img,
+    .button img,
+    .section-kicker img,
+    .mini-icon {
+      width: 1.35rem;
+      height: 1.35rem;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.02;
+      letter-spacing: 0;
+      margin: 0;
+      color: #2e2116;
+    }
+
+    h1 {
+      font-size: clamp(2.75rem, 7.2vw, 6.6rem);
+      max-width: 780px;
+      margin-top: 1.1rem;
+      text-wrap: balance;
+    }
+
+    .lead {
+      display: block;
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      max-width: 650px;
+      margin: 1.1rem 0 0;
+      padding: .55rem .75rem .65rem;
+      color: #42301f;
+      background: linear-gradient(90deg, rgba(249, 239, 212, .76), rgba(249, 239, 212, .58));
+      border-radius: 6px;
+      backdrop-filter: blur(1px);
+      box-shadow: 0 12px 28px rgba(48, 32, 18, .08);
+      font-weight: 650;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 1.55rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      min-height: 48px;
+      padding: .7rem 1rem;
+      border-radius: 5px;
+      border: 1px solid rgba(68, 45, 25, .28);
+      text-decoration: none;
+      font-weight: 850;
+      color: var(--ink);
+      background: rgba(255, 243, 207, .9);
+      box-shadow: 0 12px 30px rgba(45, 28, 13, .16);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .button.primary {
+      color: #fff7df;
+      background: linear-gradient(135deg, #8c2f25, #b35b2b);
+      border-color: rgba(255,255,255,.25);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(45, 28, 13, .22);
+      outline: 3px solid rgba(57, 111, 101, .42);
+      outline-offset: 3px;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .section.tight { padding-top: 2.5rem; }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      color: var(--oxblood);
+      font-size: .84rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .1em;
+      margin-bottom: .75rem;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      max-width: 860px;
+      text-wrap: balance;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 1rem 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1rem, 1.7vw, 1.18rem);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .panel {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid rgba(79, 54, 34, .22);
+      border-radius: 6px;
+      box-shadow: 0 18px 44px rgba(55, 34, 16, .12);
+      padding: clamp(1.1rem, 2vw, 1.45rem);
+      overflow: hidden;
+    }
+
+    .panel.frame {
+      background:
+        linear-gradient(rgba(255, 248, 225, .84), rgba(255, 248, 225, .88)),
+        url("assets/manuscript-frame.jpg") center / cover no-repeat;
+      padding: clamp(1.4rem, 3vw, 2.2rem);
+    }
+
+    .panel.note {
+      background:
+        linear-gradient(rgba(255, 249, 229, .76), rgba(255, 249, 229, .84)),
+        url("assets/note-frame.jpg") center / cover no-repeat;
+    }
+
+    .panel h3 {
+      font-size: clamp(1.3rem, 2.4vw, 2rem);
+      margin-bottom: .6rem;
+    }
+
+    .panel p {
+      margin: .55rem 0 0;
+      color: var(--ink-soft);
+    }
+
+    .icon-title {
+      display: flex;
+      gap: .65rem;
+      align-items: center;
+      margin-bottom: .45rem;
+    }
+
+    .icon-title img {
+      width: 2.4rem;
+      height: 2.4rem;
+      object-fit: contain;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 1.4rem;
+    }
+
+    .flow-step {
+      background: rgba(255, 248, 225, .86);
+      border: 1px solid rgba(88, 61, 39, .22);
+      border-radius: 6px;
+      padding: .85rem;
+      min-height: 140px;
+    }
+
+    .flow-step img {
+      width: 2.3rem;
+      height: 2.3rem;
+      object-fit: contain;
+      margin-bottom: .55rem;
+    }
+
+    .flow-step strong {
+      display: block;
+      line-height: 1.15;
+      color: #302216;
+    }
+
+    .flow-step span {
+      display: block;
+      margin-top: .35rem;
+      color: var(--ink-soft);
+      font-size: .92rem;
+    }
+
+    .figure {
+      margin: 1.5rem 0 0;
+      border-radius: 7px;
+      overflow: hidden;
+      border: 1px solid rgba(74, 50, 31, .22);
+      background: rgba(255, 248, 226, .7);
+      box-shadow: 0 18px 46px rgba(55, 34, 16, .14);
+    }
+
+    .figure img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .figure.wide img { aspect-ratio: 16 / 9; }
+
+    figcaption {
+      padding: .85rem 1rem;
+      color: var(--ink-soft);
+      font-size: .95rem;
+      background: rgba(255, 248, 226, .86);
+    }
+
+    .anchor-lab {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+      align-items: stretch;
+    }
+
+    .anchor-stage {
+      position: relative;
+      border-radius: 7px;
+      overflow: hidden;
+      border: 1px solid rgba(74, 50, 31, .22);
+      box-shadow: 0 18px 46px rgba(55, 34, 16, .14);
+      background: #f6e7c1;
+    }
+
+    .anchor-stage > img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+    }
+
+    .anchor-pin {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 999px;
+      background: rgba(63, 41, 24, .86);
+      color: #fff4d2;
+      padding: .35rem .55rem;
+      box-shadow: 0 10px 22px rgba(0,0,0,.22);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 850;
+    }
+
+    .anchor-pin img {
+      width: 1.1rem;
+      height: 1.1rem;
+      min-height: 0;
+    }
+
+    .anchor-pin[data-anchor="Hero01"] { left: 18%; top: 18%; }
+    .anchor-pin[data-anchor="Map01"] { left: 44%; top: 39%; }
+    .anchor-pin[data-anchor="AssetLab01"] { left: 67%; top: 24%; }
+    .anchor-pin[data-anchor="Download01"] { left: 71%; top: 66%; }
+
+    .anchor-pin:hover,
+    .anchor-pin:focus-visible {
+      outline: 3px solid rgba(57, 111, 101, .55);
+      outline-offset: 3px;
+    }
+
+    .anchor-card {
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .anchor-card dl {
+      margin: 1rem 0 0;
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: .45rem .75rem;
+    }
+
+    .anchor-card dt {
+      font-weight: 850;
+      color: #4b3020;
+    }
+
+    .anchor-card dd {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .asset-lab {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1.4rem;
+    }
+
+    .asset-sample {
+      background: rgba(255, 248, 225, .82);
+      border: 1px solid rgba(79, 54, 34, .22);
+      border-radius: 6px;
+      padding: 1rem;
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+    }
+
+    .asset-sample img {
+      max-height: 240px;
+      object-fit: contain;
+    }
+
+    .asset-arrow {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.7rem;
+      color: var(--oxblood);
+      font-weight: 800;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border: 1px solid rgba(88, 61, 39, .22);
+      background: rgba(255, 248, 225, .82);
+      border-radius: 999px;
+      padding: .42rem .65rem;
+      font-size: .88rem;
+      font-weight: 800;
+      color: #4c3322;
+    }
+
+    .badge img {
+      width: 1.15rem;
+      height: 1.15rem;
+      object-fit: contain;
+    }
+
+    details {
+      border: 1px solid rgba(88, 61, 39, .22);
+      background: rgba(255, 248, 225, .82);
+      border-radius: 6px;
+      padding: 1rem 1.1rem;
+      margin-top: .8rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: #3b2819;
+    }
+
+    details p,
+    details li {
+      color: var(--ink-soft);
+    }
+
+    .codebox {
+      position: relative;
+      margin-top: .8rem;
+      border: 1px solid rgba(57, 111, 101, .28);
+      background: rgba(38, 31, 22, .92);
+      color: #fff3d3;
+      border-radius: 6px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: .92rem;
+    }
+
+    .copy-button {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      margin-top: .75rem;
+      border: 1px solid rgba(88,61,39,.28);
+      background: rgba(255, 248, 225, .88);
+      color: var(--ink);
+      border-radius: 5px;
+      padding: .55rem .75rem;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .copy-button img {
+      width: 1.2rem;
+      height: 1.2rem;
+      object-fit: contain;
+    }
+
+    .copy-button:focus-visible {
+      outline: 3px solid rgba(57, 111, 101, .55);
+      outline-offset: 3px;
+    }
+
+    .tabs {
+      margin-top: 1.4rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: .75rem;
+    }
+
+    .tab-button {
+      border: 1px solid rgba(88,61,39,.24);
+      background: rgba(255, 248, 225, .8);
+      color: var(--ink);
+      border-radius: 5px;
+      padding: .6rem .8rem;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .tab-button[aria-selected="true"] {
+      background: #3d6f65;
+      color: #fff7df;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .case-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .8rem;
+      margin-top: 1.2rem;
+    }
+
+    .case-strip .panel {
+      min-height: 170px;
+    }
+
+    .footer {
+      background: rgba(48, 34, 22, .94);
+      color: #fff1cf;
+      padding: 2rem 1rem;
+    }
+
+    .footer-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer a { color: #fff1cf; }
+
+    @media (max-width: 980px) {
+      .grid.two,
+      .grid.three,
+      .anchor-lab,
+      .case-strip,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step {
+        min-height: auto;
+      }
+
+      .asset-lab {
+        grid-template-columns: 1fr;
+      }
+
+      .asset-arrow {
+        transform: rotate(90deg);
+        justify-self: center;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: .75rem 0;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .nav a {
+        padding: .35rem .45rem;
+        font-size: .84rem;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero::before {
+        background-position: 58% center;
+      }
+
+      .hero-content {
+        padding: 2.75rem 0 1.35rem;
+      }
+
+      .anchor-stage > img {
+        min-height: 330px;
+      }
+
+      .anchor-card {
+        min-height: auto;
+      }
+
+      .anchor-card dl {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero::before,
+      .button {
+        transition: none;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body data-template="storyboard" data-style-source="structured-bridge" data-artifact-type="visual-explainer">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar" aria-label="Page navigation">
+    <div class="topbar-inner">
+      <div class="brand">Visual Asset Atlas</div>
+      <nav class="nav" aria-label="Sections">
+        <a href="#why">Why</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#anchors">Anchors</a>
+        <a href="#asset-lab">Asset Lab</a>
+        <a href="#case-study">Pro GM</a>
+        <a href="#download">Kit</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-content">
+      <div class="eyebrow"><img src="assets/icon-lantern.png" alt=""> A found field notebook for Megan</div>
+      <h1 id="page-title">Megan, The Visual Asset Atlas</h1>
+      <p class="lead">A plain-English tour of how Visual Asset Integration turns AI-built shareables from generic pages into intentional, image-led artifacts with real source discipline.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#workflow"><img src="assets/icon-anchor.png" alt=""> Walk the workflow</a>
+        <a class="button" href="#download"><img src="assets/icon-download.png" alt=""> Download the kit</a>
+      </div>
+      <div class="badge-row" aria-label="Artifact qualities">
+        <span class="badge"><img src="assets/icon-seal.png" alt=""> Public-safe</span>
+        <span class="badge"><img src="assets/icon-lens.png" alt=""> Visually QA'd</span>
+        <span class="badge"><img src="assets/icon-proof.png" alt=""> Proof-aware</span>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="why" class="section tight" aria-labelledby="why-title">
+      <div class="section-kicker"><img src="assets/icon-lantern.png" alt=""> Start nontechnical</div>
+      <h2 id="why-title">The shift is simple: every visual gets a job.</h2>
+      <p class="section-intro">A generic shareable drops images into a page because a page feels empty. A designed shareable asks what each image is responsible for: orienting the reader, proving a claim, creating mood, explaining a workflow, or making an action feel cared for.</p>
+      <div class="grid three" style="margin-top:1.4rem">
+        <article class="panel note">
+          <div class="icon-title"><img src="assets/icon-anchor.png" alt=""><h3>Place</h3></div>
+          <p>Anchor mapping names where the visual belongs before the page is built, so images stop colliding with text, buttons, and mobile crops.</p>
+        </article>
+        <article class="panel note">
+          <div class="icon-title"><img src="assets/icon-seal.png" alt=""><h3>Trust</h3></div>
+          <p>Generated visuals can carry personality. Real artifacts carry proof. The workflow keeps those roles separate.</p>
+        </article>
+        <article class="panel note">
+          <div class="icon-title"><img src="assets/icon-qa.png" alt=""><h3>Finish</h3></div>
+          <p>The work is not done when the image looks good in chat. It is done when the recovered file renders cleanly on the public page.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="workflow" class="section" aria-labelledby="workflow-title">
+      <div class="section-kicker"><img src="assets/icon-lens.png" alt=""> The workflow</div>
+      <h2 id="workflow-title">From first idea to publish-ready visual system.</h2>
+      <p class="section-intro">The artifact you are reading is a live demo of the workflow. Its backgrounds, diagrams, icons, buttons, and atmosphere are generated assets. Its claims are source-labeled. Its layout is checked against visual anchors.</p>
+      <figure class="figure wide">
+        <img src="assets/workflow-diagram.jpg" alt="Ancient manuscript workflow diagram showing generated asset, anchor mapping, QA, and final page stages.">
+        <figcaption>Illustrative generated diagram. The HTML carries the labels so the workflow stays readable and accessible.</figcaption>
+      </figure>
+      <div class="flow" aria-label="Workflow steps">
+        <div class="flow-step"><img src="assets/icon-quill.png" alt=""><strong>1. Intent</strong><span>Name the reader, promise, and emotional shape.</span></div>
+        <div class="flow-step"><img src="assets/icon-seal.png" alt=""><strong>2. Source status</strong><span>Separate proof from illustration before images appear.</span></div>
+        <div class="flow-step"><img src="assets/icon-lantern.png" alt=""><strong>3. Generate</strong><span>Create one asset at a time, with placement in mind.</span></div>
+        <div class="flow-step"><img src="assets/icon-download.png" alt=""><strong>4. Recover</strong><span>Persist the generated file from the rollout JSONL.</span></div>
+        <div class="flow-step"><img src="assets/icon-anchor.png" alt=""><strong>5. Anchor</strong><span>Map where it belongs on desktop and mobile.</span></div>
+        <div class="flow-step"><img src="assets/icon-qa.png" alt=""><strong>6. QA</strong><span>Render, inspect, repair, then publish.</span></div>
+      </div>
+    </section>
+
+    <section id="anchors" class="section" aria-labelledby="anchors-title">
+      <div class="section-kicker"><img src="assets/icon-anchor.png" alt=""> Anchor mapping lab</div>
+      <h2 id="anchors-title">Anchor mapping is how the image learns where it belongs.</h2>
+      <p class="section-intro">Instead of saying "put the image somewhere near the text," the workflow gives each visual a named region, role, risk, and verification test. Select a pin to see what that means in practice.</p>
+      <div class="anchor-lab">
+        <div class="anchor-stage">
+          <img src="assets/anchor-map-diagram.jpg" alt="Ancient notebook style diagram with anchor pins, grid regions, and placement boxes.">
+          <button class="anchor-pin" data-anchor="Hero01"><img src="assets/icon-anchor.png" alt=""> Hero01</button>
+          <button class="anchor-pin" data-anchor="Map01"><img src="assets/icon-anchor.png" alt=""> Map01</button>
+          <button class="anchor-pin" data-anchor="AssetLab01"><img src="assets/icon-anchor.png" alt=""> AssetLab01</button>
+          <button class="anchor-pin" data-anchor="Download01"><img src="assets/icon-anchor.png" alt=""> Download01</button>
+        </div>
+        <aside class="panel frame anchor-card" aria-live="polite">
+          <div>
+            <div class="section-kicker"><img src="assets/icon-lens.png" alt=""> Current anchor</div>
+            <h3 id="anchor-name">Hero01</h3>
+            <dl>
+              <dt>Region</dt><dd id="anchor-region">Top viewport and first impression.</dd>
+              <dt>Role</dt><dd id="anchor-role">Environment plus editorial thesis.</dd>
+              <dt>Risk</dt><dd id="anchor-risk">Background detail could fight the headline.</dd>
+              <dt>Check</dt><dd id="anchor-check">Desktop and mobile screenshot: readable headline, no excessive hero height.</dd>
+            </dl>
+          </div>
+          <p>The point is not to over-document. The point is to stop guessing at the moment when visual decisions become layout decisions.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="asset-lab" class="section" aria-labelledby="asset-lab-title">
+      <div class="section-kicker"><img src="assets/icon-lantern.png" alt=""> Generated asset lab</div>
+      <h2 id="asset-lab-title">The recovered file matters more than the chat preview.</h2>
+      <p class="section-intro">For icons and cutouts, the corrected workflow generates one object on chroma-key green, recovers the actual image bytes, then creates a transparent derivative. The green image below is a recovered file, not a screenshot of the chat.</p>
+      <div class="asset-lab">
+        <div class="asset-sample">
+          <figure>
+            <img src="assets/icon-anchor-source-green.jpg" alt="Recovered generated anchor icon on chroma-key green before background removal.">
+            <figcaption>Recovered source on chroma-key green.</figcaption>
+          </figure>
+        </div>
+        <div class="asset-arrow" aria-hidden="true">to</div>
+        <div class="asset-sample">
+          <figure>
+            <img src="assets/icon-anchor.png" alt="Generated manuscript-style anchor pin icon with transparent background.">
+            <figcaption>Transparent derivative used in the UI.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <details>
+        <summary>Show the persistence rule</summary>
+        <p>When an image appears in chat but no durable PNG is saved, recover the base64 result from the Codex rollout JSONL, copy it to a stable project path, and verify it before editing or placing it.</p>
+        <pre class="codebox"><code>python3 scripts/recover_codex_imagegen.py \
+  --latest-only \
+  --name-hint "&lt;asset-slug&gt;" \
+  --copy-latest-to "&lt;project-root&gt;/.codex-outputs/images/&lt;lane&gt;/&lt;asset-slug&gt;_v01_&lt;timestamp&gt;.png"
+
+test -s "&lt;absolute-path-to-image.png&gt;"
+/usr/bin/sips -g pixelWidth -g pixelHeight "&lt;absolute-path-to-image.png&gt;"</code></pre>
+      </details>
+    </section>
+
+    <section id="case-study" class="section" aria-labelledby="case-title">
+      <div class="section-kicker"><img src="assets/icon-proof.png" alt=""> Pro GM portfolio case pattern</div>
+      <h2 id="case-title">The Pro GM portfolio workflow is the proof-aware version of the same idea.</h2>
+      <p class="section-intro">For the Pro GM / Goldspire portfolio work, the useful pattern was not "make it prettier." It was: gather real evidence, catalog what it can prove, then use generated visuals to create atmosphere around the proof instead of replacing it.</p>
+      <div class="case-strip">
+        <article class="panel">
+          <div class="icon-title"><img src="assets/icon-proof.png" alt=""><h3>Evidence</h3></div>
+          <p>Real game artifacts, links, screenshots, videos, and documents belong near the claims they support.</p>
+        </article>
+        <article class="panel">
+          <div class="icon-title"><img src="assets/icon-seal.png" alt=""><h3>Status</h3></div>
+          <p>Every source gets a label: verified, source-backed derivative, illustrative generated, pending, or unknown.</p>
+        </article>
+        <article class="panel">
+          <div class="icon-title"><img src="assets/icon-lantern.png" alt=""><h3>Atmosphere</h3></div>
+          <p>Generated visuals supply world feel, section rhythm, and reader emotion. They do not pretend to be proof.</p>
+        </article>
+        <article class="panel">
+          <div class="icon-title"><img src="assets/icon-anchor.png" alt=""><h3>Placement</h3></div>
+          <p>Anchor mapping keeps proof readable and prevents decorative art from crowding the work evidence.</p>
+        </article>
+      </div>
+      <details>
+        <summary>Why this matters for portfolio credibility</summary>
+        <p>A portfolio page can look polished and still fail if the reader cannot tell which images are evidence. The skill forces that distinction early. The emotional layer makes the work memorable; the source layer keeps it trustworthy.</p>
+      </details>
+    </section>
+
+    <section id="qa" class="section" aria-labelledby="qa-title">
+      <div class="section-kicker"><img src="assets/icon-qa.png" alt=""> QA and craft pass</div>
+      <h2 id="qa-title">The final step is not taste. It is rendered evidence.</h2>
+      <p class="section-intro">A visual shareable is only finished after the actual rendered page is inspected. The weak spots are predictable: mobile overflow, clipped labels, hidden buttons, broken images, low contrast, and generated visuals accidentally sitting where proof should sit.</p>
+      <div class="grid two" style="margin-top:1.4rem">
+        <article class="panel frame">
+          <h3>Visual anchor review</h3>
+          <p>This artifact tracks `Hero01`, `Map01`, `AssetLab01`, `CaseStudy01`, `Download01`, and `MobileNav01`. Those anchors define what must be checked before publishing.</p>
+          <div class="badge-row">
+            <span class="badge"><img src="assets/icon-lens.png" alt=""> no overflow</span>
+            <span class="badge"><img src="assets/icon-qa.png" alt=""> no clipped text</span>
+            <span class="badge"><img src="assets/icon-seal.png" alt=""> public-safe</span>
+          </div>
+        </article>
+        <article class="panel frame">
+          <h3>Design taste review</h3>
+          <p>The site avoids generic cards-on-gradient styling by giving the entire surface a specific visual system: manuscript textures, generated iconography, muted ink colors, and image-led section rhythm.</p>
+          <div class="badge-row">
+            <span class="badge"><img src="assets/icon-lantern.png" alt=""> distinct voice</span>
+            <span class="badge"><img src="assets/icon-anchor.png" alt=""> stable layout</span>
+            <span class="badge"><img src="assets/icon-quill.png" alt=""> plain first</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="download" class="section" aria-labelledby="download-title">
+      <div class="section-kicker"><img src="assets/icon-download.png" alt=""> Download and install</div>
+      <h2 id="download-title">Take the field notes with you.</h2>
+      <p class="section-intro">The kit includes a sanitized `SKILL.md`, install notes for Codex and Claude Desktop, an anchor-map template, an asset-manifest template, and prompt examples for hero backgrounds and chroma-key icons.</p>
+      <div class="grid two" style="margin-top:1.4rem">
+        <article class="panel note">
+          <div class="icon-title"><img src="assets/icon-download.png" alt=""><h3>Download the kit</h3></div>
+          <p>Use it as a portable starting point for future public artifacts, shareables, portfolio pages, or design-heavy docs.</p>
+          <p><a class="button primary" download="visual-asset-integration-kit.zip" href="assets/visual-asset-integration-kit.zip"><img src="assets/icon-download.png" alt=""> Download zip</a></p>
+        </article>
+        <article class="panel note">
+          <div class="icon-title"><img src="assets/icon-quill.png" alt=""><h3>Starter prompt</h3></div>
+          <p>Use this when you want the AI to plan images before generating them.</p>
+          <pre class="codebox" id="starter-prompt"><code>Create a visual asset plan before generation.
+For each asset, define: purpose, source status, anchor, crop behavior, alt text, and QA method.
+For icons/cutouts, generate one image at a time on chroma-key green #00ff00.
+After generation, recover the durable file and verify it before placement.</code></pre>
+          <button class="copy-button" data-copy="#starter-prompt"><img src="assets/icon-quill.png" alt=""> Copy prompt</button>
+        </article>
+      </div>
+      <div class="tabs" data-tabs>
+        <div class="tab-buttons" role="tablist" aria-label="Install options">
+          <button class="tab-button" role="tab" aria-selected="true" aria-controls="tab-codex" id="tab-codex-button">Codex</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-claude" id="tab-claude-button">Claude Desktop</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-template" id="tab-template-button">Templates</button>
+        </div>
+        <div class="tab-panel active panel" role="tabpanel" id="tab-codex" aria-labelledby="tab-codex-button">
+          <h3>Codex install shape</h3>
+          <p>Place the skill in your local skills folder, then copy the templates into the project that needs visual asset discipline. If you use Codex image generation, keep the recovery script in that project and run it after each generated image.</p>
+        </div>
+        <div class="tab-panel panel" role="tabpanel" id="tab-claude" aria-labelledby="tab-claude-button">
+          <h3>Claude Desktop install shape</h3>
+          <p>Add the skill text to project knowledge or instructions. Use the anchor and asset manifest templates as working docs before prompting for images.</p>
+        </div>
+        <div class="tab-panel panel" role="tabpanel" id="tab-template" aria-labelledby="tab-template-button">
+          <h3>What the templates enforce</h3>
+          <p>They make the AI name the asset's job, source status, placement, crop risk, and verification method before it generates or places visuals.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <strong>Megan, The Visual Asset Atlas</strong>
+      <span>Generated visuals are illustrative; proof claims need verified sources.</span>
+    </div>
+  </footer>
+
+  <script>
+    const anchorData = {
+      Hero01: {
+        region: "Top viewport and first impression.",
+        role: "Environment plus editorial thesis.",
+        risk: "Background detail could fight the headline.",
+        check: "Desktop and mobile screenshot: readable headline, no excessive hero height."
+      },
+      Map01: {
+        region: "Workflow and anchor mapping section.",
+        role: "Editorial explanation.",
+        risk: "Diagram could become decorative instead of explanatory.",
+        check: "Labels stay in HTML; diagram stays supportive at mobile width."
+      },
+      AssetLab01: {
+        region: "Generated asset lab.",
+        role: "Interface and process demonstration.",
+        risk: "Green-source image could be mistaken for a final asset.",
+        check: "Captions distinguish recovered source from transparent derivative."
+      },
+      Download01: {
+        region: "Download appendix and CTA.",
+        role: "Interface action.",
+        risk: "Download could be visually hidden or keyboard-unfriendly.",
+        check: "CTA is visible, focusable, and downloads the zip."
+      }
+    };
+
+    document.querySelectorAll(".anchor-pin").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.anchor;
+        const data = anchorData[id];
+        document.getElementById("anchor-name").textContent = id;
+        document.getElementById("anchor-region").textContent = data.region;
+        document.getElementById("anchor-role").textContent = data.role;
+        document.getElementById("anchor-risk").textContent = data.risk;
+        document.getElementById("anchor-check").textContent = data.check;
+      });
+    });
+
+    document.querySelectorAll("[data-tabs]").forEach((tabs) => {
+      const buttons = tabs.querySelectorAll("[role='tab']");
+      const panels = tabs.querySelectorAll("[role='tabpanel']");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          buttons.forEach((item) => item.setAttribute("aria-selected", "false"));
+          panels.forEach((panel) => panel.classList.remove("active"));
+          button.setAttribute("aria-selected", "true");
+          document.getElementById(button.getAttribute("aria-controls")).classList.add("active");
+        });
+      });
+    });
+
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const target = document.querySelector(button.dataset.copy);
+        const text = target ? target.innerText : "";
+        try {
+          await navigator.clipboard.writeText(text);
+          button.lastChild.textContent = " Copied";
+        } catch {
+          button.lastChild.textContent = " Select text above";
+        }
+      });
+    });
+
+    const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (motionOk) {
+      window.addEventListener("pointermove", (event) => {
+        const x = Math.round((event.clientX / window.innerWidth) * 100);
+        const y = Math.round((event.clientY / window.innerHeight) * 100);
+        document.documentElement.style.setProperty("--mx", x + "%");
+        document.documentElement.style.setProperty("--my", y + "%");
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>

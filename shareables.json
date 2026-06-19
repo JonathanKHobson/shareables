@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-06-12T22:20:52+00:00",
+  "generated_at": "2026-06-19T00:04:43+00:00",
   "shareables": [
+    {
+      "audience": "Megan",
+      "id": "20260618T222155+0000-megan-the-visual-asset-atlas",
+      "purpose": "Explain and demonstrate how the Visual Asset Integration skill/workflow turns AI-built shareables from generic pages into intentional, customized, proof-aware visual artifacts, using this artifact itself and the Pro GM portfolio workflow as the case study.",
+      "title": "Megan, The Visual Asset Atlas",
+      "updated_at": "2026-06-19T00:04:43+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/megan-the-visual-asset-atlas/"
+    },
     {
       "audience": "Friend or public reviewer evaluating the Luma 3D project and the Shareables artifact quality.",
       "id": "20260611T002945+0000-luma-3d-field-notes",
