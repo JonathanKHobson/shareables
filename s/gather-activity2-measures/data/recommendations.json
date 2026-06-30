@@ -1,0 +1,407 @@
+{
+  "title": "GATHER Activity 2 Measure Questions",
+  "subtitle": "Five literature-grounded prompts for community refinement of future measurement domains.",
+  "updated": "2026-06-30",
+  "projectContext": {
+    "primaryQuestion": "How do Native community members and Indigenous knowledge holders define the healing impacts of food sovereignty on substance use recovery, chronic pain management, mental wellbeing, and relational wellness?",
+    "activity2Purpose": "Use community and knowledge-holder guidance to develop domains, language, safeguards, and candidate indicators for a culturally grounded survey instrument.",
+    "measurementFilters": [
+      "directly serves recovery, chronic pain, mental wellbeing, or relational wellness",
+      "adds something not already covered by the listening guide",
+      "addresses an under-tested or under-validated measurement gap",
+      "moves beyond participation frequency into meaning, access, relationship, and impact",
+      "centers strengths, healing, cultural continuity, responsibility, and thriving",
+      "fits an urban, intertribal context without assuming one practice or Nation",
+      "uses community language rather than technical scale language",
+      "respects knowledge that should stay protected, sacred, qualitative, or story-held",
+      "supports future community action, advocacy, program design, or institutional accountability"
+    ],
+    "scopeNote": "These are optional probes for listening sessions and scholar interviews, not final survey items or technical scale language."
+  },
+  "recommendations": [
+    {
+      "rank": 1,
+      "id": "measure-1",
+      "slug": "test-embodied-healing-and-balance",
+      "title": "Test embodied healing and balance.",
+      "candidateMeasure": "Whole-person healing support: pain, stress, cravings, grief, balance, grounding, and hard-day coping connected to food, plants, land, or cultural practice.",
+      "move": "Add a nonclinical embodied-healing question so recovery, pain management, and mental wellbeing do not disappear under broad wellness language.",
+      "why": "This candidate is promising for GATHER because it directly links food sovereignty to recovery, pain, and mental wellbeing. It still needs community interpretation because most existing measures come from clinical, stress-coping, or cultural-intervention literatures rather than a food-sovereignty-specific Indigenous measurement module.",
+      "question": "What signs would tell you that food, plants, land, shared meals, or cultural practice are helping someone get through pain, stress, cravings, grief, or a hard day, without asking them to share private details?",
+      "listenFor": "Signs of balance, grounding, routine, reduced isolation, spiritual support, emotional regulation, or practical support that could become future indicators without forcing disclosure.",
+      "caution": "Use only as an optional probe. Do not ask participants to disclose substance use, trauma, diagnosis, pain history, or medication details.",
+      "sourceIds": [
+        "S002",
+        "S020",
+        "S027",
+        "S031"
+      ],
+      "keyCitations": "S002 - Brown (2019); S020 - King, Smith, & Gracey (2009); S027 - Rowan et al. (2014); S031 - Walters, Simoni, & Evans-Campbell (2002)",
+      "tags": [
+        "healing",
+        "recovery",
+        "pain",
+        "mental wellbeing"
+      ],
+      "outcomeAlignment": "Keeps recovery, pain, stress, cravings, grief, and balance visible without turning the session into clinical disclosure."
+    },
+    {
+      "rank": 2,
+      "id": "measure-2",
+      "slug": "test-cultural-strengths-and-connectedness",
+      "title": "Test cultural strengths and connectedness.",
+      "candidateMeasure": "Cultural strengths and connectedness: belonging, identity, language, values, humor, gratitude, spirituality, traditional foods, responsibility, and connection with relatives.",
+      "move": "Add a cultural-strengths question that lets participants affirm, reject, rename, or protect candidate domains surfaced in the measurement literature.",
+      "why": "The literature identifies cultural connectedness and values as protective, but measures are fragmented, inconsistently validated, and often developed outside the exact urban/intertribal GATHER context. Community language should determine what belongs in a future module.",
+      "question": "Some sources talk about cultural connection through belonging, identity, language, values, humor, gratitude, foods, spirituality, or responsibility to relatives. Which of those feel like signs of wellness here, which need different words, and which should stay in story or community guidance rather than a survey question?",
+      "listenFor": "Locally meaningful terms, strengths that are missing from existing tools, domains that should remain qualitative, and wording that avoids pan-Indigenous flattening.",
+      "caution": "Do not universalize one fixed list of cultural strengths or imply that cultural connection proves authenticity.",
+      "sourceIds": [
+        "S017",
+        "S021",
+        "S031"
+      ],
+      "keyCitations": "S017 - Jacob et al. (2020); S021 - Walls et al. (2026); S031 - Walters, Simoni, & Evans-Campbell (2002)",
+      "tags": [
+        "cultural strengths",
+        "belonging",
+        "language",
+        "wellness"
+      ],
+      "outcomeAlignment": "Lets participants decide which cultural strengths are meaningful, locally worded, measurable, or better kept in story."
+    },
+    {
+      "rank": 3,
+      "id": "measure-3",
+      "slug": "test-food-land-relationship-and-stewardship",
+      "title": "Test food-land relationship and stewardship.",
+      "candidateMeasure": "Food-land relationship and cultural stewardship: reciprocal care, responsibility, intergenerational knowledge transmission, land/water/plant relationships, and community decision-making.",
+      "move": "Add a question that tests whether food sovereignty should be measured as relationship and responsibility, not only participation, diet, or food access.",
+      "why": "This is central to GATHER and IHEI's Food & Land Sovereignty work. The literature strongly supports it conceptually, but local participants should decide which relationships are meaningful, measurable, protected, or better held through story.",
+      "question": "When food sovereignty is happening in a good way, what relationships or responsibilities show it: with foods, plants, land, water, family, community, ancestors, future generations, or decision-making? What would this way of asking miss?",
+      "listenFor": "How participants distinguish food security from food sovereignty, whether stewardship is individual or collective, and what should not be reduced to a score.",
+      "caution": "Do not ask for sacred, ceremonial, ecological-location, or protected knowledge. Keep the urban/intertribal context open.",
+      "sourceIds": [
+        "S005",
+        "S016",
+        "S018",
+        "S022",
+        "S028"
+      ],
+      "keyCitations": "S005 - Cote (2016); S016 - Hoover (2017); S018 - Jernigan et al. (2023); S022 - Morrison (2011); S028 - Sowerwine et al. (2023)",
+      "tags": [
+        "food sovereignty",
+        "land relationship",
+        "stewardship",
+        "responsibility"
+      ],
+      "outcomeAlignment": "Keeps food sovereignty distinct from food security by asking about relationship, reciprocal care, and responsibility."
+    },
+    {
+      "rank": 4,
+      "id": "measure-4",
+      "slug": "test-access-and-enabling-conditions",
+      "title": "Test access and enabling conditions.",
+      "candidateMeasure": "Access and enabling conditions: land access, cost, time, disability, transportation, tools, permissions, knowledge transmission, policy, safety, and institutional support.",
+      "move": "Add a structural access question so future indicators do not mistake barriers for lack of interest, cultural value, or personal choice.",
+      "why": "This candidate serves applied GATHER goals because it can guide advocacy, program support, and institutional readiness. It needs community input because access barriers vary by place, generation, health, disability, displacement, and relationship to Native community.",
+      "question": "What makes it easier or harder for people to be in relationship with traditional foods, plants, land, or stewardship practices, and how should future questions avoid mistaking barriers for lack of interest or connection?",
+      "listenFor": "Concrete supports, structural barriers, accessibility needs, urban/intertribal realities, and ways to word future survey items without deficit framing.",
+      "caution": "Keep this strengths-based and structural. Do not turn barriers into a deficit story about participants or community.",
+      "sourceIds": [
+        "S008",
+        "S009",
+        "S010",
+        "S019",
+        "S026"
+      ],
+      "keyCitations": "S008 - Ecotrust (2023); S009 - Ecotrust (2024); S010 - Ecotrust (2025); S019 - Jernigan et al. (2017); S026 - Reading & Wien (2009)",
+      "tags": [
+        "access",
+        "barriers",
+        "supports",
+        "institutional readiness"
+      ],
+      "outcomeAlignment": "Prevents future indicators from mistaking structural barriers for lack of interest, connection, or personal choice."
+    },
+    {
+      "rank": 5,
+      "id": "measure-5",
+      "slug": "test-measurement-governance-and-benefit",
+      "title": "Test measurement governance and benefit.",
+      "candidateMeasure": "Measurement governance and collective benefit: who defines meaning, who controls data, what stays protected, how interpretation happens, and how information benefits community.",
+      "move": "Add a future-measurement governance question before candidate indicators move into a survey module.",
+      "why": "OCAP, CARE, Indigenous data sovereignty, and IHEI's health/data justice frame all make governance part of measurement validity. A measure is not useful if it extracts knowledge, invites misinterpretation, or fails to support community benefit and self-determination.",
+      "question": "If these stories later become survey questions or indicators, who should decide what the answers mean, what should be protected or kept in story, and how should the information benefit community?",
+      "listenFor": "Rules for ownership, control, access, interpretation, dissemination, Council/community review, protected knowledge, and concrete community benefit.",
+      "caution": "Ask as refinement, not approval. Community authority over meaning, interpretation, use, and benefit should be explicit.",
+      "sourceIds": [
+        "S004",
+        "S011",
+        "S012",
+        "S021",
+        "S030"
+      ],
+      "keyCitations": "S004 - Carroll et al. (2020); S011 - FNIGC (n.d.); S012 - FNIGC (2022); S021 - Walls et al. (2026); S030 - Walter & Suina (2019)",
+      "tags": [
+        "governance",
+        "data sovereignty",
+        "benefit",
+        "protection"
+      ],
+      "outcomeAlignment": "Makes governance, interpretation, protection, and community benefit part of measurement validity from the start."
+    }
+  ],
+  "sources": [
+    {
+      "id": "S002",
+      "shortCitation": "Brown (2019)",
+      "fullCitation": "Brown, D. L. (2019). Our vision of health for future generations: An exploration of proximal and intermediary motivations with women of the Choctaw Nation of Oklahoma (Doctoral dissertation, Portland State University).",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Brown, D. L. (2019). Our vision of health for future generations_ An exploration of proximal and intermediary motivations with women of the Choctaw Nation of Oklahoma (Doctoral dissertation, Portland State University)..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        1
+      ]
+    },
+    {
+      "id": "S020",
+      "shortCitation": "King, Smith, & Gracey (2009)",
+      "fullCitation": "King, M., Smith, A., & Gracey, M. (2009). Indigenous health part 2: The underlying causes of the health gap. The Lancet, 374(9683), 76-85. https://doi.org/10.1016/S0140-6736(09)60827-8",
+      "url": "https://doi.org/10.1016/S0140-6736(09",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/King, M., Smith, A., & Gracey, M. (2009). Indigenous health part 2_ The underlying causes of the health gap. The Lancet, 374(9683), 76-85..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        1
+      ]
+    },
+    {
+      "id": "S027",
+      "shortCitation": "Rowan et al. (2014)",
+      "fullCitation": "Rowan, M., Poole, N., Shea, B., Gone, J. P., Mykota, D., Farag, M., Hopkins, C., Hall, L., Mushquash, C., & Dell, C. (2014). Cultural interventions to treat addictions in Indigenous populations: Findings from a scoping study. Substance Abuse Treatment, Prevention, and Policy, 9, 34. https://doi.org/10.1186/1747-597X-9-34",
+      "url": "https://doi.org/10.1186/1747-597X-9-34",
+      "sourceFileLookup": "ZIP member: Sources, GATHER Activity 1/Rowan, M., Poole, N., Shea, B., Gone, J. P., Mykota, D., Farag, M., Hopkins, C., Hall, L., Mushquash, C., & Dell, C. (2014). Cultural interventions to treat addictions in Indigenous populations_ Findings from a scoping study. Substance Abuse Treatment, Prevention, and Policy, 9, 34..pdf (inside Sources, GATHER Activity 1-20260629T223907Z-3-001.zip)",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        1
+      ]
+    },
+    {
+      "id": "S031",
+      "shortCitation": "Walters, Simoni, & Evans-Campbell (2002)",
+      "fullCitation": "Walters, K. L., Simoni, J. M., & Evans-Campbell, T. (2002). Substance use among American Indians and Alaska Natives: Incorporating culture in an Indigenist stress-coping paradigm. Public Health Reports, 117(Suppl 1), S104-S117.",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Walters, K. L., Simoni, J. M., & Evans-Campbell, T. (2002). Substance use among American Indians and Alaska Natives_ Incorporating culture in an Indigenist stress-coping paradigm. Public Health Reports, 117(Suppl 1), S104-S117..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "S017",
+      "shortCitation": "Jacob et al. (2020)",
+      "fullCitation": "Jacob, M. M., Gonzales, K. L., Chappell Belcher, D., Ruef, J. L., & RunningHawk Johnson, S. (2020). Indigenous cultural values counter the damages of white settler colonialism. Environmental Sociology. https://doi.org/10.1080/23251042.2020.1841370",
+      "url": "https://doi.org/10.1080/23251042.2020.1841370",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Jacob, M. M., Gonzales, K. L., Chappell Belcher, C., & Ruef, J. L. (2020). Indigenous cultural values counter the damages of white settler colonialism. Environmental Sociology..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        2
+      ]
+    },
+    {
+      "id": "S021",
+      "shortCitation": "Walls et al. (2026)",
+      "fullCitation": "Walls, M. L., Brown, D. L., O'Keefe, V. M., White, E. J., Gonzalez, M., Blackmore, I., Maudrie, T. L., Richardson, M., Werwie, T. R., Tai Rakena, H. G., Medley, A., Desjardins, M. M., Sevillano, L., Wilson, G., & Lewis, M. E. (2026). Measuring Indigenous cultural strengths: A systematic review of a decade of approaches. Prevention Science, 27, 359-368. https://doi.org/10.1007/s11121-026-01903-5",
+      "url": "https://doi.org/10.1007/s11121-026-01903-5",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/measuring cultural connectedbess.pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "S005",
+      "shortCitation": "Cote (2016)",
+      "fullCitation": "Cote, C. (2016). Indigenizing food sovereignty: Revitalizing Indigenous food practices and ecological knowledges in Canada and the United States. Humanities, 5(3), 57. https://doi.org/10.3390/h5030057",
+      "url": "https://doi.org/10.3390/h5030057",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Cote, C. (2016). Indigenizing food sovereignty_ Revitalizing Indigenous food practices and ecological knowledges in Canada and the United States. Humanities, 5(3), 57..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        3
+      ]
+    },
+    {
+      "id": "S016",
+      "shortCitation": "Hoover (2017)",
+      "fullCitation": "Hoover, E. (2017). You can't say you are sovereign if you cannot feed yourself: Defining and enacting food sovereignty in American Indian community gardening. American Indian Culture and Research Journal, 41(3), 31-70. https://doi.org/10.17953/aicrj.41.3.hoover",
+      "url": "https://doi.org/10.17953/aicrj.41.3.hoover",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Hoover, E. (2017). You cannot say you are sovereign if you cannot feed yourself_ Defining and enacting food sovereignty in American Indian community gardening. American Indian Culture and Research Journal, 41(3), 31-70..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        3
+      ]
+    },
+    {
+      "id": "S018",
+      "shortCitation": "Jernigan et al. (2023)",
+      "fullCitation": "Jernigan, V. B. B., Nguyen, C. J., Maudrie, T. L., Demientieff, L. X., Black, J. C., Mortenson, R., et al. (2023). Food sovereignty and health: A conceptual framework to advance research and practice. Health Promotion Practice, 24(6), 1070-1074. https://doi.org/10.1177/15248399231190367",
+      "url": "https://doi.org/10.1177/15248399231190367",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Jernigan, V. B. B., Nguyen, C. J., Maudrie, T. L., Demientieff, L. X., Black, J. C., Mortenson, R., et al. (2023). Food sovereignty and health_ A conceptual framework to advance research and practice. Health Promotion Practice, 24(6), 1070-1074..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        3
+      ]
+    },
+    {
+      "id": "S022",
+      "shortCitation": "Morrison (2011)",
+      "fullCitation": "Morrison, D. (2011). Indigenous food sovereignty: A model for social learning. In H. Wittman, A. A. Desmarais, & N. Wiebe (Eds.), Food sovereignty in Canada: Creating just and sustainable food systems. Fernwood Publishing.",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Morrison2011, A model for social learning.pdf",
+      "note": null,
+      "sourceType": "book chapter",
+      "usedBy": [
+        3
+      ]
+    },
+    {
+      "id": "S028",
+      "shortCitation": "Sowerwine et al. (2023)",
+      "fullCitation": "Sowerwine, J., Mucioki, M., Sarna-Wojcicki, D., McCovey, K., Morehead-Hillman, L., Hillman, L., Lake, F. K., Preston, V., & Bourque, S. (2023). Enhancing Indigenous food sovereignty and community health through the Karuk Agroecosystem Resilience Initiative: We are caring for it: xuus nu eethti. Health Promotion Practice, 24(6), 1096-1100. https://doi.org/10.1177/15248399231190368",
+      "url": "https://doi.org/10.1177/15248399231190368",
+      "sourceFileLookup": "ZIP member: Sources, GATHER Activity 1/Sowerwine, J., Mucioki, M., Sarna-Wojcicki, D., McCovey, K., Morehead-Hillman, L., Hillman, L., Lake, F. K., Preston, V., & Bourque, S. (2023). Enhancing Indigenous food sovereignty and community health through the Karuk Agroecosystem Resilience Initiative_ We are caring for it_ xuus nu eethti. Health Promotion Practice, 24(6), 1096-1100..pdf (inside Sources, GATHER Activity 1-20260629T223907Z-3-001.zip)",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        3
+      ]
+    },
+    {
+      "id": "S008",
+      "shortCitation": "Ecotrust (2023)",
+      "fullCitation": "Gutierrez, S. (2023). Tribal Forestry Workforce Development Report. Ecotrust, in collaboration with Intertribal Timber Council, Affiliated Tribes of Northwest Indians Economic Development Corporation, Heritage University, and United South and Eastern Tribes.",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/EcoTrust_2023_TribalForestryWorkforce.pdf",
+      "note": null,
+      "sourceType": "program and survey report",
+      "usedBy": [
+        4
+      ]
+    },
+    {
+      "id": "S009",
+      "shortCitation": "Ecotrust (2024)",
+      "fullCitation": "Gutierrez, S., Chin, D., Squiemphen-Yazzie, A., Smith, K., & Douglas, J. (2024). Indigenous Agroforestry Survey Report. Ecotrust, in collaboration with the Indigenous Agroforestry Network.",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/EcoTrust_2024_IndigenousAgroforestrySurveyReport.pdf",
+      "note": null,
+      "sourceType": "program and survey report",
+      "usedBy": [
+        4
+      ]
+    },
+    {
+      "id": "S010",
+      "shortCitation": "Ecotrust (2025)",
+      "fullCitation": "Loreno, S., Galvan-Miyoshi, Y., & Lovechio, A. (2025). Indigenous Agroforestry Technology & Tools Needs Survey Report. Ecotrust, in collaboration with the Indigenous Agroforestry Network.",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/EcoTrust_2025_IndigenousAgroforestryTechToolsSurvey.pdf",
+      "note": null,
+      "sourceType": "program and survey report",
+      "usedBy": [
+        4
+      ]
+    },
+    {
+      "id": "S019",
+      "shortCitation": "Jernigan et al. (2017)",
+      "fullCitation": "Jernigan, V. B. B., Huyser, K. R., Valdes, J., & Watts Simonds, V. (2017). Food insecurity among American Indians and Alaska Natives: A national profile using the Current Population Survey-Food Security Supplement. Journal of Hunger & Environmental Nutrition, 12(1), 1-10. https://doi.org/10.1080/19320248.2016.1227750",
+      "url": "https://doi.org/10.1080/19320248.2016.1227750",
+      "sourceFileLookup": "ZIP member: Sources, GATHER Activity 1/Jernigan, V. B. B., Wetherill, M. S., Hearod, J., Jacob, T., Salvatore, A. L., Cannady, T., Grammar, M., Standridge, J., Fox, J., Spiegel, J., Wiley, A., Noonan, C., & Buchwald, D. (2018). Food insecurity and chronic diseases among American Indians in rural Oklahoma_ The THRIVE study. American Journal of Public Health, 108(3), 441-446..pdf (inside Sources, GATHER Activity 1-20260629T223907Z-3-001.zip)",
+      "note": "Citation corrected from extracted article text. The packet filename names a different Jernigan et al. food-insecurity article, so use this source ID with care.",
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        4
+      ]
+    },
+    {
+      "id": "S026",
+      "shortCitation": "Reading & Wien (2009)",
+      "fullCitation": "Reading, C., & Wien, F. (2009). Health inequalities and social determinants of Aboriginal peoples' health. National Collaborating Centre for Aboriginal Health.",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Reading, C., & Wien, F. (2009). Health inequalities and social determinants of Aboriginal peoples health. National Collaborating Centre for Aboriginal Health..pdf",
+      "note": null,
+      "sourceType": "public health report",
+      "usedBy": [
+        4
+      ]
+    },
+    {
+      "id": "S004",
+      "shortCitation": "Carroll et al. (2020)",
+      "fullCitation": "Carroll, S. R., Garba, I., Figueroa-Rodriguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. Data Science Journal, 19(1), 43. https://doi.org/10.5334/dsj-2020-043",
+      "url": "https://doi.org/10.5334/dsj-2020-043",
+      "sourceFileLookup": "ZIP member: Sources, GATHER Activity 1/Carroll, S. R., Garba, I., Figueroa-Rodriguez, O. L., Holbrook, J., Lovett, R., Materechera, S., Parsons, M., Raseroka, K., Rodriguez-Lonebear, D., Rowe, R., Sara, R., Walker, J. D., Anderson, J., & Hudson, M. (2020). The CARE Principles for Indigenous Data Governance. Data Science Journal, 19(1), 43_.docx (inside Sources, GATHER Activity 1-20260629T223907Z-3-001.zip)",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        5
+      ]
+    },
+    {
+      "id": "S011",
+      "shortCitation": "FNIGC (n.d.)",
+      "fullCitation": "First Nations Information Governance Centre. (n.d.). The First Nations principles of OCAP. Retrieved April 2026 from https://fnigc.ca/ocap-training/",
+      "url": "https://fnigc.ca/ocap-training/",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/First Nations Information Governance Centre. (n.d.). The First Nations principles of OCAP..md.docx",
+      "note": null,
+      "sourceType": "governance guidance",
+      "usedBy": [
+        5
+      ]
+    },
+    {
+      "id": "S012",
+      "shortCitation": "FNIGC (2022)",
+      "fullCitation": "First Nations Information Governance Centre. (2022). The First Nations principles of OCAP [Brochure].",
+      "url": null,
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/FNIGC_OCAP_Principles_Brochure_2022.pdf",
+      "note": null,
+      "sourceType": "governance guidance",
+      "usedBy": [
+        5
+      ]
+    },
+    {
+      "id": "S030",
+      "shortCitation": "Walter & Suina (2019)",
+      "fullCitation": "Walter, M., & Suina, M. (2019). Indigenous data, Indigenous methodologies and Indigenous data sovereignty. International Journal of Social Research Methodology, 22(3), 233-243. https://doi.org/10.1080/13645579.2018.1531228",
+      "url": "https://doi.org/10.1080/13645579.2018.1531228",
+      "sourceFileLookup": "Source file: Sources, GATHER Activity 1/Walter, M., & Suina, M. (2019). Indigenous data, Indigenous methodologies and Indigenous data sovereignty. International Journal of Social Research Methodology, 22(3), 233-243..pdf",
+      "note": null,
+      "sourceType": "peer-reviewed article",
+      "usedBy": [
+        5
+      ]
+    }
+  ],
+  "safeguards": [
+    "Do not add a long measurement module to the listening session.",
+    "Do not ask for sacred, ceremonial, ecological-location, or protected knowledge.",
+    "Do not treat food insecurity, diet, or participation frequency as food sovereignty by itself.",
+    "Do not ask participants to disclose trauma, substance use, diagnosis, pain history, or medication details.",
+    "Do not combine cultural identity, belonging, spirituality, language, foods, land relationship, and governance into one broad culture score."
+  ],
+  "sourceLinkingNote": "Source chips link to full citation cards in this artifact. DOI or public web links are included when available. Local source-file lookup text is preserved for Google Drive replacement links after upload."
+}

@@ -1,0 +1,15 @@
+{
+  "title": "GATHER Activity 2 Measure Questions",
+  "entrypoint": "index.html",
+  "kind": "static-html-shareable",
+  "publishTargets": [
+    "GitHub Pages",
+    "Shareables MCP"
+  ],
+  "sourceWorkbook": "activity1_literature_review_ai/outputs/GATHER_Activity1_Augmented_Evidence_Matrix.xlsx",
+  "dataFile": "data/recommendations.json",
+  "sourceCount": 20,
+  "recommendationCount": 5,
+  "rightsNote": "Source PDFs/DOCX files are not copied into this public folder. Use DOI/public URLs or replace lookup text with Google Drive links after upload.",
+  "generatedAt": "2026-06-30"
+}
