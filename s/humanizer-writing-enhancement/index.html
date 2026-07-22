@@ -3,119 +3,29 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Humanizer and companion writing, UX, design, grant, and TTRPG skill packs for Claude and Codex."
-    />
-    <title>Humanizer — Writing tools that keep your voice</title>
-    <style>
-      :root { --ink:#1d1c19; --muted:#625d54; --paper:#f4eee1; --deep:#1e201e; --accent:#df5f38; --line:#c9bdaa; --display:Georgia, 'Times New Roman', serif; --body:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; --mono:'SFMono-Regular',Consolas,monospace; }
-      * { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
-      body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.5; }
-      a { color:inherit; }
-      .wrap { width:min(1180px,90vw); margin:0 auto; }
-      .site-header { display:flex; align-items:center; justify-content:space-between; min-height:78px; }
-      .wordmark { font:700 1.65rem/1 var(--display); letter-spacing:-.07em; text-decoration:none; }
-      .wordmark b { color:var(--accent); }
-      nav { display:flex; gap:1.5rem; font-size:.85rem; }
-      nav a { color:var(--muted); text-decoration:none; }
-      nav a:hover { color:var(--ink); text-decoration:underline; text-underline-offset:.3em; }
-      .hero { display:grid; align-items:center; gap:4rem; grid-template-columns:1fr .82fr; min-height:690px; padding:4rem 0 5.5rem; }
-      .eyebrow { color:#a93f21; font: .7rem/1.4 var(--mono); letter-spacing:.13em; text-transform:uppercase; }
-      h1,h2,h3,p { margin-top:0; }
-      h1 { font:700 clamp(4rem,8vw,7.7rem)/.83 var(--display); letter-spacing:-.075em; margin:1.1rem 0 1.6rem; max-width:7ch; }
-      h2 { font:700 clamp(2.5rem,5vw,4.5rem)/.9 var(--display); letter-spacing:-.065em; }
-      h3 { font:700 1.65rem/1 var(--display); letter-spacing:-.045em; }
-      .lede { color:var(--muted); font:clamp(1.15rem,1.8vw,1.55rem)/1.45 var(--display); max-width:31ch; }
-      .actions { display:flex; flex-wrap:wrap; gap:.8rem; margin:1.7rem 0; }
-      .button { display:inline-block; border:1px solid var(--accent); background:var(--accent); color:#fff; padding:.8rem 1rem; font-size:.88rem; font-weight:800; text-decoration:none; }
-      .button.ghost { background:transparent; border-color:var(--line); color:var(--ink); }
-      .fine { color:var(--muted); font-size:.85rem; max-width:50ch; }
-      .hero img { display:block; width:100%; box-shadow:14px 14px 0 var(--accent); transform:rotate(1deg); }
-      .main { border-top:1px solid var(--line); }
-      section { padding:6rem 0; }
-      .intro { max-width:770px; }
-      .intro h2 { margin:.8rem 0 0; }
-      .callout { display:grid; align-items:end; gap:2rem; grid-template-columns:1fr auto; background:#e9dfce; margin-top:3rem; padding:2rem; }
-      .callout p { color:var(--muted); max-width:52ch; margin-bottom:0; }
-      .principles { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--line); margin-top:3rem; }
-      .principles article { min-width:0; padding:2.4rem 1.7rem 2.3rem 0; }
-      .principles article + article { border-left:1px solid var(--line); padding-left:1.7rem; }
-      .number { color:#a93f21; font:.75rem var(--mono); letter-spacing:.1em; }
-      .principles p:last-child { color:var(--muted); font-size:.94rem; }
-      .install { background:var(--deep); color:#fbf5e8; }
-      .install .eyebrow { color:#f49a7b; }
-      .install .intro p { color:#cfc5b7; max-width:60ch; }
-      .install-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:3rem; background:#53554e; }
-      .install-card { background:var(--deep); padding:1.7rem; }
-      .install-card h3 { font-size:1.6rem; }
-      .install-card ol { color:#d7cfc1; padding-left:1.25rem; }
-      .install-card li + li { margin-top:.55rem; }
-      .install-card a { color:#fff0e9; text-underline-offset:.25em; }
-      .prompts { background:#e9dfce; }
-      .prompt-list { display:grid; gap:1rem; margin-top:3rem; }
-      .prompt { display:grid; grid-template-columns:6rem 1fr auto; gap:1.2rem; align-items:start; border-top:1px solid var(--line); padding:1.2rem 0; }
-      .prompt small { color:#a93f21; font: .72rem var(--mono); letter-spacing:.1em; text-transform:uppercase; }
-      pre { margin:0; color:#423e37; font: .9rem/1.55 var(--mono); white-space:pre-wrap; }
-      button { border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; padding:.6rem .75rem; font:700 .8rem var(--body); }
-      .packs { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin-top:3rem; background:var(--line); }
-      .pack { background:var(--paper); padding:1.7rem; }
-      .pack h3 { margin-bottom:.7rem; }
-      .pack p { color:var(--muted); margin-bottom:0; }
-      .compass { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:end; background:var(--deep); color:#fbf5e8; margin-top:3rem; padding:2.2rem; }
-      .compass p { color:#cfc5b7; max-width:60ch; margin-bottom:0; }
-      footer { border-top:1px solid var(--line); color:var(--muted); font-size:.85rem; padding:2rem 0 3rem; }
-      @media (max-width:760px) { .site-header { align-items:flex-start; flex-direction:column; gap:1rem; padding:1.4rem 0; } nav { flex-wrap:wrap; gap:.75rem 1.2rem; } .hero { grid-template-columns:1fr; min-height:0; padding:3rem 0 4rem; } h1 { font-size:clamp(3.7rem,19vw,5rem); } .hero img { box-shadow:8px 8px 0 var(--accent); transform:none; } section { padding:4.5rem 0; } .callout,.compass { grid-template-columns:1fr; } .principles,.install-grid,.packs { grid-template-columns:1fr; } .principles article + article { border-left:0; border-top:1px solid var(--line); padding-left:0; } .prompt { grid-template-columns:1fr; gap:.7rem; } }
-    </style>
+    <title>Humanizer: Writing tools that keep your voice</title>
+    <meta name="description" content="Download Humanizer and complementary writing, UX, design, grant, and TTRPG skill packs for Claude and Codex." />
+    <meta property="og:title" content="Humanizer: Writing tools that keep your voice" />
+    <meta property="og:description" content="A practical writing-enhancement toolkit for specificity, source integrity, voice, and reader trust." />
+    <meta property="og:image" content="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/assets/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="assets/humanizer.css" />
   </head>
   <body>
-    <header class="wrap site-header">
-      <a class="wordmark" href="#top">Humanizer<b>.</b></a>
-      <nav aria-label="Section navigation"><a href="#skill">The skill</a><a href="#install">Install</a><a href="#prompts">Prompts</a><a href="#packs">Packs</a></nav>
-    </header>
-    <main id="top">
-      <section class="wrap hero">
-        <div>
-          <p class="eyebrow">Writing enhancement skills for Claude + Codex</p>
-          <h1>Your writing can keep its fingerprints.</h1>
-          <p class="lede">Humanizer helps a draft carry its own weight: specific claims, real sources, deliberate structure, and the voice that made the draft worth writing.</p>
-          <div class="actions"><a class="button" href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">Open the live download hub</a><a class="button ghost" href="#prompts">Try a prompt</a></div>
-          <p class="fine">The live hub has the current Humanizer ZIPs, the Codex collection, and the companion Claude plugins.</p>
-        </div>
-        <img src="assets/humanizer-markup.png" alt="Humanizer manuscript with handwritten edit marks and a pinned revision note" />
-      </section>
-      <div class="main">
-        <section class="wrap" id="skill">
-          <div class="intro"><p class="eyebrow">The central skill</p><h2>Revision practice, not a detector trick.</h2></div>
-          <div class="callout"><div><p class="eyebrow">Start here</p><h3>Humanizer</h3><p>A complete, example-rich field guide with source archives, pattern references, editor lenses, citation checks, style-drift comparison, and deterministic linting.</p></div><a class="button" href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">Get Humanizer</a></div>
-          <div class="principles">
-            <article><p class="number">01</p><h3>Specificity before polish</h3><p>Replace generic importance and praise with a fact, condition, action, or consequence the draft can support.</p></article>
-            <article><p class="number">02</p><h3>Voice before uniformity</h3><p>Keep useful repetition, rhythm, dialect, plain verbs, and honest limits. Do not add fake roughness.</p></article>
-            <article><p class="number">03</p><h3>Evidence before assurance</h3><p>Check the claim, source, location, and entailment. A citation has to support the sentence beside it.</p></article>
-          </div>
-        </section>
-        <section class="install" id="install"><div class="wrap"><div class="intro"><p class="eyebrow">Install it</p><h2>Use the package that matches your workspace.</h2><p>Each route is short. Use the live hub for the current ZIPs, then enable the skill by name when you need it.</p></div><div class="install-grid">
-          <article class="install-card"><p class="eyebrow">Claude skill</p><h3>Upload the ZIP</h3><ol><li>Open <strong>Customize → Skills</strong>.</li><li>Select <strong>Add</strong> in the upper-right, then <strong>Upload Skill</strong>.</li><li>Drag in the Humanizer ZIP and enable <code>$humanizer</code>.</li></ol><a href="https://support.claude.com/en/articles/12512198-how-to-create-custom-skills">Claude skill instructions ↗</a></article>
-          <article class="install-card"><p class="eyebrow">Claude plugin</p><h3>Add a focused pack</h3><ol><li>Open <strong>Customize → Plugins</strong>.</li><li>Use the add control to upload a plugin ZIP.</li><li>Invoke the included skill with <code>/</code> or <code>+</code> when needed.</li></ol><a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude">Claude plugin instructions ↗</a></article>
-          <article class="install-card"><p class="eyebrow">Codex</p><h3>Extract the skill folder</h3><ol><li>Unzip the Codex package.</li><li>Place its <code>skills/</code> contents in <code>.agents/skills</code> for a project or <code>~/.agents/skills</code> for your user account.</li><li>Restart or reopen Codex, then invoke <code>$humanizer</code>.</li></ol><a href="https://learn.chatgpt.com/docs/build-skills">Codex skill instructions ↗</a></article>
-        </div></div></section>
-        <section class="wrap prompts" id="prompts"><div class="intro"><p class="eyebrow">Copy a starting prompt</p><h2>Ask for the revision you actually need.</h2></div><div class="prompt-list">
-          <div class="prompt"><small>Evidence pass</small><pre>Review this draft for vague importance, unsupported benefits, and source-to-claim gaps. Keep the author’s actual voice. Return Keep, Change, and Verify.</pre><button data-copy>Copy</button></div>
-          <div class="prompt"><small>Voice pass</small><pre>Revise for clarity without sanding down my cadence. Preserve recurring terms, fragments, and punctuation unless they harm comprehension. Explain each material change.</pre><button data-copy>Copy</button></div>
-          <div class="prompt"><small>Release gate</small><pre>Run a final Humanizer pass: flag generic claims, formulaic transitions, repeated conclusions, citation issues, and anything that reads smoother than it reads true.</pre><button data-copy>Copy</button></div>
-        </div></section>
-        <section class="wrap" id="packs"><div class="intro"><p class="eyebrow">Companion packs</p><h2>Pick the specialized layer that helps the work move forward.</h2></div><div class="packs">
-          <article class="pack"><h3>Creative Writing Studio</h3><p>Story architecture, show vs. tell, publishing, originality, teaching, and TTRPG-facing creative work.</p></article>
-          <article class="pack"><h3>Marketing &amp; Social Studio</h3><p>Audience framing, public communication, current social research, and Humanizer as the final copy gate.</p></article>
-          <article class="pack"><h3>Career &amp; Grants Studio</h3><p>Resume, portfolio, cover-letter, grant-process, and proposal-review support.</p></article>
-          <article class="pack"><h3>UX Design &amp; Vibe Check</h3><p>UX writing, design taste, frontend UX, content review, and a pre-release quality gate.</p></article>
-          <article class="pack"><h3>TTRPG GM Director</h3><p>Rules teaching, campaign preparation, live-table craft, and public-facing game-master tools.</p></article>
-          <article class="pack"><h3>Codex master collection</h3><p>One extractable collection that brings the writing, design, UX, and companion skills together.</p></article>
-        </div><div class="actions"><a class="button" href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">Browse live packages</a></div><div class="compass"><div><p class="eyebrow">Optional deeper review</p><h3>Critical Compass</h3><p>Use the companion Critical Compass MCP or standalone reference for a deeper second opinion on a draft after the Humanizer pass.</p></div><a class="button" href="https://github.com/JonathanKHobson/critical-compass">Open Critical Compass ↗</a></div></section>
-      </div>
-    </main>
-    <footer class="wrap">This GitHub Pages mirror introduces the package collection. The <a href="https://humanizer-writing-tools.jkylehobson.chatgpt.site">live Humanizer hub</a> hosts the current downloadable archives.</footer>
-    <script>document.querySelectorAll('[data-copy]').forEach((button)=>button.addEventListener('click',async()=>{const text=button.parentElement.querySelector('pre').innerText;await navigator.clipboard.writeText(text);button.textContent='Copied';setTimeout(()=>button.textContent='Copy',1500)}));</script>
+<main><header class="site-header"><a class="wordmark" href="#top" aria-label="Humanizer home">Humanizer<span>.</span></a><nav aria-label="Primary navigation"><a href="#humanizer">The skill</a><a href="#prompts">Prompts</a><a href="#install">Install</a><a href="#packs">Packs</a></nav></header><section class="hero" id="top"><div class="hero-copy"><p class="eyebrow">Writing enhancement skills for Claude + Codex</p><h1>Your writing can keep its fingerprints.</h1><p class="hero-lede">Humanizer helps a draft carry its own weight: specific claims, real sources, deliberate structure, and the voice that made the draft worth writing.</p><div class="hero-actions"><a class="button button-primary" href="#humanizer">Download Humanizer</a><a class="button button-quiet" href="#prompts">Try a prompt</a></div><p class="hero-note">Built for essays, proposals, UX copy, marketing, teaching, documentation, fiction, dialogue, and public-facing work.</p></div><div class="revision-window" aria-label="A Humanizer revision example"><div class="window-topline"><span>Revision field note</span><span>01 / 03</span></div><div class="draft-line"><p class="field-label">Draft</p><p>Our groundbreaking update empowers teams with a seamless, intuitive collaboration experience.</p></div><div class="revision-arrow" aria-hidden="true">↓</div><div class="revision-line"><p class="field-label">Revision</p><p>Assign the review, see who has responded, and keep the decision beside the file.</p></div><div class="window-footnote"><span>Specific action</span><span>Claim stays checkable</span></div></div></section><section class="section principles" id="humanizer"><div class="section-intro"><p class="eyebrow">The central skill</p><h2>Humanizer is a revision practice, not a detector trick.</h2></div><div class="humanizer-downloads"><div><p class="display-kicker">Start here</p><h3>Humanizer</h3><p>A complete, example-rich field guide with source archives, pattern references, editor lenses, citation checks, style-drift comparison, and deterministic linting.</p></div><div class="download-actions"><a class="button button-primary" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/humanizer-claude-skill.zip" download="">Claude skill ZIP</a><a class="button button-dark" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/humanizer-codex-skill.zip" download="">Codex skill ZIP</a></div></div><div class="principle-grid"><article><p class="principle-number">01</p><h3>Specificity before polish</h3><p>Replace generic importance, praise, and “future” language with the fact, condition, action, or consequence the draft can support.</p></article><article><p class="principle-number">02</p><h3>Voice before uniformity</h3><p>Keep the author’s useful repetitions, rhythm, dialect, plain verbs, and honest limits. Do not add fake roughness.</p></article><article><p class="principle-number">03</p><h3>Evidence before assurance</h3><p>Check the claim, source, location, and entailment. A citation is not proof until it supports the exact sentence beside it.</p></article></div><div class="visual-pair" aria-label="Humanizer editorial visuals"><figure><img src="assets/humanizer-markup.png" alt="Humanizer title treated as an edited manuscript with handwritten correction marks and a pinned revision note." loading="lazy"/><figcaption>Revision should feel like a mark of care, not a disguise.</figcaption></figure><figure><img src="assets/humanizer-revision-card.png" alt="Humanizer revision card showing a generic draft crossed out and replaced with a specific action." loading="lazy"/><figcaption>Preserve the voice; make the claim checkable.</figcaption></figure></div><div class="evidence-note"><p>The full Humanizer source library preserves the supplied Wikipedia material, the live field guide, 17 connected Wikipedia pages, and primary research. It treats patterns as revision cues, never proof of authorship.</p><a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing" target="_blank" rel="noreferrer">Read the field guide ↗</a></div></section><section class="section prompt-section" id="prompts"><div class="section-intro split-heading"><div><p class="eyebrow">Copy, paste, revise</p><h2>Prompts that leave room for the writer.</h2></div><p>Start with the draft you have. These prompts ask for stronger reader value without inventing facts, smoothing out a real voice, or chasing a detector score.</p></div><div class="prompt-list"><article class="prompt-card"><div class="prompt-meta"><span>01</span><span>A careful rewrite</span></div><h3>Humanize without inventing</h3><pre>Use $humanizer on the text below. Preserve every verifiable fact, keep my direct voice, and flag any claim that needs a source instead of adding detail. Return Keep, Change, and Verify.
+
+[PASTE DRAFT]</pre><button class="copy-button" type="button">Copy prompt</button></article><article class="prompt-card"><div class="prompt-meta"><span>02</span><span>Voice comparison</span></div><h3>Keep the writer in the room</h3><pre>Use $humanizer to compare this draft with the authentic sample below. Keep my recurring terms, fragments, and punctuation unless they harm clarity. Identify generic residue; do not add mistakes to make the draft seem human.
+
+AUTHENTIC SAMPLE:
+[PASTE SAMPLE]
+
+DRAFT:
+[PASTE DRAFT]</pre><button class="copy-button" type="button">Copy prompt</button></article><article class="prompt-card"><div class="prompt-meta"><span>03</span><span>Product release</span></div><h3>Run a UX writing gate</h3><pre>Use $ux-writer, $frontend-ux, $design-taste-gate, and $humanizer as a release gate for this page. Check labels, information scent, responsive hierarchy, generic claims, unsupported benefits, and source or destination issues. Give the five highest-leverage fixes first.
+
+[PASTE COPY OR PAGE]</pre><button class="copy-button" type="button">Copy prompt</button></article><article class="prompt-card"><div class="prompt-meta"><span>04</span><span>Argument check</span></div><h3>Stress-test a claim</h3><pre>Use $critical-compass to audit this argument. Separate what holds up from what needs evidence, name the strongest missing check, and give me a narrower version that preserves the useful point.
+
+[PASTE TEXT]</pre><button class="copy-button" type="button">Copy prompt</button></article></div></section><section class="section install-section" id="install"><div class="section-intro"><p class="eyebrow">Choose your home</p><h2>Install it where you already write.</h2></div><div class="install-grid"><article class="install-card featured-install"><p class="card-overline">Claude: individual skill</p><h3>Upload Humanizer</h3><ol><li>Download the Claude skill ZIP above.</li><li>In Claude, open <strong>Customize → Skills</strong>.</li><li>Select <strong>Add</strong> in the upper-right corner, choose<strong> Upload Skill</strong>, then drag in the ZIP.</li><li>Enable it, then ask Claude to use <code>$humanizer</code>.</li></ol><a href="https://support.claude.com/en/articles/12512198-how-to-create-custom-skills" target="_blank" rel="noreferrer">Claude skill packaging guide ↗</a></article><article class="install-card"><p class="card-overline">Claude: studio bundle</p><h3>Install a plugin</h3><ol><li>Open <strong>Customize → Plugins</strong>.</li><li>Use the <strong>+</strong> control to upload one of the custom plugin archives below.</li><li>Install it, then use <strong>/</strong> or <strong>+</strong> to find its skills.</li></ol><a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude" target="_blank" rel="noreferrer">Claude plugin guide ↗</a></article><article class="install-card"><p class="card-overline">Codex: skill collection</p><h3>Extract the collection</h3><ol><li>Download the Codex collection below.</li><li>Extract its <code>skills/</code> folder into your project&#x27;s<code>.agents/skills/</code> folder, or your user-level<code>~/.agents/skills/</code> folder.</li><li>Reopen Codex if the skills list does not refresh, then invoke a skill with <code>$</code> or let the task description route it.</li></ol><a href="https://learn.chatgpt.com/docs/build-skills" target="_blank" rel="noreferrer">Codex skill guide ↗</a></article></div><div class="codex-collection-callout"><div><p class="display-kicker">One archive for Codex</p><h3>Writing + design enhancement collection</h3><p>Humanizer, writing craft, marketing, grants, TTRPG direction, UX writing, frontend UX, Design Taste Gate, Vibe Check, and Critical Compass reference mode in one extractable collection.</p></div><a class="button button-dark" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/writing-enhancement-codex-collection.zip" download="">Codex collection ZIP</a></div></section><section class="section packs-section" id="packs"><div class="section-intro split-heading"><div><p class="eyebrow">Complementary bundles</p><h2>Build the practice around the page.</h2></div><p>Humanizer is the final writing-quality gate. These studio packs add the specialist work before it: narrative, strategy, UX, grant process, or play at the table.</p></div><div class="pack-list"><article class="pack-row"><span class="pack-index">01</span><div><p class="card-overline">Claude plugin</p><h3>Creative Writing Studio</h3><p>Story architecture, show versus tell, publishing, originality, teaching, and a full TTRPG-facing creative toolkit.</p></div><a class="text-download" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/creative-writing-studio-claude-plugin.zip" download="">Download <span aria-hidden="true">↘</span></a></article><article class="pack-row"><span class="pack-index">02</span><div><p class="card-overline">Claude plugin</p><h3>Marketing &amp; Social Studio</h3><p>Marketing strategy, social content, public communication, audience framing, and Humanizer as the final copy gate.</p></div><a class="text-download" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/marketing-social-studio-claude-plugin.zip" download="">Download <span aria-hidden="true">↘</span></a></article><article class="pack-row"><span class="pack-index">03</span><div><p class="card-overline">Claude plugin</p><h3>Career &amp; Grants Studio</h3><p>Resumes, cover letters, portfolios, grant process planning, evidence checks, and proposal review support.</p></div><a class="text-download" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/career-grants-studio-claude-plugin.zip" download="">Download <span aria-hidden="true">↘</span></a></article><article class="pack-row"><span class="pack-index">04</span><div><p class="card-overline">Claude plugin</p><h3>TTRPG GM Director</h3><p>GM-facing writing, scene direction, player facilitation, rules teaching, campaign prep, and live-table craft.</p></div><a class="text-download" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/ttrpg-gm-director-claude-plugin.zip" download="">Download <span aria-hidden="true">↘</span></a></article><article class="pack-row"><span class="pack-index">05</span><div><p class="card-overline">Claude plugin</p><h3>UX Design Toolkit</h3><p>UX writing, frontend UX, design taste, visual assets, heuristics, and Humanizer for a public-facing quality pass.</p></div><a class="text-download" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/ux-design-toolkit-claude-plugin.zip" download="">Download <span aria-hidden="true">↘</span></a></article><article class="pack-row"><span class="pack-index">06</span><div><p class="card-overline">Claude plugin</p><h3>Builder Tools + Vibe Check</h3><p>Vibe Check, project structure, debugging, GitHub conventions, browser workflows, and Humanizer in one builder pack.</p></div><a class="text-download" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/downloads/builder-tools-vibe-check-claude-plugin.zip" download="">Download <span aria-hidden="true">↘</span></a></article></div><aside class="compass-callout"><div><p class="eyebrow">Optional deeper pass</p><h2>Critical Compass</h2><p>Use it after Humanizer when the draft carries an argument, research claim, policy decision, or persuasive case. Its optional MCP-enhanced mode adds structured evidence and reasoning review; reference mode still works as a standalone skill.</p></div><a class="button button-light" href="https://github.com/JonathanKHobson/critical-compass" target="_blank" rel="noreferrer">Explore Critical Compass ↗</a></aside></section></main>
+    <script src="assets/mirror.js" defer></script>
   </body>
 </html>
