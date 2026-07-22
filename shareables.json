@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-07-15T00:12:57+00:00",
+  "generated_at": "2026-07-22T19:44:00+00:00",
   "shareables": [
+    {
+      "audience": "Writers, editors, educators, designers, marketers, grant writers, and anyone releasing text that needs to remain specific, sourced, and recognizably theirs.",
+      "id": "20260722T194400+0000-humanizer-writing-enhancement",
+      "purpose": "Publish the Humanizer writing-enhancement skill, its Claude and Codex installation routes, copyable revision prompts, companion writing/design skill packs, and Critical Compass discovery in a public download hub.",
+      "title": "Humanizer — Writing tools that keep your voice",
+      "updated_at": "2026-07-22T19:44:00+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/"
+    },
     {
       "audience": "Participatory-defense workshop participants, community organizers, self-represented litigants, and people preparing to work with counsel",
       "id": "20260715T001257+0000-participatory-defense-field-guide",
