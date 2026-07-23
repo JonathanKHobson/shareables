@@ -14,8 +14,8 @@
   --night-soft: #30332f;
   --positive: #315f48;
   --danger: #8f2f24;
-  --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --display: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --container: min(1180px, calc(100% - 2rem));
   --site-nav-h: 64px;
@@ -133,23 +133,24 @@ h4 {
   color: var(--ink) !important;
   font-family: var(--display) !important;
   font-weight: 500 !important;
-  letter-spacing: -0.045em !important;
-  line-height: 1 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.04 !important;
+  overflow-wrap: anywhere;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(3.5rem, 7.4vw, 7.2rem) !important;
-  letter-spacing: -0.073em !important;
-  line-height: 0.88 !important;
+  font-size: clamp(3.2rem, 6.4vw, 5.9rem) !important;
+  letter-spacing: -0.045em !important;
+  line-height: 0.94 !important;
 }
 
 h2 {
-  font-size: clamp(2.25rem, 4.2vw, 4.4rem) !important;
+  font-size: clamp(2rem, 3.7vw, 3.65rem) !important;
 }
 
 h3 {
-  font-size: clamp(1.35rem, 2vw, 2rem) !important;
+  font-size: clamp(1.25rem, 1.7vw, 1.7rem) !important;
 }
 
 p,
@@ -191,9 +192,13 @@ code {
   background: rgba(245, 240, 231, 0.96) !important;
   border-bottom: 1px solid var(--ink) !important;
   box-shadow: none !important;
+  margin: 0 !important;
+  max-width: none !important;
   min-height: var(--site-nav-h) !important;
+  padding: 0 !important;
   position: sticky !important;
   top: 0 !important;
+  width: 100% !important;
   z-index: 1000 !important;
 }
 
@@ -290,12 +295,14 @@ code {
   background: var(--paper) !important;
   border: 0 !important;
   display: grid !important;
-  gap: clamp(2rem, 6vw, 6rem) !important;
+  column-gap: clamp(2.5rem, 6vw, 6rem) !important;
   grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr) !important;
+  grid-template-rows: auto auto auto !important;
   margin: 0 auto !important;
   max-width: 1280px !important;
-  min-height: min(720px, calc(100vh - var(--site-nav-h))) !important;
-  padding: clamp(4.5rem, 8vw, 8rem) 5vw !important;
+  min-height: clamp(480px, 62vh, 580px) !important;
+  padding: clamp(2.75rem, 4.5vw, 4.25rem) 5vw !important;
+  row-gap: 1.15rem !important;
 }
 
 .hero-lockup {
@@ -323,20 +330,20 @@ code {
 }
 
 .hero h1 {
-  margin: 0 0 1.75rem !important;
+  margin: 0 0 1.25rem !important;
   max-width: 10ch !important;
 }
 
 .hero-lead,
 .hero .lede {
   color: var(--muted) !important;
-  font-family: var(--display) !important;
-  font-size: clamp(1.22rem, 1.8vw, 1.6rem) !important;
+  font-family: var(--sans) !important;
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem) !important;
   grid-column: 1;
   grid-row: 2;
-  line-height: 1.38 !important;
-  margin: -4.8rem 0 0 !important;
-  max-width: 34ch !important;
+  line-height: 1.55 !important;
+  margin: 0 !important;
+  max-width: 42ch !important;
 }
 
 .hero-actions,
@@ -346,7 +353,7 @@ code {
   gap: 0.75rem !important;
   grid-column: 1;
   grid-row: 3;
-  margin: -4rem 0 0 !important;
+  margin: 0 !important;
 }
 
 .work-specimen {
@@ -357,7 +364,7 @@ code {
   grid-column: 2;
   grid-row: 1 / span 3;
   margin: 0 1rem 1rem 0;
-  padding: clamp(1.35rem, 3vw, 2.4rem);
+  padding: clamp(1.2rem, 2vw, 1.75rem);
   transform: rotate(1.2deg);
 }
 
@@ -368,8 +375,8 @@ code {
 }
 
 .work-specimen h2 {
-  font-size: clamp(2rem, 3.8vw, 3.6rem) !important;
-  margin: 1.4rem 0 1.1rem !important;
+  font-size: clamp(1.85rem, 3vw, 2.8rem) !important;
+  margin: 1rem 0 0.8rem !important;
 }
 
 .specimen-top,
@@ -406,7 +413,7 @@ code {
   font-family: var(--display);
   font-size: 1.1rem;
   line-height: 1.3;
-  margin: 1.25rem 0;
+  margin: 0.9rem 0;
   text-decoration: line-through;
   text-decoration-color: var(--signal);
   text-decoration-thickness: 2px;
@@ -415,15 +422,15 @@ code {
 .specimen-after {
   color: var(--cream);
   font-family: var(--display);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
   line-height: 1.3;
-  margin: 1.25rem 0;
+  margin: 0.9rem 0;
 }
 
 .specimen-list {
   border-top: 1px solid #5b5d57;
   list-style: none;
-  margin: 1.2rem 0 0;
+  margin: 0.9rem 0 0;
   padding: 0;
 }
 
@@ -433,7 +440,7 @@ code {
   display: grid;
   gap: 1rem;
   grid-template-columns: 2.2rem 1fr;
-  padding: 0.75rem 0;
+  padding: 0.55rem 0;
 }
 
 .specimen-list span {
@@ -515,15 +522,20 @@ main > .card:first-child {
 
 .tab-panel > .card:first-child > h2,
 main > .card:first-child > h2 {
+  font-family: var(--display) !important;
+  font-size: clamp(2rem, 3.7vw, 3.65rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.04 !important;
   margin-bottom: 1.2rem !important;
 }
 
 .tab-panel > .card:first-child > p,
 main > .card:first-child > p {
   color: var(--muted) !important;
-  font-family: var(--display);
-  font-size: clamp(1.12rem, 1.8vw, 1.4rem) !important;
-  line-height: 1.48 !important;
+  font-family: var(--sans) !important;
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem) !important;
+  line-height: 1.58 !important;
 }
 
 .grid,
@@ -554,6 +566,35 @@ main > .card:first-child > p {
   margin: 0 !important;
   min-width: 0;
   padding: clamp(1.35rem, 2.7vw, 2.35rem) !important;
+}
+
+.card h2,
+.card h3,
+.grid > * h2,
+.grid > * h3,
+.chooser-grid > * h2,
+.chooser-grid > * h3,
+.faq-grid > * h2,
+.faq-grid > * h3,
+.tools > * h2,
+.tools > * h3 {
+  font-family: var(--sans) !important;
+  font-size: clamp(1.25rem, 1.65vw, 1.6rem) !important;
+  font-weight: 720 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.18 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  text-wrap: pretty;
+}
+
+.tab-panel > .card:first-child > h2,
+main > .card:first-child > h2 {
+  font-family: var(--display) !important;
+  font-size: clamp(2rem, 3.7vw, 3.65rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.04 !important;
 }
 
 .card:hover,
@@ -799,7 +840,9 @@ figcaption {
   border: 0 !important;
   color: #d7d0c5 !important;
   margin: 0 !important;
+  max-width: none !important;
   padding: var(--space-6) 5vw !important;
+  width: 100% !important;
 }
 
 .suite-footer-inner,
@@ -824,6 +867,8 @@ figcaption {
 .suite-footer-note,
 .suite-footer-legal {
   color: #bdb5a9 !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
 }
 
 .suite-footer-grid {
@@ -944,7 +989,7 @@ figcaption {
   }
 
   .hero h1 {
-    font-size: clamp(3.2rem, 17vw, 5rem) !important;
+    font-size: clamp(2.8rem, 15vw, 4.4rem) !important;
   }
 
   .work-specimen {

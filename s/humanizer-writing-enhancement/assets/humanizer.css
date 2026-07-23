@@ -397,10 +397,10 @@ h1 {
 }
 .hero-lede {
   color: var(--muted);
-  font-family: var(--display);
+  font-family: var(--sans);
   max-width: 30ch;
-  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
-  line-height: 1.38;
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
+  line-height: 1.58;
 }
 .hero-actions,
 .download-actions {
