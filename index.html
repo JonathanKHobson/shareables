@@ -1,106 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shareables Vault</title>
-  <meta name="description" content="Public shareables from the project author.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20role%3D%22img%22%20aria-label%3D%22Shareables%20mark%22%3E%0A%20%20%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2216%22%20fill%3D%22%23f8fbf9%22%2F%3E%0A%20%20%3Crect%20x%3D%2226%22%20y%3D%2224%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%230f766e%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Crect%20x%3D%2246%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23527a39%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M45%2067h30%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M64%2056l13%2011-13%2011%22%20fill%3D%22none%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2237%22%20cy%3D%2238%22%20r%3D%224%22%20fill%3D%22%23b7791f%22%2F%3E%0A%3C%2Fsvg%3E">
-  <link rel="stylesheet" href="assets/site.css">
-</head>
-<body>
-  <header>
-    <div class="brand">
-      <img alt="" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20role%3D%22img%22%20aria-label%3D%22Shareables%20mark%22%3E%0A%20%20%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2216%22%20fill%3D%22%23f8fbf9%22%2F%3E%0A%20%20%3Crect%20x%3D%2226%22%20y%3D%2224%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%230f766e%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Crect%20x%3D%2246%22%20y%3D%2234%22%20width%3D%2248%22%20height%3D%2262%22%20rx%3D%228%22%20fill%3D%22%23fff%22%20stroke%3D%22%23527a39%22%20stroke-width%3D%225%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M45%2067h30%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M64%2056l13%2011-13%2011%22%20fill%3D%22none%22%20stroke%3D%22%23d95f43%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2237%22%20cy%3D%2238%22%20r%3D%224%22%20fill%3D%22%23b7791f%22%2F%3E%0A%3C%2Fsvg%3E" width="76" height="76">
-      <div>
-        <span class="tag">Public HTML shareables</span>
-        <h1>Shareables Vault</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Public Shareables — Working Tools</title>
+    <meta
+      name="description"
+      content="Public field guides, teaching resources, project artifacts, and downloadable tools by J. Kyle Hobson."
+    />
+    <link rel="icon" href="assets/working-tools-mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body class="shareables-index">
+    <header>
+      <div class="brand">
+        <div>
+          <span class="tag">Working Tools / Public artifacts</span>
+          <h1>Public Shareables</h1>
+        </div>
       </div>
-    </div>
-    <p class="lead">Finished public packets, previews, and lightweight project artifacts from the project author.</p>
-  </header>
-  <main>
-    <section class="card notice">
-      <h2>Listed Shareables</h2>
-      <p>These pages are intentionally public and safe to browse. Unlisted previews are public by link, but they do not appear here, in <code>shareables.json</code>, or in the sitemap.</p>
-    </section>
-    <section aria-label="Listed shareables">
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/">Humanizer — Writing tools that keep your voice</a></h2>
-        <p>A public installation and prompt hub for Humanizer, companion writing, UX, design, grant, and TTRPG skills for Claude and Codex, with the full downloadable package collection.</p>
-        <p class="meta">Audience: writers, editors, educators, designers, marketers, grant writers, and anyone releasing text that needs to remain specific, sourced, and recognizably theirs.</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/">Participatory Defense Field Guide</a></h2>
-        <p>A concise, safety-first presentation companion with copyable source-grounded prompts, a downloadable local Codex skill, optional legal-research MCP starting points, and clear human-review boundaries.</p>
-        <p class="meta">Audience: participatory-defense workshop participants, community organizers, self-represented litigants, and people preparing to work with counsel.</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/gather-activity2-measures/">GATHER Activity 2 Measure Questions</a></h2>
-        <p>Publish the five Activity 2 measure-centered listening-session recommendations with progressive disclosure, citation cards, source lookup notes, and visual QA evidence.</p>
-        <p class="meta">Audience: GATHER project collaborators, Indigenous health equity researchers, listening-session facilitators, and community-engaged measurement teams</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/gather-activity2-measures/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">Luma 3D Field Notes</a></h2>
-        <p>A public listed Shareables showcase for the Lumina3D work-in-progress browser game, embedding a playable compressed screen-recording demo and linking to the GitHub repo.</p>
-        <p class="meta">Audience: Friend or public reviewer evaluating the Luma 3D project and the Shareables artifact quality.</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/gamemasterkyle-professional-game-master-portfolio/">GameMasterKyle — Professional Game Master Portfolio</a></h2>
-        <p>Public positioning and credibility portfolio for Jonathan Kyle Hobson (GameMasterKyle): mission, value, audience fit, signature work, real player testimonials, and a working contact form.</p>
-        <p class="meta">Audience: Game stores, event organizers, and prospective players looking to hire or book a professional Game Master</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/gamemasterkyle-professional-game-master-portfolio/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/">Shareables Design System Explorer</a></h2>
-        <p>Provide a public, interactive reference for Shareables templates, design systems, widgets, components, and tokens.</p>
-        <p class="meta">Audience: Shareables MCP users and collaborators</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/p2k-roguelike-survival-game-architecture-ai-workflow/">P2K Roguelike Survival — Game Architecture &amp; AI Workflow</a></h2>
-        <p>Showcase the architecture, AI-assisted development workflow, phase history, visual screenshots, and honest lessons learned building a Phaser 3 + TypeScript browser roguelike from scratch</p>
-        <p class="meta">Audience: Game developers, portfolio viewers, and AI-assisted dev enthusiasts curious about how a browser roguelike was built phase-by-phase using Codex and Claude</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/p2k-roguelike-survival-game-architecture-ai-workflow/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/2008-honda-civic-hybrid-what-happened-what-to-do-next/">2008 Honda Civic Hybrid: What Happened &amp; What to Do Next</a></h2>
-        <p>Synthesize two detailed diagnostic research documents into a single, visually polished, calming, and navigable HTML guide that feels like a professionally published resource tailored to this exact incident — covering likely causes, repair economics, diagnostic order, and mechanic scripts — without any personally identifying information</p>
-        <p class="meta">Audience: A car owner whose 2008 Honda Civic Hybrid suddenly shut down with smoke, no power, and no hazard lights — looking for clear, calm guidance on next steps and what the mechanic should check</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/2008-honda-civic-hybrid-what-happened-what-to-do-next/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/analysis-contracts-for-accountable-ai-workflows/">How I Use AI Without Handing Over the Thinking</a></h2>
-        <p>Explain Kyle Hobson&#x27;s AI workflow to cold LinkedIn and social readers, then give them practical questions for accountable AI delegation.</p>
-        <p class="meta">Audience: UX researchers, product researchers, AI workflow builders, and research/product peers</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/analysis-contracts-for-accountable-ai-workflows/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/ux-heuristics-compass-first-look/">UX Heuristics Compass: First Look</a></h2>
-        <p>Introduce UX Heuristics Compass as a public, non-person-specific AI-assisted UX audit tool; explain how it works, how to try it, show the Oppia output example, and invite useful feedback from UX practitioners.</p>
-        <p class="meta">Audience: UX designers, UX researchers, and design/product peers evaluating AI-assisted UX audit workflows.</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/ux-heuristics-compass-first-look/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/megan-how-i-store-ui-decisions-for-ai-work/">Megan, How I Store UI Decisions For AI Work</a></h2>
-        <p>Explain Kyle&#x27;s current code-first, artifact-driven approach to storing UI decisions and instructing Claude/Codex, in direct conversation with Megan&#x27;s element-library workflow and Hardik Pandya&#x27;s LLM-readable design-system article.</p>
-        <p class="meta">Audience: Megan</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/megan-how-i-store-ui-decisions-for-ai-work/">Open shareable</a></p>
-      </article>
-      <article class="card">
-        <h2><a href="https://jonathankhobson.github.io/shareables/s/kyle-storage-hub-first-look/">Kyle Storage Hub: First Look</a></h2>
-        <p>Present Kyle Storage Hub as a public-safe first look: what it organizes, what is active now, and what shareable-ready opportunities it reveals.</p>
-        <p class="meta">Audience: People evaluating Jonathan Kyle Hobson&#x27;s systems work, teaching credibility, and public project thinking.</p>
-        <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/kyle-storage-hub-first-look/">Open shareable</a></p>
-      </article>
-    </section>
-  </main>
-  <footer>
-    <p>Built with the local Shareables MCP pipeline. Public output only; private source notes stay local.</p>
-  </footer>
-</body>
+      <p class="lead">
+        Field guides, teaching resources, project evidence, and downloadable
+        tools by J. Kyle Hobson. Looking for the tool library instead?
+        <a href="https://jonathankhobson.github.io/compass-suite/">Start with Working Tools</a>.
+      </p>
+    </header>
+    <main>
+      <section class="card notice">
+        <h2>Listed Shareables</h2>
+        <p>
+          These pages are intentionally public and safe to browse. Unlisted
+          previews are public by link, but they do not appear here, in
+          <code>shareables.json</code>, or in the sitemap.
+        </p>
+      </section>
+      <section aria-label="Listed shareables">
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/"
+              >Humanizer — Writing tools that keep your voice</a
+            >
+          </h2>
+          <p>
+            A public installation and prompt hub for Humanizer, companion
+            writing, UX, design, grant, and TTRPG skills for Claude and Codex,
+            with the full downloadable package collection.
+          </p>
+          <p class="meta">
+            Audience: writers, editors, educators, designers, marketers, grant
+            writers, and anyone releasing text that needs to remain specific,
+            sourced, and recognizably theirs.
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2><a href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">Understanding AI in 2026</a></h2>
+          <p>A plain-language guide that separates models, products, interfaces, agents, and connected tools so a first-time reader can tell what they are actually using.</p>
+          <p class="meta">Audience: students, educators, new AI users, and anyone trying to make sense of a fast-changing tool landscape.</p>
+          <p><a class="button" href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">Open shareable</a></p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/"
+              >Participatory Defense Field Guide</a
+            >
+          </h2>
+          <p>
+            A concise, safety-first presentation companion with copyable
+            source-grounded prompts, a downloadable local Codex skill, optional
+            legal-research MCP starting points, and clear human-review
+            boundaries.
+          </p>
+          <p class="meta">
+            Audience: participatory-defense workshop participants, community
+            organizers, self-represented litigants, and people preparing to work
+            with counsel.
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/gather-activity2-measures/"
+              >GATHER Activity 2 Measure Questions</a
+            >
+          </h2>
+          <p>
+            Publish the five Activity 2 measure-centered listening-session
+            recommendations with progressive disclosure, citation cards, source
+            lookup notes, and visual QA evidence.
+          </p>
+          <p class="meta">
+            Audience: GATHER project collaborators, Indigenous health equity
+            researchers, listening-session facilitators, and community-engaged
+            measurement teams
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/gather-activity2-measures/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/"
+              >Luma 3D Field Notes</a
+            >
+          </h2>
+          <p>
+            A public listed Shareables showcase for the Lumina3D
+            work-in-progress browser game, embedding a playable compressed
+            screen-recording demo and linking to the GitHub repo.
+          </p>
+          <p class="meta">
+            Audience: Friend or public reviewer evaluating the Luma 3D project
+            and the Shareables artifact quality.
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/luma-3d-field-notes/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/gamemasterkyle-professional-game-master-portfolio/"
+              >GameMasterKyle — Professional Game Master Portfolio</a
+            >
+          </h2>
+          <p>
+            Public positioning and credibility portfolio for Jonathan Kyle
+            Hobson (GameMasterKyle): mission, value, audience fit, signature
+            work, real player testimonials, and a working contact form.
+          </p>
+          <p class="meta">
+            Audience: Game stores, event organizers, and prospective players
+            looking to hire or book a professional Game Master
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/gamemasterkyle-professional-game-master-portfolio/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/"
+              >Shareables Design System Explorer</a
+            >
+          </h2>
+          <p>
+            Provide a public, interactive reference for Shareables templates,
+            design systems, widgets, components, and tokens.
+          </p>
+          <p class="meta">Audience: Shareables MCP users and collaborators</p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/shareables-design-system-explorer/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/p2k-roguelike-survival-game-architecture-ai-workflow/"
+              >P2K Roguelike Survival — Game Architecture &amp; AI Workflow</a
+            >
+          </h2>
+          <p>
+            Showcase the architecture, AI-assisted development workflow, phase
+            history, visual screenshots, and honest lessons learned building a
+            Phaser 3 + TypeScript browser roguelike from scratch
+          </p>
+          <p class="meta">
+            Audience: Game developers, portfolio viewers, and AI-assisted dev
+            enthusiasts curious about how a browser roguelike was built
+            phase-by-phase using Codex and Claude
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/p2k-roguelike-survival-game-architecture-ai-workflow/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/2008-honda-civic-hybrid-what-happened-what-to-do-next/"
+              >2008 Honda Civic Hybrid: What Happened &amp; What to Do Next</a
+            >
+          </h2>
+          <p>
+            Synthesize two detailed diagnostic research documents into a single,
+            visually polished, calming, and navigable HTML guide that feels like
+            a professionally published resource tailored to this exact incident
+            — covering likely causes, repair economics, diagnostic order, and
+            mechanic scripts — without any personally identifying information
+          </p>
+          <p class="meta">
+            Audience: A car owner whose 2008 Honda Civic Hybrid suddenly shut
+            down with smoke, no power, and no hazard lights — looking for clear,
+            calm guidance on next steps and what the mechanic should check
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/2008-honda-civic-hybrid-what-happened-what-to-do-next/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/analysis-contracts-for-accountable-ai-workflows/"
+              >How I Use AI Without Handing Over the Thinking</a
+            >
+          </h2>
+          <p>
+            Explain Kyle Hobson&#x27;s AI workflow to cold LinkedIn and social
+            readers, then give them practical questions for accountable AI
+            delegation.
+          </p>
+          <p class="meta">
+            Audience: UX researchers, product researchers, AI workflow builders,
+            and research/product peers
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/analysis-contracts-for-accountable-ai-workflows/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/ux-heuristics-compass-first-look/"
+              >UX Heuristics Compass: First Look</a
+            >
+          </h2>
+          <p>
+            Introduce UX Heuristics Compass as a public, non-person-specific
+            AI-assisted UX audit tool; explain how it works, how to try it, show
+            the Oppia output example, and invite useful feedback from UX
+            practitioners.
+          </p>
+          <p class="meta">
+            Audience: UX designers, UX researchers, and design/product peers
+            evaluating AI-assisted UX audit workflows.
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/ux-heuristics-compass-first-look/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/megan-how-i-store-ui-decisions-for-ai-work/"
+              >Megan, How I Store UI Decisions For AI Work</a
+            >
+          </h2>
+          <p>
+            Explain Kyle&#x27;s current code-first, artifact-driven approach to
+            storing UI decisions and instructing Claude/Codex, in direct
+            conversation with Megan&#x27;s element-library workflow and Hardik
+            Pandya&#x27;s LLM-readable design-system article.
+          </p>
+          <p class="meta">Audience: Megan</p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/megan-how-i-store-ui-decisions-for-ai-work/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+        <article class="card">
+          <h2>
+            <a
+              href="https://jonathankhobson.github.io/shareables/s/kyle-storage-hub-first-look/"
+              >Kyle Storage Hub: First Look</a
+            >
+          </h2>
+          <p>
+            Present Kyle Storage Hub as a public-safe first look: what it
+            organizes, what is active now, and what shareable-ready
+            opportunities it reveals.
+          </p>
+          <p class="meta">
+            Audience: People evaluating Jonathan Kyle Hobson&#x27;s systems
+            work, teaching credibility, and public project thinking.
+          </p>
+          <p>
+            <a
+              class="button"
+              href="https://jonathankhobson.github.io/shareables/s/kyle-storage-hub-first-look/"
+              >Open shareable</a
+            >
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Part of Working Tools by J. Kyle Hobson. Public output only; private
+        source notes stay local.
+      </p>
+    </footer>
+  </body>
 </html>

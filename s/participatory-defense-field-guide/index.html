@@ -1,33 +1,762 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Participatory Defense Field Guide</title>
-  <meta name="description" content="A safety-first field guide for participatory defense, legal education, and source-grounded preparation.">
-  <link rel="canonical" href="https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/">
-  <style>
-    :root{--ink:#111;--paper:#fff;--muted:#565650;--line:#1d1d1d;--signal:#e7ff32;--fog:#f2f2ee}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.4}a{color:inherit}.bar{display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;border-bottom:1px solid var(--line);font-size:14px;font-weight:800}.bar nav{display:flex;gap:20px}.hero{display:grid;grid-template-columns:2fr 1fr;border-bottom:1px solid var(--line)}.hero-copy{padding:clamp(58px,9vw,140px) 5vw 70px}.index{margin:0 0 30px;color:#666;font:800 12px ui-monospace,monospace;letter-spacing:.06em}h1{max-width:760px;margin:0 0 28px;font-size:clamp(55px,7vw,112px);letter-spacing:-.09em;line-height:.88}h2{margin:0;font-size:clamp(40px,5vw,72px);letter-spacing:-.075em;line-height:.95}h3{margin:0 0 8px;font-size:24px;letter-spacing:-.04em}.lede{max-width:690px;font-size:clamp(20px,2vw,29px);letter-spacing:-.04em;color:#393936}.buttons{display:flex;gap:12px;margin-top:38px;flex-wrap:wrap}.button,button{display:inline-flex;align-items:center;justify-content:center;min-height:55px;padding:0 22px;border:1px solid var(--ink);background:#fff;color:var(--ink);font:800 16px Arial;cursor:pointer;text-decoration:none}.button.dark{background:var(--ink);color:#fff}.safety{padding:clamp(44px,6vw,88px) 5vw;background:var(--signal);border-left:1px solid var(--line);font-size:21px;letter-spacing:-.04em}.safety ul{padding:0;list-style:none}.safety li{padding:18px 0;border-top:1px solid var(--line);font-size:17px;font-weight:800}.section{padding:clamp(68px,10vw,140px) 5vw;border-bottom:1px solid var(--line)}.split{display:grid;grid-template-columns:1.4fr .7fr;gap:70px;align-items:end;margin-bottom:65px}.split p{margin:0;color:var(--muted);font-size:19px}.steps{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}.steps li{display:grid;grid-template-columns:18% 1fr;gap:12px;padding:28px 0;border-bottom:1px solid var(--line)}.steps span,.letter{font:800 13px ui-monospace,monospace;color:#686862}.steps p{margin:0;max-width:640px;color:var(--muted);font-size:18px}.prompts{background:var(--fog)}.grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}.card{min-height:335px;display:flex;flex-direction:column;justify-content:space-between;padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}.card.feature{background:var(--signal)}.card p{color:#444;margin:0 0 20px}.card button{width:100%}.download{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end;background:var(--ink);color:#fff}.download p:last-child{max-width:560px;color:#cececa;font-size:20px}.download .index{color:#aaa}.download-link{display:flex;flex-direction:column;gap:7px;padding:28px;background:var(--signal);color:var(--ink);text-decoration:none}.download-link strong{font-size:clamp(25px,2.7vw,39px);letter-spacing:-.065em;line-height:.95}.download-link small{margin-top:12px}.tools{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.tools article{padding:28px 28px 0 0;margin-right:28px;min-height:250px;border-right:1px solid var(--line)}.tools article:last-child{border:0}.tools p{min-height:105px;color:var(--muted)}.tools a{font-weight:800}.help{background:var(--fog)}.help-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}.links{border-top:1px solid var(--line)}.links a{display:flex;flex-direction:column;gap:3px;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:21px;font-weight:800}.links small{color:var(--muted);font-size:14px;font-weight:400}footer{display:flex;gap:30px;justify-content:space-between;padding:27px 5vw;background:var(--ink);color:#d0d0cb;font-size:13px}footer p{max-width:600px;margin:0}@media(max-width:800px){.bar{padding:17px 22px}.bar nav{gap:12px;font-size:12px}.hero,.split,.download,.help-grid{grid-template-columns:1fr;gap:38px}.hero-copy,.section{padding-left:22px;padding-right:22px}.safety{border-left:0;border-top:1px solid var(--line);padding:48px 22px}.grid,.tools{grid-template-columns:1fr}.tools article{margin:0;padding:25px 0;min-height:0;border-right:0;border-bottom:1px solid var(--line)}.tools p{min-height:0}.steps li{grid-template-columns:65px 1fr}.download{padding:70px 22px}footer{padding:25px 22px;flex-direction:column}}
-    .download-stack{display:grid;gap:12px}.download-stack .download-link{padding:24px}.download-stack .download-link strong{font-size:clamp(23px,2.4vw,34px)}.tools{grid-template-columns:repeat(4,1fr)}.tools article{padding-right:24px;margin-right:24px;min-height:278px}.tools p{min-height:124px}.tools article button{min-height:42px;padding:0 12px;font-size:14px}@media(max-width:900px){.tools{grid-template-columns:repeat(2,1fr)}.tools article:nth-child(2){border-right:0}}@media(max-width:800px){.tools{grid-template-columns:1fr}.tools article{border-right:0}.tools p{min-height:0}}
-  </style>
-</head>
-<body>
-  <header class="bar"><a href="#start">Participatory Defense <span style="color:#666;font-weight:500">Field Guide</span></a><nav><a href="#start">Start</a><a href="#prompts">Prompts</a><a href="#tools">Tools</a><a href="#help">Help</a></nav></header>
-  <main>
-    <section class="hero"><div class="hero-copy"><p class="index">01 / START HERE</p><h1>A practical AI field guide for legal preparation.</h1><p class="lede">A concise, safety-first companion for community defense, self-help education, and preparing to work with a lawyer.</p><div class="buttons"><a class="button dark" href="#prompts">Use a prompt</a><a class="button" href="#download">Download the skill</a></div></div><aside class="safety"><p>This resource supports organization, education, and source-grounded research. It does not replace counsel, a clerk, or official court instructions.</p><ul><li>Use fictional or fully redacted material.</li><li>Preserve originals. Work from copies.</li><li>Verify every legal claim with a source.</li></ul></aside></section>
-    <section id="start" class="section"><p class="index">02 / A CALMER WORKFLOW</p><div class="split"><h2>Make the next useful move.</h2><p>One source connector, one guardrail skill, and one clear human handoff. Keep the workflow calm and auditable.</p></div><ol class="steps"><li><span>01</span><div><h3>Orient</h3><p>Identify the jurisdiction, stage, relevant date, representation, and immediate concern. Do not guess.</p></div></li><li><span>02</span><div><h3>Organize</h3><p>Separate facts, allegations, evidence, inferences, contradictions, and unknowns in a working copy.</p></div></li><li><span>03</span><div><h3>Verify</h3><p>Open the actual primary or official source. Record the pinpoint, date, and what remains uncertain.</p></div></li><li><span>04</span><div><h3>Hand off</h3><p>Bring a concise question list to a public defender, legal-aid provider, law library, clerk, or licensed attorney.</p></div></li></ol></section>
-    <section id="prompts" class="section prompts"><p class="index">03 / COPY, THEN ADAPT</p><div class="split"><h2>Prompts that keep the guardrails on.</h2><p>Replace bracketed fields. Start with fictional or redacted material. AI output is a working aid, not evidence or legal advice.</p></div><div class="grid"><article class="card feature"><div><p class="letter">A</p><h3>Workshop / demo starter</h3><p>Use this live without putting a real person&apos;s case into the room.</p></div><button data-copy="workshop">Copy workshop prompt</button></article><article class="card"><div><p class="letter">B</p><h3>Source-grounded research</h3><p>Structure research around authority, date, pinpoint, treatment, and verification status.</p></div><button data-copy="research">Copy research prompt</button></article><article class="card"><div><p class="letter">C</p><h3>Ask Codex to install the skill</h3><p>Use a review-first request that avoids automatic setup, credentials, or connector changes.</p></div><button data-copy="install">Copy install prompt</button></article></div></section>
-    <section id="download" class="section download"><div><p class="index">04 / LOCAL GUARDRAILS</p><h2>Take the skills with you.</h2><p>Claude-ready downloads: each ZIP has one matching skill folder and a lowercase <code>skill.md</code> entrypoint. Upload in Claude at Customize → Skills.</p></div><div class="download-stack"><a class="download-link" href="participatory-defense-assistant.zip" download><span>DOWNLOAD FOR CLAUDE</span><strong>Participatory Defense Assistant</strong><small>Privacy, evidence, source hierarchy, and human-review gates</small></a><a class="download-link" href="grounded-legal-research.zip" download><span>DOWNLOAD FOR CLAUDE</span><strong>Grounded Legal Research</strong><small>Jurisdiction, primary authority, precise quotes, and uncertainty checks</small></a></div></section>
-    <section id="tools" class="section"><p class="index">05 / OPTIONAL RESEARCH MCPS</p><div class="split"><h2>Connectors can find sources. They are not the source.</h2><p>Review permissions and current setup instructions before adding an MCP. Always inspect the underlying authority.</p></div><div class="tools"><article><h3>CourtListener MCP</h3><p>U.S. opinions, dockets, citation extraction, and citation checks. Verify every quotation and later treatment.</p><a href="https://mcp.courtlistener.com/" target="_blank" rel="noreferrer">Official endpoint ↗</a><p><button data-mcp-copy="courtlistener">Copy setup prompt</button></p></article><article><h3>US Legal MCP</h3><p>Multi-source U.S. legal discovery across Congress, Federal Register, and CourtListener. Treat results as leads, then verify controlling authority.</p><a href="https://github.com/JamesANZ/legal-mcp" target="_blank" rel="noreferrer">Official project ↗</a><p><button data-mcp-copy="uslegal">Copy setup prompt</button></p></article><article><h3>GovInfo MCP</h3><p>Official U.S. Government Publishing Office MCP public preview for federal publications. Current setup may require an API key.</p><a href="https://www.govinfo.gov/developers" target="_blank" rel="noreferrer">Official developer hub ↗</a></article><article><h3>Official sources first</h3><p>For statutes, rules, procedures, orders, and forms, start with the applicable court, legislature, agency, or government repository.</p><a href="#help">See human and official routes ↓</a></article></div></section>
-    <section id="help" class="section help"><p class="index">06 / GET HUMAN HELP</p><div class="help-grid"><h2>When the decision matters, bring in a person.</h2><div class="links"><a href="https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help" target="_blank" rel="noreferrer">Find civil legal aid<small>Legal Services Corporation</small></a><a href="https://www.azcourts.gov/selfservicecenter" target="_blank" rel="noreferrer">Arizona self-service center<small>Arizona Judicial Branch</small></a><a href="https://superiorcourt.maricopa.gov/llrc/" target="_blank" rel="noreferrer">Maricopa County law library<small>Law Library Resource Center</small></a><a href="https://www.participatorydefense.org/hubs" target="_blank" rel="noreferrer">Find a participatory-defense hub<small>Community support, not a legal clinic</small></a></div></div></section>
-  </main>
-  <footer><p>Educational resource only. No filing, deadline, waiver, plea, testimony, police-contact, witness-contact, or settlement decision should be made from this site alone.</p><p>Toolkit materials are shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p></footer>
-  <script>
-    const prompts={workshop:`You are assisting a participatory-defense workshop, not acting as a lawyer.\n\nJurisdiction/court: [INSERT]\nRelevant legal date: [INSERT]\nScenario: fictional or fully redacted.\n\nAsk only for what is needed to identify the court, stage, counsel, next event, and document type. Separate facts, allegations, evidence described, inference, contradiction, and missing items. Use primary and official sources before commentary. For every legal proposition, provide the source, jurisdiction, date, exact quote and pinpoint, authority level, and VERIFIED / NEEDS VERIFICATION / NOT FOUND status. Do not advise on police contact, consent, pleas, testimony, waivers, witness contact, evidence alteration, or filing. End with questions for counsel and lawful, non-legal tasks.`,research:`Research question: [INSERT]\nJurisdiction and court level: [INSERT]\nRelevant event date: [INSERT]\n\nUse primary sources first and do not rely on model memory. For each proposition provide full title/citation; court or agency and jurisdiction; decision, publication, or effective date; exact quote and pinpoint; official or source-grounded link; binding/persuasive/unknown status; later-history or treatment check; and VERIFIED / NEEDS VERIFICATION / NOT FOUND. Report unsuccessful searches. Do not calculate deadlines or recommend a legal decision.`,install:`Help me install the participatory-defense-assistant skill locally in Codex.\n\nFirst inspect the downloaded skill folder without running any scripts. Confirm that it contains only the expected Markdown skill and reference files, identify the local Codex skills directory, then copy the skill there. Do not enable MCPs, request credentials, upload files, or modify any other configuration. Finally, verify the installed files match the source files by hash and tell me to start a new Codex turn.`};document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{await navigator.clipboard.writeText(prompts[b.dataset.copy]);const l=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=l,1800)}));
-  </script>
-  <script>
-    const mcpPrompts={courtlistener:`Help me add the official CourtListener MCP to Codex for U.S. case-law research. First inspect the official setup documentation and requested permissions. Configure only the official endpoint, do not provide or request credentials unless official setup requires them, and do not upload case material. After setup, verify the visible tool list and explain that every result must be checked against the underlying opinion or official source.`,uslegal:`Help me evaluate and install the US Legal MCP from its official project. Inspect its current README, license, dependencies, install-time scripts, requested environment variables, and source coverage before running anything. Use a least-privilege configuration with no shared credentials. After installation, verify its tools and explain that it is for discovery; controlling law, quotations, currentness, and jurisdiction still require primary-source verification.`};
-    document.querySelectorAll('[data-mcp-copy]').forEach(b=>b.addEventListener('click',async()=>{await navigator.clipboard.writeText(mcpPrompts[b.dataset.mcpCopy]);const l=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=l,1800)}));
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Participatory Defense Field Guide</title>
+    <meta
+      name="description"
+      content="A safety-first field guide for participatory defense, legal education, and source-grounded preparation."
+    />
+    <link rel="icon" href="assets/working-tools-mark.svg" type="image/svg+xml" />
+    <link
+      rel="canonical"
+      href="https://jonathankhobson.github.io/shareables/s/participatory-defense-field-guide/"
+    />
+    <style>
+      :root {
+        --ink: #1b1915;
+        --paper: #f5f0e7;
+        --paper-deep: #e8e0d2;
+        --cream: #fffaf2;
+        --muted: #5c584f;
+        --line: #1b1915;
+        --signal: #d95d3a;
+        --signal-dark: #9e3822;
+        --signal-wash: #efd8ce;
+        --night: #20221f;
+        --fog: #e8e0d2;
+        --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.4;
+      }
+      a {
+        color: inherit;
+      }
+      .skip-link {
+        position: fixed;
+        top: -5rem;
+        left: 1rem;
+        z-index: 1000;
+        padding: 12px 16px;
+        background: var(--night);
+        color: var(--cream);
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+      .bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5vw;
+        border-bottom: 1px solid var(--line);
+        font-size: 14px;
+        font-weight: 800;
+        border-top: 4px solid var(--signal);
+        background: rgb(245 240 231 / 96%);
+      }
+      .bar nav {
+        display: flex;
+        gap: 20px;
+      }
+      .bar > a {
+        font-family: var(--display);
+        font-size: 20px;
+        letter-spacing: -0.05em;
+        text-decoration: none;
+      }
+      .bar > a span {
+        color: var(--signal) !important;
+        font: inherit !important;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero-copy {
+        padding: clamp(58px, 9vw, 140px) 5vw 70px;
+      }
+      .index {
+        margin: 0 0 30px;
+        color: #4e4e4e;
+        font:
+          800 12px ui-monospace,
+          monospace;
+        letter-spacing: 0.06em;
+      }
+      h1 {
+        max-width: 760px;
+        margin: 0 0 28px;
+        font-size: clamp(55px, 7vw, 112px);
+        letter-spacing: -0.09em;
+        line-height: 0.88;
+        font-family: var(--display);
+        font-weight: 500;
+      }
+      h2 {
+        margin: 0;
+        font-size: clamp(40px, 5vw, 72px);
+        letter-spacing: -0.075em;
+        line-height: 0.95;
+        font-family: var(--display);
+        font-weight: 500;
+      }
+      h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        letter-spacing: -0.04em;
+        font-family: var(--display);
+        font-weight: 600;
+      }
+      .lede {
+        max-width: 690px;
+        font-size: clamp(20px, 2vw, 29px);
+        letter-spacing: -0.04em;
+        color: #393936;
+      }
+      .buttons {
+        display: flex;
+        gap: 12px;
+        margin-top: 38px;
+        flex-wrap: wrap;
+      }
+      .button,
+      button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 55px;
+        padding: 0 22px;
+        border: 1px solid var(--ink);
+        background: #fff;
+        color: var(--ink);
+        font: 800 16px var(--sans);
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .button.dark {
+        background: var(--ink);
+        color: #fff;
+      }
+      .safety {
+        padding: clamp(44px, 6vw, 88px) 5vw;
+        background: var(--signal-wash);
+        border-left: 1px solid var(--line);
+        font-size: 21px;
+        letter-spacing: -0.04em;
+      }
+      .safety ul {
+        padding: 0;
+        list-style: none;
+      }
+      .safety li {
+        padding: 18px 0;
+        border-top: 1px solid var(--line);
+        font-size: 17px;
+        font-weight: 800;
+      }
+      .section {
+        padding: clamp(68px, 10vw, 140px) 5vw;
+        border-bottom: 1px solid var(--line);
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1.4fr 0.7fr;
+        gap: 70px;
+        align-items: end;
+        margin-bottom: 65px;
+      }
+      .split p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 19px;
+      }
+      .steps {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid var(--line);
+      }
+      .steps li {
+        display: grid;
+        grid-template-columns: 18% 1fr;
+        gap: 12px;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .steps span,
+      .letter {
+        font:
+          800 13px ui-monospace,
+          monospace;
+        color: #686862;
+      }
+      .steps p {
+        margin: 0;
+        max-width: 640px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .prompts {
+        background: var(--fog);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+      .card {
+        min-height: 335px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--cream);
+      }
+      .card.feature {
+        background: var(--signal-wash);
+      }
+      .card p {
+        color: #444;
+        margin: 0 0 20px;
+      }
+      .card button {
+        width: 100%;
+      }
+      .download {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: end;
+        background: var(--ink);
+        color: var(--cream);
+      }
+      .download p:last-child {
+        max-width: 560px;
+        color: #cececa;
+        font-size: 20px;
+      }
+      .download .index {
+        color: #aaa;
+      }
+      .download-link {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        padding: 28px;
+        background: var(--signal-dark);
+        color: var(--cream);
+        text-decoration: none;
+      }
+      .download-link strong {
+        font-size: clamp(25px, 2.7vw, 39px);
+        letter-spacing: -0.065em;
+        line-height: 0.95;
+      }
+      .download-link small {
+        margin-top: 12px;
+      }
+      .tools {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid var(--line);
+      }
+      .tools article {
+        padding: 28px 28px 0 0;
+        margin-right: 28px;
+        min-height: 250px;
+        border-right: 1px solid var(--line);
+      }
+      .tools article:last-child {
+        border: 0;
+      }
+      .tools p {
+        min-height: 105px;
+        color: var(--muted);
+      }
+      .tools a {
+        font-weight: 800;
+      }
+      .help {
+        background: var(--fog);
+      }
+      .help-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 70px;
+      }
+      .links {
+        border-top: 1px solid var(--line);
+      }
+      .links a {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+        text-decoration: none;
+        font-size: 21px;
+        font-weight: 800;
+      }
+      .links small {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 400;
+      }
+      footer {
+        display: flex;
+        gap: 30px;
+        justify-content: space-between;
+        padding: 27px 5vw;
+        background: var(--ink);
+        color: #d0d0cb;
+        font-size: 13px;
+      }
+      footer p {
+        max-width: 600px;
+        margin: 0;
+      }
+      @media (max-width: 800px) {
+        .bar {
+          padding: 17px 22px;
+        }
+        .bar nav {
+          gap: 12px;
+          font-size: 12px;
+        }
+        .hero,
+        .split,
+        .download,
+        .help-grid {
+          grid-template-columns: 1fr;
+          gap: 38px;
+        }
+        .hero-copy,
+        .section {
+          padding-left: 22px;
+          padding-right: 22px;
+        }
+        .safety {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding: 48px 22px;
+        }
+        .grid,
+        .tools {
+          grid-template-columns: 1fr;
+        }
+        .tools article {
+          margin: 0;
+          padding: 25px 0;
+          min-height: 0;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .tools p {
+          min-height: 0;
+        }
+        .steps li {
+          grid-template-columns: 65px 1fr;
+        }
+        .download {
+          padding: 70px 22px;
+        }
+        footer {
+          padding: 25px 22px;
+          flex-direction: column;
+        }
+      }
+      .download-stack {
+        display: grid;
+        gap: 12px;
+      }
+      .download-stack .download-link {
+        padding: 24px;
+      }
+      .download-stack .download-link strong {
+        font-size: clamp(23px, 2.4vw, 34px);
+      }
+      .tools {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .tools article {
+        padding-right: 24px;
+        margin-right: 24px;
+        min-height: 278px;
+      }
+      .tools p {
+        min-height: 124px;
+      }
+      .tools article button {
+        min-height: 44px;
+        padding: 0 12px;
+        font-size: 14px;
+      }
+      .network-footer {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 3rem;
+        align-items: end;
+        padding: clamp(48px, 7vw, 88px) 5vw;
+        background: var(--night);
+        color: var(--cream);
+      }
+      .network-footer p {
+        max-width: 760px;
+        color: #cfc5b7;
+      }
+      .network-footer h2 {
+        color: var(--cream);
+      }
+      .network-footer nav {
+        display: grid;
+        justify-items: end;
+      }
+      .network-footer a {
+        min-height: 44px;
+        color: var(--cream);
+      }
+      @media (max-width: 900px) {
+        .tools {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .tools article:nth-child(2) {
+          border-right: 0;
+        }
+      }
+      @media (max-width: 800px) {
+        .tools {
+          grid-template-columns: 1fr;
+        }
+        .tools article {
+          border-right: 0;
+        }
+        .tools p {
+          min-height: 0;
+        }
+        .network-footer {
+          grid-template-columns: 1fr;
+        }
+        .network-footer nav {
+          justify-items: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#start">Skip to the guide</a>
+    <header class="bar">
+      <a href="https://jonathankhobson.github.io/compass-suite/">Working Tools<span>.</span></a>
+      <nav aria-label="Field guide sections">
+        <a href="#start">Guide</a><a href="#prompts">Prompts</a
+        ><a href="#tools">Tools</a><a href="#help">Help</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="index">PARTICIPATORY DEFENSE FIELD GUIDE / 01</p>
+          <h1>A practical AI field guide for legal preparation.</h1>
+          <p class="lede">
+            A concise, safety-first companion for community defense, self-help
+            education, and preparing to work with a lawyer.
+          </p>
+          <div class="buttons">
+            <a class="button dark" href="#prompts">Use a prompt</a
+            ><a class="button" href="#download">Download the skill</a>
+          </div>
+        </div>
+        <aside class="safety">
+          <p>
+            This resource supports organization, education, and source-grounded
+            research. It does not replace counsel, a clerk, or official court
+            instructions.
+          </p>
+          <ul>
+            <li>Use fictional or fully redacted material.</li>
+            <li>Preserve originals. Work from copies.</li>
+            <li>Verify every legal claim with a source.</li>
+          </ul>
+        </aside>
+      </section>
+      <section id="start" class="section">
+        <p class="index">02 / A CALMER WORKFLOW</p>
+        <div class="split">
+          <h2>Make the next useful move.</h2>
+          <p>
+            One source connector, one guardrail skill, and one clear human
+            handoff. Keep the workflow calm and auditable.
+          </p>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Orient</h3>
+              <p>
+                Identify the jurisdiction, stage, relevant date, representation,
+                and immediate concern. Do not guess.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Organize</h3>
+              <p>
+                Separate facts, allegations, evidence, inferences,
+                contradictions, and unknowns in a working copy.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Verify</h3>
+              <p>
+                Open the actual primary or official source. Record the pinpoint,
+                date, and what remains uncertain.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Hand off</h3>
+              <p>
+                Bring a concise question list to a public defender, legal-aid
+                provider, law library, clerk, or licensed attorney.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section id="prompts" class="section prompts">
+        <p class="index">03 / COPY, THEN ADAPT</p>
+        <div class="split">
+          <h2>Prompts that keep the guardrails on.</h2>
+          <p>
+            Replace bracketed fields. Start with fictional or redacted material.
+            AI output is a working aid, not evidence or legal advice.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="card feature">
+            <div>
+              <p class="letter">A</p>
+              <h3>Workshop / demo starter</h3>
+              <p>
+                Use this live without putting a real person&apos;s case into the
+                room.
+              </p>
+            </div>
+            <button type="button" data-copy="workshop">Copy workshop prompt</button>
+          </article>
+          <article class="card">
+            <div>
+              <p class="letter">B</p>
+              <h3>Source-grounded research</h3>
+              <p>
+                Structure research around authority, date, pinpoint, treatment,
+                and verification status.
+              </p>
+            </div>
+            <button type="button" data-copy="research">Copy research prompt</button>
+          </article>
+          <article class="card">
+            <div>
+              <p class="letter">C</p>
+              <h3>Ask Codex to install the skill</h3>
+              <p>
+                Use a review-first request that avoids automatic setup,
+                credentials, or connector changes.
+              </p>
+            </div>
+            <button type="button" data-copy="install">Copy install prompt</button>
+          </article>
+        </div>
+      </section>
+      <section id="download" class="section download">
+        <div>
+          <p class="index">04 / LOCAL GUARDRAILS</p>
+          <h2>Take the skills with you.</h2>
+          <p>
+            Claude-ready downloads: each ZIP has one matching skill folder and a
+            lowercase <code>skill.md</code> entrypoint. Upload in Claude at
+            Customize → Skills.
+          </p>
+        </div>
+        <div class="download-stack">
+          <a
+            class="download-link"
+            href="participatory-defense-assistant.zip"
+            download
+            ><span>DOWNLOAD FOR CLAUDE</span
+            ><strong>Participatory Defense Assistant</strong
+            ><small
+              >Privacy, evidence, source hierarchy, and human-review
+              gates</small
+            ></a
+          ><a class="download-link" href="grounded-legal-research.zip" download
+            ><span>DOWNLOAD FOR CLAUDE</span
+            ><strong>Grounded Legal Research</strong
+            ><small
+              >Jurisdiction, primary authority, precise quotes, and uncertainty
+              checks</small
+            ></a
+          >
+        </div>
+      </section>
+      <section id="tools" class="section">
+        <p class="index">05 / OPTIONAL RESEARCH MCPS</p>
+        <div class="split">
+          <h2>Connectors can find sources. They are not the source.</h2>
+          <p>
+            Review permissions and current setup instructions before adding an
+            MCP. Always inspect the underlying authority.
+          </p>
+        </div>
+        <div class="tools">
+          <article>
+            <h3>CourtListener MCP</h3>
+            <p>
+              U.S. opinions, dockets, citation extraction, and citation checks.
+              Verify every quotation and later treatment.
+            </p>
+            <a
+              href="https://mcp.courtlistener.com/"
+              target="_blank"
+              rel="noreferrer"
+              >Official endpoint ↗</a
+            >
+            <p>
+              <button type="button" data-mcp-copy="courtlistener">Copy setup prompt</button>
+            </p>
+          </article>
+          <article>
+            <h3>US Legal MCP</h3>
+            <p>
+              Multi-source U.S. legal discovery across Congress, Federal
+              Register, and CourtListener. Treat results as leads, then verify
+              controlling authority.
+            </p>
+            <a
+              href="https://github.com/JamesANZ/legal-mcp"
+              target="_blank"
+              rel="noreferrer"
+              >Official project ↗</a
+            >
+            <p><button type="button" data-mcp-copy="uslegal">Copy setup prompt</button></p>
+          </article>
+          <article>
+            <h3>GovInfo MCP</h3>
+            <p>
+              Official U.S. Government Publishing Office MCP public preview for
+              federal publications. Current setup may require an API key.
+            </p>
+            <a
+              href="https://www.govinfo.gov/developers"
+              target="_blank"
+              rel="noreferrer"
+              >Official developer hub ↗</a
+            >
+          </article>
+          <article>
+            <h3>Official sources first</h3>
+            <p>
+              For statutes, rules, procedures, orders, and forms, start with the
+              applicable court, legislature, agency, or government repository.
+            </p>
+            <a href="#help">See human and official routes ↓</a>
+          </article>
+        </div>
+      </section>
+      <section id="help" class="section help">
+        <p class="index">06 / GET HUMAN HELP</p>
+        <div class="help-grid">
+          <h2>When the decision matters, bring in a person.</h2>
+          <div class="links">
+            <a
+              href="https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help"
+              target="_blank"
+              rel="noreferrer"
+              >Find civil legal aid<small>Legal Services Corporation</small></a
+            ><a
+              href="https://www.azcourts.gov/selfservicecenter"
+              target="_blank"
+              rel="noreferrer"
+              >Arizona self-service center<small
+                >Arizona Judicial Branch</small
+              ></a
+            ><a
+              href="https://superiorcourt.maricopa.gov/llrc/"
+              target="_blank"
+              rel="noreferrer"
+              >Maricopa County law library<small
+                >Law Library Resource Center</small
+              ></a
+            ><a
+              href="https://www.participatorydefense.org/hubs"
+              target="_blank"
+              rel="noreferrer"
+              >Find a participatory-defense hub<small
+                >Community support, not a legal clinic</small
+              ></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="network-footer">
+      <div><p class="index">WORKING TOOLS BY J. KYLE HOBSON</p><h2>Prepare carefully. Hand off when the decision matters.</h2><p>Educational resource only. No filing, deadline, waiver, plea, testimony, police-contact, witness-contact, or settlement decision should be made from this site alone. Toolkit materials are shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p></div>
+      <nav aria-label="Footer"><a href="https://jonathankhobson.github.io/compass-suite/">Public library</a><a href="https://jonathankhobson.github.io/shareables/s/humanizer-writing-enhancement/">Humanizer</a><a href="https://jonathankhobson.github.io/compass-suite/license/">License and attribution</a></nav>
+    </footer>
+    <script>
+      const prompts = {
+        workshop: `You are assisting a participatory-defense workshop, not acting as a lawyer.\n\nJurisdiction/court: [INSERT]\nRelevant legal date: [INSERT]\nScenario: fictional or fully redacted.\n\nAsk only for what is needed to identify the court, stage, counsel, next event, and document type. Separate facts, allegations, evidence described, inference, contradiction, and missing items. Use primary and official sources before commentary. For every legal proposition, provide the source, jurisdiction, date, exact quote and pinpoint, authority level, and VERIFIED / NEEDS VERIFICATION / NOT FOUND status. Do not advise on police contact, consent, pleas, testimony, waivers, witness contact, evidence alteration, or filing. End with questions for counsel and lawful, non-legal tasks.`,
+        research: `Research question: [INSERT]\nJurisdiction and court level: [INSERT]\nRelevant event date: [INSERT]\n\nUse primary sources first and do not rely on model memory. For each proposition provide full title/citation; court or agency and jurisdiction; decision, publication, or effective date; exact quote and pinpoint; official or source-grounded link; binding/persuasive/unknown status; later-history or treatment check; and VERIFIED / NEEDS VERIFICATION / NOT FOUND. Report unsuccessful searches. Do not calculate deadlines or recommend a legal decision.`,
+        install: `Help me install the participatory-defense-assistant skill locally in Codex.\n\nFirst inspect the downloaded skill folder without running any scripts. Confirm that it contains only the expected Markdown skill and reference files, identify the local Codex skills directory, then copy the skill there. Do not enable MCPs, request credentials, upload files, or modify any other configuration. Finally, verify the installed files match the source files by hash and tell me to start a new Codex turn.`,
+      };
+      document.querySelectorAll("[data-copy]").forEach((b) =>
+        b.addEventListener("click", async () => {
+          await navigator.clipboard.writeText(prompts[b.dataset.copy]);
+          const l = b.textContent;
+          b.textContent = "Copied";
+          setTimeout(() => (b.textContent = l), 1800);
+        }),
+      );
+    </script>
+    <script>
+      const mcpPrompts = {
+        courtlistener: `Help me add the official CourtListener MCP to Codex for U.S. case-law research. First inspect the official setup documentation and requested permissions. Configure only the official endpoint, do not provide or request credentials unless official setup requires them, and do not upload case material. After setup, verify the visible tool list and explain that every result must be checked against the underlying opinion or official source.`,
+        uslegal: `Help me evaluate and install the US Legal MCP from its official project. Inspect its current README, license, dependencies, install-time scripts, requested environment variables, and source coverage before running anything. Use a least-privilege configuration with no shared credentials. After installation, verify its tools and explain that it is for discovery; controlling law, quotations, currentness, and jurisdiction still require primary-source verification.`,
+      };
+      document.querySelectorAll("[data-mcp-copy]").forEach((b) =>
+        b.addEventListener("click", async () => {
+          await navigator.clipboard.writeText(mcpPrompts[b.dataset.mcpCopy]);
+          const l = b.textContent;
+          b.textContent = "Copied";
+          setTimeout(() => (b.textContent = l), 1800);
+        }),
+      );
+    </script>
+  </body>
 </html>

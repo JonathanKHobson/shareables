@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Understanding AI in 2026 — A Beginner's Guide</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/working-tools-mark.svg" type="image/svg+xml">
   <style>
-    /* compass-public-visual-system: uxhc-v1 */
+    /* working-tools-network-v2 */
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -43,8 +41,8 @@
       --danger: #9f2d20;
       --shadow: 0 2px 8px rgba(23, 33, 31, 0.06);
       --shadow-md: 0 6px 20px rgba(23, 33, 31, 0.10);
-      --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-      --font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --container: min(1120px, calc(100% - 32px));
       --radius: 8px;
       --site-nav-h: 52px;
@@ -109,7 +107,7 @@
       font-weight: 700; letter-spacing: -0.025em; color: var(--white); margin-bottom: 1rem;
     }
     h3 {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 1.15rem; font-weight: 600; color: var(--white);
     }
     .lead { font-size: 1.1rem; color: var(--muted); max-width: 620px; line-height: 1.72; }
@@ -179,7 +177,7 @@
     }
     .hero-stat { display: flex; flex-direction: column; gap: 2px; }
     .hero-stat-num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 2.1rem; font-weight: 700; color: var(--white);
     }
     .hero-stat-label { font-size: 0.76rem; color: var(--muted); }
@@ -337,7 +335,7 @@
     .player-card[data-p="deepseek"] .player-logo { background: rgba(6,182,212,0.14); }
     .player-card[data-p="meta"]     .player-logo { background: rgba(24,119,242,0.14); }
 
-    .player-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .player-name { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
     .player-maker { font-size: 0.74rem; color: var(--muted); margin-bottom: 0.8rem; }
     .player-tagline { font-size: 0.86rem; color: var(--text); line-height: 1.55; margin-bottom: 1rem; }
 
@@ -419,10 +417,10 @@
       text-transform: uppercase; padding: 3px 9px; border-radius: 4px;
       margin-bottom: 0.8rem;
     }
-    .ib-assist  { background: rgba(124,109,250,0.13); color: #a99cf7; }
-    .ib-code    { background: rgba(16,163,127,0.13); color: #34d399; }
-    .ib-research{ background: rgba(66,133,244,0.13); color: #93bbfd; }
-    .ib-creative{ background: rgba(217,119,6,0.13); color: #fbbf24; }
+    .ib-assist  { background: rgba(124,109,250,0.13); color: #5140a8; }
+    .ib-code    { background: rgba(16,163,127,0.13); color: #0a6f56; }
+    .ib-research{ background: rgba(66,133,244,0.13); color: #275faa; }
+    .ib-creative{ background: rgba(217,119,6,0.13); color: #754300; }
 
     .iface-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
     .iface-card p  { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
@@ -467,7 +465,7 @@
       border-radius: 14px; padding: 1.5rem;
     }
     .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 2.4rem; font-weight: 800; color: var(--white);
       line-height: 1; margin-bottom: 6px;
     }
@@ -533,7 +531,7 @@
       border-radius: 10px; padding: 1rem 1.25rem; max-width: 200px; text-align: left;
     }
     .cta-step-num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: ui-sans-serif, system-ui, sans-serif;
       font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-bottom: 4px;
     }
     .cta-step p { font-size: 0.8rem; color: var(--muted); }
@@ -826,7 +824,7 @@
     .player-card[data-p="anthropic"] .player-tag,
     .model-tier,
     .ib-creative {
-      color: #a15f06;
+      color: #754300;
     }
     .player-card[data-p="deepseek"] .player-tag {
       color: #047b91;
@@ -1004,17 +1002,17 @@
       .suite-footer-grid { grid-template-columns: 1fr; gap: 12px; }
     }
   </style>
+  <link rel="stylesheet" href="assets/network.css">
 </head>
-<body>
+<body class="ai-guide">
 
 <div id="progress-bar" aria-hidden="true"></div>
 
-<!-- ─────────────── COMPASS NETWORK NAV ─────────────── -->
-<nav class="site-nav" aria-label="Compass network">
+<a class="skip-link" href="#what">Skip to the guide</a>
+<nav class="site-nav" aria-label="Working Tools network">
   <div class="site-nav-inner">
     <a class="site-nav-brand" href="https://jonathankhobson.github.io/compass-suite/">
-      <span class="site-nav-brand-mark" aria-hidden="true">C</span>
-      <span>Compass Suite</span>
+      <span>Working Tools</span>
     </a>
     <div class="site-nav-sep" aria-hidden="true"></div>
     <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-menu">
@@ -1022,7 +1020,7 @@
       <span>Menu</span>
     </button>
     <div class="site-nav-links" id="site-nav-menu">
-      <a class="site-nav-link" href="https://jonathankhobson.github.io/compass-suite/">Suite</a>
+      <a class="site-nav-link" href="https://jonathankhobson.github.io/compass-suite/">Library</a>
       <a class="site-nav-link" href="https://jonathankhobson.github.io/critical-compass/">Critical Compass</a>
       <a class="site-nav-link" href="https://jonathankhobson.github.io/prompt-compass/">Prompt Compass</a>
       <a class="site-nav-link" href="https://jonathankhobson.github.io/ux-heuristic-compass/">UX Heuristics</a>
@@ -1032,7 +1030,7 @@
   </div>
 </nav>
 
-<div class="page-nav-wrap" aria-label="AI Basics sections">
+<div class="page-nav-wrap" role="region" aria-label="AI Basics sections">
   <div class="page-nav-inner">
     <button class="section-nav-toggle" type="button" aria-expanded="false" aria-controls="section-nav-menu">
       <span>Sections</span>
@@ -1052,41 +1050,15 @@
 <!-- ═══════════════════════════════════════════
      HERO
 ═══════════════════════════════════════════ -->
-<section id="hero">
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="hero-dot"></span>
-      May 2026 · Research-backed · No jargon
-    </div>
-    <h1>
-      <span class="hero-title-gradient">AI is a tool.<br>This is your map.</span>
-    </h1>
-    <p class="hero-sub">
-      You've heard "ChatGPT," "Claude," "Gemini," "GPT-5.5."
-      But what's actually happening, and why does it matter?
-      This guide explains the AI landscape in plain language — no prior knowledge required.
-    </p>
-    <a href="#what" class="hero-cta">Start here ↓</a>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">88%</span>
-        <span class="hero-stat-label">of organizations use AI</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">~80%</span>
-        <span class="hero-stat-label">of university students use gen AI</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">357</span>
-        <span class="hero-stat-label">notable AI models tracked</span>
-      </div>
-    </div>
-  </div>
+<section id="hero" class="hero" aria-labelledby="hero-title">
+  <div class="hero-lockup"><div class="hero-id"><span class="hero-eyebrow">AI Basics · Updated May 2026</span><h1 id="hero-title">Get the layers straight before you choose a tool.</h1></div></div>
+  <p class="hero-lead">You have heard “ChatGPT,” “Claude,” “Gemini,” and model names that change every few months. This guide separates the model, the product, the interface, and the connected tools so you can tell what you are actually using.</p>
+  <p class="hero-actions"><a href="#what" class="button">Start with the basics</a><a href="https://jonathankhobson.github.io/what-is-an-mcp/" class="button ghost">Then learn MCPs</a></p>
+  <aside class="work-specimen" aria-label="AI system layers specimen"><div class="specimen-top"><span>System layers / 04</span><span>Same conversation</span></div><h2>These names are not interchangeable.</h2><ol class="specimen-list"><li><span>01</span><strong>Model: predicts and generates</strong></li><li><span>02</span><strong>Product: packages the model</strong></li><li><span>03</span><strong>Interface: shapes how you use it</strong></li><li><span>04</span><strong>Tools: reach approved outside systems</strong></li></ol><div class="specimen-foot"><span>Name the layer</span><span>Then compare</span></div></aside>
 </section>
 
 <div class="divider"></div>
+<main class="ai-main">
 
 
 <!-- ═══════════════════════════════════════════
@@ -1761,23 +1733,23 @@
     McKinsey AI Report 2026 · Hugging Face State of Open Source 2026 ·
     Artificial Analysis Model Leaderboard · Official documentation from OpenAI, Anthropic, Google, xAI, DeepSeek, and Meta.
   </p>
-  <p style="margin-top: 6px; opacity: 0.45;">
+  <p style="margin-top: 6px;">
     Last updated: May 2026 · For educational use · No AI capabilities were harmed in the making of this guide.
   </p>
 </div>
 
-<!-- ─────────────── COMPASS FOOTER ─────────────── -->
+</main>
 <footer class="suite-footer" role="contentinfo">
   <div class="suite-footer-inner">
     <div class="suite-footer-card">
-      <p class="suite-footer-note">AI Basics is a Compass network support resource. It keeps the original shared URL while using the Compass public visual system.</p>
-      <p class="suite-footer-heading">Compass Suite is created and maintained by Jonathan Kyle Hobson.</p>
-      <p class="suite-footer-purpose">Local-first AI tools for reasoning, prompt work, UX review, and evidence-bound workflows.</p>
-      <nav class="suite-footer-grid" aria-label="Compass network footer">
+      <p class="suite-footer-note">A public, plain-language guide from the Working Tools library.</p>
+      <p class="suite-footer-heading">AI Basics is part of Working Tools by J. Kyle Hobson.</p>
+      <p class="suite-footer-purpose">Public resources for writing, evidence, design, building, career work, teaching, and games with AI.</p>
+      <nav class="suite-footer-grid" aria-label="Working Tools network footer">
         <section class="suite-footer-group" aria-labelledby="footer-start-here">
           <h2 id="footer-start-here">Start Here</h2>
           <div class="suite-footer-links">
-            <a href="https://jonathankhobson.github.io/compass-suite/">Compass Suite Home</a>
+            <a href="https://jonathankhobson.github.io/compass-suite/">Working Tools Library</a>
             <a href="https://jonathankhobson.github.io/shareables/s/understanding-ai-2026/">AI Basics</a>
             <a href="https://jonathankhobson.github.io/what-is-an-mcp/">MCP Basics</a>
             <a href="https://jonathankhobson.github.io/compass-suite/#install">Install Guide</a>
@@ -1792,7 +1764,7 @@
           </div>
         </section>
         <section class="suite-footer-group" aria-labelledby="footer-trust">
-          <h2 id="footer-trust">Trust & Attribution</h2>
+          <h2 id="footer-trust">Trust &amp; Attribution</h2>
           <div class="suite-footer-links">
             <a href="https://jonathankhobson.github.io/compass-suite/about/">About the Author</a>
             <a href="https://jonathankhobson.github.io/compass-suite/license/">License &amp; Attribution</a>
@@ -1800,7 +1772,7 @@
           </div>
         </section>
       </nav>
-      <p class="suite-footer-legal">&copy; 2026 Jonathan Kyle Hobson. Code AGPL-3.0-only; docs, prompts, skills, and methodology CC BY-SA 4.0 unless otherwise noted. Compass names, logos, author photo, and official trade dress reserved.</p>
+      <p class="suite-footer-legal">&copy; 2026 Jonathan Kyle Hobson. Code AGPL-3.0-only; docs, prompts, skills, and methodology CC BY-SA 4.0 unless otherwise noted. Product names and official brand assets are reserved.</p>
     </div>
   </div>
 </footer>
