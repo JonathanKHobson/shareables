@@ -6,6 +6,7 @@
 <meta name="description" content="Information architecture audit of oppia.org: sitemap, taxonomy, navigation model, labeling system, content hierarchy and content model. Verified signed-out and signed-in, 6 August 2026.">
 <meta name="color-scheme" content="light dark">
 <title>Oppia.org — Information Architecture</title>
+<link rel="icon" href="data:,">
 
 <style>
 /* minimal reset - the artifact host normally provides one */
@@ -234,6 +235,9 @@ footer.doc .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;te
   box-shadow:0 1px 3px rgba(0,0,0,.08);
 }
 #themeToggle:hover{border-color:var(--teal);color:var(--teal);}
+@media (max-width:520px){
+  .eyebrow{padding-right:72px;}
+}
 @media print{
   #themeToggle,.rail,.tree-controls{display:none !important;}
   :root{--ground:#fff;--surface:#fff;--surface-2:#f5f5f5;--ink:#111;--ink-2:#333;}
