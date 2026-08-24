@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-07-22T19:44:00+00:00",
+  "generated_at": "2026-08-24T01:45:43+00:00",
   "shareables": [
+    {
+      "audience": "UX researchers, information architects, content strategists, and product teams reviewing a complex learning platform.",
+      "id": "20260824T014543+0000-oppia-information-architecture-map",
+      "purpose": "Publish an independent, archival information-architecture audit and interactive sitemap of Oppia.org, covering the site hierarchy, taxonomy, navigation model, labels, and content model. Observations date to 6 August 2026; this is not an official Oppia publication.",
+      "title": "Oppia.org Information Architecture Map",
+      "updated_at": "2026-08-24T01:45:43+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/oppia-information-architecture-map/"
+    },
     {
       "audience": "Writers, editors, educators, designers, marketers, grant writers, and anyone releasing text that needs to remain specific, sourced, and recognizably theirs.",
       "id": "20260722T194400+0000-humanizer-writing-enhancement",

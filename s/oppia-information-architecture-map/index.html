@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Information architecture audit of oppia.org: sitemap, taxonomy, navigation model, labeling system, content hierarchy and content model. Verified signed-out and signed-in, 6 August 2026.">
+<meta name="color-scheme" content="light dark">
+<title>Oppia.org — Information Architecture</title>
+
+<style>
+/* minimal reset - the artifact host normally provides one */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;}
+img,svg{max-width:100%;}
+button,input{font:inherit;color:inherit;}
+</style>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --ground:#F3F6F4;
+  --surface:#FFFFFF;
+  --surface-2:#EAEFEC;
+  --ink:#0F1E1C;
+  --ink-2:#3C4E4A;
+  --slate:#5C6D69;
+  --hairline:#D3DDD8;
+  --hairline-2:#BDCBC5;
+  --teal:#0D6B5F;
+  --teal-soft:#DCEBE7;
+  --teal-line:#7FB3A8;
+  --ochre:#A55F0F;
+  --ochre-soft:#F5E7D4;
+  --good:#2C6E4F;
+  --warn:#8A6208;
+  --crit:#A33A22;
+
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0A1312;--surface:#101D1B;--surface-2:#162523;
+    --ink:#E2ECE8;--ink-2:#B3C4BF;--slate:#8AA09A;
+    --hairline:#233432;--hairline-2:#314743;
+    --teal:#45C0A8;--teal-soft:#12302B;--teal-line:#2E6F63;
+    --ochre:#DB9C46;--ochre-soft:#2E2415;
+    --good:#59BE8C;--warn:#D2A83F;--crit:#E27C5F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A1312;--surface:#101D1B;--surface-2:#162523;
+  --ink:#E2ECE8;--ink-2:#B3C4BF;--slate:#8AA09A;
+  --hairline:#233432;--hairline-2:#314743;
+  --teal:#45C0A8;--teal-soft:#12302B;--teal-line:#2E6F63;
+  --ochre:#DB9C46;--ochre-soft:#2E2415;
+  --good:#59BE8C;--warn:#D2A83F;--crit:#E27C5F;
+}
+:root[data-theme="light"]{
+  --ground:#F3F6F4;--surface:#FFFFFF;--surface-2:#EAEFEC;
+  --ink:#0F1E1C;--ink-2:#3C4E4A;--slate:#5C6D69;
+  --hairline:#D3DDD8;--hairline-2:#BDCBC5;
+  --teal:#0D6B5F;--teal-soft:#DCEBE7;--teal-line:#7FB3A8;
+  --ochre:#A55F0F;--ochre-soft:#F5E7D4;
+  --good:#2C6E4F;--warn:#8A6208;--crit:#A33A22;
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:var(--teal);text-underline-offset:2px;}
+a:hover{color:var(--ochre);}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:2px;border-radius:2px;}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;text-wrap:balance;margin:0;line-height:1.18;}
+p{margin:0;}
+code,kbd{font-family:var(--mono);font-size:.86em;}
+.shell{max-width:1220px;margin:0 auto;padding:0 clamp(16px,4vw,40px);}
+
+/* MASTHEAD */
+.masthead{border-bottom:1px solid var(--hairline);background:var(--surface);}
+.mh-inner{display:grid;gap:34px;padding:clamp(38px,6vw,68px) 0 clamp(30px,4vw,44px);}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;}
+.eyebrow b{color:var(--teal);font-weight:600;}
+.eyebrow .rev{color:var(--ochre);font-weight:600;}
+h1{font-size:clamp(34px,5.4vw,58px);letter-spacing:-.02em;max-width:17ch;}
+h1 em{font-style:normal;color:var(--teal);}
+.standfirst{max-width:62ch;color:var(--ink-2);font-size:clamp(16px,1.5vw,18.5px);}
+.figures{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline);border-radius:3px;overflow:hidden;}
+@media (min-width:560px){.figures{grid-template-columns:repeat(3,1fr);}}
+@media (min-width:940px){.figures{grid-template-columns:repeat(6,1fr);}}
+.fig{background:var(--surface);padding:15px 16px 16px;display:grid;gap:3px;align-content:start;}
+.fig b{font-family:var(--serif);font-size:29px;line-height:1;color:var(--teal);font-variant-numeric:tabular-nums;}
+.fig span{font-size:12px;color:var(--slate);line-height:1.35;}
+
+/* LAYOUT */
+.body-grid{display:grid;grid-template-columns:1fr;gap:0;}
+@media (min-width:1040px){.body-grid{grid-template-columns:214px 1fr;gap:56px;align-items:start;}}
+.rail{display:none;}
+@media (min-width:1040px){.rail{display:block;position:sticky;top:0;padding:46px 0;max-height:100vh;overflow-y:auto;}}
+.rail ol{list-style:none;margin:0;padding:0;display:grid;gap:1px;}
+.rail a{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:baseline;padding:6px 9px;text-decoration:none;color:var(--slate);font-size:13.5px;border-left:2px solid transparent;border-radius:0 3px 3px 0;}
+.rail a .n{font-family:var(--mono);font-size:10.5px;opacity:.7;}
+.rail a:hover{color:var(--ink);background:var(--surface-2);}
+.rail a.on{color:var(--teal);border-left-color:var(--teal);background:var(--surface);font-weight:600;}
+
+main{padding:46px 0 100px;min-width:0;}
+section{scroll-margin-top:20px;padding-bottom:56px;}
+.sec-head{display:grid;gap:9px;margin-bottom:26px;padding-bottom:14px;border-bottom:2px solid var(--ink);}
+.sec-num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--ochre);text-transform:uppercase;}
+.sec-head h2{font-size:clamp(24px,3.2vw,33px);letter-spacing:-.015em;}
+.sec-head p{color:var(--ink-2);max-width:66ch;font-size:15.5px;}
+.prose{display:grid;gap:16px;max-width:70ch;margin-bottom:26px;}
+.prose p{color:var(--ink-2);}
+h3.sub{font-size:19px;margin:36px 0 12px;color:var(--ink);}
+h3.sub:first-child{margin-top:0;}
+h4.mini{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);font-weight:600;margin:26px 0 10px;}
+
+/* CHIPS */
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:2.5px 7px;border-radius:2px;border:1px solid var(--hairline-2);color:var(--slate);white-space:nowrap;display:inline-block;}
+.chip.public{border-color:var(--teal-line);color:var(--teal);background:var(--teal-soft);}
+.chip.auth{border-color:var(--hairline-2);color:var(--ink-2);background:var(--surface-2);}
+.chip.role{border-color:var(--ochre);color:var(--ochre);background:var(--ochre-soft);}
+.chip.redirect{border-style:dashed;}
+.chip.unshipped{border-color:var(--crit);color:var(--crit);}
+.chip.orphan{border-color:var(--warn);color:var(--warn);}
+.sev{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:2.5px 8px;border-radius:2px;font-weight:600;white-space:nowrap;}
+.sev.a{background:var(--crit);color:var(--surface);}
+.sev.b{background:var(--warn);color:var(--surface);}
+.sev.c{background:var(--surface-2);color:var(--slate);border:1px solid var(--hairline-2);}
+.sev.ok{background:var(--good);color:var(--surface);}
+
+/* TABLES */
+.tw{overflow-x:auto;border:1px solid var(--hairline);border-radius:3px;background:var(--surface);}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px;}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hairline);vertical-align:top;}
+thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);font-weight:600;background:var(--surface-2);white-space:nowrap;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:var(--surface-2);}
+td.mono,th.mono{font-family:var(--mono);font-size:12.5px;}
+td small{color:var(--slate);display:block;font-size:12.5px;line-height:1.45;margin-top:2px;}
+.num{font-variant-numeric:tabular-nums;text-align:right;}
+
+/* TREE */
+.tree-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border:1px solid var(--hairline);border-radius:3px 3px 0 0;background:var(--surface-2);border-bottom:none;}
+.fchip{font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--hairline-2);background:var(--surface);color:var(--slate);border-radius:2px;cursor:pointer;}
+.fchip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ground);}
+.fchip:hover{border-color:var(--teal);color:var(--teal);}
+.fchip[aria-pressed="true"]:hover{color:var(--ground);}
+#treeSearch{font-family:var(--mono);font-size:12.5px;padding:6px 10px;flex:1 1 190px;min-width:150px;border:1px solid var(--hairline-2);border-radius:2px;background:var(--surface);color:var(--ink);}
+.tree-meta{font-family:var(--mono);font-size:11.5px;color:var(--slate);margin-left:auto;font-variant-numeric:tabular-nums;}
+.treewrap{border:1px solid var(--hairline);border-radius:0 0 3px 3px;background:var(--surface);overflow:hidden;}
+.depth-ruler{display:flex;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--slate);border-bottom:1px solid var(--hairline);background:var(--surface-2);padding:5px 0 5px 12px;}
+.depth-ruler span{width:22px;flex:none;}
+.depth-ruler span:last-child{width:auto;padding-left:6px;opacity:.6;}
+ul.tree,ul.tree ul{list-style:none;margin:0;padding:0;}
+ul.tree ul{margin-left:22px;border-left:1px solid var(--hairline);}
+ul.tree li{position:relative;}
+.node{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;padding:6px 12px 6px 0;border-bottom:1px solid var(--hairline);position:relative;}
+ul.tree ul .node::before{content:"";position:absolute;left:0;top:50%;width:12px;height:1px;background:var(--hairline);}
+ul.tree ul .node{padding-left:20px;}
+.node:hover{background:var(--surface-2);}
+.tog{flex:none;width:20px;height:20px;margin-left:8px;border:1px solid var(--hairline-2);background:var(--surface);color:var(--teal);border-radius:2px;cursor:pointer;font-family:var(--mono);font-size:12px;line-height:1;padding:0;}
+ul.tree ul .tog{margin-left:0;}
+.tog:hover{border-color:var(--teal);}
+.spacer{flex:none;width:20px;margin-left:8px;}
+ul.tree ul .spacer{margin-left:0;}
+.nlabel{font-size:14.5px;font-weight:500;}
+.npath{font-family:var(--mono);font-size:12px;color:var(--teal);}
+.nnote{font-size:12.5px;color:var(--slate);flex-basis:100%;padding-left:30px;line-height:1.45;}
+li.hid{display:none;}
+li.collapsed > ul{display:none;}
+
+/* CARDS */
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));}
+.card{background:var(--surface);border:1px solid var(--hairline);border-radius:3px;padding:16px 18px;display:grid;gap:8px;align-content:start;}
+.card h4{font-family:var(--sans);font-size:14.5px;font-weight:650;margin:0;letter-spacing:.01em;}
+.card p{font-size:13.5px;color:var(--ink-2);line-height:1.5;}
+.card ul{margin:0;padding-left:17px;font-size:13px;color:var(--ink-2);display:grid;gap:3px;}
+.card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);}
+.ent{cursor:pointer;transition:border-color .12s,box-shadow .12s;}
+.ent:hover{border-color:var(--teal-line);}
+.ent.on{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal);}
+.ent.rel{border-color:var(--ochre);}
+.ent .attrs{font-family:var(--mono);font-size:11.5px;color:var(--slate);line-height:1.65;word-break:break-word;}
+.ent .rels{font-size:12.5px;color:var(--ink-2);border-top:1px dashed var(--hairline-2);padding-top:8px;}
+.ent .rels b{font-family:var(--mono);font-size:11px;color:var(--ochre);font-weight:600;}
+
+/* SPINE */
+.spine{border:1px solid var(--hairline);border-radius:3px;background:var(--surface);padding:20px 18px;overflow-x:auto;}
+.spine svg{display:block;min-width:680px;width:100%;height:auto;}
+.spine .box{fill:var(--teal-soft);stroke:var(--teal);}
+.spine .box-alt{fill:var(--ochre-soft);stroke:var(--ochre);}
+.spine .t-name{font-family:var(--sans);font-size:13.5px;font-weight:600;fill:var(--ink);}
+.spine .t-sub{font-family:var(--mono);font-size:10px;fill:var(--slate);}
+.spine .t-card{font-family:var(--mono);font-size:9.5px;fill:var(--slate);}
+.spine .t-note{font-family:var(--mono);font-size:10px;fill:var(--ochre);}
+.spine .link{stroke:var(--teal-line);stroke-width:1.4;fill:none;}
+.spine .arrow{fill:var(--teal-line);}
+.spine .back{stroke:var(--ochre);stroke-width:1.2;stroke-dasharray:4 3;fill:none;}
+
+/* CALLOUT */
+.callout{border:1px solid var(--hairline);border-left:3px solid var(--ochre);border-radius:0 3px 3px 0;background:var(--surface);padding:14px 18px;display:grid;gap:6px;margin:20px 0;}
+.callout.fix{border-left-color:var(--crit);}
+.callout .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ochre);}
+.callout.fix .k{color:var(--crit);}
+.callout p{font-size:14px;color:var(--ink-2);}
+
+/* FINDINGS */
+.finding{display:grid;gap:10px;background:var(--surface);border:1px solid var(--hairline);border-radius:3px;padding:16px 18px;}
+.finding .top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.finding h4{font-family:var(--sans);font-size:15.5px;font-weight:650;margin:0;flex:1 1 240px;}
+.finding p{font-size:14px;color:var(--ink-2);}
+.finding .fix{font-size:13.5px;color:var(--ink);background:var(--surface-2);border-radius:2px;padding:9px 12px;}
+.finding .fix b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:2px;}
+.stack{display:grid;gap:12px;}
+.switchbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px;}
+.switchbar label{font-size:13.5px;color:var(--ink-2);display:flex;gap:7px;align-items:center;cursor:pointer;}
+
+footer.doc{border-top:1px solid var(--hairline);background:var(--surface);padding:30px 0 46px;}
+footer.doc .shell{display:grid;gap:10px;}
+footer.doc p{font-size:13px;color:var(--slate);max-width:78ch;}
+footer.doc .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ochre);}
+
+@media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important;}}
+</style>
+
+<style>
+/* ---- standalone-only chrome: the host normally supplies these ---- */
+#themeToggle{
+  position:fixed;top:14px;right:14px;z-index:50;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 12px;border:1px solid var(--hairline-2);border-radius:2px;
+  background:var(--surface);color:var(--slate);cursor:pointer;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+#themeToggle:hover{border-color:var(--teal);color:var(--teal);}
+@media print{
+  #themeToggle,.rail,.tree-controls{display:none !important;}
+  :root{--ground:#fff;--surface:#fff;--surface-2:#f5f5f5;--ink:#111;--ink-2:#333;}
+  body{background:#fff;}
+  .body-grid{grid-template-columns:1fr !important;gap:0 !important;}
+  li.collapsed > ul{display:block !important;}
+  li.hid{display:block !important;}
+  section{break-inside:auto;page-break-inside:auto;}
+  .sec-head,.finding,.card{break-inside:avoid;page-break-inside:avoid;}
+  .treewrap{border-radius:0;}
+  a{color:#111;text-decoration:none;}
+}
+</style>
+</head>
+<body>
+<button id="themeToggle" type="button" aria-label="Toggle light or dark theme">Theme</button>
+<header class="masthead">
+  <div class="shell mh-inner">
+    <div class="eyebrow">
+      <span><b>Information Architecture Audit</b></span>
+      <span>oppia.org</span>
+      <span>6 Aug 2026</span>
+      <span class="rev">Rev 2 — signed-out + signed-in verified</span>
+    </div>
+    <h1>Easy to browse into. <em>Hard to arrive at.</em></h1>
+    <p class="standfirst">
+      Oppia's navigation holds up better than a source-only read suggests: the global menu does
+      reach all three classrooms, and topic pages do carry breadcrumbs. The failures are at the
+      edges — where people <em>arrive</em> rather than browse. Two of three classrooms aren't
+      indexed, no search reaches classroom content, a shared lesson link loses its ancestry, and
+      the contribution surface can't be translated at all.
+    </p>
+    <div class="figures">
+      <div class="fig"><b>3</b><span>classrooms live · sitemap indexes 1</span></div>
+      <div class="fig"><b>20</b><span>curriculum topics</span></div>
+      <div class="fig"><b>~80</b><span>route templates registered</span></div>
+      <div class="fig"><b>5</b><span>items in the account menu, against 8 dashboards</span></div>
+      <div class="fig"><b>10</b><span>roles named only inside 401 error copy</span></div>
+      <div class="fig"><b>0</b><span>translatable strings in the Contributor Dashboard</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="shell body-grid">
+
+  <nav class="rail" aria-label="Section index">
+    <ol>
+      <li><a href="#method" class="on"><span class="n">00</span><span>Method &amp; corrections</span></a></li>
+      <li><a href="#sitemap"><span class="n">01</span><span>Sitemap &amp; hierarchy</span></a></li>
+      <li><a href="#taxonomy"><span class="n">02</span><span>Taxonomy</span></a></li>
+      <li><a href="#navigation"><span class="n">03</span><span>Navigation model</span></a></li>
+      <li><a href="#labels"><span class="n">04</span><span>Labeling system</span></a></li>
+      <li><a href="#hierarchy"><span class="n">05</span><span>Content hierarchy</span></a></li>
+      <li><a href="#model"><span class="n">06</span><span>Content model</span></a></li>
+      <li><a href="#findings"><span class="n">07</span><span>Findings &amp; moves</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- 00 METHOD -->
+    <section id="method">
+      <div class="sec-head">
+        <div class="sec-num">00 — Method &amp; corrections</div>
+        <h2>What this is built from</h2>
+        <p>Two passes. Rev 1 mapped the public site from the route registry and rendered snapshots. Rev 2 re-verified every navigation claim against the live DOM, signed out and signed in, and corrected four findings that the first pass got wrong.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="k">Source A</div>
+          <h4>Live DOM, signed out</h4>
+          <p>Nav, footer, breadcrumb and search structure read directly from the DOM on <code>/about</code>, <code>/learn/math</code>, a topic page and the lesson player — not from an accessibility snapshot.</p>
+        </div>
+        <div class="card">
+          <div class="k">Source B</div>
+          <h4>Live DOM, signed in</h4>
+          <p>Account menu, Learner Dashboard, Preferences, Profile, Feedback Updates, Creator and Contributor dashboards, plus all eight role-gated panels probed on a real learner account.</p>
+        </div>
+        <div class="card">
+          <div class="k">Source C</div>
+          <h4>Route &amp; label registry</h4>
+          <p><code>oppia/oppia@develop</code> — routing module, <code>PAGES_REGISTERED_WITH_FRONTEND</code>, <code>main.py</code>, <code>en.json</code>. Authoritative for what exists; <em>not</em> authoritative for what ships or renders.</p>
+        </div>
+        <div class="card">
+          <div class="k">Source D</div>
+          <h4>Live content APIs</h4>
+          <p><code>/all_classrooms_summary</code>, <code>/classroom_data_handler/:c</code>, <code>/topic_data_handler/:c/:t</code>. The content model in §06 is transcribed from those payloads.</p>
+        </div>
+      </div>
+
+      <div class="callout fix">
+        <div class="k">Corrections applied in Rev 2</div>
+        <p>
+          <b>1. Classrooms are in the global nav.</b> Rev 1 claimed they weren't. They are — the Learn
+          menu links <code>/learn</code>, Math, Science and Financial Literacy. The classroom column
+          populates asynchronously after <code>/all_classrooms_summary</code> resolves, and the first
+          pass read the accessibility tree before it did.
+        </p>
+        <p>
+          <b>2. Breadcrumbs exist.</b> Topic pages render <code>Home › Math › Fractions</code> plus a
+          "Back to Math" link. The real defect is narrower and is now finding 03.
+        </p>
+        <p>
+          <b>3. Topic tabs are LEARN / PRACTICE / STUDY</b>, not the "Story / Revision / Practice" the
+          string table implies.
+        </p>
+        <p>
+          <b>4. Learner Groups is dark in production.</b> <code>/facilitator-dashboard</code> and
+          <code>/create-learner-group</code> return HTTP 200 but render a client-side 404. HTTP status
+          reflects backend route registration, not feature availability — so every SPA route in Rev 1
+          was re-tested by rendering it.
+        </p>
+      </div>
+
+      <div class="callout">
+        <div class="k">Scope boundary</div>
+        <p>
+          Web only; the Android app is an external destination. The eight role-gated panels were
+          probed from a learner account and all denied access, so their <em>internal</em> structure is
+          unmapped — what they yielded instead is a verified permission taxonomy (§02E) and a set of
+          access-denial defects (finding 07).
+        </p>
+      </div>
+    </section>
+
+    <!-- 01 SITEMAP -->
+    <section id="sitemap">
+      <div class="sec-head">
+        <div class="sec-num">01 — Sitemap &amp; hierarchy</div>
+        <h2>Eight zones on one domain</h2>
+        <p>A marketing site, a structured curriculum, a legacy user-generated library, an authoring suite, a personal account tier and an operations console, sharing one header. Filter by zone, access level, or text.</p>
+      </div>
+
+      <div class="tree-controls">
+        <button class="fchip" data-zone="all" aria-pressed="true">All zones</button>
+        <button class="fchip" data-zone="marketing" aria-pressed="false">Marketing</button>
+        <button class="fchip" data-zone="learn" aria-pressed="false">Learn</button>
+        <button class="fchip" data-zone="library" aria-pressed="false">Library</button>
+        <button class="fchip" data-zone="contribute" aria-pressed="false">Create</button>
+        <button class="fchip" data-zone="account" aria-pressed="false">Account</button>
+        <button class="fchip" data-zone="admin" aria-pressed="false">Admin</button>
+        <button class="fchip" data-zone="system" aria-pressed="false">System</button>
+        <button class="fchip" data-zone="legacy" aria-pressed="false">Legacy</button>
+        <input id="treeSearch" type="search" placeholder="filter by label or path…" aria-label="Filter sitemap">
+        <button class="fchip" id="expandAll">Expand all</button>
+        <button class="fchip" id="collapseAll">Collapse</button>
+        <span class="tree-meta" id="treeMeta"></span>
+      </div>
+
+      <div class="treewrap">
+        <div class="depth-ruler" aria-hidden="true">
+          <span>L0</span><span>L1</span><span>L2</span><span>L3</span><span>L4</span><span>depth →</span>
+        </div>
+        <ul class="tree" id="tree"></ul>
+      </div>
+
+      <h3 class="sub">What the shape tells you</h3>
+      <div class="prose">
+        <p>
+          <b>Learn</b> is the only genuinely deep branch — five levels from the domain root to a lesson
+          card. Every other zone is one or two levels: flat siblings hanging off <code>/</code>. That
+          asymmetry is fine in itself; the curriculum earns its depth. What matters is that three
+          route families sit at root level despite being pure classroom functionality:
+          <code>/explore/:id</code> (the lesson player), <code>/diagnostic-test-player</code>, and
+          <code>/collection/:id</code>.
+        </p>
+        <p>
+          The account tier is where the structure frays. Eight surfaces are called "Dashboard", five
+          appear in the account menu, three are selectable as a login default, and one working page
+          (<code>/feedback-updates</code>) has no entry point anywhere in the interface.
+        </p>
+      </div>
+
+      <div class="callout">
+        <div class="k">Stale index</div>
+        <p>
+          <code>sitemap.xml</code> lists 140 URLs, all under a single classroom. Production serves
+          <b>three</b>. Nine Science and Financial Literacy topics — and all of their subtopics and
+          stories — are absent, along with the newest Math topic, Length Measurements.
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 TAXONOMY -->
+    <section id="taxonomy">
+      <div class="sec-head">
+        <div class="sec-num">02 — Taxonomy</div>
+        <h2>Six classification schemes, three of them competing</h2>
+        <p>One strict hierarchy for curriculum, a flat facet set for the library, a tag set for the blog, two language taxonomies, a permission taxonomy and a system content-type vocabulary. They share no terms.</p>
+      </div>
+
+      <h3 class="sub">A. Curriculum taxonomy — enumerative, strictly mono-hierarchical</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Classroom</th><th class="mono">url_fragment</th><th class="num">Topics</th><th>Topic terms</th><th>Diagnostic test</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>Math</b><small>"Learn math through fun stories!"</small></td>
+              <td class="mono">math</td><td class="num">11</td>
+              <td><small>Place Values · Addition and Subtraction · Multiplication · Division · Fractions · Expressions and Equations · Decimals · Ratios and Proportional Reasoning · Percentages · Geometry: Shapes, Perimeters and Areas · Length Measurements</small></td>
+              <td><span class="chip public">enabled</span></td>
+            </tr>
+            <tr>
+              <td><b>Science</b><small>"Learn science through engaging stories!"</small></td>
+              <td class="mono">science</td><td class="num">5</td>
+              <td><small>Matter and Non-Matter · Basics of Energy · Scientific Principles · Hygiene and Diseases · Light</small></td>
+              <td><span class="chip public">enabled</span></td>
+            </tr>
+            <tr>
+              <td><b>Financial Literacy</b><small>"Learn about money through fun stories!"</small></td>
+              <td class="mono">finance</td><td class="num">4</td>
+              <td><small>Money · Basics of Making Money · Personal Finance · Banking</small></td>
+              <td><span class="chip unshipped">disabled</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <div class="k">Term / slug divergence</div>
+        <p>
+          The classroom displayed as <b>Financial Literacy</b> lives at <code>/learn/finance</code>.
+          The guessable <code>/learn/financial-literacy</code> resolves to nothing. Math and Science
+          slugs match their display terms exactly.
+        </p>
+      </div>
+
+      <h4 class="mini">Levels below topic</h4>
+      <div class="cards">
+        <div class="card"><div class="k">Facet 1</div><h4>Subtopic</h4><p>A revision unit grouping skills. 52 enumerated in Math alone. Served at <code>/studyguide/:subtopic</code>; the older <code>/revision/:subtopic</code> 301s to it.</p></div>
+        <div class="card"><div class="k">Facet 2</div><h4>Story</h4><p>A narrative chapter sequence. Canonical and additional stories are distinguished in the data but not in the UI.</p></div>
+        <div class="card"><div class="k">Cross-cutting</div><h4>Skill</h4><p>The only term linking curriculum to assessment. Attached to subtopics, acquired and required by chapters, and the key questions index on.</p></div>
+      </div>
+
+      <h3 class="sub">B. Library category taxonomy — flat, maintained in three places</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>List</th><th class="mono">Defined in</th><th class="num">Terms</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>Full category set</td><td class="mono">ALL_CATEGORIES</td><td class="num">44</td><td>Assignable to an exploration by its author</td></tr>
+            <tr><td>Search filter set</td><td class="mono">SEARCH_DROPDOWN_CATEGORIES</td><td class="num">19</td><td>The only categories a learner can filter by</td></tr>
+            <tr><td>Translated labels</td><td class="mono">I18N_LIBRARY_CATEGORIES_*</td><td class="num">36</td><td>Display strings — a third, differently-scoped list</td></tr>
+            <tr><td>Shelf groupings</td><td class="mono">I18N_LIBRARY_GROUPS_*</td><td class="num">8</td><td>Featured · Recently Published · Top-Rated · Science · Humanities · Social Science · Languages · Computing</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p>
+          The lists don't reconcile. 25 assignable categories have no filter entry, so content tagged
+          <em>Calculus</em>, <em>Geometry</em>, <em>Probability</em> or <em>Trigonometry</em> can't be
+          browsed to. The full set also carries residue: <code>Gaulish</code>, <code>Welcome</code>,
+          and both <code>Maths</code> and <code>Mathematics</code> as separate terms. A translated
+          label exists for <code>Test</code>.
+        </p>
+      </div>
+
+      <h3 class="sub">C–F — the remaining schemes</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="k">C · Editorial</div>
+          <h4>Blog tags — 14 controlled terms</h4>
+          <p class="attrs"><small>News · International · Educators · Learners · Community · Partnerships · Volunteer · Stories · Languages · New features · New lessons · Software development · Content · Teacher story</small></p>
+          <p>Mixes audience, content type and programme on one axis — three facets flattened into one list.</p>
+        </div>
+        <div class="card">
+          <div class="k">D · Localisation</div>
+          <h4>Two language taxonomies</h4>
+          <p><b>Site UI:</b> 18 locales in the header switcher. <b>Content:</b> a separate per-exploration <code>language_code</code>, set in Preferences as "Preferred exploration languages" and filtered independently in library search.</p>
+          <p>A learner can read the chrome in Hindi and find no lessons in Hindi; nothing explains that these are different axes.</p>
+        </div>
+        <div class="card">
+          <div class="k">E · Permissions</div>
+          <h4>10 roles — verified from 401 copy</h4>
+          <ul>
+            <li>super admin · moderator</li>
+            <li>curriculum admin · topic manager</li>
+            <li>blog admin · blog editor</li>
+            <li>voiceover admin</li>
+            <li>translation admin · translation coordinator</li>
+            <li>question admin · question coordinator</li>
+          </ul>
+          <p>These names appear <em>only</em> in error messages. No page documents the role model to the people who hold the roles.</p>
+        </div>
+        <div class="card">
+          <div class="k">F · System</div>
+          <h4>Activity types</h4>
+          <p class="attrs">exploration · collection · story · skill · subtopic · learntopic · classroom · questions · exp_translations · exp_voiceovers</p>
+          <p>The internal content-type vocabulary. Six of these ten never appear in the interface under those names — the origin of the labeling drift in §04.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 NAVIGATION -->
+    <section id="navigation">
+      <div class="sec-head">
+        <div class="sec-num">03 — Navigation model</div>
+        <h2>Six systems, strong at the top, thin at the account tier</h2>
+        <p>Global, utility, footer, contextual, embedded and breadcrumb navigation all operate. Assessments below are from the rendered DOM, signed out and signed in.</p>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th>System</th><th>Contents</th><th>Assessment</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>Global primary</b><small>Persistent header</small></td>
+              <td>Home · Learn ▾ · About ▾ · Get Involved ▾ · <b>Donate</b><br><small>Learn ▾ = Start with Oppia Classrooms → <code>/learn</code>, Math, Science, Financial Literacy, Community Library, Android App</small></td>
+              <td><span class="sev ok">Sound</span><small>Reaches every classroom directly. Note the classroom links are injected after an async data call — they are absent from the initial DOM.</small></td>
+            </tr>
+            <tr>
+              <td><b>Breadcrumbs</b><small>Learn zone</small></td>
+              <td>Topic: <code>Home › Math › Fractions</code> + "Back to Math". Lesson player: chapter title + parent topic.</td>
+              <td><span class="sev b">Conditional</span><small>The player's trail is built from query parameters. A bare <code>/explore/:id</code> shows the chapter title alone, with no ancestry and no return link.</small></td>
+            </tr>
+            <tr>
+              <td><b>Utility</b><small>Header, right</small></td>
+              <td>Language switcher (18) · Sign in (Google only) → account menu: Creator Dashboard, Learner Dashboard, Contributor Dashboard, Preferences, Logout</td>
+              <td><span class="sev b">Under-inclusive</span><small>Five items. Feedback Updates, Delete Account and Export Account are reachable only from inside Preferences or not at all.</small></td>
+            </tr>
+            <tr>
+              <td><b>Footer</b><small>Every page</small></td>
+              <td>About Oppia (About, Blog, Forum↗) · Teach/Learn (Get Started, Creator Guidelines, For Parents/Teachers, Browse the Library, Contact Us) · Social (6) · Play Store · Terms · Privacy · Newsletter</td>
+              <td><span class="sev c">Gap</span><small>No link to <code>/learn</code> or any classroom. "Browse the Library" is the only learning link, and it points at the legacy branch.</small></td>
+            </tr>
+            <tr>
+              <td><b>Contextual / local</b><small>Classroom, topic, dashboards</small></td>
+              <td>Topic grid · topic tabs <b>LEARN / PRACTICE / STUDY</b> · Learner Dashboard tabs <b>Home / Goals / Progress</b> · Contributor Dashboard <b>My Contributions / Translate Text</b></td>
+              <td><span class="sev ok">Works</span><small>Clear once inside. Learner Dashboard has 3 tabs, not the 8 sections the string table implies.</small></td>
+            </tr>
+            <tr>
+              <td><b>Embedded / sequential</b><small>Lesson player</small></td>
+              <td>Card progression · checkpoints · hints &amp; solutions · Continue · chapter chain · Share · Feedback</td>
+              <td><span class="sev ok">Strong</span><small>The most considered navigation on the site.</small></td>
+            </tr>
+            <tr>
+              <td><b>Supplemental</b><small>Search</small></td>
+              <td>Library search (<code>/search/find</code>) · Blog search (<code>/blog/search/find</code>)</td>
+              <td><span class="sev a">No site search</span><small>Neither indexes classroom content, and there is no search box in the header. The search bar <em>on the Math classroom page</em> is labelled "Search through our Community Library" — it searches a different branch.</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <div class="k">The real gap</div>
+        <p>
+          Browsing works. <em>Arriving</em> doesn't. Someone who lands from a search engine, a shared
+          lesson link or a bookmark gets no ancestry, and two of the three classrooms aren't in the
+          index to be landed on in the first place. Every navigation system on the site assumes you
+          started at the homepage.
+        </p>
+      </div>
+    </section>
+
+    <!-- 04 LABELS -->
+    <section id="labels">
+      <div class="sec-head">
+        <div class="sec-num">04 — Labeling system</div>
+        <h2>The same object under four names</h2>
+        <p>Labels drifted across a decade of renames without a migration. Interface strings, URL slugs and code identifiers each preserve a different generation of vocabulary, all in production at once. Every interface label below was read from a rendered page.</p>
+      </div>
+
+      <div class="switchbar">
+        <label><input type="checkbox" id="showCode" checked> Show URL &amp; code labels alongside interface labels</label>
+      </div>
+
+      <div class="tw">
+        <table id="labelTable">
+          <thead><tr><th>Concept</th><th>Interface label(s), as rendered</th><th class="codecol">URL slug</th><th class="codecol">Code identifier</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>The lesson unit</b><small>One playable interactive lesson</small></td>
+              <td>"Lesson" (homepage: <em>40 Curated Lessons</em>; topic: <em>17 Lessons</em>) · "Chapter" (story view) · "Exploration" (Creator Dashboard CTA: <em>+ CREATE EXPLORATION</em>) · "Activity"</td>
+              <td class="mono codecol">/explore/:id</td>
+              <td class="mono codecol">ACTIVITY_TYPE_EXPLORATION</td>
+              <td><span class="sev a">4 names</span></td>
+            </tr>
+            <tr>
+              <td><b>Community content area</b></td>
+              <td>"Community Library" (menu) · "Library" (short) · "Browse the Library" (footer) · <b>"the gallery"</b> (Preferences body copy)</td>
+              <td class="mono codecol">/community-library<small>/library, /gallery → 301</small></td>
+              <td class="mono codecol">LIBRARY_INDEX</td>
+              <td><span class="sev a">4 names</span></td>
+            </tr>
+            <tr>
+              <td><b>Revision material</b><small>Skill-grouped study content</small></td>
+              <td>"STUDY" (topic tab)</td>
+              <td class="mono codecol">/studyguide/:s<small>/revision/:s → 301</small></td>
+              <td class="mono codecol">SUBTOPIC_VIEWER<small>i18n strings say "Revision"</small></td>
+              <td><span class="sev b">3 names</span></td>
+            </tr>
+            <tr>
+              <td><b>Curriculum container</b></td>
+              <td>"Learn" (nav) · "Start with Oppia Classrooms" (menu) · "The Math Classroom" (page)</td>
+              <td class="mono codecol">/learn</td>
+              <td class="mono codecol">CLASSROOMS</td>
+              <td><span class="sev b">3 names</span></td>
+            </tr>
+            <tr>
+              <td><b>Personal work surface</b></td>
+              <td>8 pages named "…Dashboard": Learner · Creator · Contributor · Contributor Admin · Blog · Facilitator · Topics and Skills · Release Coordinator. Only 5 in the menu; only 3 selectable as a login default.</td>
+              <td class="mono codecol">8 root-level slugs</td>
+              <td class="mono codecol">*_DASHBOARD</td>
+              <td><span class="sev a">Term exhausted</span></td>
+            </tr>
+            <tr>
+              <td><b>Teacher entry point</b></td>
+              <td>"For Parents/Teachers" (nav + footer) · "Start Teaching" (homepage CTA)</td>
+              <td class="mono codecol">/teach<small>CTA points to /creator-guidelines</small></td>
+              <td class="mono codecol">TEACH / PLAYBOOK</td>
+              <td><span class="sev b">Split destination</span></td>
+            </tr>
+            <tr>
+              <td><b>Partner programme</b></td>
+              <td>"Schools and Organizations" (nav) · "Partnerships" (page title)</td>
+              <td class="mono codecol">/partnerships</td>
+              <td class="mono codecol">PARTNERSHIPS</td>
+              <td><span class="sev c">2 names</span></td>
+            </tr>
+            <tr>
+              <td><b>Financial Literacy</b></td>
+              <td>"Financial Literacy"</td>
+              <td class="mono codecol">/learn/finance</td>
+              <td class="mono codecol">P0UyR5A4NY2M</td>
+              <td><span class="sev b">Slug mismatch</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout fix">
+        <div class="k">The contribution surface has no labels to translate</div>
+        <p>
+          The Contributor Dashboard template is 17.8 KB containing <b>zero i18n keys and zero translate
+          pipes</b> — every string hardcoded English ("My Contributions", "Translate Text", "Filter by
+          Topic", "Contribution Stats", "Badges"). On a site with 18 UI locales, the one surface built
+          for volunteer <em>translators</em> is the one surface that cannot be translated. The Creator
+          Dashboard is partially done: 21 keys, with "Sort By" and others still hardcoded.
+        </p>
+      </div>
+
+      <h3 class="sub">Language labels</h3>
+      <div class="prose">
+        <p>
+          The 18-locale switcher mixes conventions in one list. Most entries pair an English name with
+          an endonym — <em>Portuguese / Português (Brasil)</em>, <em>Greek / Ελληνικά</em>. But Dutch is
+          listed as "Nederlands" in the English column, and Nigerian Pidgin is labelled "Nigerian" — a
+          nationality, not a language. It's the first control a non-English learner touches.
+        </p>
+      </div>
+    </section>
+
+    <!-- 05 HIERARCHY -->
+    <section id="hierarchy">
+      <div class="sec-head">
+        <div class="sec-num">05 — Content hierarchy</div>
+        <h2>Five levels, supported down to four</h2>
+        <p>Depth is appropriate for a story-based curriculum, and orientation holds through level four. It fails at level five, and only for arrivals that skip the levels above.</p>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th>Level</th><th>Template</th><th class="mono">Route</th><th>Primary content</th><th>Orientation</th></tr></thead>
+          <tbody>
+            <tr><td><b>L0</b></td><td>Home</td><td class="mono">/</td><td>Positioning, 3 audience CTAs, social proof</td><td>Full nav</td></tr>
+            <tr><td><b>L1</b></td><td>Classrooms index</td><td class="mono">/learn</td><td>3 classroom cards + teaser text</td><td>Full nav · linked from Learn menu</td></tr>
+            <tr><td><b>L2</b></td><td>Classroom</td><td class="mono">/learn/:classroom</td><td>Topic grid, course details, diagnostic prompt, library search bar</td><td>Full nav</td></tr>
+            <tr><td><b>L3</b></td><td>Topic</td><td class="mono">/learn/:classroom/:topic<small>redirects to …/story</small></td><td>Tabs: LEARN / PRACTICE / STUDY; stories, subtopics, skills</td><td><b>Breadcrumb + "Back to Math"</b></td></tr>
+            <tr><td><b>L4</b></td><td>Story · Study guide · Practice</td><td class="mono">…/story/:s · …/studyguide/:s · …/practice/session</td><td>Chapter chain, revision content, question set</td><td>Breadcrumb</td></tr>
+            <tr><td><b>L5</b></td><td>Lesson player</td><td class="mono">/explore/:exploration_id</td><td>Card sequence, interactions, hints, checkpoints</td><td><b>Only if query params survive</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout fix">
+        <div class="k">Where the trail breaks</div>
+        <p>
+          Chapter links carry <code>classroom_url_fragment</code>, <code>topic_url_fragment</code>,
+          <code>story_url_fragment</code> and <code>node_id</code> as query parameters, and the player
+          builds its breadcrumb from them. Strip them — as a shared link, a bookmark, a search result
+          or the <code>/explore/0</code> entry in <code>sitemap.xml</code> does — and the breadcrumb
+          collapses to the chapter title with no ancestry and no way back into the curriculum except
+          the global menu.
+        </p>
+      </div>
+
+      <h3 class="sub">Content priority by template</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="k">L0 · Home</div>
+          <h4>Three audiences, equal weight</h4>
+          <p>Students, teachers and volunteers each get a band. The primary CTA "Explore Oppia Classrooms" competes with "Access the Android app" beside it.</p>
+        </div>
+        <div class="card">
+          <div class="k">L2 · Classroom</div>
+          <h4>Sound editorial structure</h4>
+          <p>Handles both real starting states — "Don't know where to start?" routes to the first topic, "Already know some Math?" to the diagnostic test.</p>
+          <p><b>Note:</b> Financial Literacy has the diagnostic disabled, so one state silently disappears there.</p>
+        </div>
+        <div class="card">
+          <div class="k">L3 · Topic</div>
+          <h4>Three parallel modes</h4>
+          <p>LEARN / PRACTICE / STUDY sit as siblings — the clearest information design on the site.</p>
+          <p><b>Note:</b> the practice tab is conditional on <code>practice_tab_is_displayed</code>, so topic pages aren't structurally uniform.</p>
+        </div>
+        <div class="card">
+          <div class="k">Account tier</div>
+          <h4>Preferences carries the load</h4>
+          <p>Username, Picture, Bio, Preferred Dashboard, Subject Interests, Subscriptions, exploration languages, site language, audio language, 4 email toggles — plus the only entry points to <b>Delete Account</b> and <b>Export Account</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 CONTENT MODEL -->
+    <section id="model">
+      <div class="sec-head">
+        <div class="sec-num">06 — Content model</div>
+        <h2>What the objects actually are</h2>
+        <p>Transcribed from live API payloads. Select an entity to highlight what it connects to.</p>
+      </div>
+
+      <h4 class="mini">The containment spine — L0 to the card</h4>
+      <div class="spine">
+        <svg viewBox="0 0 900 128" role="img" aria-label="Containment chain: Classroom contains Topic, which contains Story, which contains Chapter, which renders an Exploration, which is a sequence of Cards.">
+          <defs>
+            <marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+              <path class="arrow" d="M0,1 L8,4.5 L0,8 z"></path>
+            </marker>
+          </defs>
+          <g>
+            <rect class="box" x="6" y="28" width="132" height="48" rx="2"></rect>
+            <rect class="box" x="184" y="28" width="132" height="48" rx="2"></rect>
+            <rect class="box" x="362" y="28" width="132" height="48" rx="2"></rect>
+            <rect class="box" x="540" y="28" width="132" height="48" rx="2"></rect>
+            <rect class="box-alt" x="718" y="28" width="176" height="48" rx="2"></rect>
+          </g>
+          <g class="t-name" text-anchor="middle">
+            <text x="72" y="50">Classroom</text><text x="250" y="50">Topic</text>
+            <text x="428" y="50">Story</text><text x="606" y="50">Chapter</text>
+            <text x="806" y="50">Exploration</text>
+          </g>
+          <g class="t-sub" text-anchor="middle">
+            <text x="72" y="66">3 live</text><text x="250" y="66">20 live</text>
+            <text x="428" y="66">chapter arc</text><text x="606" y="66">story node</text>
+            <text x="806" y="66">n Cards / States</text>
+          </g>
+          <g class="link" marker-end="url(#ar)">
+            <path d="M140,52 L180,52"></path><path d="M318,52 L358,52"></path>
+            <path d="M496,52 L536,52"></path><path d="M674,52 L714,52"></path>
+          </g>
+          <g class="t-card" text-anchor="middle">
+            <text x="160" y="44">1..n</text><text x="338" y="44">1..n</text>
+            <text x="516" y="44">1..n</text><text x="694" y="44">1..1</text>
+          </g>
+          <path class="back" d="M806,80 L806,104 L250,104 L250,80"></path>
+          <text class="t-note" x="528" y="120" text-anchor="middle">published_story_exploration_mapping — Topic also indexes its Explorations directly</text>
+        </svg>
+      </div>
+
+      <h4 class="mini">Entities — click to trace relationships</h4>
+      <div class="cards" id="entities"></div>
+
+      <h3 class="sub">Four structural observations</h3>
+      <div class="stack">
+        <div class="finding">
+          <div class="top"><h4>Exploration is load-bearing in two unrelated IA branches</h4><span class="sev b">Structural</span></div>
+          <p>The same object is a numbered <em>Chapter</em> inside a story arc and a standalone <em>Exploration</em> in the community library. It carries a <code>category</code> and <code>tags</code> from the library taxonomy that mean nothing in a classroom, and a chapter position that means nothing in the library.</p>
+          <div class="fix"><b>Implication</b>One entity, two metadata regimes, two vocabularies, two progress models. Every labeling problem in §04 traces back here.</div>
+        </div>
+        <div class="finding">
+          <div class="top"><h4>Chapters are a graph used as a list</h4><span class="sev c">Latent capacity</span></div>
+          <p>Each story node stores <code>destination_node_ids[]</code> (plural), <code>prerequisite_skill_ids[]</code> and <code>acquired_skill_ids[]</code> — the schema supports branching, prerequisite gating and adaptive routing. Every published story uses a single linear chain.</p>
+          <div class="fix"><b>Implication</b>Adaptive pathing is already modelled. It's an IA and authoring problem, not a data problem.</div>
+        </div>
+        <div class="finding">
+          <div class="top"><h4>Skill is the only cross-cutting axis — and it's invisible</h4><span class="sev b">Missed facet</span></div>
+          <p><code>Skill</code> connects subtopics, chapters, questions, practice sessions, diagnostic tests and the learner's <code>degrees_of_mastery</code>. It could unify browse, search and progress across all three classrooms. It appears in no navigation, no filter and no URL.</p>
+          <div class="fix"><b>Implication</b>The best organising principle on the site is fully populated in the data and entirely absent from the IA.</div>
+        </div>
+        <div class="finding">
+          <div class="top"><h4>Profile models a creator, not a learner</h4><span class="sev b">Identity mismatch</span></div>
+          <p>The public profile shows <em>Impact</em>, <em>Created</em>, <em>Edited</em> and a list of authored explorations. It surfaces no learning progress at all — no completed stories, no skills, no goals — despite <code>LearnerProgress</code> holding all of it.</p>
+          <div class="fix"><b>Implication</b>The one public representation of a person is built for the smallest user group on the platform.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 FINDINGS -->
+    <section id="findings">
+      <div class="sec-head">
+        <div class="sec-num">07 — Findings</div>
+        <h2>Seven moves, in order</h2>
+        <p>Ranked by impact on a learner reaching a lesson, then by cost to reverse. Every item below was verified on a rendered page.</p>
+      </div>
+
+      <div class="stack">
+
+        <div class="finding">
+          <div class="top"><span class="sev a">P0</span><h4>Regenerate sitemap.xml from the classroom APIs</h4></div>
+          <p>Two of three classrooms, nine topics and all of their stories and subtopics are missing from the index. Science and Financial Literacy are effectively invisible to search — the primary discovery channel for an organisation whose learners arrive by search, not by brand.</p>
+          <div class="fix"><b>Move</b>Generate from <code>/all_classrooms_summary</code> and <code>classroom_data_handler</code> instead of a static list, so new topics index on publish.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev a">P0</span><h4>Make <code>/explore/:id</code> self-locating</h4></div>
+          <p>The player's breadcrumb is assembled from query parameters. Shared links, bookmarks, search results and the site's own <code>/explore/0</code> sitemap entry all arrive without them, and land on a lesson with no ancestry and no route back into the curriculum. Sharing is a first-class action in the player, so this is the common case, not the edge case.</p>
+          <div class="fix"><b>Move</b>Resolve the chapter's parents server-side from <code>exploration_id</code> — the mapping already exists in <code>published_story_exploration_mapping</code> — and render the full trail regardless of query string. Better still, give chapters a canonical hierarchical URL and make <code>/explore/:id</code> redirect to it.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev a">P0</span><h4>Give the site one search</h4></div>
+          <p>Two search surfaces exist and neither indexes classroom content. There is no search box in the header at all. The search bar on the Math classroom page is labelled "Search through our Community Library" — from inside a classroom, the only available search points at a different branch of the site.</p>
+          <div class="fix"><b>Move</b>Index topics, subtopics, stories and chapters into one search with a type facet, and put it in the header. <code>Skill</code> is the natural cross-classroom facet and is already fully populated.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev b">P1</span><h4>Localise the Contributor Dashboard</h4></div>
+          <p>Zero i18n keys across the whole template. The surface where volunteers translate Oppia into 18 languages is available in exactly one.</p>
+          <div class="fix"><b>Move</b>Extract the strings to <code>en.json</code> and wire the translate pipe, as the Creator Dashboard partially does. Finish the Creator Dashboard's remaining hardcoded strings in the same pass.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev b">P1</span><h4>Settle one name per object</h4></div>
+          <p>Lesson / Chapter / Exploration / Activity describe one thing. Community Library / Library / Browse the Library / <em>the gallery</em> describe another — and "gallery" survives in live Preferences body copy, not just as a legacy redirect. Eight pages are called "Dashboard", of which five are in the menu and three are selectable as a login default.</p>
+          <div class="fix"><b>Move</b>Publish a controlled vocabulary — <em>Lesson</em>, <em>Community Library</em>, <em>Classroom</em>, <em>Study</em> — and let slugs and code identifiers follow behind redirects. Rename dashboards by job rather than by role noun.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev b">P1</span><h4>Resolve the orphan and the dark feature</h4></div>
+          <p><code>/feedback-updates</code> works, renders a proper empty state and a CTA — and is linked from nowhere in the interface. Meanwhile the whole Learner Groups feature (<code>/facilitator-dashboard</code>, <code>/create-learner-group</code>, <code>/learner-group/:id</code>) returns HTTP 200 and renders a client-side 404, with its routes still registered and its labels still shipping in <code>en.json</code>.</p>
+          <div class="fix"><b>Move</b>Add Feedback Updates to the account menu. For Learner Groups, either ship it or unregister the routes — a route that answers 200 with a 404 body is indistinguishable from a broken page to a user, a crawler and a monitor.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev c">P2</span><h4>Make access denial consistent</h4></div>
+          <p>Six role-gated panels return a clean 401 naming the required role. <code>/release-coordinator</code> instead sets the page title "Oppia Release Coordinator Panel" and renders a <b>404</b> body. <code>/blog-dashboard</code>'s 401 page drops the global navigation entirely, stranding the user. And the ten role names in §02E appear <em>only</em> in these error messages — there is no page that documents the role model.</p>
+          <div class="fix"><b>Move</b>One denial template: correct status, correct title, full chrome, and a link to the dashboard rather than the homepage. Document the role taxonomy somewhere a role-holder can read it.</div>
+        </div>
+
+        <div class="finding">
+          <div class="top"><span class="sev c">P2</span><h4>Retire the legacy alias layer</h4></div>
+          <p>Eleven legacy paths still resolve, including five audience URLs — <code>/parents</code>, <code>/partners</code>, <code>/nonprofits</code>, <code>/teachers</code>, <code>/volunteers</code> — all serving one identical volunteer page. Separately, <code>/learn/financial-literacy</code> does not reach the Financial Literacy classroom, which lives at <code>/learn/finance</code>.</p>
+          <div class="fix"><b>Move</b>Convert aliases to 301s with a documented sunset, collapse the five stewards paths to one canonical URL, and either add <code>/learn/financial-literacy</code> as a redirect or rename the slug to match the displayed term.</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="doc">
+  <div class="shell">
+    <div class="lab">Provenance</div>
+    <p>
+      Verified against oppia.org on 6 August 2026. Rev 1 mapped the public site from
+      <code>sitemap.xml</code>, HTTP route probes and the <code>oppia/oppia@develop</code> route and
+      label registries. Rev 2 re-read every navigation claim from the live DOM — signed out, and
+      signed in on a learner account — and corrected four Rev 1 findings, listed in §00.
+    </p>
+    <p>
+      Role-gated panels were probed and denied, so their internal structure is unmapped; the
+      permission taxonomy in §02E is transcribed from their 401 responses. Nine route families in the
+      develop registry are not live in production — the certificate suite, technical feedback
+      dashboard, mastery challenge, end-of-arc test and the new lesson player. SPA routes are
+      reported by what they <em>render</em>, not by HTTP status, since Oppia returns 200 for
+      registered routes that resolve to a client-side 404.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var T = [
+    {l:"Home", p:"/", z:"marketing", a:"public", n:"Positioning + three audience bands: For Students, For Teachers, For Volunteers.", c:[
+      {l:"About", p:"/about", z:"marketing", a:"public"},
+      {l:"For Parents/Teachers", p:"/teach", z:"marketing", a:"public", n:"Nav label; page title is 'Teach'. The homepage 'Start Teaching' CTA does not point here."},
+      {l:"Volunteer", p:"/volunteer", z:"marketing", a:"public"},
+      {l:"Schools and Organizations", p:"/partnerships", z:"marketing", a:"public", n:"Nav label differs from the page's own title, 'Partnerships'."},
+      {l:"Donate", p:"/donate", z:"marketing", a:"public"},
+      {l:"Thanks", p:"/thanks", z:"marketing", a:"public", n:"Post-donation confirmation."},
+      {l:"Contact Us", p:"/contact", z:"marketing", a:"public"},
+      {l:"Get Started", p:"/get-started", z:"marketing", a:"public", n:"Footer-only. Overlaps with /teach and /creator-guidelines."},
+      {l:"Creator Guidelines", p:"/creator-guidelines", z:"marketing", a:"public", n:"Route key is PLAYBOOK. Target of the homepage 'Start Teaching' button."},
+      {l:"Android App", p:"/android", z:"marketing", a:"public"},
+      {l:"Blog", p:"/blog", z:"marketing", a:"public", c:[
+        {l:"Blog search", p:"/blog/search/find", z:"marketing", a:"public"},
+        {l:"Author profile", p:"/blog/author/:author_username", z:"marketing", a:"public"},
+        {l:"Blog post", p:"/blog/:blog_post_url_fragment", z:"marketing", a:"public", n:"61 posts in sitemap.xml, tagged from a 14-term controlled list."}
+      ]},
+      {l:"SEO topic landing", p:"/math/:topic", z:"marketing", a:"public", n:"Config allows three: fractions, negative-numbers, ratios. Duplicates /learn/math/:topic with different content."},
+      {l:"Impact Reports 2022–24 ↗", p:"drive.google.com", z:"marketing", a:"public", n:"Offsite PDFs in a Google Drive folder — no on-site landing page."}
+    ]},
+
+    {l:"Classrooms", p:"/learn", z:"learn", a:"public", n:"Curriculum root. Linked from the global Learn menu — but the classroom links are injected after an async data call, so they are absent from the initial DOM.", c:[
+      {l:"Math", p:"/learn/math", z:"learn", a:"public", n:"11 topics · diagnostic test enabled.", c:[
+        {l:"Topic", p:"/learn/math/:topic", z:"learn", a:"public", n:"Redirects to …/story. Tabs render as LEARN / PRACTICE / STUDY. Breadcrumb: Home › Math › Fractions, plus 'Back to Math'.", c:[
+          {l:"Story viewer", p:"…/story/:story_url_fragment", z:"learn", a:"public", n:"e.g. matthew-visits-the-bakery — 17 chapters."},
+          {l:"Study guide", p:"…/studyguide/:subtopic", z:"learn", a:"public", n:"52 math subtopics. Old /revision/:subtopic path 301s here. Tab reads STUDY; i18n strings say Revision."},
+          {l:"Revision index", p:"…/revision", z:"learn", a:"public"},
+          {l:"Practice session", p:"…/practice/session", z:"learn", a:"public", n:"Conditional — topic payload carries practice_tab_is_displayed."},
+          {l:"Node practice", p:"…/practice/:node_id", z:"learn", a:"public"},
+          {l:"Review test", p:"…/review-test/:story", z:"learn", a:"public"},
+          {l:"Mastery challenge", p:"…/mastery-challenge", z:"learn", a:"unshipped", n:"Registered in develop. 404 in production."},
+          {l:"End-of-arc test", p:"…/test/arc/:arc_id", z:"learn", a:"unshipped", n:"Registered in develop. 404 in production."}
+        ]}
+      ]},
+      {l:"Science", p:"/learn/science", z:"learn", a:"public", n:"5 topics: Matter and Non-Matter · Basics of Energy · Scientific Principles · Hygiene and Diseases · Light. Absent from sitemap.xml."},
+      {l:"Financial Literacy", p:"/learn/finance", z:"learn", a:"public", n:"4 topics: Money · Basics of Making Money · Personal Finance · Banking. Diagnostic disabled. Slug does not match display name. Absent from sitemap.xml."},
+      {l:"Certificate offering", p:"/learn/:classroom/certificate-offering-available", z:"learn", a:"unshipped", n:"Certificate suite exists in develop only."}
+    ]},
+
+    {l:"Lesson player", p:"/explore/:exploration_id", z:"learn", a:"public", n:"Root-level. Breadcrumb is built from classroom/topic/story/node query parameters — without them it shows the chapter title alone, with no ancestry and no return link.", c:[
+      {l:"Embedded exploration", p:"/embed/exploration/:id", z:"learn", a:"public", n:"Third-party embed surface."},
+      {l:"Embedded lesson", p:"/embed/lesson/:id", z:"learn", a:"public"},
+      {l:"Logged-out progress link", p:"/progress/:unique_progress_url_id", z:"learn", a:"public", n:"Lets a signed-out learner resume via a shareable URL."},
+      {l:"New lesson player", p:"/lesson/:exploration_id", z:"learn", a:"unshipped", n:"Registered in develop. 404 in production."}
+    ]},
+
+    {l:"Diagnostic test", p:"/diagnostic-test-player", z:"learn", a:"public", n:"Root-level despite being classroom-scoped — entered from a classroom page, but the URL keeps no classroom context."},
+
+    {l:"Community Library", p:"/community-library", z:"library", a:"public", n:"The older user-generated branch. Parallel hierarchy, parallel vocabulary. Called 'the gallery' in Preferences body copy.", c:[
+      {l:"Top rated", p:"/community-library/top-rated", z:"library", a:"public"},
+      {l:"Recently published", p:"/community-library/recently-published", z:"library", a:"public"},
+      {l:"Search results", p:"/search/find", z:"library", a:"public", n:"Facets: category (19 of 44 exposed) and content language. Does not index classroom content. Reached from the classroom page's own search bar."},
+      {l:"Collection player", p:"/collection/:collection_id", z:"library", a:"public", n:"3 collections in sitemap.xml. Legacy grouping object superseded by Story."}
+    ]},
+
+    {l:"Contributor Dashboard", p:"/contributor-dashboard", z:"contribute", a:"auth", n:"Modes: My Contributions / Translate Text. Sections: Translations · Contribution Stats · Badges. Template contains ZERO i18n keys — hardcoded English only."},
+    {l:"Creator Dashboard", p:"/creator-dashboard", z:"contribute", a:"auth", n:"Empty state CTA reads '+ CREATE EXPLORATION' — creator-facing vocabulary differs from learner-facing 'Lesson'.", c:[
+      {l:"Exploration editor", p:"/create/:exploration_id", z:"contribute", a:"auth", n:"The state-graph authoring tool."},
+      {l:"Collection editor", p:"/collection_editor/create/:collection_id", z:"contribute", a:"role"}
+    ]},
+    {l:"Topics and Skills Dashboard", p:"/topics-and-skills-dashboard", z:"contribute", a:"role", n:"401: 'You must be a curriculum admin or topic manager.'", c:[
+      {l:"Topic editor", p:"/topic_editor/:topic_id", z:"contribute", a:"role"},
+      {l:"Story editor", p:"/story_editor/:story_id", z:"contribute", a:"role"},
+      {l:"Skill editor", p:"/skill_editor/:skill_id", z:"contribute", a:"role"}
+    ]},
+    {l:"Blog Dashboard", p:"/blog-dashboard", z:"contribute", a:"role", n:"401: 'blog admin or blog editor'. Its error page drops the global nav entirely."},
+
+    {l:"Sign in", p:"/login", z:"account", a:"public", n:"Google OAuth only — no email or alternative provider.", c:[
+      {l:"Sign up", p:"/signup", z:"account", a:"public", n:"Username selection and terms acceptance after OAuth."},
+      {l:"Logout", p:"/logout", z:"account", a:"auth"}
+    ]},
+    {l:"Learner Dashboard", p:"/learner-dashboard", z:"account", a:"auth", n:"Three tabs: Home · Goals · Progress. Home carries 'Continue where you left off', 'Recommended for you' and 'Learn Something New'. Not the 8 sections the i18n table implies."},
+    {l:"Preferences", p:"/preferences", z:"account", a:"auth", n:"Username · Picture · Bio · Preferred Dashboard (3 of 8 dashboards) · Subject Interests · Subscriptions · exploration languages · site language · audio language · 4 email toggles. Sole entry point to Delete and Export Account.", c:[
+      {l:"Delete account", p:"/delete-account", z:"account", a:"auth", n:"Reachable only from Preferences."},
+      {l:"Pending account deletion", p:"/pending-account-deletion", z:"account", a:"auth"}
+    ]},
+    {l:"Public profile", p:"/profile/:username", z:"account", a:"public", n:"Shows Impact / Created / Edited and authored explorations. No learning progress at all — modelled on the creator, not the learner."},
+    {l:"Feedback updates", p:"/feedback-updates", z:"account", a:"orphan", n:"Fully working with a proper empty state and CTA — and linked from nowhere in the interface. The site's one true orphan page."},
+
+    {l:"Learner Groups (dark)", p:"/facilitator-dashboard", z:"account", a:"unshipped", n:"HTTP 200, renders a client-side 404. The whole feature is disabled in production while its routes stay registered and its labels still ship in en.json.", c:[
+      {l:"Create learner group", p:"/create-learner-group", z:"account", a:"unshipped", n:"Verified: renders Error 404."},
+      {l:"Edit learner group", p:"/edit-learner-group/:id", z:"account", a:"unshipped"},
+      {l:"Learner group viewer", p:"/learner-group/:id", z:"account", a:"unshipped"}
+    ]},
+
+    {l:"Admin Panel", p:"/admin", z:"admin", a:"role", n:"401: 'You must be a super admin.' Seven role-gated consoles, each a root-level sibling.", c:[
+      {l:"Moderator Tools", p:"/moderator", z:"admin", a:"role", n:"401: 'moderator'."},
+      {l:"Classroom Admin", p:"/classroom-admin", z:"admin", a:"role", n:"401: 'curriculum admin'. Where the three classrooms are created and ordered."},
+      {l:"Blog Admin", p:"/blog-admin", z:"admin", a:"role", n:"401: 'blog admin'."},
+      {l:"Voiceover Admin", p:"/voiceover-admin", z:"admin", a:"role", n:"401: 'voiceover admin'."},
+      {l:"Release Coordinator", p:"/release-coordinator", z:"admin", a:"role", n:"DEFECT: page title reads 'Oppia Release Coordinator Panel' but the body renders Error 404, not the 401 its six siblings return."},
+      {l:"Contributor Admin Dashboard", p:"/contributor-admin-dashboard", z:"admin", a:"role", n:"401: 'translation admin, question admin, question coordinator, or translation coordinator'."},
+      {l:"Technical Feedback Dashboard", p:"/technical-feedback-dashboard", z:"admin", a:"unshipped", n:"Registered in develop. 404 in production."},
+      {l:"Certificate Creator Dashboard", p:"/certificate-creator-dashboard", z:"admin", a:"unshipped", n:"Registered in develop. 404 in production."}
+    ]},
+
+    {l:"Terms of Service", p:"/terms", z:"system", a:"public"},
+    {l:"Privacy Policy", p:"/privacy-policy", z:"system", a:"public"},
+    {l:"License", p:"/license", z:"system", a:"public"},
+    {l:"Maintenance", p:"/maintenance", z:"system", a:"public"},
+    {l:"Error", p:"/error/:status_code", z:"system", a:"public", n:"Denial copy names 10 distinct roles — the only place the permission model is documented.", c:[
+      {l:"Error (iframed)", p:"/error/iframed", z:"system", a:"public"}
+    ]},
+
+    {l:"Legacy aliases", p:"— 11 paths still resolving", z:"legacy", a:"redirect", n:"Retained from earlier generations of the IA.", c:[
+      {l:"→ Home", p:"/splash", z:"legacy", a:"redirect"},
+      {l:"→ Community Library", p:"/gallery · /library", z:"legacy", a:"redirect", n:"'Gallery' also survives in live Preferences body copy, not just as a redirect."},
+      {l:"→ For Parents/Teachers", p:"/participate · /site_guidelines", z:"legacy", a:"redirect"},
+      {l:"→ About", p:"/credits", z:"legacy", a:"redirect"},
+      {l:"→ Google Groups ↗", p:"/forum", z:"legacy", a:"redirect", n:"The only 'community' destination in the footer leaves the site."},
+      {l:"→ Volunteer", p:"/parents · /partners · /nonprofits · /teachers · /volunteers", z:"legacy", a:"redirect", n:"Five audience-specific URLs all serving one identical page."},
+      {l:"→ Study guide", p:"/learn/:c/:t/revision/:s", z:"legacy", a:"redirect", n:"301 — the only genuine redirect in this group."}
+    ]}
+  ];
+
+  var ACCESS = {public:"Public", auth:"Signed in", role:"Role-gated", redirect:"Alias", unshipped:"Not in prod", orphan:"Orphan"};
+
+  var tree=document.getElementById("tree"), meta=document.getElementById("treeMeta"), total=0;
+
+  function render(nodes){
+    var ul=document.createElement("ul");
+    nodes.forEach(function(nd){
+      total++;
+      var li=document.createElement("li");
+      li.dataset.zone=nd.z;
+      li.dataset.text=(nd.l+" "+nd.p+" "+(nd.n||"")).toLowerCase();
+      var row=document.createElement("div");
+      row.className="node";
+      if(nd.c&&nd.c.length){
+        var b=document.createElement("button");
+        b.className="tog"; b.type="button"; b.textContent="−";
+        b.setAttribute("aria-label","Toggle children of "+nd.l);
+        b.addEventListener("click",function(){
+          li.classList.toggle("collapsed");
+          b.textContent=li.classList.contains("collapsed")?"+":"−";
+        });
+        row.appendChild(b);
+      } else {
+        var s=document.createElement("span"); s.className="spacer"; row.appendChild(s);
+      }
+      var lab=document.createElement("span"); lab.className="nlabel"; lab.textContent=nd.l; row.appendChild(lab);
+      var path=document.createElement("code"); path.className="npath"; path.textContent=nd.p; row.appendChild(path);
+      var chip=document.createElement("span"); chip.className="chip "+nd.a; chip.textContent=ACCESS[nd.a]; row.appendChild(chip);
+      if(nd.n){ var note=document.createElement("span"); note.className="nnote"; note.textContent=nd.n; row.appendChild(note); }
+      li.appendChild(row);
+      if(nd.c&&nd.c.length) li.appendChild(render(nd.c));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
+  var built=render(T);
+  while(built.firstChild) tree.appendChild(built.firstChild);
+
+  var zone="all", q="";
+
+  function apply(){
+    var shown=0, filtering=(zone!=="all")||q.length>0;
+    var items=tree.querySelectorAll("li");
+    Array.prototype.forEach.call(items,function(li){
+      var zOk=(zone==="all")||(li.dataset.zone===zone);
+      var qOk=!q||li.dataset.text.indexOf(q)>-1;
+      li.dataset.self=(zOk&&qOk)?"1":"0";
+    });
+    Array.prototype.forEach.call(items,function(li){
+      var keep=li.dataset.self==="1";
+      if(!keep){
+        var kids=li.querySelectorAll("li");
+        for(var i=0;i<kids.length;i++){ if(kids[i].dataset.self==="1"){keep=true;break;} }
+      }
+      li.classList.toggle("hid",!keep);
+      if(keep&&li.dataset.self==="1") shown++;
+      if(filtering&&keep){
+        li.classList.remove("collapsed");
+        var t=li.querySelector(".tog"); if(t) t.textContent="−";
+      }
+    });
+    meta.textContent=shown+" / "+total+" nodes";
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".fchip[data-zone]"),function(btn){
+    btn.addEventListener("click",function(){
+      Array.prototype.forEach.call(document.querySelectorAll(".fchip[data-zone]"),function(o){
+        o.setAttribute("aria-pressed",o===btn?"true":"false");
+      });
+      zone=btn.dataset.zone; apply();
+    });
+  });
+  document.getElementById("treeSearch").addEventListener("input",function(e){ q=e.target.value.trim().toLowerCase(); apply(); });
+  document.getElementById("expandAll").addEventListener("click",function(){
+    Array.prototype.forEach.call(tree.querySelectorAll("li.collapsed"),function(li){
+      li.classList.remove("collapsed");
+      var t=li.querySelector(".tog"); if(t) t.textContent="−";
+    });
+  });
+  document.getElementById("collapseAll").addEventListener("click",function(){
+    Array.prototype.forEach.call(tree.querySelectorAll("li"),function(li){
+      if(li.querySelector("ul")){
+        li.classList.add("collapsed");
+        var t=li.querySelector(".tog"); if(t) t.textContent="+";
+      }
+    });
+  });
+  apply();
+
+  var E=[
+    {id:"classroom",n:"Classroom",k:"Curriculum",a:"classroom_id · name · url_fragment · teaser_text · is_published · diagnostic_test_is_enabled · thumbnail_filename · thumbnail_bg_color · index",
+     r:[["has many","topic"]],d:"Top of the curriculum. Ordered by an explicit index field, so classroom sequence is editorial, not alphabetical."},
+    {id:"topic",n:"Topic",k:"Curriculum",a:"id · name · url_fragment · language_code · description · version · subtopic_count · canonical_story_count · additional_story_count · total_skill_count · uncategorized_skill_count · total_published_node_count · published_story_exploration_mapping · is_published",
+     r:[["belongs to","classroom"],["has many","subtopic"],["has many","story"],["has many","skill"]],d:"Versioned. Carries its own direct index of published explorations, bypassing the story layer."},
+    {id:"subtopic",n:"Subtopic",k:"Curriculum",a:"title · url_fragment · skill_ids[] · thumbnail",
+     r:[["belongs to","topic"],["groups","skill"]],d:"Served as a study guide. Tab reads STUDY, i18n says Revision, code says SUBTOPIC_VIEWER."},
+    {id:"story",n:"Story",k:"Curriculum",a:"id · title · description · url_fragment · thumbnail_filename · thumbnail_bg_color · story_is_published · node_titles[]",
+     r:[["belongs to","topic"],["has many","chapter"]],d:"The narrative spine. Data distinguishes canonical from additional stories; the interface does not."},
+    {id:"chapter",n:"Chapter (StoryNode)",k:"Curriculum",a:"id · title · description · outline · outline_is_finalized · destination_node_ids[] · prerequisite_skill_ids[] · acquired_skill_ids[] · exploration_id · status · planned_publication_date · first_publication_date · unpublishing_reason",
+     r:[["belongs to","story"],["renders","exploration"],["requires","skill"],["grants","skill"]],d:"Graph-capable and prerequisite-aware. Every live story uses it as a linear chain."},
+    {id:"exploration",n:"Exploration",k:"Shared",a:"exploration_id · title · category · objective · language_code · tags[] · states · version · rating",
+     r:[["rendered by","chapter"],["listed in","collection"],["has many","card"]],d:"Shared by the classroom and the library. Called a Lesson, a Chapter, an Exploration and an Activity depending where you meet it."},
+    {id:"card",n:"Card (State)",k:"Shared",a:"content · interaction · answer_groups · default_outcome · hints[] · solution · is_checkpoint · param_changes",
+     r:[["belongs to","exploration"]],d:"Where the pedagogy lives: answer-specific feedback, misconception routing, hints and checkpoints."},
+    {id:"skill",n:"Skill",k:"Assessment",a:"skill_id · description · misconceptions[] · rubrics[] · worked_examples[] · degrees_of_mastery",
+     r:[["grouped by","subtopic"],["has many","question"],["measured in","progress"]],d:"The only cross-cutting axis in the model. Absent from every navigation surface."},
+    {id:"question",n:"Question",k:"Assessment",a:"question_id · linked_skill_ids[] · difficulty · question_state_data",
+     r:[["tests","skill"]],d:"Served into practice sessions, review tests and the diagnostic test. Never browsable directly."},
+    {id:"collection",n:"Collection",k:"Library",a:"collection_id · title · objective · category · nodes[]",
+     r:[["contains","exploration"]],d:"Legacy grouping object, superseded by Story. Three remain in the sitemap."},
+    {id:"blogpost",n:"Blog Post",k:"Editorial",a:"blog_post_url_fragment · title · author_username · tags[] · thumbnail · published_on · summary",
+     r:[["authored by","user"]],d:"Its own taxonomy, its own search, its own author profile pages — separate from every other content type."},
+    {id:"learnergroup",n:"Learner Group",k:"Dark feature",a:"learner_group_id · title · description · facilitator_user_ids[] · learner_usernames[] · invited_usernames[] · subtopic_page_ids[] · story_ids[]",
+     r:[["assigns","story"],["assigns","subtopic"],["shares","progress"]],d:"Fully modelled and fully labelled in en.json — and disabled in production. Its pages render a client-side 404."},
+    {id:"user",n:"User",k:"Account",a:"username · bio · profile_picture · preferred_site_language · preferred_audio_language · preferred_exploration_languages[] · preferred_dashboard · subject_interests[] · subscriptions[] · roles[]",
+     r:[["owns","progress"],["authors","exploration"],["authors","blogpost"]],d:"Roles are multi-valued. preferred_dashboard picks the login landing surface — from 3 of the 8 dashboards."},
+    {id:"progress",n:"Learner Progress",k:"Account",a:"completed_node_ids[] · completed_story_ids[] · partially_learnt_topic_ids[] · learner_goals (max 5) · degrees_of_mastery · checkpoint state · playthroughs",
+     r:[["belongs to","user"],["tracks","chapter"],["tracks","skill"]],d:"Goals capped at five topics. Checkpoint state is written for signed-out learners too, against a shareable progress URL. None of it appears on the public profile."},
+    {id:"suggestion",n:"Suggestion",k:"Contribution",a:"suggestion_id · suggestion_type · target_type · target_id · status · author · reviewer",
+     r:[["targets","exploration"],["targets","skill"]],d:"Translation and question contributions. Drives the contributor and contributor-admin dashboards."}
+  ];
+
+  var wrap=document.getElementById("entities");
+  E.forEach(function(e){
+    var d=document.createElement("div");
+    d.className="card ent"; d.dataset.id=e.id; d.tabIndex=0;
+    d.setAttribute("role","button"); d.setAttribute("aria-pressed","false");
+    var k=document.createElement("div"); k.className="k"; k.textContent=e.k; d.appendChild(k);
+    var h=document.createElement("h4"); h.textContent=e.n; d.appendChild(h);
+    var a=document.createElement("div"); a.className="attrs"; a.textContent=e.a; d.appendChild(a);
+    var p=document.createElement("p"); p.textContent=e.d; d.appendChild(p);
+    var r=document.createElement("div"); r.className="rels";
+    e.r.forEach(function(pair,i){
+      var b=document.createElement("b"); b.textContent=pair[0]; r.appendChild(b);
+      var match=E.filter(function(x){return x.id===pair[1];})[0];
+      r.appendChild(document.createTextNode(" "+(match?match.n:pair[1])+(i<e.r.length-1?" · ":"")));
+    });
+    d.appendChild(r);
+    function sel(){
+      var already=d.classList.contains("on");
+      Array.prototype.forEach.call(wrap.children,function(c){
+        c.classList.remove("on","rel"); c.setAttribute("aria-pressed","false");
+      });
+      if(already) return;
+      d.classList.add("on"); d.setAttribute("aria-pressed","true");
+      var linked=e.r.map(function(x){return x[1];});
+      E.forEach(function(other){
+        if(other.r.some(function(x){return x[1]===e.id;})) linked.push(other.id);
+      });
+      Array.prototype.forEach.call(wrap.children,function(c){
+        if(c!==d&&linked.indexOf(c.dataset.id)>-1) c.classList.add("rel");
+      });
+    }
+    d.addEventListener("click",sel);
+    d.addEventListener("keydown",function(ev){
+      if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); sel(); }
+    });
+    wrap.appendChild(d);
+  });
+
+  document.getElementById("showCode").addEventListener("change",function(e){
+    Array.prototype.forEach.call(document.querySelectorAll("#labelTable .codecol"),function(c){
+      c.style.display=e.target.checked?"":"none";
+    });
+  });
+
+  var links=Array.prototype.slice.call(document.querySelectorAll(".rail a"));
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1));});
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var i=secs.indexOf(en.target); if(i<0) return;
+        links.forEach(function(a,j){ a.classList.toggle("on",i===j); });
+      });
+    },{rootMargin:"-10% 0px -75% 0px"});
+    secs.forEach(function(s){ if(s) io.observe(s); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var btn = document.getElementById("themeToggle");
+  var KEY = "oppia-ia-theme";
+
+  function systemDark(){
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function label(){
+    var t = root.getAttribute("data-theme");
+    var dark = t ? (t === "dark") : systemDark();
+    btn.textContent = dark ? "Light" : "Dark";
+  }
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  } catch(e){}
+  label();
+
+  btn.addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme");
+    var dark = cur ? (cur === "dark") : systemDark();
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem(KEY, next); } catch(e){}
+    label();
+  });
+
+  if (window.matchMedia){
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var onChange = function(){ if (!root.getAttribute("data-theme")) label(); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
+})();
+</script>
+</body>
+</html>
