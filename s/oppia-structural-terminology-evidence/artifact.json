@@ -4,7 +4,7 @@
     "version": 1,
     "surface": "report",
     "title": "Structural terminology evidence",
-    "description": "A one-chart stakeholder report on how often reviewed sources explicitly use five candidate structural terms across four evidence lanes.",
+    "description": "A decision brief on which structural label to test first, based on explicit term use across 31 reviewed source artifacts.",
     "generatedAt": "2026-08-26T09:30:34Z",
     "filters": [],
     "cards": [],
@@ -12,9 +12,9 @@
       {
         "id": "reviewed_terms_by_lane",
         "title": "Distinct reviewed sources using key structural terms",
-        "subtitle": "Twenty term-by-lane counts from 31 reviewed source artifacts; no filters applied.",
+        "subtitle": "All 20 term-by-lane counts from 31 reviewed source artifacts; no filters applied.",
         "showDescription": true,
-        "headerMarkdown": "Each bar is the count of **distinct reviewed sources within one evidence lane** that explicitly uses the term.",
+        "headerMarkdown": "Compare terms within one evidence lane. Do not add bars across terms because one source may use more than one term.",
         "intent": "comparison",
         "question": "How many distinct reviewed sources in each evidence lane explicitly use each structural term?",
         "rationale": "Grouped bars preserve the supplied Term × Evidence lane comparison while keeping the zero baseline visible.",
@@ -103,9 +103,9 @@
       {
         "id": "terminology_counts_preview",
         "title": "Reviewed dataset preview",
-        "subtitle": "All 20 aggregate rows returned by the source query; no filters applied.",
+        "subtitle": "The complete term-by-lane dataset returned by the August 26, 2026 source query; no filters applied.",
         "showDescription": true,
-        "headerMarkdown": "The preview preserves the exact chart grain: one row for every **term × evidence lane** combination.",
+        "headerMarkdown": "Each row reports one term in one evidence lane. Use the source action to inspect the query and metric definition.",
         "dataset": "terminology_counts",
         "defaultSort": {
           "field": "term",
@@ -153,28 +153,20 @@
         "type": "markdown",
         "layout": "full",
         "sourceId": "reviewed_terminology_evidence_ledger",
-        "body": "## Executive Summary\n\n- **Chapter is the strongest match to Oppia's baseline vocabulary.** It appears in 5 distinct Oppia baseline sources, while Unit and Adventure appear in none.\n- **Lesson dominates the two broadest external lanes.** It appears in 8 Product UI/help sources and 8 Public community sources, the highest counts in the reviewed dataset.\n- **Adventure has no explicit support in this ledger.** All four reviewed evidence lanes return zero sources using the term.\n- **Evidence base: 31 unique reviewed source artifacts.** The set contains 5 Oppia baseline, 10 Product UI/help, 9 Public community, and 7 Target-region curriculum sources."
+        "body": "## Executive Summary\n\n- **Test Chapter first.** All 5 reviewed Oppia baseline artifacts use Chapter. The term also appears in every evidence lane.\n- **The current evidence cannot settle the name.** The counts show where terms appear. They do not show what learners understand or prefer.\n- **Confidence is medium for choosing what to test and low for standardizing a label.** Oppia's baseline provides the closest product fit. The other lanes add context with weaker persona match.\n- **The evidence base contains 31 unique source artifacts.** It includes 5 Oppia baseline, 10 Product UI/help, 9 Public community, and 7 Target-region curriculum sources."
       },
       {
-        "id": "evidence_base",
+        "id": "evidence_quality",
         "type": "markdown",
         "layout": "full",
-        "sourceId": "reviewed_terminology_evidence_ledger",
-        "body": "## Evidence base\n\n**31 unique source artifacts were reviewed:** 5 Oppia baseline corpus records, 10 Product UI/help sources, 9 Public community sources, and 7 Target-region curriculum sources. Each artifact belongs to one evidence lane, but one artifact can explicitly use more than one structural term. For that reason, the bars must not be added across terms to estimate the source universe."
-      },
-      {
-        "id": "reading_definition",
-        "type": "markdown",
-        "layout": "full",
-        "sourceId": "reviewed_terminology_evidence_ledger",
-        "body": "## How to read the evidence\n\n**Metric.** The count of distinct reviewed sources within each evidence lane that explicitly uses the term. The dataset grain is one term × evidence-lane row.\n\n**Active filters.** None. The snapshot contains all 20 rows returned by the reviewed terminology evidence ledger on August 26, 2026."
+        "body": "## How reliable is this evidence?\n\nTreat the four lanes as a relevance ladder, not four equal votes.\n\n1. **Oppia baseline corpus, 5 artifacts: closest product fit.** This is the strongest evidence for alignment with Oppia's existing vocabulary. It does not test learner comprehension.\n2. **Target-region curriculum, 7 artifacts: useful context.** These documents improve geographic and institutional relevance, but they record curriculum language rather than learner behavior.\n3. **Product UI/help, 10 artifacts: general language exposure.** These sources show how other learning products name structure. They are indirect evidence for Oppia.\n4. **Public community, 9 artifacts: weakest persona fit.** These self-selected discussions mostly reflect adults, parents, teachers, or product users rather than Oppia's target learners.\n\nThe metric is the number of distinct reviewed sources in one lane that explicitly uses a term. One source may use several terms, so bars cannot be added across terms."
       },
       {
         "id": "chart_interpretation",
         "type": "markdown",
         "layout": "full",
         "sourceId": "reviewed_terminology_evidence_ledger",
-        "body": "## External frequency and baseline fit point in different directions\n\n**Lesson is most common in Product UI/help and Public community evidence, whereas Chapter leads the Oppia baseline corpus.** Unit has meaningful external usage but no reviewed Oppia baseline usage; Topic appears in every lane at lower counts; Adventure remains at zero throughout.\n\nThe practical implication is to distinguish broad language familiarity from fit with Oppia's existing information structure."
+        "body": "## Chapter is the clearest candidate for a test\n\nAll 5 Oppia baseline artifacts use Chapter. Chapter also appears in all four evidence lanes. Unit appears in 13 external sources and none of the reviewed Oppia baseline artifacts. Adventure appears in none of the 31 reviewed artifacts.\n\nLesson has the largest external counts, but it already names the lower level in the proposed hierarchy. Its frequency does not make it a candidate for the middle layer. Use the chart to set the testing order. Learner research must settle the label."
       },
       {
         "id": "chart_block",
@@ -187,7 +179,7 @@
         "type": "markdown",
         "layout": "full",
         "sourceId": "reviewed_terminology_evidence_ledger",
-        "body": "## Reviewed rows and source details\n\nThe table below exposes the complete 20-row chart dataset. Use the source action on the chart or table to inspect the SQLite query, execution date, metric definition, and filter state."
+        "body": "## Inspect the exact counts\n\nThe table shows all 20 rows behind the chart. The chart and table source actions expose the SQLite query, execution date, metric definition, and filter state."
       },
       {
         "id": "table_block",
@@ -199,26 +191,32 @@
         "id": "recommended_next_step",
         "type": "markdown",
         "layout": "full",
-        "body": "## Recommendation\n\nUse **Chapter as the provisional label to test**, because it is the only candidate supported directly in the Oppia baseline corpus and it appears in all four evidence lanes. Do not treat the frequency result as a final naming decision. Test whether learners understand Chapter as a level distinct from Topic and Lesson—and whether the interface needs this middle layer to be named at all. If the team must ship before testing, document Chapter as a reversible working choice."
+        "body": "## What the team should do next\n\n1. Put **Chapter** into the next low-risk prototype as the provisional middle-layer label.\n2. Compare it with **Unit**, **Adventure**, and a version with no extra label.\n3. Ask target learners to place the label in the sequence Topic → middle layer → Lesson. Then ask what they expect to find there.\n4. Record placement errors and unprompted words.\n5. Agree on a success threshold before reviewing the results.\n\nIf the team must ship before testing, document Chapter as a reversible working choice."
       },
       {
         "id": "further_questions",
         "type": "markdown",
         "layout": "full",
-        "body": "## Further questions\n\n- Do learners interpret Chapter, Unit, and Adventure as the intended level in the hierarchy?\n- How strongly do the external source lanes match Oppia's learner personas and target contexts?\n- Would a larger, pre-registered review materially change the lane-level pattern?"
+        "body": "## When the next research arrives\n\nAdd it to the same ledger. For every new source, record the evidence lane, full path or web address, research type, persona fit, exact term, and supporting passage. Keep scanned material separate from reviewed evidence until it has been coded. Then rerun the same query and state whether the recommendation changed.\n\n### Questions that could change the call\n\n- Do target learners place Chapter, Unit, or Adventure at the intended level without explanation?\n- Does the new research include observed learner behavior, or only published terminology and opinions?\n- Does a larger reviewed sample change Chapter's baseline advantage?"
       },
       {
         "id": "caveats",
         "type": "markdown",
         "layout": "full",
-        "body": "## Caveats and assumptions\n\n- Counts reflect explicit term use only within the reviewed ledger; a zero does not prove that a term is absent from the wider ecosystem.\n- Frequency is evidence of language exposure, not proof of preference, comprehension, or product fit.\n- The query is a fixed SQLite values table representing the reviewed snapshot, not a live scan of source systems.\n- The 31 source artifacts are unique and assigned to one evidence lane each, but a source can use more than one term; do not add bars across terms.\n- Public-community evidence is self-selecting and only partially matches Oppia's learner persona.\n- This is an independent research synthesis, not an official Oppia decision or publication."
+        "body": "## Caveats and assumptions\n\n- The dataset counts 31 source artifacts. It contains no participant-level results.\n- Counts measure explicit term use. They do not measure preference, comprehension, or product fit.\n- A zero means the term was not found in this reviewed ledger. It does not prove absence from the wider ecosystem.\n- One source can use several terms, so bars cannot be added across terms.\n- The SQLite values table is a fixed snapshot taken on August 26, 2026.\n- This is an independent research synthesis."
       },
       {
         "id": "conclusion",
         "type": "markdown",
         "layout": "full",
         "sourceId": "reviewed_terminology_evidence_ledger",
-        "body": "## Conclusion\n\nThe reviewed evidence supports **Chapter as the strongest provisional candidate**, not as a settled answer. Chapter is present in every evidence lane and leads the Oppia baseline corpus; Unit is common outside Oppia but absent from the reviewed baseline; Adventure has no explicit structural-label support in any lane. The stronger design conclusion is that terminology alone may not solve the hierarchy problem: validate whether learners recognize the intended middle layer before standardizing its name."
+        "body": "## Conclusion\n\nTest Chapter first. Standardize the label only after learners can place it between Topic and Lesson and explain what it contains. The current 31-source ledger measures language use, while the next study must measure understanding."
+      },
+      {
+        "id": "source_validation",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## Source reliability and link status\n\nA bounded check on August 26, 2026 returned HTTP 200 for 22 of the 26 external references. Khan Academy returned 403 to the automated request, although its first-party help article remains indexed. The Eneza and NERDC hosts did not respond within the check, although their first-party pages remain indexed. The direct KICD Grade 1–3 Mathematics PDF returned 404; KICD's current Lower Primary page still lists Mathematics under Grade 1–3 Designs: <https://kicd.ac.ke/cbc-materials/lower-primary/>.\n\nThese access results describe reachability from the review environment. They do not change the source counts or prove that an unreachable page no longer exists."
       },
       {
         "id": "direct_source_references",
@@ -376,7 +374,9 @@
         "metric_definitions": [
           "Distinct sources: count of unique reviewed sources within one evidence lane that explicitly uses the term.",
           "Grain: one row per structural term and evidence lane.",
-          "Reviewed source universe: 31 unique artifacts assigned to one lane each (5 Oppia baseline, 10 Product UI/help, 9 Public community, 7 Target-region curriculum); a source can use multiple terms."
+          "Reviewed source universe: 31 unique artifacts assigned to one lane each (5 Oppia baseline, 10 Product UI/help, 9 Public community, 7 Target-region curriculum); a source can use multiple terms.",
+          "Interpretation boundary: explicit term use supports language-exposure and vocabulary-alignment claims; it does not measure learner preference or comprehension.",
+          "Persona fit: Oppia baseline has the closest product fit; target-region curricula add geographic and institutional context; Product UI/help and Public community are indirect evidence."
         ],
         "tables_used": [
           "terminology_counts (inline SQLite CTE)"
