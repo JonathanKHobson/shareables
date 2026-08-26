@@ -1,6 +1,14 @@
 {
-  "generated_at": "2026-08-24T01:45:43+00:00",
+  "generated_at": "2026-08-26T09:49:45+00:00",
   "shareables": [
+    {
+      "audience": "Oppia product, UX research, UX writing, information-architecture, and curriculum collaborators reviewing the Topic-to-Lesson hierarchy.",
+      "id": "20260826T094945+0000-oppia-structural-terminology-evidence",
+      "purpose": "Publish an independent 31-source terminology evidence report comparing Adventure, Chapter, Lesson, Topic, and Unit across Oppia baseline, product UI/help, public-community, and target-region curriculum evidence. This is a directional synthesis and not an official Oppia decision or publication.",
+      "title": "Oppia Structural Terminology Evidence",
+      "updated_at": "2026-08-26T09:49:45+00:00",
+      "url": "https://jonathankhobson.github.io/shareables/s/oppia-structural-terminology-evidence/"
+    },
     {
       "audience": "UX researchers, information architects, content strategists, and product teams reviewing a complex learning platform.",
       "id": "20260824T014543+0000-oppia-information-architecture-map",
