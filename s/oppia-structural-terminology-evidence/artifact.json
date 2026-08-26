@@ -1,0 +1,398 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Structural terminology evidence",
+    "description": "A one-chart stakeholder report on how often reviewed sources explicitly use five candidate structural terms across four evidence lanes.",
+    "generatedAt": "2026-08-26T09:30:34Z",
+    "filters": [],
+    "cards": [],
+    "charts": [
+      {
+        "id": "reviewed_terms_by_lane",
+        "title": "Distinct reviewed sources using key structural terms",
+        "subtitle": "Twenty term-by-lane counts from 31 reviewed source artifacts; no filters applied.",
+        "showDescription": true,
+        "headerMarkdown": "Each bar is the count of **distinct reviewed sources within one evidence lane** that explicitly uses the term.",
+        "intent": "comparison",
+        "question": "How many distinct reviewed sources in each evidence lane explicitly use each structural term?",
+        "rationale": "Grouped bars preserve the supplied Term × Evidence lane comparison while keeping the zero baseline visible.",
+        "comparisonContext": {
+          "baseline": "No filters",
+          "denominator": "Reviewed terminology evidence ledger",
+          "grain": "Term × evidence lane",
+          "unit": "distinct reviewed sources"
+        },
+        "type": "bar",
+        "dataset": "terminology_counts",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "encodings": {
+          "x": {
+            "field": "term",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "Term"
+          },
+          "y": {
+            "field": "source_count",
+            "type": "quantitative",
+            "aggregate": "none",
+            "format": "number",
+            "label": "Distinct sources"
+          },
+          "color": {
+            "field": "lane_short",
+            "type": "nominal",
+            "aggregate": "none",
+            "label": "Evidence lane"
+          },
+          "tooltip": [
+            {
+              "field": "term",
+              "type": "nominal",
+              "label": "Term"
+            },
+            {
+              "field": "lane",
+              "type": "nominal",
+              "label": "Evidence lane"
+            },
+            {
+              "field": "source_count",
+              "type": "quantitative",
+              "format": "number",
+              "label": "Distinct sources"
+            }
+          ]
+        },
+        "xAxisTitle": "Term",
+        "yAxisTitle": "Distinct sources",
+        "valueFormat": "number",
+        "unit": "sources",
+        "layout": "full",
+        "labels": {
+          "values": "auto"
+        },
+        "legend": {
+          "position": "bottom",
+          "sort": "spec",
+          "title": "Evidence lane"
+        },
+        "palette": {
+          "kind": "categorical",
+          "name": "evidence-lanes"
+        },
+        "settings": {
+          "categoryLabelPolicy": "wrap",
+          "groupMode": "grouped",
+          "orientation": "vertical",
+          "showValues": true,
+          "sort": "custom"
+        },
+        "surface": {
+          "surface": "card",
+          "compact": false,
+          "interactiveLegend": false,
+          "showControls": false,
+          "viewMode": "visualization"
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "terminology_counts_preview",
+        "title": "Reviewed dataset preview",
+        "subtitle": "All 20 aggregate rows returned by the source query; no filters applied.",
+        "showDescription": true,
+        "headerMarkdown": "The preview preserves the exact chart grain: one row for every **term × evidence lane** combination.",
+        "dataset": "terminology_counts",
+        "defaultSort": {
+          "field": "term",
+          "direction": "asc"
+        },
+        "density": "dense",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "term",
+            "label": "Term",
+            "type": "text"
+          },
+          {
+            "field": "lane_short",
+            "label": "Evidence lane",
+            "type": "text"
+          },
+          {
+            "field": "source_count",
+            "label": "Distinct sources",
+            "format": "number",
+            "role": "value",
+            "semantic": "value"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "reviewed_terminology_evidence_ledger",
+        "label": "Reviewed terminology evidence ledger"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "report_title",
+        "type": "markdown",
+        "layout": "full",
+        "body": "# Structural terminology evidence"
+      },
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## Executive Summary\n\n- **Chapter is the strongest match to Oppia's baseline vocabulary.** It appears in 5 distinct Oppia baseline sources, while Unit and Adventure appear in none.\n- **Lesson dominates the two broadest external lanes.** It appears in 8 Product UI/help sources and 8 Public community sources, the highest counts in the reviewed dataset.\n- **Adventure has no explicit support in this ledger.** All four reviewed evidence lanes return zero sources using the term.\n- **Evidence base: 31 unique reviewed source artifacts.** The set contains 5 Oppia baseline, 10 Product UI/help, 9 Public community, and 7 Target-region curriculum sources."
+      },
+      {
+        "id": "evidence_base",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## Evidence base\n\n**31 unique source artifacts were reviewed:** 5 Oppia baseline corpus records, 10 Product UI/help sources, 9 Public community sources, and 7 Target-region curriculum sources. Each artifact belongs to one evidence lane, but one artifact can explicitly use more than one structural term. For that reason, the bars must not be added across terms to estimate the source universe."
+      },
+      {
+        "id": "reading_definition",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## How to read the evidence\n\n**Metric.** The count of distinct reviewed sources within each evidence lane that explicitly uses the term. The dataset grain is one term × evidence-lane row.\n\n**Active filters.** None. The snapshot contains all 20 rows returned by the reviewed terminology evidence ledger on August 26, 2026."
+      },
+      {
+        "id": "chart_interpretation",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## External frequency and baseline fit point in different directions\n\n**Lesson is most common in Product UI/help and Public community evidence, whereas Chapter leads the Oppia baseline corpus.** Unit has meaningful external usage but no reviewed Oppia baseline usage; Topic appears in every lane at lower counts; Adventure remains at zero throughout.\n\nThe practical implication is to distinguish broad language familiarity from fit with Oppia's existing information structure."
+      },
+      {
+        "id": "chart_block",
+        "type": "chart",
+        "layout": "full",
+        "chartId": "reviewed_terms_by_lane"
+      },
+      {
+        "id": "dataset_detail",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## Reviewed rows and source details\n\nThe table below exposes the complete 20-row chart dataset. Use the source action on the chart or table to inspect the SQLite query, execution date, metric definition, and filter state."
+      },
+      {
+        "id": "table_block",
+        "type": "table",
+        "layout": "full",
+        "tableId": "terminology_counts_preview"
+      },
+      {
+        "id": "recommended_next_step",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## Recommendation\n\nUse **Chapter as the provisional label to test**, because it is the only candidate supported directly in the Oppia baseline corpus and it appears in all four evidence lanes. Do not treat the frequency result as a final naming decision. Test whether learners understand Chapter as a level distinct from Topic and Lesson—and whether the interface needs this middle layer to be named at all. If the team must ship before testing, document Chapter as a reversible working choice."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## Further questions\n\n- Do learners interpret Chapter, Unit, and Adventure as the intended level in the hierarchy?\n- How strongly do the external source lanes match Oppia's learner personas and target contexts?\n- Would a larger, pre-registered review materially change the lane-level pattern?"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## Caveats and assumptions\n\n- Counts reflect explicit term use only within the reviewed ledger; a zero does not prove that a term is absent from the wider ecosystem.\n- Frequency is evidence of language exposure, not proof of preference, comprehension, or product fit.\n- The query is a fixed SQLite values table representing the reviewed snapshot, not a live scan of source systems.\n- The 31 source artifacts are unique and assigned to one evidence lane each, but a source can use more than one term; do not add bars across terms.\n- Public-community evidence is self-selecting and only partially matches Oppia's learner persona.\n- This is an independent research synthesis, not an official Oppia decision or publication."
+      },
+      {
+        "id": "conclusion",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## Conclusion\n\nThe reviewed evidence supports **Chapter as the strongest provisional candidate**, not as a settled answer. Chapter is present in every evidence lane and leads the Oppia baseline corpus; Unit is common outside Oppia but absent from the reviewed baseline; Adventure has no explicit structural-label support in any lane. The stronger design conclusion is that terminology alone may not solve the hierarchy problem: validate whether learners recognize the intended middle layer before standardizing its name."
+      },
+      {
+        "id": "direct_source_references",
+        "type": "markdown",
+        "layout": "full",
+        "sourceId": "reviewed_terminology_evidence_ledger",
+        "body": "## Direct source references\n\n**Oppia baseline corpus — 5 local source artifacts**\n\n1. Android baseline research — Adaeze Emelike: `/Volumes/KyleSSD/Documents/My Projects/MCPs/archive-review/oppia-md-exporter/exports/2026-03-30_111644/markdown/AA_row148_1PUL54QSWkJaEoDXAzqnqEWVbjDoZiyoS.md`\n2. Android baseline research — Anukrati Chaturvedi: `/Volumes/KyleSSD/Documents/My Projects/MCPs/archive-review/oppia-md-exporter/exports/2026-03-30_111644/markdown/AA_row154_1l3kXv-iLEm48oAIMjWf1oT_j_QlfeTAkUvm7s6TFtqg.md`\n3. Website baseline research — Virtue Anozie: `/Volumes/KyleSSD/Documents/My Projects/MCPs/archive-review/oppia-md-exporter/exports/2026-03-30_111644/markdown/AA_row179_14kwwXG2LZYFs4VfDQgeEllJ4WU4XmKMIq9CzB-rl_cQ.md`\n4. Website baseline research — Ameerat Bibire: `/Volumes/KyleSSD/Documents/My Projects/MCPs/archive-review/oppia-md-exporter/exports/2026-03-30_111644/markdown/WB_row19_1E10SRmFRp6z455RBj-_5QDwlHo5DcrJm0hfKU0iJ7eg.md`\n5. Website baseline research — Oluwasola Odusanya: `/Volumes/KyleSSD/Documents/My Projects/MCPs/archive-review/oppia-md-exporter/exports/2026-03-30_111644/markdown/WB_row37_17RurSP9qbzvTNRchewAp_z77uKc2Im8n-kxN9YMDgiA.md`\n\n**Product UI/help — 10 external source artifacts**\n\n6. Oppia, Fractions topic page — <https://www.oppia.org/learn/math/fractions>\n7. Oppia, Teaching a Chapter of Expressions & Equations — <https://www.oppia.org/blog/teaching-a-chapter-of-expressions-equations-in-summer-school-0q6r28fzsrwc>\n8. Khan Academy, Course and Unit Mastery — <https://support.khanacademy.org/hc/en-us/articles/115002552631--Beta-What-is-Unit-Mastery->\n9. Duolingo, How to Review Previous Lessons — <https://blog.duolingo.com/how-to-review-lessons-on-duolingo/>\n10. Duolingo, The Science Behind the Home Screen Redesign — <https://blog.duolingo.com/new-duolingo-home-screen-design/?lang=en>\n11. BYJU'S, learner reviews — <https://byjus.com/reviews/>\n12. Eneza Education, products — <https://www.enezaeducation.com/products>\n13. DIKSHA, Join Course help — <https://diksha.gov.in/help/getting-started/courses/enrolling-course.html>\n14. Ubongo Learning, What We Do — <https://www.ubongo.org/what-we-do/>\n15. Sesame Learning, course catalog — <https://learning.sesameworkshop.org/course/>\n\n**Target-region curriculum — 7 external source artifacts**\n\n16. Nigeria NERDC, Primary 1–3 Mathematics Curriculum — <https://www.nerdc.gov.ng/content_manager/primary/pri1-3_maths_intro.pdf>\n17. Ghana NaCCA, Mathematics Curriculum — <https://nacca.gov.gh/wp-content/uploads/2023/06/MATHEMATICS.pdf>\n18. Kenya KICD, Grade 1–3 Mathematics Curriculum — <https://kicd.ac.ke/wp-content/uploads/2024/10/Grade-1-3-Mathematics-Revised.pdf>\n19. Brazil MEC, Base Nacional Comum Curricular — <https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf>\n20. India NCERT, Ganita Prakash — <https://ncert.nic.in/textbook/pdf/gegp1ps.pdf>\n21. India CBSE, Applied Mathematics curriculum — <https://cbseacademic.nic.in/web_material/Curriculum21/publication/srsec/840_APPLIED_MATHS-XI.pdf>\n22. Kenya KICD, PP2 Curriculum Designs — <https://kicd.ac.ke/wp-content/uploads/2018/02/PP-2-Curriculum-Designs-Dec-2017E-min.pdf>\n\n**Public community — 9 external source artifacts**\n\n23. r/Nigeria, New NERDC curriculum discussion — <https://www.reddit.com/r/Nigeria/comments/1n79915>\n24. r/homeschool, Unit-study planning discussion — <https://www.reddit.com/r/homeschool/comments/1v084k2/does_anyone_not_do_a_unit_study_if_not_how_do_you/>\n25. r/homeschool, What does a lesson look like? — <https://www.reddit.com/r/homeschool/comments/hyj2wx>\n26. r/CBSE, Syllabus confusion — <https://www.reddit.com/r/CBSE/comments/190nh1b>\n27. r/CBSE, Very confused (10th) — <https://www.reddit.com/r/CBSE/comments/1epkot5>\n28. r/duolingo, Multiple repeated lessons — <https://www.reddit.com/r/duolingo/comments/1ut73ek/multiple_repeated_lessons_fix/>\n29. r/duolingo, Are Duolingo Units too long and repetitive? — <https://www.reddit.com/r/duolingo/comments/1mbs5l8/are_duolingo_units_too_long_and_repetitive/>\n30. r/duolingo, Lessons repeated through unit — <https://www.reddit.com/r/duolingo/comments/15z985g>\n31. r/duolingo, Reviewing previous sections and units — <https://www.reddit.com/r/duolingo/comments/1s176ud/lessons_i_review_from_previous_sections_and_units/>"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-26T09:30:34Z",
+    "status": "ready",
+    "datasets": {
+      "terminology_counts": [
+        {
+          "term": "Adventure",
+          "lane": "Oppia baseline corpus",
+          "lane_short": "Oppia",
+          "source_count": 0
+        },
+        {
+          "term": "Adventure",
+          "lane": "Product UI/help",
+          "lane_short": "Product UI",
+          "source_count": 0
+        },
+        {
+          "term": "Adventure",
+          "lane": "Public community",
+          "lane_short": "Community",
+          "source_count": 0
+        },
+        {
+          "term": "Adventure",
+          "lane": "Target-region curriculum",
+          "lane_short": "Curriculum",
+          "source_count": 0
+        },
+        {
+          "term": "Chapter",
+          "lane": "Oppia baseline corpus",
+          "lane_short": "Oppia",
+          "source_count": 5
+        },
+        {
+          "term": "Chapter",
+          "lane": "Product UI/help",
+          "lane_short": "Product UI",
+          "source_count": 3
+        },
+        {
+          "term": "Chapter",
+          "lane": "Public community",
+          "lane_short": "Community",
+          "source_count": 4
+        },
+        {
+          "term": "Chapter",
+          "lane": "Target-region curriculum",
+          "lane_short": "Curriculum",
+          "source_count": 2
+        },
+        {
+          "term": "Lesson",
+          "lane": "Oppia baseline corpus",
+          "lane_short": "Oppia",
+          "source_count": 3
+        },
+        {
+          "term": "Lesson",
+          "lane": "Product UI/help",
+          "lane_short": "Product UI",
+          "source_count": 8
+        },
+        {
+          "term": "Lesson",
+          "lane": "Public community",
+          "lane_short": "Community",
+          "source_count": 8
+        },
+        {
+          "term": "Lesson",
+          "lane": "Target-region curriculum",
+          "lane_short": "Curriculum",
+          "source_count": 1
+        },
+        {
+          "term": "Topic",
+          "lane": "Oppia baseline corpus",
+          "lane_short": "Oppia",
+          "source_count": 4
+        },
+        {
+          "term": "Topic",
+          "lane": "Product UI/help",
+          "lane_short": "Product UI",
+          "source_count": 3
+        },
+        {
+          "term": "Topic",
+          "lane": "Public community",
+          "lane_short": "Community",
+          "source_count": 2
+        },
+        {
+          "term": "Topic",
+          "lane": "Target-region curriculum",
+          "lane_short": "Curriculum",
+          "source_count": 1
+        },
+        {
+          "term": "Unit",
+          "lane": "Oppia baseline corpus",
+          "lane_short": "Oppia",
+          "source_count": 0
+        },
+        {
+          "term": "Unit",
+          "lane": "Product UI/help",
+          "lane_short": "Product UI",
+          "source_count": 4
+        },
+        {
+          "term": "Unit",
+          "lane": "Public community",
+          "lane_short": "Community",
+          "source_count": 6
+        },
+        {
+          "term": "Unit",
+          "lane": "Target-region curriculum",
+          "lane_short": "Curriculum",
+          "source_count": 3
+        }
+      ]
+    },
+    "accessIssues": []
+  },
+  "sources": [
+    {
+      "id": "reviewed_terminology_evidence_ledger",
+      "label": "Reviewed terminology evidence ledger",
+      "query": {
+        "engine": "sqlite",
+        "id": "reviewed_terminology_evidence_ledger",
+        "sql": "WITH terminology_counts(term,lane,source_count) AS (VALUES ('Adventure','Oppia baseline corpus',0),('Adventure','Product UI/help',0),('Adventure','Public community',0),('Adventure','Target-region curriculum',0),('Chapter','Oppia baseline corpus',5),('Chapter','Product UI/help',3),('Chapter','Public community',4),('Chapter','Target-region curriculum',2),('Lesson','Oppia baseline corpus',3),('Lesson','Product UI/help',8),('Lesson','Public community',8),('Lesson','Target-region curriculum',1),('Topic','Oppia baseline corpus',4),('Topic','Product UI/help',3),('Topic','Public community',2),('Topic','Target-region curriculum',1),('Unit','Oppia baseline corpus',0),('Unit','Product UI/help',4),('Unit','Public community',6),('Unit','Target-region curriculum',3)) SELECT term,lane,source_count FROM terminology_counts ORDER BY term,lane",
+        "description": "Reviewed terminology evidence ledger: counts distinct reviewed sources that explicitly use each term in each evidence lane.",
+        "executed_at": "2026-08-26",
+        "language": "sql",
+        "filters": [
+          "No filters applied."
+        ],
+        "metric_definitions": [
+          "Distinct sources: count of unique reviewed sources within one evidence lane that explicitly uses the term.",
+          "Grain: one row per structural term and evidence lane.",
+          "Reviewed source universe: 31 unique artifacts assigned to one lane each (5 Oppia baseline, 10 Product UI/help, 9 Public community, 7 Target-region curriculum); a source can use multiple terms."
+        ],
+        "tables_used": [
+          "terminology_counts (inline SQLite CTE)"
+        ]
+      }
+    }
+  ],
+  "package_info": {
+    "originUrl": "codex-sandbox://mcp-server-dataanalyticswidgets-d90d6b74b2c37858.web-sandbox.oaiusercontent.com/?app=skybridge&locale=en-US&deviceType=desktop&unsafeSkipTargetOriginCheck=true&backgroundMode=transparent",
+    "controls": {
+      "edit": false,
+      "refresh": false,
+      "persistence": false,
+      "copyAsImage": false,
+      "share": false,
+      "export": false
+    }
+  }
+}
